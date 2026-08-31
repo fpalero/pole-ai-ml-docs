@@ -1,0 +1,11 @@
+# Dependencies for the Pole AI docs RAG scripts (docs/scripts/).
+#
+# These are also declared in the workspace pixi environment (pixi.toml). This
+# file documents the pinned set for anyone running the scripts in a standalone
+# venv (e.g. `pip install -r docs/scripts/requirements.txt`).
+langchain>=1,<2
+langchain-huggingface>=1,<2
+langchain-chroma>=1,<2
+langchain-text-splitters>=0.3,<1
+sentence-transformers>=5.2,<6
+chromadb>=1.3.5,<2

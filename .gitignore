@@ -1,0 +1,12 @@
+# Editor / OS
+.obsidian/
+.trash/
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+
+# Docs RAG vector store (binary, git-ignored). Only the source markdown and the
+# versioned manifest under rag/manifests/ are tracked.
+rag/chroma/

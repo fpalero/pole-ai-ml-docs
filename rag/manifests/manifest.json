@@ -1629,6 +1629,11 @@
     "file_hash": "b0f705cbce2ef4578343f73da6b348af4de7168e6415d99f91445bdb890698f0",
     "last_update": "2026-08-31T14:03:21+00:00"
   },
+  "decisions/ADR-004-crew-multi-repo-routing.md": {
+    "created_date": "2026-09-01T04:08:05+00:00",
+    "file_hash": "bb6e5b07d32445738c55158746b6cf417a266d496c93d59707cb4b6108f3da38",
+    "last_update": "2026-09-01T04:06:42+00:00"
+  },
   "decisions/README.md": {
     "created_date": "2026-08-31T12:31:41+00:00",
     "file_hash": "22ea394fa32db8c0f1cd2ae69ae278aee636c5c0b800c4e95f1a5b3b49e4a4d3",
@@ -1786,13 +1791,13 @@
   },
   "packages/crew/PLAN.md": {
     "created_date": "2026-08-31T09:27:45+00:00",
-    "file_hash": "72e46d369e7f3005a01b149e12e14c81993f8bab7d4c8fd8c98aec9389aa03a1",
-    "last_update": "2026-08-31T13:54:33+00:00"
+    "file_hash": "e3ac48d610b6e3312a9a5c21fbf165e54d7d74b723eb270fb4b2c5222b6b8d92",
+    "last_update": "2026-09-01T04:07:15+00:00"
   },
   "packages/crew/PROJECT_VARS.md": {
     "created_date": "2026-08-31T09:27:45+00:00",
-    "file_hash": "e8d94e3174439ebcb4c925b1583402ece61c44b4d24a60b36d924e233c3bda05",
-    "last_update": "2026-08-31T13:54:33+00:00"
+    "file_hash": "b5a5ce3510f5cc6b5f516e3031500b4e719558233a1e01501adb70c7819b120a",
+    "last_update": "2026-09-01T04:07:18+00:00"
   },
   "packages/crew/phase-1-guardrails/PAIML-CREW-001.md": {
     "created_date": "2026-08-31T09:27:45+00:00",
@@ -1834,10 +1839,20 @@
     "file_hash": "7d4da2d6744540147b06f46e1403e3034692e7d70ad0bb1d9ebf9a73e0e3eaa3",
     "last_update": "2026-08-31T13:54:33+00:00"
   },
+  "packages/crew/phase-2-multi-repo/PAIML-CREW-009.md": {
+    "created_date": "2026-09-01T04:08:05+00:00",
+    "file_hash": "7449f2499df8c51284fbc207b0b9fb152ba903ab881c53260d3dcc8d5cfe5e6a",
+    "last_update": "2026-09-01T04:07:01+00:00"
+  },
   "packages/crew/plan/PLAN_PHASE_1.md": {
     "created_date": "2026-08-31T09:27:45+00:00",
     "file_hash": "63cf8421598dff3384941bd1b9a51541daea40e19e166ee44b2ce478789e84a5",
     "last_update": "2026-08-31T08:34:50+00:00"
+  },
+  "packages/crew/plan/PLAN_PHASE_2.md": {
+    "created_date": "2026-09-01T04:08:05+00:00",
+    "file_hash": "b86ee0ec977c8fe3a115bec096ec354b8e37a270cd1e97718aa80df56f3ea5c8",
+    "last_update": "2026-09-01T04:06:52+00:00"
   },
   "packages/jobs/PLAN.md": {
     "created_date": "2026-08-30T19:07:49+00:00",

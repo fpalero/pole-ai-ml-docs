@@ -6,6 +6,11 @@
 ## Description
 Document the temporary-access feature and configuration so the stack is operable and auditable.
 
+<!-- Cross-repo note: primary delivery is the docs repo (ENV_VARS + project PLAN/PROJECT_VARS);
+     the infrastracture/keycloak/README.md update is coordinated with the infra repo within the phase. -->
+## Repository
+pole-ai-ml-docs
+
 ## What to Do (Implementation Steps)
 - [ ] Update `infrastracture/keycloak/README.md` — SMTP, `pole-api-admin` client, custom theme, 2h lifespan, temp-access flow
 - [ ] Update `docs/ENV_VARS.md` — new `pole_api` variables: `KEYCLOAK_ADMIN_CLIENT_ID`, `KEYCLOAK_ADMIN_CLIENT_SECRET`, `KEYCLOAK_ADMIN_ISSUER`, `TEMP_ACCESS_*`

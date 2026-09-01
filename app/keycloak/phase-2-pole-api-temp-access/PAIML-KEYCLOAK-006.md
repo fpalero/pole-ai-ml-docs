@@ -6,6 +6,9 @@
 ## Description
 Expose unauthenticated endpoints that the login theme calls, and start the 2h window on first use. `POST /api/auth/temporary-access` validates the email, checks the 14-day cooldown, creates the Keycloak user, issues a token, triggers the magic-link email, and returns 202. `POST /api/auth/temporary-access/activate` validates a pending token and starts the window. A lazy hook in `core/auth.py` sets `temp:active:{email}` on the first verified request.
 
+## Repository
+pole-ai-ml
+
 ## What to Do (Implementation Steps)
 - [ ] Router `auth/controllers/temporary_access.py`:
   - `POST /api/auth/temporary-access` — body `{email, clientId}`; 422 invalid email; 409 cooldown; 202 on success

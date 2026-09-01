@@ -6,6 +6,9 @@
 ## Description
 Add automated coverage: unit tests for cooldown, activation, role mapping, disable_user, and purge idempotency (mock Keycloak admin client + Redis); endpoint tests for 202/409/422; integration harness with a mail sandbox (Mailpit) so the full flow is exercised end-to-end against `pole_api_test` / `skeleton_data_test`.
 
+## Repository
+pole-ai-ml
+
 ## What to Do (Implementation Steps)
 - [ ] Unit tests: `core/temp_access.py` (cooldown SETNX 14d, token issue/activate, window TTL, role map, disable_user, purge idempotency) with mocks
 - [ ] Unit tests: `POST /api/auth/temporary-access` (202 / 409 / 422) and `POST /api/auth/temporary-access/activate`

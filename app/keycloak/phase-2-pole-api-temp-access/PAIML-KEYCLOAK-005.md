@@ -6,6 +6,9 @@
 ## Description
 Add temp-access configuration, a Keycloak admin client (service-account token grant; create/find user, random password, `VERIFY_EMAIL` required action, assign role, send verify-email, disable user), and a Redis-backed repository for cooldown/activation/token state.
 
+## Repository
+pole-ai-ml
+
 ## What to Do (Implementation Steps)
 - [ ] Add settings to `core/config.py`: `KEYCLOAK_ADMIN_CLIENT_ID`/`KEYCLOAK_ADMIN_CLIENT_SECRET`/`KEYCLOAK_ADMIN_ISSUER`, `TEMP_ACCESS_COOLDOWN_S` (14d), `TEMP_ACCESS_WINDOW_S` (2h), `TEMP_ACCESS_TOKEN_TTL_S` (24h), app→role map (`pole-fe`→`fe-user`, `pole-analyst`→`analyst-user`), FE base URLs
 - [ ] `core/temp_access.py` — `KeycloakAdminClient`: obtain admin token via client-credentials grant; `create_or_find_user(email)` (random password, `emailVerified=false`, `VERIFY_EMAIL`, assign role); `send_verify_email(user_id, client_id)`; `disable_user(user_id)`

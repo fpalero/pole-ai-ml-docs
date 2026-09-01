@@ -6,6 +6,9 @@
 ## Description
 Implement `TempAccessPurgeService` keyed by the temp user's `owner_id`. On expiry, delete **every** resource the temp user created — including shared/global ones (option 2; temp users must not leave data that could corrupt the app) — reuse existing deletion services, remove physical files on the PVC, clear Redis chatbot sessions + `temp:*` keys, then disable the Keycloak user (kept for audit).
 
+## Repository
+pole-ai-ml
+
 ## What to Do (Implementation Steps)
 - [ ] `core/temp_access.py` — `TempAccessPurgeService(owner_id)`: enumerate owned resources and delete via existing services (`VideoDeletionService`, `AnalysisService.delete_video`, crawler post/image deletion, profile delete, class cascade, chroma/window deletion)
 - [ ] Delete physical files on PVC (uploads, analysis_uploads, curated, downloads, chroma) referenced by owned resources

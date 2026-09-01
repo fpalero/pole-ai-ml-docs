@@ -6,6 +6,9 @@
 ## Description
 Add the `smtpServer` block to the `pole-ai` realm so Keycloak can send the verify-email magic-link. Wire it through Helm values (host, port, ssl, auth user/password, `from`) and keep credentials in a Secret, not the realm JSON. Local dev uses a mail sandbox (Mailpit).
 
+## Repository
+pole-ai-ml-infra
+
 ## What to Do (Implementation Steps)
 - [ ] Add `smtpServer` (host, port, ssl, auth `user`/`password`, `from`) to `infrastracture/keycloak/realm-pole-ai.json`
 - [ ] Add the same `smtpServer` block to `helm/pole-ai/charts/keycloak/templates/configmap.yaml` driven by `Values.smtp.*`

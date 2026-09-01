@@ -6,6 +6,9 @@
 ## Description
 Schedule the purge and trigger it lazily. A periodic sweeper finds expired `temp:active:{email}` keys and runs `TempAccessPurgeService` + disables the user. A lazy check on the next authenticated request for an expired temp email triggers the purge as defense in depth.
 
+## Repository
+pole-ai-ml
+
 ## What to Do (Implementation Steps)
 - [ ] Periodic sweeper (interval < 2h window) that scans expired `temp:active` keys and runs the purge
 - [ ] Lazy expiry: on an authenticated request for a temp email whose `temp:active` key has expired, trigger the purge

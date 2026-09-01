@@ -6,6 +6,9 @@
 ## Description
 Create a custom Keycloak login theme that extends the `keycloak` base theme and adds a **Get temporary access** panel (email input) alongside the standard **Login** form. Theme JS reads the `client` login context and POSTs `{email, clientId}` to `pole_api /api/auth/temporary-access`. Set realm `loginTheme: pole-ai-login` and mount the theme into the Keycloak pod via a ConfigMap volume.
 
+## Repository
+pole-ai-ml-infra
+
 ## What to Do (Implementation Steps)
 - [ ] Create `infrastracture/keycloak/themes/pole-ai-login/` extending `keycloak` base theme
 - [ ] Add `theme.properties` and `messages` (en + es) with the temp-access copy

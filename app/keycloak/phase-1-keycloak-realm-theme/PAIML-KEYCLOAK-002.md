@@ -6,6 +6,9 @@
 ## Description
 Create a confidential `pole-api-admin` client whose service account can create/disable users, set the `VERIFY_EMAIL` required action, and trigger execute-actions-email — so `pole_api` never stores the `fernando` admin password. Grant the service account `realm-management` client roles `manage-users` and `view-users`. Expose the client id/secret to the `pole-api` pod as env/Secret.
 
+## Repository
+pole-ai-ml-infra
+
 ## What to Do (Implementation Steps)
 - [ ] Add client `pole-api-admin` (confidential, service-account enabled, direct access grants off) to `realm-pole-ai.json` and the Helm realm `configmap.yaml`
 - [ ] Grant the service account `realm-management` client roles: `manage-users`, `view-users`

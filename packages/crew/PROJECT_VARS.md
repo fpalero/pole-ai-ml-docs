@@ -1,4 +1,4 @@
 # Project Variables: crew
 
 ## Ticket Counter
-- **Last ticket number**: 8
+- **Last ticket number**: 9

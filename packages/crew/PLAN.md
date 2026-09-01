@@ -8,6 +8,37 @@
 | Phase | Name | Tickets | Status |
 | :--- | :--- | :--- | :--- |
 | 1 | Guardrails (anti-infinite-loop) | `PAIML-CREW-001..008` | 🟡 PARTIAL (código implementado en `develop`; falta `PAIML-CREW-008` integración + Ollama) |
+| 2 | Multi-repo support (per-ticket repo routing) | `PAIML-CREW-009` | 📋 PLANNED |
+
+---
+
+## Phase Details
+
+### Phase 2 — Multi-repo support (per-ticket repo routing)
+
+**Goal:** Let the crew implement phases whose tickets span multiple git repos (e.g. the
+`keycloak` project across `pole-ai-ml`, `pole-ai-ml-infra`, `pole-ai-ml-docs`). Each
+ticket declares an explicit `## Repository` section; the worktree lifecycle routes to
+the owning repo. See `docs/decisions/ADR-004-crew-multi-repo-routing.md`.
+
+**Tickets:**
+
+| Ticket | Title | Summary |
+| :--- | :--- | :--- |
+| `PAIML-CREW-009` | Multi-repo support | Add `Ticket.repo` + `## Repository` parsing, `_repo_root()` mapping, per-repo worktree lifecycle + PR target, graceful skip when a repo has no test command |
+
+**Dependencies:**
+- `PAIML-CREW-009` `Blocked By: None`; independent of phase 1.
+- Runtime prerequisite (not a code blocker): keycloak tickets gain a `## Repository`
+  section so the phase routes correctly.
+
+**Acceptance Criteria:**
+- `pole-ai-ml-infra` tickets create worktrees inside `infrastracture/` and open PRs
+  against `pole-ai-ml-infra` `develop`; `pole-ai-ml`/`pole-ai-ml-docs` route likewise.
+- Tickets missing `## Repository` default to `pole-ai-ml` (backward compatible).
+- A repo with no test command logs a skip rather than aborting the ticket.
+- All PRs target the owning repo's `develop`; never `main`.
+- Crew unit tests ≥80% coverage on the new module; `pixi run crew-validate` still passes.
 
 ---
 

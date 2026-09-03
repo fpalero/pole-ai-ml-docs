@@ -306,8 +306,8 @@
   },
   "app/keycloak/phase-7-magic-link-fix/PAIML-KEYCLOAK-017.md": {
     "created_date": "2026-09-03T23:58:38+00:00",
-    "file_hash": "b4ecad6a68bdbd1706a81cb044680bdc6e559c4bc6f3380a8617e2ca9d1d4210",
-    "last_update": "2026-09-03T23:58:16+00:00"
+    "file_hash": "7eaaede78adddfb5fd69ec81a435e3c142f7cea337d49d60ce9bcd286f0af834",
+    "last_update": "2026-09-03T23:59:00+00:00"
   },
   "app/keycloak/plan/PLAN_PHASE_1.md": {
     "created_date": "2026-08-30T19:07:49+00:00",

@@ -83,10 +83,11 @@ the k3s Helm configmaps (`infrastracture/helm/pole-ai/charts/*/templates/configm
 | `KEYCLOAK_JWKS_URL` | JWKS endpoint used to verify RS256 signatures. | `http://pole-ai-keycloak:8080/realms/pole-ai/protocol/openid-connect/certs` | URL to the realm `certs` endpoint |
 | `KEYCLOAK_CLIENTS` | Comma-separated allowed `azp` clients. | `pole-fe,pole-analyst,mcp-server` | client IDs, comma-separated |
 
-### Temporary access / magic link (`app/pole_api/src/core/config.py`) — to be added in Phase 2
+### Temporary access / magic link (`app/pole_api/src/core/config.py`)
 
-> Placeholder — these variables are planned for the Keycloak temporary magic-link access feature
-> (docs/app/keycloak). They are **not yet implemented**; they will be wired in Phase 2.
+> These variables are used by the Keycloak temporary magic-link access feature
+> (docs/app/keycloak). They are wired in Phase 2 and documented here as the
+> source of truth for temp-access configuration.
 
 | NAME | DESCRIPTION | EXAMPLE | POSIBLE VALUES |
 |---|---|---|---|

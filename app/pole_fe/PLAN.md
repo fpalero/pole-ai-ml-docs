@@ -5,8 +5,11 @@
 > `docs/app/pole_fe/e2e-test-plan.md`. Phase 9 (Extraction → Process biometric+histogram flow +
 > Biomechanical Signal Analysis) DONE (PAIML-POLE-FE-006/008) — **FE + BE
 > integration** (small `pola_api` Phase 14 for the `HISTO` flag/counts; see §3 Phase 9).
-> **Phase 11 (Class stats histograms + video selection) PLANNED** — parte de la feature de detección
+> **Phase 11 (Class stats histograms + video selection) DONE** — parte de la feature de detección
 > automática de fases (handspring): `pole_fe` genera y visualiza los histogramas de referencia.
+> **Phase 12 (User menu + logout) DONE** (PAIML-POLE-FE-013, PR fpalero/pole-ai-ml#192) — dropdown
+> sobre el botón `account_circle` del header + `logout()` vía Keycloak end-session (mata la sesión
+> SSO compartida; ver [PLAN_PHASE_12.md](plan/PLAN_PHASE_12.md)).
 > Future work: WCAG/performance audits, cluster selector, `pole_fe` → `pola_api` production wiring,
 > y Chatbot FE (new) for the agent.
 > **Source docs:** `docs/app/pole_fe/implementation-plan.md` (8-phase plan + DTOs),
@@ -65,6 +68,7 @@
 | 9 | Extraction → Process (biometric + histogram) flow | ✅ DONE | [PLAN_PHASE_9.md](plan/PLAN_PHASE_9.md) |
 | 10 | Future — Chatbot FE + cluster selector | FUTURE | [PLAN_PHASE_10.md](plan/PLAN_PHASE_10.md) |
 | 11 | Class stats histograms + video selection (referencias) | ✅ DONE | [PLAN_PHASE_11.md](plan/PLAN_PHASE_11.md) |
+| 12 | User menu + logout (app shell, Keycloak end-session) | ✅ DONE | [PLAN_PHASE_12.md](plan/PLAN_PHASE_12.md) |
 
 ---
 

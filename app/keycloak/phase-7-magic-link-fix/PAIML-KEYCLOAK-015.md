@@ -33,7 +33,7 @@ pole-ai-ml-infra
 - [ ] Unit check on JS error parser: payload with `data.error` surfaces the message.
 
 ## Dependencies
-- **Blocks:** PAIML-KEYCLOAK-016
+- **Blocks:** PAIML-KEYCLOAK-016, PAIML-KEYCLOAK-017
 - **Blocked By:** None (root)
 
 ## Estimated Effort

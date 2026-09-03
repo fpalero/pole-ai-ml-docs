@@ -50,7 +50,7 @@
 | 4 | Tests, Docs & Verification | ✅ DONE | [PLAN_PHASE_4.md](plan/PLAN_PHASE_4.md) |
 | 5 | Brevo SMTP | ✅ DONE | [PLAN_PHASE_5.md](plan/PLAN_PHASE_5.md) |
 | 6 | Stitch pixel-perfect login restyle | ✅ DONE (impl + QA GREEN; awaiting user manual develop→main promotion) | [PLAN_PHASE_6.md](plan/PLAN_PHASE_6.md) |
-| 7 | Magic-link fix (stale theme, endpoint, SMTP verify) | 📋 PLANNED | [phase-7-magic-link-fix](phase-7-magic-link-fix/) |
+| 7 | Magic-link fix (stale theme, endpoint, SMTP verify) | 📋 PLANNED | [phase-7-magic-link-fix](phase-7-magic-link-fix/) (015, 016, 017 emergency probe fix) |
 
 ## 4. Quality Gates & Testing Commands (DoD)
 

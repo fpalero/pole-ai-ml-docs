@@ -22,6 +22,7 @@ pole-ai-ml-infra
 - [ ] Staging Keycloak serves traffic (no crashloop) after the live patch.
 - [ ] Declarative chart (PR #27 https://github.com/fpalero/pole-ai-ml-infra/pull/27) matches live relief values.
 - [ ] E2E magic-link 202 with synthetic address; live SMTP = Brevo via Admin API.
+- [ ] Documented boot budget: liveness ~150s < Quarkus ~104s + import, covered by startupProbe.
 
 ## Integration Tests to Run (Local Verification)
 - [ ] `helm template` renders liveness delay 300 + startupProbe on the Keycloak Deployment.

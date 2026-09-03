@@ -11,18 +11,18 @@
   },
   "DEVELOPEMENT.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
-    "file_hash": "3299a15d62422133c2421773b944247a5678f836b0b90e4174d3a25e15b264f8",
-    "last_update": "2026-08-31T13:51:51+00:00"
+    "file_hash": "47cd12b17bcdf3770ecbd52c723521cf00f1f8dee756cea8f35d50739be3b3de",
+    "last_update": "2026-09-03T20:04:50+00:00"
   },
   "ENV_VARS.md": {
     "created_date": "2026-08-31T08:28:19+00:00",
-    "file_hash": "92965be8fcfe4d209362d31001a5c2a11a0e25c46373d5e507ed9f84913a393d",
-    "last_update": "2026-08-31T08:19:33+00:00"
+    "file_hash": "1e15f14046d7eaa62e3c6c6a9c772da93ce70856a29e48c6ba476a581beb256c",
+    "last_update": "2026-09-03T20:05:11+00:00"
   },
   "ROADMAP.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
-    "file_hash": "00ef17be8b09378380c915b87811ac80ff0a14f15340db04ecea6149f899b89b",
-    "last_update": "2026-08-31T08:35:02+00:00"
+    "file_hash": "451c49bc1a10dc3cb698fa372674dcdaeb5df50f63934129bb7115586d7fefb0",
+    "last_update": "2026-09-03T20:05:06+00:00"
   },
   "TODO.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
@@ -211,8 +211,8 @@
   },
   "app/keycloak/PLAN.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
-    "file_hash": "0fe5baa93ba69814d1f94fafedb41777ef5b8356e1a4f63c9483e419e7b3114d",
-    "last_update": "2026-08-28T17:01:27+00:00"
+    "file_hash": "1f714168057d28d0a344fb3c483e196590c570268026228d4c5a28a53e208316",
+    "last_update": "2026-09-03T20:04:23+00:00"
   },
   "app/keycloak/PROJECT_VARS.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
@@ -281,23 +281,23 @@
   },
   "app/keycloak/plan/PLAN_PHASE_1.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
-    "file_hash": "738690ca324eb03965676a4bf0a299866004427b5e41a7846c6704172251f213",
-    "last_update": "2026-08-31T08:19:06+00:00"
+    "file_hash": "6970183faa0cc28ef51690a611232d86f76ba16b86f54a163259942e2f1de48d",
+    "last_update": "2026-09-03T20:04:30+00:00"
   },
   "app/keycloak/plan/PLAN_PHASE_2.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
-    "file_hash": "2ee49e859973f604c52827f31948a653ceae0e96d4070d22a12ccbe6e70f7154",
-    "last_update": "2026-08-31T08:18:57+00:00"
+    "file_hash": "70b83cab711b4ac0b48424f2e31183b8a51e031a67755c280e239786f5f5a4b2",
+    "last_update": "2026-09-03T20:04:31+00:00"
   },
   "app/keycloak/plan/PLAN_PHASE_3.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
-    "file_hash": "a9abeccc77ad0664c7e7350b654946957eb849bed9d6d6171340f9efb987f930",
-    "last_update": "2026-08-28T17:01:27+00:00"
+    "file_hash": "f41bfcab6f46f0f0e68999ceac9118ee17a8f4da1c9e05e21564201594fd0f88",
+    "last_update": "2026-09-03T20:04:31+00:00"
   },
   "app/keycloak/plan/PLAN_PHASE_4.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
-    "file_hash": "bdd9d3d257be6eb28967c185234ab8d48f71ee0ce83f37db5087d804874ee2ca",
-    "last_update": "2026-08-31T08:26:37+00:00"
+    "file_hash": "f76e62d3eaa6daaa0568b3b523d4835d0345116334c354bf055b2dc6834f0655",
+    "last_update": "2026-09-03T20:04:32+00:00"
   },
   "app/pola_agent/PLAN.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
@@ -2008,6 +2008,171 @@
     "created_date": "2026-08-30T19:07:49+00:00",
     "file_hash": "74912c8bff9116395b792a9e020ad627c25fa53823b63466b4c69c0bdc227e30",
     "last_update": "2026-08-05T12:42:26+00:00"
+  },
+  "packages/pole_rag/PLAN.md": {
+    "created_date": "2026-09-03T19:21:14+00:00",
+    "file_hash": "805f633fc7e0746bc197d7a1115819257c162bc50b1102c3c1f926b1ebc9ec0d",
+    "last_update": "2026-09-03T19:20:46+00:00"
+  },
+  "packages/pole_rag/PROJECT_VARS.md": {
+    "created_date": "2026-09-03T19:21:14+00:00",
+    "file_hash": "bf8a8457020e94b387a7f52700f954037e7884e48854b7fd39d28a08a2fe8fe9",
+    "last_update": "2026-09-03T19:20:52+00:00"
+  },
+  "packages/pole_rag/phase-1-package-scaffold/PAIML-POLE-RAG-001.md": {
+    "created_date": "2026-09-03T19:21:14+00:00",
+    "file_hash": "069e8f26d61ce9094143858c20958c33bee8a7811acd930d47cad829050d9027",
+    "last_update": "2026-09-03T19:20:46+00:00"
+  },
+  "packages/pole_rag/phase-1-package-scaffold/PAIML-POLE-RAG-002.md": {
+    "created_date": "2026-09-03T19:21:14+00:00",
+    "file_hash": "97bd5a821775077be3672d6fa9e3d82d4787ab92c52048b011d8ff1f8f73fff2",
+    "last_update": "2026-09-03T19:20:46+00:00"
+  },
+  "packages/pole_rag/phase-1-package-scaffold/PAIML-POLE-RAG-003.md": {
+    "created_date": "2026-09-03T19:21:14+00:00",
+    "file_hash": "b81bef74a8cd339aed08339797ba074c511abdf646e10585f52d5521eac49891",
+    "last_update": "2026-09-03T19:20:46+00:00"
+  },
+  "packages/pole_rag/phase-1-package-scaffold/PAIML-POLE-RAG-004.md": {
+    "created_date": "2026-09-03T19:21:14+00:00",
+    "file_hash": "5e8350d988ee84b09412d07ef1e3865c03f411ca3f138e80d1475f8cd1fc0148",
+    "last_update": "2026-09-03T19:20:46+00:00"
+  },
+  "packages/pole_rag/phase-1-package-scaffold/PAIML-POLE-RAG-005.md": {
+    "created_date": "2026-09-03T19:21:14+00:00",
+    "file_hash": "4a18891d163867488d01012e9a83e46e5d059b5aeef37fce1361e0815f5a0bec",
+    "last_update": "2026-09-03T19:20:46+00:00"
+  },
+  "packages/pole_rag/phase-1-package-scaffold/PAIML-POLE-RAG-006.md": {
+    "created_date": "2026-09-03T19:21:14+00:00",
+    "file_hash": "306acc9c1b968ab2afa9c8c385bd38bb31dffba2a3a5d7d883a4104901c337be",
+    "last_update": "2026-09-03T19:20:46+00:00"
+  },
+  "packages/pole_rag/phase-1-package-scaffold/PAIML-POLE-RAG-007.md": {
+    "created_date": "2026-09-03T19:21:14+00:00",
+    "file_hash": "2e5e2aeac0598069068e6021dade520a8c1b439ecdef3bfb0891c2431760aa71",
+    "last_update": "2026-09-03T19:20:46+00:00"
+  },
+  "packages/pole_rag/phase-1-package-scaffold/PAIML-POLE-RAG-008.md": {
+    "created_date": "2026-09-03T19:21:14+00:00",
+    "file_hash": "66d9ba1cef9b1ad071e13512c5f3f919830ef234f883617a3bc8b6a0d461b46c",
+    "last_update": "2026-09-03T19:20:46+00:00"
+  },
+  "packages/pole_rag/phase-2-extraction-chunking/PAIML-POLE-RAG-009.md": {
+    "created_date": "2026-09-03T19:21:14+00:00",
+    "file_hash": "029805365ac438b335b2009bccffcc16868069e294c211931da4211b4288d047",
+    "last_update": "2026-09-03T19:20:46+00:00"
+  },
+  "packages/pole_rag/phase-2-extraction-chunking/PAIML-POLE-RAG-010.md": {
+    "created_date": "2026-09-03T19:21:14+00:00",
+    "file_hash": "b0f4d54c247ee217fb8b316d51483021756cf5a0b2b8361a3721ee61b96bec7c",
+    "last_update": "2026-09-03T19:20:46+00:00"
+  },
+  "packages/pole_rag/phase-2-extraction-chunking/PAIML-POLE-RAG-011.md": {
+    "created_date": "2026-09-03T19:21:14+00:00",
+    "file_hash": "46b35ab4c348fa124357e5cbd3ef3e53b3058cf908f715b9d862673aad484d52",
+    "last_update": "2026-09-03T19:20:46+00:00"
+  },
+  "packages/pole_rag/phase-3-embeddings-storage/PAIML-POLE-RAG-012.md": {
+    "created_date": "2026-09-03T19:21:14+00:00",
+    "file_hash": "764dab4634448cbf9a63443a40634bbaa0ad82ba66cd52a69758c3144d8f1734",
+    "last_update": "2026-09-03T19:20:46+00:00"
+  },
+  "packages/pole_rag/phase-3-embeddings-storage/PAIML-POLE-RAG-013.md": {
+    "created_date": "2026-09-03T19:21:14+00:00",
+    "file_hash": "acf764565e2e2af5470e16da4dc224310554bb2c468470bb94cac7a9e3969038",
+    "last_update": "2026-09-03T19:20:46+00:00"
+  },
+  "packages/pole_rag/phase-3-embeddings-storage/PAIML-POLE-RAG-014.md": {
+    "created_date": "2026-09-03T19:21:14+00:00",
+    "file_hash": "5c695e7256f6471641b0bd3b703e796f19243b0d48153dc3edcc966bd5f9780a",
+    "last_update": "2026-09-03T19:20:46+00:00"
+  },
+  "packages/pole_rag/phase-3-embeddings-storage/PAIML-POLE-RAG-015.md": {
+    "created_date": "2026-09-03T19:21:14+00:00",
+    "file_hash": "eb8ceb9bf41b679de8a89321ef6b174442c2f42624dc2d663593f66fb5451a14",
+    "last_update": "2026-09-03T19:20:46+00:00"
+  },
+  "packages/pole_rag/phase-3-embeddings-storage/PAIML-POLE-RAG-016.md": {
+    "created_date": "2026-09-03T19:21:14+00:00",
+    "file_hash": "a4205731f2bf9d291d2ff5fee6bd13c833d5a02d4def5521af2712d13b4d29ca",
+    "last_update": "2026-09-03T19:20:46+00:00"
+  },
+  "packages/pole_rag/phase-4-cli-commands/PAIML-POLE-RAG-017.md": {
+    "created_date": "2026-09-03T19:21:14+00:00",
+    "file_hash": "ed9bdc37206433fd0260f542b9c3d381578a419647cae0504a34d91771576813",
+    "last_update": "2026-09-03T19:20:46+00:00"
+  },
+  "packages/pole_rag/phase-4-cli-commands/PAIML-POLE-RAG-018.md": {
+    "created_date": "2026-09-03T19:21:14+00:00",
+    "file_hash": "09911d2e8f51d99b4a9b279eac023e3ebea3bb5122daad5ddb940b3db9753db1",
+    "last_update": "2026-09-03T19:20:46+00:00"
+  },
+  "packages/pole_rag/phase-4-cli-commands/PAIML-POLE-RAG-019.md": {
+    "created_date": "2026-09-03T19:21:14+00:00",
+    "file_hash": "14746d707eedab7deef11ef314f239dda51586eb348227859739ce9853dd15e3",
+    "last_update": "2026-09-03T19:20:46+00:00"
+  },
+  "packages/pole_rag/phase-4-cli-commands/PAIML-POLE-RAG-020.md": {
+    "created_date": "2026-09-03T19:21:14+00:00",
+    "file_hash": "124b44e4bafe1ff68700c80b46a00221f01c38e50207b08e802a49e0b8115a00",
+    "last_update": "2026-09-03T19:20:46+00:00"
+  },
+  "packages/pole_rag/phase-4-cli-commands/PAIML-POLE-RAG-021.md": {
+    "created_date": "2026-09-03T19:21:14+00:00",
+    "file_hash": "17132f7329d9513ea2c36af8f44fdd5b5dd27ed80534c913fc963b83bf4daa7b",
+    "last_update": "2026-09-03T19:20:46+00:00"
+  },
+  "packages/pole_rag/phase-4-cli-commands/PAIML-POLE-RAG-022.md": {
+    "created_date": "2026-09-03T19:21:14+00:00",
+    "file_hash": "31dc7165065770b0f7fbefd159b1c720a78b14aa66d7d79131c393b366b33be0",
+    "last_update": "2026-09-03T19:20:46+00:00"
+  },
+  "packages/pole_rag/phase-5-chatbot-tools/PAIML-POLE-RAG-023.md": {
+    "created_date": "2026-09-03T19:21:14+00:00",
+    "file_hash": "1bb3175e1cef3a087b53dc22959acba7e139087d628e1e85ed06acea1e5ffb5b",
+    "last_update": "2026-09-03T19:20:46+00:00"
+  },
+  "packages/pole_rag/phase-5-chatbot-tools/PAIML-POLE-RAG-024.md": {
+    "created_date": "2026-09-03T19:21:14+00:00",
+    "file_hash": "a0ab611b9c659d4e8520d0374e06c02a65d7c69bc0090a0ed61cb515618d6e9c",
+    "last_update": "2026-09-03T19:20:46+00:00"
+  },
+  "packages/pole_rag/phase-5-chatbot-tools/PAIML-POLE-RAG-025.md": {
+    "created_date": "2026-09-03T19:21:14+00:00",
+    "file_hash": "bf0ff3cd067e8680029a1fe5d9681b843b8a244136a5afa64c4435b9757ef2f8",
+    "last_update": "2026-09-03T19:20:46+00:00"
+  },
+  "packages/pole_rag/phase-5-chatbot-tools/PAIML-POLE-RAG-026.md": {
+    "created_date": "2026-09-03T19:21:14+00:00",
+    "file_hash": "1f1b6036ad36dff899dae158fdb9af282b61f7e97d85c464137ac8272de05378",
+    "last_update": "2026-09-03T19:20:46+00:00"
+  },
+  "packages/pole_rag/plan/PLAN_PHASE_1.md": {
+    "created_date": "2026-09-03T19:21:14+00:00",
+    "file_hash": "bbe133a18409de83d8807a7ecc34dbca2e3c67fee6a69e22672ffa91af0e7287",
+    "last_update": "2026-09-03T19:20:46+00:00"
+  },
+  "packages/pole_rag/plan/PLAN_PHASE_2.md": {
+    "created_date": "2026-09-03T19:21:14+00:00",
+    "file_hash": "29546978ee427141388469fb7c31a9f02dcc4980889ec94d4a4cf14d9ec61ad1",
+    "last_update": "2026-09-03T19:20:46+00:00"
+  },
+  "packages/pole_rag/plan/PLAN_PHASE_3.md": {
+    "created_date": "2026-09-03T19:21:14+00:00",
+    "file_hash": "609f3fc320d7fe84cea0bfa1b3b676f7afd0da0b3dc4153f5c569c82bb185b53",
+    "last_update": "2026-09-03T19:20:46+00:00"
+  },
+  "packages/pole_rag/plan/PLAN_PHASE_4.md": {
+    "created_date": "2026-09-03T19:21:14+00:00",
+    "file_hash": "88c83b2128519046d260e4b62cf1c05dc30cdce5ff4059677437822bcf88baf6",
+    "last_update": "2026-09-03T19:20:46+00:00"
+  },
+  "packages/pole_rag/plan/PLAN_PHASE_5.md": {
+    "created_date": "2026-09-03T19:21:14+00:00",
+    "file_hash": "a9fc7e8b238102a4214d56811768ec8778b4fc9e9728f0f9a4ba2082c33c885b",
+    "last_update": "2026-09-03T19:20:46+00:00"
   },
   "packages/pole_tools/PLAN.md": {
     "created_date": "2026-08-30T19:07:49+00:00",

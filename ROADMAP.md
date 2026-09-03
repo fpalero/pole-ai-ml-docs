@@ -28,7 +28,7 @@
 | Blocked phase | Blocked by | Blocker status |
 | :--- | :--- | :--- |
 | `infra` Phases 3–8 (DEV / STAGING+PROD / docs / elastic-stack / logs) | none | ✅ Unblocked |
-| `keycloak` Phases 1–4 | none | ✅ Unblocked |
+| `keycloak` Phases 1–4 | none | ✅ Done (merged + QA-verified) |
 | dev-ops CI phases 1–7 (unticketed) | none | ✅ Unblocked |
 | `crew` Phase 1 (guardrails) | none | ✅ Unblocked |
 
@@ -77,10 +77,13 @@
 
 | Phase | Name | Tickets | Status |
 | :--- | :--- | :--- | :--- |
-| 1 | Keycloak realm, SMTP & custom login theme | `PAIML-KEYCLOAK-001..004` | 📋 PLANNED |
-| 2 | pole_api temp-access orchestration (endpoint + Redis + activation) | `PAIML-KEYCLOAK-005..007` | 📋 PLANNED |
-| 3 | Temp-user data isolation & expiry purge | `PAIML-KEYCLOAK-008..010` | 📋 PLANNED |
-| 4 | Tests, docs & verification | `PAIML-KEYCLOAK-011..012` | 📋 PLANNED |
+| 1 | Keycloak realm, SMTP & custom login theme | `PAIML-KEYCLOAK-001..004` | ✅ DONE |
+| 2 | pole_api temp-access orchestration (endpoint + Redis + activation) | `PAIML-KEYCLOAK-005..007` | ✅ DONE |
+| 3 | Temp-user data isolation & expiry purge | `PAIML-KEYCLOAK-008..010` | ✅ DONE |
+| 4 | Tests, docs & verification | `PAIML-KEYCLOAK-011..012` | ✅ DONE |
+
+> **Done:** Phases 1–4 ✅ (PAIML-KEYCLOAK-001..012 merged into `develop`, QA-verified on the local
+> cluster 2026-09-03). No pending keycloak phases.
 
 > Temp access: custom Keycloak login theme offers Login / Get temporary access; Keycloak verify-email
 > magic link; per-app role (`pole-fe`→`fe-user`, `pole-analyst`→`analyst-user`); Redis `temp:req`
@@ -148,8 +151,9 @@
 ## 3. Implementation order (recommended)
 
 ### Tier 1 — New app features (parallel, unblocked)
-1. **`keycloak` Phases 1→4** — temp-access end-to-end (realm/SMTP/theme → pole_api orchestration →
-   data purge → tests/docs). Independent of all app phases.
+1. **`keycloak` Phases 1→4** — ✅ **Complete** (temp-access end-to-end: realm/SMTP/theme → pole_api
+   orchestration → data purge → tests/docs; `PAIML-KEYCLOAK-001..012` merged + QA-verified).
+   No longer pending.
 2. **`crew` Phase 1** — guardrails (anti-infinite-loop) for the CrewAI engine. Standalone
    dev-tooling improvement; no external blockers.
 
@@ -170,7 +174,7 @@
 ## 4. Key blockers to communicate
 
 - **No active blocker chains** — every ticketed pending phase is unblocked:
-  `pole_analyst` 19 `-066`, `keycloak` 1–4, `infra` 3–8. (`pole_api` Phases 25–26 are ✅ done.)
+  `pole_analyst` 19 `-066`, `infra` 3–8. (`pole_api` Phases 25–26 and `keycloak` 1–4 are ✅ done.)
 - `pole_analyst` Phase 7 (Keycloak per-user library) remains deferred; the *login* is already deployed.
 - **Non-blocking follow-ups backlog (from 2026-08-23/24 reviews):** peak aggregation `$isNaN` guard
   (BE); fail-open cutoff docstring; extract shared search-bar component; stale-response race guard;

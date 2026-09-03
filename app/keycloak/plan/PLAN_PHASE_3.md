@@ -1,7 +1,7 @@
 # Plan Phase 3 — Temp-User Data Isolation & Expiry Purge
 
 > **Parent plan:** [PLAN.md](../PLAN.md)
-> **Status:** 📋 PLANNED
+> **Status:** ✅ DONE
 
 ## Scope
 

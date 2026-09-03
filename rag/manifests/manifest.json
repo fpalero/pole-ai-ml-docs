@@ -216,13 +216,13 @@
   },
   "app/keycloak/PLAN.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
-    "file_hash": "773b44a4ccdead8323bba88ed96861d20262651b4e1e291c1c2929a4e8504602",
-    "last_update": "2026-09-03T23:17:52+00:00"
+    "file_hash": "42ac404b92afdb3b903ce3dfcfd80e2889eeb0fb5b964f20069a7dc234cb5dfb",
+    "last_update": "2026-09-03T23:58:24+00:00"
   },
   "app/keycloak/PROJECT_VARS.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
-    "file_hash": "c21d44bbc84db321e1bee5aad4f408d52a22b4753dca56d83937119621b352ff",
-    "last_update": "2026-09-03T23:17:52+00:00"
+    "file_hash": "4ddb2d2d828d1a738ea04f2448968c401bd813b6ef07ba4cd78359c17d0ba303",
+    "last_update": "2026-09-03T23:58:21+00:00"
   },
   "app/keycloak/phase-1-keycloak-realm-theme/PAIML-KEYCLOAK-001.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
@@ -296,13 +296,18 @@
   },
   "app/keycloak/phase-7-magic-link-fix/PAIML-KEYCLOAK-015.md": {
     "created_date": "2026-09-03T23:18:08+00:00",
-    "file_hash": "ee07603ace0010d217fed467de91f26737c7d3c8ab8ed0765afb679faee4b3b9",
-    "last_update": "2026-09-03T23:17:50+00:00"
+    "file_hash": "29930bbd74f8b95d200f29a8d750f6abff82f4e70760de6f7eec3c1886c97ebf",
+    "last_update": "2026-09-03T23:58:19+00:00"
   },
   "app/keycloak/phase-7-magic-link-fix/PAIML-KEYCLOAK-016.md": {
     "created_date": "2026-09-03T23:18:08+00:00",
     "file_hash": "d94383777f1147d9a77f60d5808793cbfa846fa293b0fb9c3c76a6eed424de91",
     "last_update": "2026-09-03T23:17:50+00:00"
+  },
+  "app/keycloak/phase-7-magic-link-fix/PAIML-KEYCLOAK-017.md": {
+    "created_date": "2026-09-03T23:58:38+00:00",
+    "file_hash": "b4ecad6a68bdbd1706a81cb044680bdc6e559c4bc6f3380a8617e2ca9d1d4210",
+    "last_update": "2026-09-03T23:58:16+00:00"
   },
   "app/keycloak/plan/PLAN_PHASE_1.md": {
     "created_date": "2026-08-30T19:07:49+00:00",

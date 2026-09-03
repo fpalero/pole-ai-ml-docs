@@ -1,7 +1,7 @@
 # Plan Phase 1 — Keycloak Realm, SMTP & Custom Login Theme
 
 > **Parent plan:** [PLAN.md](../PLAN.md)
-> **Status:** 📋 PLANNED
+> **Status:** ✅ DONE
 
 ## Scope
 

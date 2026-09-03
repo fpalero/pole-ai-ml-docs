@@ -25,7 +25,7 @@ It is generated from the authoritative plans under `docs/app/<project>/PLAN.md` 
 | [`pole_analyst`](#apppole_analyst) | App | Angular FE "Pole AI Coach" — athlete video-analysis coach (upload → analyze → feedback → chat). | 18/20 phases done · 1 partial · 1 future |
 | [`pole_fe`](#apppole_fe) | App | Angular FE training-workflow manager (tricks, video editor, studio, model registry, jobs). | 10/11 phases done · 1 future |
 | [`infra`](#appinfra) | App | CI/CD deploy pipeline: Helm, GHCR build-push, DEV/STAGING/PROD auto-deploy + observability logs. | Phases 1–2 landed · 3–5 ticketed · 6–8 planned |
-| [`keycloak`](#appkeycloak) | App | Temporary magic-link access (custom login theme, verify-email, Redis cooldown/activation, expiry purge). | 4 phases planned |
+| [`keycloak`](#appkeycloak) | App | Temporary magic-link access (custom login theme, verify-email, Redis cooldown/activation, expiry purge). | 4/4 phases done |
 | [`dev-ops`](#appdev-ops) | App | CI workflows (PR gate, phase-completion, full-suite, MediaPipe, nightly docs). | Pending analysis |
 | [`chatbot`](#packageschatbot) | Package | ReAct conversational agent backend (WebSocket, tools, OpenCode client). | Complete (v1) |
 | [`jobs`](#packagesjobs) | Package | Shared job infrastructure (Mongo repo, Redis queue, worker, orchestrator, router). | Complete (v1) |
@@ -361,10 +361,10 @@ magic-link delivery, per-app role mapping, 2-hour session limits, expiry purge.
 
 | Phase | Description | Status |
 | :--- | :--- | :--- |
-| 1 — Core realm setup | Configure realm SMTP, magic-link delivery, confidential client, custom login theme, 2h session limits. | **PLANNED** |
-| 2 — pole_api temp-access orchestration | Temp-access settings + Keycloak admin client + Redis repo; public endpoints + lazy activation; 2h + cooldown. | **PLANNED** |
-| 3 — Expiry purge | Delete all temp-user data + disable user (cascade). | **PLANNED** |
-| 4 — Tests + docs | Unit/integration tests + Keycloak README + ENV_VARS. | **PLANNED** |
+| 1 — Core realm setup | Configure realm SMTP, magic-link delivery, confidential client, custom login theme, 2h session limits. | **Done** |
+| 2 — pole_api temp-access orchestration | Temp-access settings + Keycloak admin client + Redis repo; public endpoints + lazy activation; 2h + cooldown. | **Done** |
+| 3 — Expiry purge | Delete all temp-user data + disable user (cascade). | **Done** |
+| 4 — Tests + docs | Unit/integration tests + Keycloak README + ENV_VARS. | **Done** |
 
 #### Phase 1 — Core realm setup (4 tickets)
 - **PAIML-KEYCLOAK-001 — Configure realm SMTP magic-link delivery** — Verify realm email settings + test magic link.
@@ -446,15 +446,17 @@ repository_dispatch deploy-dev); Phases 3–5 are ticketed; Phases 6–8 are pla
 ### `app/keycloak`
 **Temporary magic-link access.** Custom Keycloak login theme offering Login / Get temporary access;
 verify-email magic link; per-app roles; Redis `temp:req` cooldown + `temp:active` window; expiry
-purge of all temp-user resources. 4 phases 📋 PLANNED, 12 tickets (`PAIML-KEYCLOAK-001..012`,
-counter=12). No `temp_access.py` / theme in code yet.
+purge of all temp-user resources. 4 phases ✅ DONE, 12 tickets (`PAIML-KEYCLOAK-001..012`,
+counter=12). Implemented, merged into `develop`, and QA-verified on the local cluster (realm SMTP +
+Mailpit sandbox, `pole-api-admin` client, `pole-ai-login` theme, `core/temp_access.py` orchestration
++ expiry purge).
 
 | Phase | Description | Status |
 | :--- | :--- | :--- |
-| 1 — Keycloak realm, SMTP & custom login theme | `PAIML-KEYCLOAK-001..004`. | **Planned** |
-| 2 — pole_api temp-access orchestration | Endpoint + Redis + activation (`PAIML-KEYCLOAK-005..007`). | **Planned** |
-| 3 — Temp-user data isolation & expiry purge | `PAIML-KEYCLOAK-008..010`. | **Planned** |
-| 4 — Tests, docs & verification | `PAIML-KEYCLOAK-011..012`. | **Planned** |
+| 1 — Keycloak realm, SMTP & custom login theme | `PAIML-KEYCLOAK-001..004`. | **Done** |
+| 2 — pole_api temp-access orchestration | Endpoint + Redis + activation (`PAIML-KEYCLOAK-005..007`). | **Done** |
+| 3 — Temp-user data isolation & expiry purge | `PAIML-KEYCLOAK-008..010`. | **Done** |
+| 4 — Tests, docs & verification | `PAIML-KEYCLOAK-011..012`. | **Done** |
 
 ---
 

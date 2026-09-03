@@ -47,6 +47,8 @@
 | 2 | pole_api Temporary-Access Orchestration | ✅ DONE | [PLAN_PHASE_2.md](plan/PLAN_PHASE_2.md) |
 | 3 | Temp-User Data Isolation & Expiry Purge | ✅ DONE | [PLAN_PHASE_3.md](plan/PLAN_PHASE_3.md) |
 | 4 | Tests, Docs & Verification | ✅ DONE | [PLAN_PHASE_4.md](plan/PLAN_PHASE_4.md) |
+| 5 | Brevo SMTP Relay (real email delivery, staging/prod) | 📋 PLANNED | [PLAN_PHASE_5.md](plan/PLAN_PHASE_5.md) |
+| 6 | Stitch Pixel-Perfect Login Restyle (Kinetic Precision light theme) | 📋 PLANNED | [PLAN_PHASE_6.md](plan/PLAN_PHASE_6.md) |
 
 ## 4. Quality Gates & Testing Commands (DoD)
 

@@ -1,6 +1,6 @@
 # Implementation Plan — `keycloak` (Temporary Magic-Link Access)
 
-> **Status:** Phase 1–4 📋 PLANNED.
+> **Status:** Phase 1–3 ✅ DONE. Phase 4 📋 PLANNED.
 
 ---
 
@@ -42,9 +42,9 @@
 
 | Fase | Nombre | Estado | Detalle |
 | :--- | :--- | :--- | :--- |
-| 1 | Keycloak Realm, SMTP & Custom Login Theme | 📋 PLANNED | [PLAN_PHASE_1.md](plan/PLAN_PHASE_1.md) |
-| 2 | pole_api Temporary-Access Orchestration | 📋 PLANNED | [PLAN_PHASE_2.md](plan/PLAN_PHASE_2.md) |
-| 3 | Temp-User Data Isolation & Expiry Purge | 📋 PLANNED | [PLAN_PHASE_3.md](plan/PLAN_PHASE_3.md) |
+| 1 | Keycloak Realm, SMTP & Custom Login Theme | ✅ DONE | [PLAN_PHASE_1.md](plan/PLAN_PHASE_1.md) |
+| 2 | pole_api Temporary-Access Orchestration | ✅ DONE | [PLAN_PHASE_2.md](plan/PLAN_PHASE_2.md) |
+| 3 | Temp-User Data Isolation & Expiry Purge | ✅ DONE | [PLAN_PHASE_3.md](plan/PLAN_PHASE_3.md) |
 | 4 | Tests, Docs & Verification | 📋 PLANNED | [PLAN_PHASE_4.md](plan/PLAN_PHASE_4.md) |
 
 ## 4. Quality Gates & Testing Commands (DoD)

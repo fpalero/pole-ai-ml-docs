@@ -1,7 +1,7 @@
 # Plan Phase 8 — Temp-Access Expiry Hardening (azp-mismatch + blind-sweeper fix)
 
 > **Parent plan:** [PLAN.md](../PLAN.md)
-> **Status:** 📋 PLANNED
+> **Status:** 🟡 PARTIAL — code+docs merged, staging QA gate BLOCKED on rollout (NOT DONE)
 > **Class:** BE-only (`pole_api`, repo `pole-ai-ml`). No Keycloak realm/theme,
 > Helm, or FE changes. Plus one ops runbook step (no code).
 
@@ -168,3 +168,25 @@ the email) instead of only the exact azp-derived app key.
   cover with a unit test.
 - **Risk:** Louder purge logging re-floods logs. **Mitigation:** log successes
   at debug, failures at error with a distinct prefix; no per-request info spam.
+
+## Close-out note (2026-09-04) — merged, pending staging QA
+
+- **Code merged:** `pole-ai-ml#220` (SHA `a9bc2ca0ec60ba6e80eb8dc490c376f61dd731dd`).
+- **Docs merged:** `pole-ai-ml-docs#9` (SHA `70059404804fe0b14c453f3fe658b2d5e2cbd293`).
+- **Reviewer:** APPROVED.
+- **Tester gate:** BLOCKED — staging still on pre-fix revision 54 at gate time;
+  CI GHCR build was running, so UC-06/07/08/04 could not be re-gated on the
+  fixed image.
+- **Pending (in order):** rollout → re-gate UC-06/07/08/04 → ops step D purge
+  of `fpalero1986@gmail.com` + stale probe keys → flip this phase to DONE.
+- **RAG ship decision record:** `pole_rag` is absent from the pole-api image
+  (ModuleNotFoundError in the live pod; missing from `base.Dockerfile`
+  COPY+install lists), so the 4 chatbot RAG tools can only raise `ToolError`
+  today. `/data/chroma` on staging is OCCUPIED by the `movement_embeddings`
+  store (7712 entries, video flow — must not be disturbed). Chosen RAG home is
+  `/data/rag/{pole,calisthenics,psicology,biomechanics}/chroma.sqlite3`.
+  Missing-DB behavior is `FileNotFoundError`→`ToolError` per tool call (no pod
+  crash — safe to roll the image before seeding). Query time also needs the
+  `all-MiniLM-L6-v2` embedder model present. User decision: seed locally
+  (fast), transfer into the PVC, wire the image to it. Full record:
+  `packages/pole_rag/plan/PLAN_PHASE_6.md` (Phase 6, staging ship).

@@ -1,7 +1,8 @@
 # Implementation Plan — `keycloak` (Temporary Magic-Link Access)
 
-> **Status:** Phase 1–4 ✅ DONE (PAIML-KEYCLOAK-001..012 implemented, merged into `develop`,
-> QA-verified on the local cluster).
+> **Status:** Phase 1–6 ✅ DONE (PAIML-KEYCLOAK-001..014 implemented, merged into `develop`,
+> QA-verified on the local cluster). Phase 6 awaits USER manual testing + manual
+> develop→main promotion — NOT closed until the user confirms.
 
 ---
 
@@ -47,6 +48,9 @@
 | 2 | pole_api Temporary-Access Orchestration | ✅ DONE | [PLAN_PHASE_2.md](plan/PLAN_PHASE_2.md) |
 | 3 | Temp-User Data Isolation & Expiry Purge | ✅ DONE | [PLAN_PHASE_3.md](plan/PLAN_PHASE_3.md) |
 | 4 | Tests, Docs & Verification | ✅ DONE | [PLAN_PHASE_4.md](plan/PLAN_PHASE_4.md) |
+| 5 | Brevo SMTP | ✅ DONE | [PLAN_PHASE_5.md](plan/PLAN_PHASE_5.md) |
+| 6 | Stitch pixel-perfect login restyle | ✅ DONE (impl + QA GREEN; awaiting user manual develop→main promotion) | [PLAN_PHASE_6.md](plan/PLAN_PHASE_6.md) |
+| 7 | Magic-link fix (stale theme, endpoint, SMTP verify) | 📋 PLANNED | [phase-7-magic-link-fix](phase-7-magic-link-fix/) (015, 016, 017 emergency probe fix) |
 
 ## 4. Quality Gates & Testing Commands (DoD)
 

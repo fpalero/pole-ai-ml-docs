@@ -2101,13 +2101,13 @@
   },
   "packages/pole_rag/PLAN.md": {
     "created_date": "2026-09-03T19:21:14+00:00",
-    "file_hash": "3eae46ae03aa8fc84bc9d809c23301902aa5d09f480206190c0d508a14a2c191",
-    "last_update": "2026-09-04T13:16:32+00:00"
+    "file_hash": "94fa511e4b341388477990867b2e5981eabf37190d919ec407c1fb6920e39f7c",
+    "last_update": "2026-09-04T16:11:18+00:00"
   },
   "packages/pole_rag/PROJECT_VARS.md": {
     "created_date": "2026-09-03T19:21:14+00:00",
-    "file_hash": "c5168df669e5a631abbe34eb679c96d9f699d083417aa3028e4828b52624a8d9",
-    "last_update": "2026-09-04T12:53:45+00:00"
+    "file_hash": "af11c57c1894d8678ab1f1264405d4f4f877770d9dbc0cfc032f0f9ecf535962",
+    "last_update": "2026-09-04T16:11:18+00:00"
   },
   "packages/pole_rag/phase-1-package-scaffold/PAIML-POLE-RAG-001.md": {
     "created_date": "2026-09-03T19:21:14+00:00",
@@ -2259,6 +2259,16 @@
     "file_hash": "812f5e550fc0e977edbd857f98fd013bddffbf9669e9c75e81758e82c49ca369",
     "last_update": "2026-09-04T13:16:32+00:00"
   },
+  "packages/pole_rag/phase-7-pymupdf-swap/PAIML-POLE-RAG-032.md": {
+    "created_date": "2026-09-04T16:11:29+00:00",
+    "file_hash": "d7511cbc3666ed8d926179a6eef093dd74851b0d5eb490db955d739600671509",
+    "last_update": "2026-09-04T16:11:04+00:00"
+  },
+  "packages/pole_rag/phase-7-pymupdf-swap/PAIML-POLE-RAG-033.md": {
+    "created_date": "2026-09-04T16:11:29+00:00",
+    "file_hash": "5f98d7b017d8fac84b5eb50127ce61f0749d16619a879f3b3ca9ddcef612dff1",
+    "last_update": "2026-09-04T16:11:04+00:00"
+  },
   "packages/pole_rag/plan/PLAN_PHASE_1.md": {
     "created_date": "2026-09-03T19:21:14+00:00",
     "file_hash": "bbe133a18409de83d8807a7ecc34dbca2e3c67fee6a69e22672ffa91af0e7287",
@@ -2288,6 +2298,11 @@
     "created_date": "2026-09-04T12:54:35+00:00",
     "file_hash": "ea8e1464d71a3af521be377168d6169943dc057397e9beadbd42dfb71a71d458",
     "last_update": "2026-09-04T13:16:32+00:00"
+  },
+  "packages/pole_rag/plan/PLAN_PHASE_7.md": {
+    "created_date": "2026-09-04T16:11:29+00:00",
+    "file_hash": "366f2ae70ab06ddd1a90b0f9a916408fabe0d8dc611aa5684b68224df5aa5fdf",
+    "last_update": "2026-09-04T16:11:18+00:00"
   },
   "packages/pole_tools/PLAN.md": {
     "created_date": "2026-08-30T19:07:49+00:00",

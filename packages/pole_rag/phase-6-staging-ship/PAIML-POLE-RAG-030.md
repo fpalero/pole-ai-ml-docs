@@ -49,7 +49,7 @@ pole-ai-ml
 
 ## Dependencies
 - **Blocks**: —
-- **Blocked By**: PAIML-POLE-RAG-029
+- **Blocked By**: PAIML-POLE-RAG-029, PAIML-POLE-RAG-031
 
 ## Estimated Effort
 - [S]

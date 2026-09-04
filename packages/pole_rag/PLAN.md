@@ -149,9 +149,13 @@
       seed of the 4 DBs + `kubectl cp` transfer runbook + embedder-model lane.
       Ticket 029 (`pole-ai-ml-infra`; seed/cp are a runbook, no repo change).
 - [ ] [Application] Verify on staging: 4 tools return hits; unknown DB still
-      `ToolError`; `/data/chroma` untouched. Ticket 030 (`pole-ai-ml`).
+      `ToolError`; `/data/chroma` untouched. Ticket 030 (`pole-ai-ml`,
+      blocked by 029 + 031).
+- [ ] [CI] Include `pole_rag` sources in base-image `HASH_INPUTS` so any
+      `pole_rag` change forces a base rebuild. Ticket 031 (`pole-ai-ml`,
+      blocks 030).
 - [ ] Detail: [plan/PLAN_PHASE_6.md](plan/PLAN_PHASE_6.md) · Tickets:
-      [phase-6-staging-ship](phase-6-staging-ship/) (027, 028, 029, 030).
+      [phase-6-staging-ship](phase-6-staging-ship/) (027, 028, 029, 030, 031).
 - [ ] Decision record (Chroma/RAG investigation: image absence, `/data/chroma`
       occupied by `movement_embeddings`, `/data/rag` home, seed-locally choice):
       [plan/PLAN_PHASE_6.md](plan/PLAN_PHASE_6.md#decision-record--why-datarag-why-seed-then-copy).

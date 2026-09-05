@@ -24,6 +24,28 @@ build-push metadata action (verified: tags `develop` + `f01c7f8` on GHCR).
 ## Repository
 pole-ai-ml (Step 1) + infrastracture / pole-ai-ml-infra (Step 2)
 
+## E2E Evidence — 2026-09-05 (build-side sha-tag gap)
+- `pole-ai-ml` build-push run `33960263051` was GREEN.
+- `deploy-dev` dispatched immutable tag `4040e55`, but GHCR `pole-api`
+  had only the `main` tag and no `:4040e55` — the dispatched sha was
+  never published by the build.
+- Staging pod entered `ImagePullBackOff` on the missing sha tag.
+- Deployment was rolled back to the working `develop` image.
+- Belt workflow is temporarily disabled to avoid dispatching another
+  missing-sha deploy until the build-side fix below lands.
+
+## E2E SUCCESS — 2026-09-05 (sha-tag loop closed, run 85e6148)
+- `pole-ai-ml` build-push run `33962678392` (`develop@85e6148`) GREEN, all
+  three jobs; build published GHCR tag `:85e6148` alongside `develop`.
+- `deploy-dev` dispatched `client-payload '{"tag": "85e6148"}'`.
+- `pole-ai-ml-infra` Deploy to DEV run `33963034087` SUCCESS via
+  `repository_dispatch`; staging Deployment auto-rolled with no manual
+  `kubectl` — pod on `ghcr.io/fpalero/pole-api:85e6148`, Running/ready/
+  0 restarts.
+- Contrast: run `33960263051` dispatched `4040e55` which was never published,
+  causing `ImagePullBackOff` + rollback. The Step 4 build-side fix (publish
+  the dispatched sha tag) resolved it.
+
 ## What to Do (Implementation Steps)
 - [ ] Step 1 [pole-ai-ml]: In `.github/workflows/build-push.yml` `deploy-dev`
       job, dispatch the immutable short sha, e.g. compute
@@ -42,6 +64,11 @@ pole-ai-ml (Step 1) + infrastracture / pole-ai-ml-infra (Step 2)
       dispatch carries sha → `helm template` changes → pod rolls without
       manual intervention; record pod-old-digest vs new-digest + rollout
       status as evidence on the ticket.
+- [ ] Step 4 [pole-ai-ml, REQUIRED build-side fix]: `build-and-push` must
+      publish the same immutable short-sha tag that `deploy-dev` dispatches,
+      for all built images, while preserving existing branch/`latest`
+      behavior (additive tag only — do not remove `develop`/`main`/`latest`
+      tags).
 
 ## Acceptance Criteria (Definition of Done for this Ticket)
 - [ ] `build-push.yml` `deploy-dev` dispatches an immutable short-sha tag
@@ -49,6 +76,9 @@ pole-ai-ml (Step 1) + infrastracture / pole-ai-ml-infra (Step 2)
       output.
 - [ ] `deploy-dev.yml` deploys the dispatched sha as-is; `develop` remains
       only as an empty-payload safety fallback, documented as such.
+- [ ] `build-and-push` publishes the dispatched short-sha tag for every
+      built image (GHCR shows `:4040e55`-style tag alongside branch/`latest`
+      tags); no `ImagePullBackOff` on the dispatched sha.
 - [ ] E2E evidence on the ticket: next `develop` merge rolls the pod with no
       manual `kubectl rollout restart` (old vs new digest + rollout status).
 
@@ -56,6 +86,8 @@ pole-ai-ml (Step 1) + infrastracture / pole-ai-ml-infra (Step 2)
 - [ ] `actionlint` clean on `build-push.yml` + `deploy-dev.yml`.
 - [ ] `helm template` diff: image string changes with the sha tag vs the
       previous `develop` no-op.
+- [ ] GHCR check: every built image exposes the dispatched short-sha tag
+      (e.g. `pole-api:4040e55`) in addition to branch/`latest` tags.
 - [ ] End-to-end: merge to `develop` → build-push auto → deploy-dev dispatch
       carries sha → pod rolls without manual intervention; record
       pod-old-digest vs new-digest + rollout status.

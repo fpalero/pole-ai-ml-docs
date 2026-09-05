@@ -139,7 +139,7 @@
 - [ ] [Application] Integration test (marked `integration`): tools query a seeded test DB
       and return expected source documents.
 
-### Phase 6: Staging ship (image + data dir + seed + verify) — 📋 PLANNED
+### Phase 6: Staging ship (image + data dir + seed + verify) — ✅ DONE (2026-09-05: tickets 029/030/031/035/036/037 merged or verified; 030 tester PASS on staging pod digest sha256:9555b1d8…, 4 tools k=3, unknown-DB ToolError, movement_embeddings 7712 intact)
 - [ ] [Infrastructure] Ship `pole_rag` in the pole-api base image (`base.Dockerfile`
       COPY + import path; slow base rebuild lane). Ticket 027 (`pole-ai-ml`).
 - [ ] [Application] `POLE_RAG_DATA_DIR` env override in

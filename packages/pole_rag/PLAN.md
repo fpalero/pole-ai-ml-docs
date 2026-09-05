@@ -159,6 +159,10 @@
 - [ ] Decision record (Chroma/RAG investigation: image absence, `/data/chroma`
   occupied by `movement_embeddings`, `/data/rag` home, seed-locally choice):
   [plan/PLAN_PHASE_6.md](plan/PLAN_PHASE_6.md#decision-record--why-datarag-why-seed-then-copy).
+- [ ] Follow-ups: 035 (HF embedder bake lane, blocks 030) + 036 (psychology
+  DB-name mapping, blocks 030) in [phase-6-staging-ship](phase-6-staging-ship/);
+  037 (CPU-only torch fix for the 035 base-image disk-full, blocked by 035 —
+  030's embedder proof proceeds once the baked image builds).
 
 ### Phase 7: PyMuPDF swap (deterministic text extraction) — 📋 PLANNED
 - [ ] [Infrastructure] Ticket 032 (`pole-ai-ml`): uninstall Marker — remove

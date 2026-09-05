@@ -34,6 +34,18 @@ pole-ai-ml (Step 1) + infrastracture / pole-ai-ml-infra (Step 2)
 - Belt workflow is temporarily disabled to avoid dispatching another
   missing-sha deploy until the build-side fix below lands.
 
+## E2E SUCCESS — 2026-09-05 (sha-tag loop closed, run 85e6148)
+- `pole-ai-ml` build-push run `33962678392` (`develop@85e6148`) GREEN, all
+  three jobs; build published GHCR tag `:85e6148` alongside `develop`.
+- `deploy-dev` dispatched `client-payload '{"tag": "85e6148"}'`.
+- `pole-ai-ml-infra` Deploy to DEV run `33963034087` SUCCESS via
+  `repository_dispatch`; staging Deployment auto-rolled with no manual
+  `kubectl` — pod on `ghcr.io/fpalero/pole-api:85e6148`, Running/ready/
+  0 restarts.
+- Contrast: run `33960263051` dispatched `4040e55` which was never published,
+  causing `ImagePullBackOff` + rollback. The Step 4 build-side fix (publish
+  the dispatched sha tag) resolved it.
+
 ## What to Do (Implementation Steps)
 - [ ] Step 1 [pole-ai-ml]: In `.github/workflows/build-push.yml` `deploy-dev`
       job, dispatch the immutable short sha, e.g. compute

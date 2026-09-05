@@ -2106,8 +2106,8 @@
   },
   "packages/pole_rag/PROJECT_VARS.md": {
     "created_date": "2026-09-03T19:21:14+00:00",
-    "file_hash": "af11c57c1894d8678ab1f1264405d4f4f877770d9dbc0cfc032f0f9ecf535962",
-    "last_update": "2026-09-04T16:11:18+00:00"
+    "file_hash": "12ab2327f63a8a61de5f6b7f5e01a9ad99c8b277c63d77f675504a7b6373beda",
+    "last_update": "2026-09-05T07:25:30+00:00"
   },
   "packages/pole_rag/phase-1-package-scaffold/PAIML-POLE-RAG-001.md": {
     "created_date": "2026-09-03T19:21:14+00:00",
@@ -2256,8 +2256,18 @@
   },
   "packages/pole_rag/phase-6-staging-ship/PAIML-POLE-RAG-030.md": {
     "created_date": "2026-09-04T12:54:35+00:00",
-    "file_hash": "812f5e550fc0e977edbd857f98fd013bddffbf9669e9c75e81758e82c49ca369",
-    "last_update": "2026-09-04T13:16:32+00:00"
+    "file_hash": "89d841f7eb506a19f2d4d8f1dc20532764450e2f34343c805b4cccf46ef5c881",
+    "last_update": "2026-09-05T07:25:30+00:00"
+  },
+  "packages/pole_rag/phase-6-staging-ship/PAIML-POLE-RAG-035.md": {
+    "created_date": "2026-09-05T07:26:02+00:00",
+    "file_hash": "00741ca0676f32c2c0301a5c2ca839fe03692ff90dfe96661b249d1688d68895",
+    "last_update": "2026-09-05T07:25:51+00:00"
+  },
+  "packages/pole_rag/phase-6-staging-ship/PAIML-POLE-RAG-036.md": {
+    "created_date": "2026-09-05T07:26:02+00:00",
+    "file_hash": "6d941efc6bc50983b5e52009115a1dd97e55621ffe6794864ebe09ac8b461f76",
+    "last_update": "2026-09-05T07:25:51+00:00"
   },
   "packages/pole_rag/phase-7-pymupdf-swap/PAIML-POLE-RAG-032.md": {
     "created_date": "2026-09-04T16:11:29+00:00",
@@ -2268,6 +2278,11 @@
     "created_date": "2026-09-04T16:11:29+00:00",
     "file_hash": "5f98d7b017d8fac84b5eb50127ce61f0749d16619a879f3b3ca9ddcef612dff1",
     "last_update": "2026-09-04T16:11:04+00:00"
+  },
+  "packages/pole_rag/phase-7-pymupdf-swap/PAIML-POLE-RAG-034.md": {
+    "created_date": "2026-09-04T18:40:25+00:00",
+    "file_hash": "20764e856c1639cfbac2583bf185a951bc92458243e1a6ab19fd15bab596a1d4",
+    "last_update": "2026-09-04T16:52:25+00:00"
   },
   "packages/pole_rag/plan/PLAN_PHASE_1.md": {
     "created_date": "2026-09-03T19:21:14+00:00",

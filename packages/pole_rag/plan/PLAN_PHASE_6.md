@@ -14,7 +14,8 @@ How to use this plan (Diátaxis: how-to guide — you are working to ship, not
 learning RAG concepts):
 
 - If you want the *why* behind the storage choice, read **Decision record**
-  below first, then follow **Tasks** in ticket order 027 → 028 → 029 → 030.
+  below first, then follow **Tasks** in ticket order 027 → 028 → 029 → 030,
+  plus 031 (CI hash fix, blocks 030).
 - If you want facts while working (file paths, env names, DB layout), use the
   **Reference** boxes inside each ticket — they describe, they do not instruct.
 
@@ -75,9 +76,13 @@ Related: keycloak Phase 8 close-out
       that modifies no repo files.
 - [ ] Ticket 030 — verification: RAG tool returns hits on staging;
       `FileNotFoundError`→`ToolError` preserved for unknown DBs.
-      Repo `pole-ai-ml`.
+      Repo `pole-ai-ml`. Blocked by 029 + 031 (needs the rebuilt image).
+- [ ] Ticket 031 — CI: include `pole_rag` sources in base-image `HASH_INPUTS`
+      so any `pole_rag` change forces a base rebuild (028 shipped stale base).
+      Repo `pole-ai-ml`. Blocks 030.
 
-Ticket order: 027 → 028 → 029 → 030 (linear; each blocks the next).
+Ticket order: 027 → 028 → 029 → 030 (linear; each blocks the next), plus
+031 → 030 (hash fix gates verification).
 
 ## Dependencies
 

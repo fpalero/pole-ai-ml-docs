@@ -1,6 +1,6 @@
 {
   ".trash/Sin t\u00edtulo.md": {
-    "created_date": "2026-09-04T13:17:33+00:00",
+    "created_date": "2026-09-05T08:35:37+00:00",
     "file_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "last_update": "2026-08-31T05:18:09+00:00"
   },
@@ -2101,13 +2101,13 @@
   },
   "packages/pole_rag/PLAN.md": {
     "created_date": "2026-09-03T19:21:14+00:00",
-    "file_hash": "94fa511e4b341388477990867b2e5981eabf37190d919ec407c1fb6920e39f7c",
-    "last_update": "2026-09-04T16:11:18+00:00"
+    "file_hash": "74637cf20e5c6aa8b38923070c50368104326d9d07e8d6049f1c70f824197f32",
+    "last_update": "2026-09-05T08:31:39+00:00"
   },
   "packages/pole_rag/PROJECT_VARS.md": {
     "created_date": "2026-09-03T19:21:14+00:00",
-    "file_hash": "12ab2327f63a8a61de5f6b7f5e01a9ad99c8b277c63d77f675504a7b6373beda",
-    "last_update": "2026-09-05T07:25:30+00:00"
+    "file_hash": "29ae9c5aee7316751df85affb99520e5980c2f877ca755520a0cee46388ed22a",
+    "last_update": "2026-09-05T08:35:03+00:00"
   },
   "packages/pole_rag/phase-1-package-scaffold/PAIML-POLE-RAG-001.md": {
     "created_date": "2026-09-03T19:21:14+00:00",
@@ -2256,8 +2256,13 @@
   },
   "packages/pole_rag/phase-6-staging-ship/PAIML-POLE-RAG-030.md": {
     "created_date": "2026-09-04T12:54:35+00:00",
-    "file_hash": "89d841f7eb506a19f2d4d8f1dc20532764450e2f34343c805b4cccf46ef5c881",
-    "last_update": "2026-09-05T07:25:30+00:00"
+    "file_hash": "2287b147c4576f777e68fa23e14be25fb01720401bf65ac45b5093ccd255ee66",
+    "last_update": "2026-09-05T08:35:27+00:00"
+  },
+  "packages/pole_rag/phase-6-staging-ship/PAIML-POLE-RAG-031.md": {
+    "created_date": "2026-09-05T08:35:37+00:00",
+    "file_hash": "cb7fc8e708e695fb3552ea28187fa22da1ef1110e71a21622b44222113e25773",
+    "last_update": "2026-09-05T08:31:39+00:00"
   },
   "packages/pole_rag/phase-6-staging-ship/PAIML-POLE-RAG-035.md": {
     "created_date": "2026-09-05T07:26:02+00:00",
@@ -2311,8 +2316,8 @@
   },
   "packages/pole_rag/plan/PLAN_PHASE_6.md": {
     "created_date": "2026-09-04T12:54:35+00:00",
-    "file_hash": "ea8e1464d71a3af521be377168d6169943dc057397e9beadbd42dfb71a71d458",
-    "last_update": "2026-09-04T13:16:32+00:00"
+    "file_hash": "69f51f1a498b58da0bcc8737dd62f669b8d019aeb26019896818ccbc9bcc09bb",
+    "last_update": "2026-09-05T08:31:39+00:00"
   },
   "packages/pole_rag/plan/PLAN_PHASE_7.md": {
     "created_date": "2026-09-04T16:11:29+00:00",

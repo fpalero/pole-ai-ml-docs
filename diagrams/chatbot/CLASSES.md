@@ -15,6 +15,8 @@ classDiagram
     class ReActAgent
     class ToolRegistry
     class register_default_tools
+    class register_rag_tools
+    class RAG_DB_BY_TOOL
     class JOB_HANDLERS
     class OpenCodeClient
     class SessionService
@@ -33,8 +35,11 @@ classDiagram
     ReActAgent --> MetricsCollector
 
     ToolRegistry --> register_default_tools
+    ToolRegistry --> register_rag_tools
     ToolRegistry --> JOB_HANDLERS
     ToolRegistry --> PoleToolsFacade
+    register_rag_tools --> RAG_DB_BY_TOOL
+    RAG_DB_BY_TOOL --> PoleRagQuery
 
     SessionService --> ChatbotSession
     SessionService --> SessionRepo
@@ -50,12 +55,18 @@ classDiagram
     class PoleToolsFacade {
         crop · shift · histogram · similarity
     }
+    class PoleRagQuery {
+        query_pole · query_calisthenics
+        query_psicology → psychology
+        query_biomechanics (k=3)
+    }
     class Redis
     class Postgres
     class JobOrchestrator
 ```
 
 > **Legend:** `-->` = "depends on / calls". `PoleToolsFacade` is the `pole_tools` services facade;
+> `PoleRagQuery` is `pole_rag.query` via `rag_tools.py` (staging `/data/rag`, unknown-DB `ToolError`);
 > `JobOrchestrator` comes from the `jobs` package; `Redis`/`Postgres` are session backends.
 
 ---
@@ -81,6 +92,8 @@ classDiagram
 | `agent.py` — `ReActAgent` | Bounded tool-call loop (`max_iterations`, default 6), error capture, off-script rephrase | `OpenCodeClient`, `ToolRegistry`, `SessionService` | message + session → reply |
 | `tools.py` — `ToolRegistry` | Registers/dispatches tools; sync (`histogram`, `similarity`) and job-mode (`crop`, `shift`) | `register_default_tools`, `pole_tools` facade, `JobHandlers` | tool call → result |
 | `tools.py` — `register_default_tools` | Wire default tools into a registry | `ToolRegistry`, `pole_tools` services | — |
+| `rag_tools.py` — `RAG_DB_BY_TOOL` | Tool name → DB dir map (`query_psicology` → `psychology` since 036; tool names unchanged) | `register_rag_tools`, `pole_rag.query` | tool name → DB folder |
+| `rag_tools.py` — `register_rag_tools` | Wire 4 sync RAG tools (k=3, `source_document` metadata, `ToolError` on unknown DB) | `ToolRegistry`, `pole_rag.query` | query → k hits |
 | `job_handlers.py` — `JOB_HANDLERS` | Worker-side handlers for job-mode tools with progress stages | `JobOrchestrator`, `pole_tools` facade | job → progress events |
 | `llm.py` — `OpenCodeClient` | Text chat client to OpenCode sidecar (`/v1/chat/completions`) | httpx, config | prompt → text |
 | `session_service.py` — `SessionService` | Load/create/persist/resume `ChatbotSession` | `session_schema`, session repos | session id ↔ session |
@@ -94,6 +107,10 @@ classDiagram
   registry to invoke the tool the LLM requested. Sync tools return inline, job-mode tools spawn jobs.
 - **`register_default_tools`** — Convenience function that wires the standard tool set into a fresh
   registry at startup.
+- **`RAG_DB_BY_TOOL` / `register_rag_tools`** — The RAG tool map + wiring. Each tool queries its Chroma DB
+  (`pole`, `calisthenics`, `psychology`, `biomechanics`) via `pole_rag.query` with `data_dir` from
+  `POLE_RAG_DATA_DIR` (staging `/data/rag`); unknown DBs surface `FileNotFoundError` as `ToolError`
+  without crashing the pod (030 contract).
 - **`JOB_HANDLERS`** — The map of job-mode tools to worker handlers; the `JobWorker` uses these to
   run long operations (crop/shift) with progress.
 - **`OpenCodeClient`** — The LLM transport. Send a prompt (text or multimodal) and get a response

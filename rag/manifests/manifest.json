@@ -11,8 +11,8 @@
   },
   "DEVELOPEMENT.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
-    "file_hash": "47cd12b17bcdf3770ecbd52c723521cf00f1f8dee756cea8f35d50739be3b3de",
-    "last_update": "2026-09-04T13:16:32+00:00"
+    "file_hash": "565ffdb01c1d0894989173c30ef7e1e149db1e4bf07ed041e8bce322681df9b0",
+    "last_update": "2026-09-05T11:26:49+00:00"
   },
   "ENV_VARS.md": {
     "created_date": "2026-08-31T08:28:19+00:00",
@@ -1781,8 +1781,8 @@
   },
   "diagrams/ARCHITECTURE.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
-    "file_hash": "3df400cb06a0ac0fea44fd03fc045b8a780d857e78a77691e5dc2e8da362ec12",
-    "last_update": "2026-09-04T12:50:53+00:00"
+    "file_hash": "5446cb39b0dc164c35b4200064bfb2c8ee9b391cf9a9f1414edc980777066bd8",
+    "last_update": "2026-09-05T11:27:12+00:00"
   },
   "diagrams/agents/FLOW.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
@@ -1791,18 +1791,18 @@
   },
   "diagrams/chatbot/CLASSES.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
-    "file_hash": "eedc787e0206809b3fc7f70753ebec775cc2ae3a64dfbc11f621dc2bbf0c1b8f",
-    "last_update": "2026-09-04T12:50:53+00:00"
+    "file_hash": "a841cb57bdbc53a904087a46a9909105c9e6cbdf756e9ebc813139e38e58a171",
+    "last_update": "2026-09-05T11:27:35+00:00"
   },
   "diagrams/chatbot/FLOW.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
-    "file_hash": "3aa0e2c9f0309856aa158d819f7e613e96615aec2f7ce5dbea7ee5504d168d2b",
-    "last_update": "2026-09-04T12:50:53+00:00"
+    "file_hash": "77134e962a63a4e3853103c20434a593febc13814750e8314a62fd5379285dd6",
+    "last_update": "2026-09-05T11:27:22+00:00"
   },
   "diagrams/infra/INFRA.md": {
     "created_date": "2026-08-31T13:56:21+00:00",
-    "file_hash": "a3ce1e9cff25b39aaa13cf0b1fb28650d5131441503f03b243286d58df25e996",
-    "last_update": "2026-09-04T12:50:53+00:00"
+    "file_hash": "bfb675dbe55eab30b74116282690e1a9290c4c9c1e3b85eb30b4470f71ec75d5",
+    "last_update": "2026-09-05T11:27:46+00:00"
   },
   "diagrams/infra/K3S_VERIFICATION.md": {
     "created_date": "2026-08-31T13:56:21+00:00",
@@ -1888,6 +1888,16 @@
     "created_date": "2026-08-30T19:07:49+00:00",
     "file_hash": "9c4cb652b9594b753497febd83e09ddf705ef1d45476a9aeed7112c82232b3b1",
     "last_update": "2026-09-04T12:50:53+00:00"
+  },
+  "diagrams/pole_rag/CLASSES.md": {
+    "created_date": "2026-09-05T11:28:38+00:00",
+    "file_hash": "2300cf4002efd5efb72ee8a1dcf1f1c713090f95cdc593715c9817a5acf774fe",
+    "last_update": "2026-09-05T11:28:02+00:00"
+  },
+  "diagrams/pole_rag/FLOW.md": {
+    "created_date": "2026-09-05T11:28:38+00:00",
+    "file_hash": "dbdb99153afb46ce45d8bf54bd93573e672a00b6e7d24fbc5f9f07bac285b840",
+    "last_update": "2026-09-05T11:27:55+00:00"
   },
   "diagrams/pole_tools/CLASSES.md": {
     "created_date": "2026-08-30T19:07:49+00:00",

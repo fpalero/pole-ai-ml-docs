@@ -61,8 +61,8 @@
   },
   "app/infra/PROJECT_VARS.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
-    "file_hash": "c56e81cd67423c06308dc44508ab697c6ad2ef88e15f6c7d06ec801a7ff21c96",
-    "last_update": "2026-09-05T08:41:35+00:00"
+    "file_hash": "784d7cc85b34cb37870c4869b671b8020d52bf16e1f41110bc07ed214402026b",
+    "last_update": "2026-09-05T09:53:35+00:00"
   },
   "app/infra/phase-1-ghcr-build-push/PAIML-INFRA-001.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
@@ -103,6 +103,11 @@
     "created_date": "2026-09-05T08:41:44+00:00",
     "file_hash": "c3a0a6cdaecfd8d1f91a6f2f5a6b4f4150ec9124cd5ff45082cce5ac810ec8f5",
     "last_update": "2026-09-05T08:41:30+00:00"
+  },
+  "app/infra/phase-2-dev-auto-deploy/PAIML-INFRA-027.md": {
+    "created_date": "2026-09-05T09:53:52+00:00",
+    "file_hash": "87d8d727c972d9b19c10176bacfb7e8dd68795c95b007406a0f2087f341c66c2",
+    "last_update": "2026-09-05T09:53:22+00:00"
   },
   "app/infra/phase-3-staging-prod-pipeline/PAIML-INFRA-007.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
@@ -2106,8 +2111,8 @@
   },
   "packages/pole_rag/PLAN.md": {
     "created_date": "2026-09-03T19:21:14+00:00",
-    "file_hash": "3f70d152055cda01b16a3f23a1ec71dd4f5693f531fa3988de71cddc6a6906d6",
-    "last_update": "2026-09-05T08:41:33+00:00"
+    "file_hash": "6b379bb7959dc0ac6cb1fda102d5749b30756649242a34512875bed4d9853e08",
+    "last_update": "2026-09-05T09:53:08+00:00"
   },
   "packages/pole_rag/PROJECT_VARS.md": {
     "created_date": "2026-09-03T19:21:14+00:00",

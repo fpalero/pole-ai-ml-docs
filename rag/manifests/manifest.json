@@ -1,4 +1,9 @@
 {
+  ".trash/Sin t\u00edtulo.md": {
+    "created_date": "2026-09-05T08:35:37+00:00",
+    "file_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "last_update": "2026-08-31T05:18:09+00:00"
+  },
   "ARCHITECTURE.md": {
     "created_date": "2026-08-31T13:56:21+00:00",
     "file_hash": "29e4ca4fc066895553dd7111334164c67815595f7385f6ec89cb1c4d78e24bfc",
@@ -2096,13 +2101,13 @@
   },
   "packages/pole_rag/PLAN.md": {
     "created_date": "2026-09-03T19:21:14+00:00",
-    "file_hash": "07d469372b79bb2b93bd7eb45f954273f9cb574fea9ec640f3b30ec5d2b0b937",
-    "last_update": "2026-09-04T14:06:02+00:00"
+    "file_hash": "74637cf20e5c6aa8b38923070c50368104326d9d07e8d6049f1c70f824197f32",
+    "last_update": "2026-09-05T08:31:39+00:00"
   },
   "packages/pole_rag/PROJECT_VARS.md": {
     "created_date": "2026-09-03T19:21:14+00:00",
-    "file_hash": "935850e74c22b0aa9988de0b0344d8bc22ba1a5be60b4afc6263e50705792f14",
-    "last_update": "2026-09-04T14:05:50+00:00"
+    "file_hash": "29ae9c5aee7316751df85affb99520e5980c2f877ca755520a0cee46388ed22a",
+    "last_update": "2026-09-05T08:35:03+00:00"
   },
   "packages/pole_rag/phase-1-package-scaffold/PAIML-POLE-RAG-001.md": {
     "created_date": "2026-09-03T19:21:14+00:00",
@@ -2251,13 +2256,38 @@
   },
   "packages/pole_rag/phase-6-staging-ship/PAIML-POLE-RAG-030.md": {
     "created_date": "2026-09-04T12:54:35+00:00",
-    "file_hash": "5045dc4f0e2bce099b287923029daea0ed5dc4407e0a9375de50a9134ac1f23b",
-    "last_update": "2026-09-04T14:05:48+00:00"
+    "file_hash": "2287b147c4576f777e68fa23e14be25fb01720401bf65ac45b5093ccd255ee66",
+    "last_update": "2026-09-05T08:35:27+00:00"
   },
   "packages/pole_rag/phase-6-staging-ship/PAIML-POLE-RAG-031.md": {
-    "created_date": "2026-09-04T14:07:24+00:00",
+    "created_date": "2026-09-05T08:35:37+00:00",
     "file_hash": "cb7fc8e708e695fb3552ea28187fa22da1ef1110e71a21622b44222113e25773",
-    "last_update": "2026-09-04T14:05:46+00:00"
+    "last_update": "2026-09-05T08:31:39+00:00"
+  },
+  "packages/pole_rag/phase-6-staging-ship/PAIML-POLE-RAG-035.md": {
+    "created_date": "2026-09-05T07:26:02+00:00",
+    "file_hash": "00741ca0676f32c2c0301a5c2ca839fe03692ff90dfe96661b249d1688d68895",
+    "last_update": "2026-09-05T07:25:51+00:00"
+  },
+  "packages/pole_rag/phase-6-staging-ship/PAIML-POLE-RAG-036.md": {
+    "created_date": "2026-09-05T07:26:02+00:00",
+    "file_hash": "6d941efc6bc50983b5e52009115a1dd97e55621ffe6794864ebe09ac8b461f76",
+    "last_update": "2026-09-05T07:25:51+00:00"
+  },
+  "packages/pole_rag/phase-7-pymupdf-swap/PAIML-POLE-RAG-032.md": {
+    "created_date": "2026-09-04T16:11:29+00:00",
+    "file_hash": "d7511cbc3666ed8d926179a6eef093dd74851b0d5eb490db955d739600671509",
+    "last_update": "2026-09-04T16:11:04+00:00"
+  },
+  "packages/pole_rag/phase-7-pymupdf-swap/PAIML-POLE-RAG-033.md": {
+    "created_date": "2026-09-04T16:11:29+00:00",
+    "file_hash": "5f98d7b017d8fac84b5eb50127ce61f0749d16619a879f3b3ca9ddcef612dff1",
+    "last_update": "2026-09-04T16:11:04+00:00"
+  },
+  "packages/pole_rag/phase-7-pymupdf-swap/PAIML-POLE-RAG-034.md": {
+    "created_date": "2026-09-04T18:40:25+00:00",
+    "file_hash": "20764e856c1639cfbac2583bf185a951bc92458243e1a6ab19fd15bab596a1d4",
+    "last_update": "2026-09-04T16:52:25+00:00"
   },
   "packages/pole_rag/plan/PLAN_PHASE_1.md": {
     "created_date": "2026-09-03T19:21:14+00:00",
@@ -2287,7 +2317,12 @@
   "packages/pole_rag/plan/PLAN_PHASE_6.md": {
     "created_date": "2026-09-04T12:54:35+00:00",
     "file_hash": "69f51f1a498b58da0bcc8737dd62f669b8d019aeb26019896818ccbc9bcc09bb",
-    "last_update": "2026-09-04T14:05:55+00:00"
+    "last_update": "2026-09-05T08:31:39+00:00"
+  },
+  "packages/pole_rag/plan/PLAN_PHASE_7.md": {
+    "created_date": "2026-09-04T16:11:29+00:00",
+    "file_hash": "366f2ae70ab06ddd1a90b0f9a916408fabe0d8dc611aa5684b68224df5aa5fdf",
+    "last_update": "2026-09-04T16:11:18+00:00"
   },
   "packages/pole_tools/PLAN.md": {
     "created_date": "2026-08-30T19:07:49+00:00",

@@ -157,8 +157,26 @@
 - [ ] Detail: [plan/PLAN_PHASE_6.md](plan/PLAN_PHASE_6.md) · Tickets:
       [phase-6-staging-ship](phase-6-staging-ship/) (027, 028, 029, 030, 031).
 - [ ] Decision record (Chroma/RAG investigation: image absence, `/data/chroma`
-      occupied by `movement_embeddings`, `/data/rag` home, seed-locally choice):
-      [plan/PLAN_PHASE_6.md](plan/PLAN_PHASE_6.md#decision-record--why-datarag-why-seed-then-copy).
+  occupied by `movement_embeddings`, `/data/rag` home, seed-locally choice):
+  [plan/PLAN_PHASE_6.md](plan/PLAN_PHASE_6.md#decision-record--why-datarag-why-seed-then-copy).
+
+### Phase 7: PyMuPDF swap (deterministic text extraction) — 📋 PLANNED
+- [ ] [Infrastructure] Ticket 032 (`pole-ai-ml`): uninstall Marker — remove
+      `marker-pdf` from `pixi.toml` `[pypi-dependencies]`, trim (not drop)
+      the HF offline block, re-verify the `websockets` constraint,
+      `pixi install` to regenerate the lock, `pixi run test-rag` still
+      collects (extractor failures = known-break fixed by 033).
+- [ ] [Infrastructure] Ticket 033 (`pole-ai-ml`): new
+      `src/pole_rag/fitz_extractor.py` (same `convert` contract,
+      `page_chunks` + `write_images`), `POLE_RAG_EXTRACTOR=pymupdf|marker`
+      switch in `config.py` + `extractor.py` fallback, `--skip-images` on
+      the seed CLI, per-page progress log, updated extractor tests.
+- [ ] Detail: [plan/PLAN_PHASE_7.md](plan/PLAN_PHASE_7.md) · Tickets:
+      [phase-7-pymupdf-swap](phase-7-pymupdf-swap/) (032, 033).
+- [ ] Decision record (why Marker dropped: Surya multi-GB CPU hang +
+      `llava:7b` per-image cost over 550 MB/16 PDFs; 13 TEXT-OK + 3 MIXED,
+      0 scanned → PyMuPDF suffices):
+      [plan/PLAN_PHASE_7.md](plan/PLAN_PHASE_7.md#decision-record--why-marker-was-dropped).
 
 ---
 

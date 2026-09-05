@@ -34,6 +34,11 @@ flowchart LR
         FC["crop · shift · histogram · similarity"]
     end
 
+    subgraph RAG["pole_rag RAG tools (Phase 6 DONE)"]
+        RT["rag_tools.py<br/>query_pole · query_calisthenics<br/>query_psicology → psychology · query_biomechanics<br/>k=3 · unknown-DB ToolError"]
+        RS[("Chroma /data/rag<br/>text_chunks + image_descriptions")]
+    end
+
     subgraph JOB["jobs package"]
         ORC["JobOrchestrator"]
     end
@@ -48,6 +53,8 @@ flowchart LR
     SS --> SR
     SR --> DB
     TR --> FC
+    TR --> RT
+    RT --> RS
     TR --> JH
     JH --> ORC
     AG --> LLM
@@ -102,6 +109,7 @@ sequenceDiagram
 | **INFRA — SessionRepo (redis/postgres)** | Persistence backends for sessions. |
 | **INFRA — MetricsCollector** | Collects tool latency + LLM token usage. |
 | **TOOLS — `pole_tools` facade** | `crop · shift · histogram · similarity` import surface used by tools. |
+| **RAG — `rag_tools.py`** | 4 sync RAG tools over `pole_rag.query` (`POLE_RAG_DATA_DIR`, default package `data/`, staging `/data/rag`; explicit `data_dir` wins). `query_psicology` maps to the `psychology` DB dir (036; tool name unchanged). Verified on staging per 030 (k=3, `source_document` metadata). |
 | **JOB — JobOrchestrator** | From the `jobs` package; runs job-mode tools. |
 | **OpenCode sidecar / MongoDB / Redis / PostgreSQL** | External LLM + datastores. |
 
@@ -115,6 +123,7 @@ sequenceDiagram
 ### Application
 - `agent.py` — `ReActAgent`: bounded ReAct loop, tool-call execution, error capture, off-script rephrase.
 - `tools.py` — `ToolRegistry` + `register_default_tools` (sync `histogram`/`similarity`, job-mode `crop`/`shift`).
+- `rag_tools.py` — `RAG_DB_BY_TOOL` + `register_rag_tools` (sync `query_pole`/`query_calisthenics`/`query_psicology`/`query_biomechanics`, k=3, `ToolError` on unknown DB; deferred `pole_rag` import so the module stays importable off-path).
 - `job_handlers.py` — `JOB_HANDLERS`: worker-side crop/shift handlers with progress stages.
 - `llm.py` — `OpenCodeClient`: text chat to OpenCode sidecar.
 - `session_service.py` — `SessionService`: session load/create/persist/resume.

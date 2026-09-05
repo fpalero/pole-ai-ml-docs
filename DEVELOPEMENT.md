@@ -24,7 +24,7 @@ It is generated from the authoritative plans under `docs/app/<project>/PLAN.md` 
 | [`pola_api`](#apppola_api) | App | FastAPI backend: training, crawler, video, tools & analysis slices. | 25/26 phases done · 1 partial |
 | [`pole_analyst`](#apppole_analyst) | App | Angular FE "Pole AI Coach" — athlete video-analysis coach (upload → analyze → feedback → chat). | 18/20 phases done · 1 partial · 1 future |
 | [`pole_fe`](#apppole_fe) | App | Angular FE training-workflow manager (tricks, video editor, studio, model registry, jobs). | 10/11 phases done · 1 future |
-| [`infra`](#appinfra) | App | CI/CD deploy pipeline: Helm, GHCR build-push, DEV/STAGING/PROD auto-deploy + observability logs. | Phases 1–2 landed · 3–5 ticketed · 6–8 planned |
+| [`infra`](#appinfra) | App | CI/CD deploy pipeline: Helm, GHCR build-push, DEV/STAGING/PROD auto-deploy + observability logs. | Phases 1–2 landed (026 PAT+belt, 027 sha-tag E2E green) · 3–5 ticketed · 6–8 planned |
 | [`keycloak`](#appkeycloak) | App | Temporary magic-link access (custom login theme, verify-email, Redis cooldown/activation, expiry purge). | 4/4 phases done |
 | [`dev-ops`](#appdev-ops) | App | CI workflows (PR gate, phase-completion, full-suite, MediaPipe, nightly docs). | Pending analysis |
 | [`chatbot`](#packageschatbot) | Package | ReAct conversational agent backend (WebSocket, tools, OpenCode client). | Complete (v1) |
@@ -33,6 +33,7 @@ It is generated from the authoritative plans under `docs/app/<project>/PLAN.md` 
 | [`pole_crop`](#packagespole_crop) | Package | FFmpeg video service (crop, shift, thumbnails, frame capture). | Complete (v1) |
 | [`pole_ml`](#packagespole_ml) | Package | ML pipeline: skeleton extraction, histogram features, LSTM training, embeddings, Chroma. | Core complete · 1 pending phase |
 | [`pole_tools`](#packagespole_tools) | Package | Reusable tools (HistogramAnalyzer, PoseCorrector, Crop/Shift, LLM client). | Complete (Phase 1) |
+| [`pole_rag`](#packagespole_rag) | Package | Multimodal RAG seeder (Marker/PyMuPDF → chunk → MiniLM → Chroma, 4 DBs) + chatbot query tools. | Phase 6 DONE (030 CLOSED) · Phase 7 planned |
 | [`crew`](#packagescrew) | Package | CrewAI-based multi-agent implementation engine (tickets → worktrees → PRs). | Phase 1 planned |
 
 ---
@@ -425,21 +426,26 @@ magic-link delivery, per-app role mapping, 2-hour session limits, expiry purge.
 ### `app/infra`
 **CI/CD deploy pipeline.** Helm umbrella charts for local k3s, GHCR build & push, DEV/STAGING/PROD
 auto-deploy + observability (elastic-stack, pole-api structured logging, packages log shipping).
-Phases 1–2 have largely landed in code (`build-push.yml`, `deploy-prod.yml`, `deploy-staging.yml`,
-repository_dispatch deploy-dev); Phases 3–5 are ticketed; Phases 6–8 are planned.
-24 tickets (`PAIML-INFRA-001..024`, counter=24); 8 phase folders
+Phases 1–2 have landed in code (`build-push.yml`, `deploy-prod.yml`, `deploy-staging.yml`,
+repository_dispatch deploy-dev, `build-reconcile.yml` belt, PAT-authenticated `/oc` merges,
+short-sha tag deploy loop E2E green on `85e6148`); Phases 3–5 are ticketed; Phases 6–8 are planned.
+27 tickets (`PAIML-INFRA-001..027`, counter=27); 8 phase folders
 (`phase-1-ghcr-build-push` … `phase-8-packages-logs`).
 
 | Phase | Description | Status |
 | :--- | :--- | :--- |
 | 1 — Helm Charts & Local Deploy (Foundation) | Umbrella `helm/pole-ai` chart + build-push/deploy/teardown scripts + local registry mirror. | **Landed in code** |
-| 2 — Build & Push to GHCR | `.github/workflows/build-push.yml` (push to main/develop), Docker layer caching, SHA/branch/semver tags, Trivy scan. | **Landed in code** |
+| 2 — Build & Push to GHCR + auto-trigger + sha-tag deploy | `.github/workflows/build-push.yml` (push to main/develop), Docker layer caching, SHA/branch/semver tags, Trivy scan; `PAIML-INFRA-026` PAT merge + `build-reconcile.yml` cron belt (both live on main); `PAIML-INFRA-027` short-sha tag deploy loop (E2E green, CLOSED). | **Done (026/027 CLOSED)** |
 | 3 — DEV Auto-Deploy | GitHub Environment `dev` + `.github/workflows/deploy-dev.yml` + Helm `--wait` + health check. | **Ticketed** |
 | 4 — STAGING & PROD Pipelines | `deploy-staging.yml` / `deploy-prod.yml`, manual gates, auto-rollback, Slack notifications. | **Landed in code (partial)** |
 | 5 — Documentation & Health Verification | Environment protection rules + infrastructure README + post-deploy health verification. | **Ticketed** |
 | 6 — Elasticsearch + Kibana foundation | ES subchart (single-node, ILM 7-day), Kibana ingress + Keycloak SSO, cluster health check. | **Planned** |
 | 7 — Structured logging in pole_api | python-json-logger, LOG_LEVEL/LOG_SERVICE_NAME env, JSON format tests. | **Planned** |
 | 8 — Structured logging in packages + shipping | Shared logger in pole_tools, migrate pole_ml/crawler/jobs, Filebeat DaemonSet. | **Planned** |
+
+#### Phase 2 — Build & Push + auto-trigger + sha-tag deploy (PAIML-INFRA-026/027, CLOSED)
+- **PAIML-INFRA-026 — Fix `/oc` review merges not triggering build-push + cron belt** — PAT-authenticated merges (`ML_REVIEW_PAT` in `opencode.yml`) so `develop` pushes fire `build-push.yml`; `build-reconcile.yml` cron every 15 min + `workflow_dispatch` reconciles any missed SHA. Both live on main.
+- **PAIML-INFRA-027 — Deploy staging with immutable short-sha tag** — `deploy-dev` dispatches short-sha (never rolling `develop`); `build-and-push` publishes the same sha tag (Step 4 build-side fix); E2E green on `develop@85e6148` (build `33962678392` → deploy `33963034087`, pod on `pole-api:85e6148`, 0 restarts, no manual rollout). CLOSED.
 
 ---
 
@@ -523,6 +529,43 @@ video cutter, two-phase extraction split. ~549 tests at 81.63% coverage. **Statu
 `HistogramAnalyzer`, `PoseCorrector`, `OpenCodeLLMClient` — plus a services
 facade and 35 unit tests. Consumed by `packages/chatbot`. **Status: Complete (Phase 1).** No phase
 folders or tickets defined; future work is tracked under `pola_agent` and `pola_api` Phases 6/11.
+
+### `packages/pole_rag`
+> Plan: [packages/pole_rag/PLAN.md](packages/pole_rag/PLAN.md)
+
+**Multimodal RAG seeder (`pole_rag`, no pyproject — root `pixi.toml`).** Marker/PyMuPDF extraction →
+atomic-table chunking (1000/150) → MiniLM-L6-v2 embeddings → Chroma per-resource DBs
+(`pole`, `calisthenics`, `psychology`, `biomechanics`, `text_chunks` + `image_descriptions`) → 4 chatbot
+tools (`query_pole`, `query_calisthenics`, `query_psicology`, `query_biomechanics`, k=3, unknown-DB `ToolError`).
+Staging home `/data/rag` via `POLE_RAG_DATA_DIR` (config default: package `data/`); embedder baked CPU-only
+into the pole-api base image (`HF_HOME` pre-download, `HF_HUB_OFFLINE=1`); `/data/chroma`
+(`movement_embeddings`, 7712) untouched. **Status: Phase 6 ✅ DONE (2026-09-05 — 030 tester PASS on staging
+pod digest `sha256:9555b1d8…`, 4 tools k=3, `movement_embeddings` intact); Phase 7 PyMuPDF swap 📋 PLANNED.**
+
+| Phase | Description | Status |
+| :--- | :--- | :--- |
+| 1 — Package scaffold, sources, dedupe, config | `pixi.toml` deps, `src/pole_rag/` layout, sources, `dedupe.py`, `config.py`. | **Done** |
+| 2 — Marker extraction + atomic table chunking | `extractor.py`, `chunker.py` (atomic tables + 3-line context). | **Done** |
+| 3 — Embeddings + Chroma multi-collection storage | `embeddings.py`, `vision.py` (Ollama `llama3.2-vision`), `chroma_store.py`, `seeder.py`. | **Done** |
+| 4 — CLI commands (seed / reseed / query / inspect) | `cli/seed.py`, `cli/reseed.py`, `cli/query.py`, `cli/inspect.py` via root pixi tasks. | **Done** |
+| 5 — Chatbot tool integration | 4 sync `ToolSpec`s in `pole_chatbot/rag_tools.py` via workspace `PYTHONPATH`. | **Done** |
+| 6 — Staging ship (image + data dir + seed + verify) | 027 image COPY + `PYTHONPATH`; 028 `POLE_RAG_DATA_DIR`; 029 wiring + local seed + `kubectl cp` runbook; 030 staging verify; 031 `HASH_INPUTS`; 035 HF bake lane; 036 `psychology` mapping; 037 CPU-torch disk fix. | **Done** |
+| 7 — PyMuPDF swap (deterministic text extraction) | 032 drop Marker; 033 `fitz_extractor.py` + `POLE_RAG_EXTRACTOR` switch + `--skip-images`. | **Planned** |
+
+#### Phase 6 — Staging ship (11 tickets)
+- **PAIML-POLE-RAG-027 — Ship `pole_rag` in the pole-api base image** — `base.Dockerfile` COPY + runtime `PYTHONPATH` (slow base lane, not thin app).
+- **PAIML-POLE-RAG-028 — `POLE_RAG_DATA_DIR` env override** — `config.default_data_dir()` honours env (staging `/data/rag`), default package `data/`.
+- **PAIML-POLE-RAG-029 — Staging wiring + seed-transfer runbook** — Helm `POLE_RAG_DATA_DIR=/data/rag`, `/data/rag` owned by `appuser`, local seed of 4 DBs + `kubectl cp` into PVC + embedder lane record (bake, not `HF_HOME`-on-PVC).
+- **PAIML-POLE-RAG-030 — Verify RAG tools on staging (CLOSED)** — 4 tools k=3 hits with `source_document` on `/data/rag`; unknown DB → `ToolError` no crash; `/data/chroma` intact; evidence on release ticket.
+- **PAIML-POLE-RAG-031 — Include `pole_rag` sources in base-image hash** — `HASH_INPUTS` + `POLE_RAG_HASH` so `pole_rag` changes force base rebuild (blocks 030).
+- **PAIML-POLE-RAG-035 — Bake embedder lane into base image** — `langchain-huggingface` + `sentence-transformers` + pre-downloaded MiniLM weights (offline-safe; blocks 030).
+- **PAIML-POLE-RAG-036 — `psychology` DB-name mapping** — `RAG_DB_BY_TOOL["query_psicology"]="psychology"` (tool name unchanged; blocks 030).
+- **PAIML-POLE-RAG-037 — CPU-only torch disk fix** — `pip install torch --index-url …/cpu` before `sentence-transformers` so `base` fits hosted runners (blocked by 035; unblocks 030 embedder proof).
+
+#### Phase 7 — PyMuPDF swap (3 tickets)
+- **PAIML-POLE-RAG-032 — Remove Marker dependency** — Drop `marker-pdf` from `pixi.toml`, trim HF offline block, `test-rag` still collects.
+- **PAIML-POLE-RAG-033 — PyMuPDF extractor backend** — New `fitz_extractor.py` (`page_chunks` + `write_images`), `POLE_RAG_EXTRACTOR` switch, `--skip-images`, per-page log.
+- **PAIML-POLE-RAG-034 — tqdm caption progress** — `captioning: N/M img` bar in `vision.describe_many` (failure isolation unchanged).
 
 ## Dev-tooling engine
 

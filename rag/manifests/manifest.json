@@ -61,8 +61,8 @@
   },
   "app/infra/PROJECT_VARS.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
-    "file_hash": "7752810b3275f6145bdc4e2105dd90ae4eaa77294f4e6b40cf7d941acf8da36d",
-    "last_update": "2026-09-04T12:50:53+00:00"
+    "file_hash": "c56e81cd67423c06308dc44508ab697c6ad2ef88e15f6c7d06ec801a7ff21c96",
+    "last_update": "2026-09-05T08:41:35+00:00"
   },
   "app/infra/phase-1-ghcr-build-push/PAIML-INFRA-001.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
@@ -98,6 +98,11 @@
     "created_date": "2026-09-03T21:02:09+00:00",
     "file_hash": "44f7453b231f07a58953f25014d2b5c5721ddadcd0980eb66e48ba15ba0239fa",
     "last_update": "2026-09-04T12:50:53+00:00"
+  },
+  "app/infra/phase-2-dev-auto-deploy/PAIML-INFRA-026.md": {
+    "created_date": "2026-09-05T08:41:44+00:00",
+    "file_hash": "c3a0a6cdaecfd8d1f91a6f2f5a6b4f4150ec9124cd5ff45082cce5ac810ec8f5",
+    "last_update": "2026-09-05T08:41:30+00:00"
   },
   "app/infra/phase-3-staging-prod-pipeline/PAIML-INFRA-007.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
@@ -2101,13 +2106,13 @@
   },
   "packages/pole_rag/PLAN.md": {
     "created_date": "2026-09-03T19:21:14+00:00",
-    "file_hash": "74637cf20e5c6aa8b38923070c50368104326d9d07e8d6049f1c70f824197f32",
-    "last_update": "2026-09-05T08:31:39+00:00"
+    "file_hash": "3f70d152055cda01b16a3f23a1ec71dd4f5693f531fa3988de71cddc6a6906d6",
+    "last_update": "2026-09-05T08:41:33+00:00"
   },
   "packages/pole_rag/PROJECT_VARS.md": {
     "created_date": "2026-09-03T19:21:14+00:00",
-    "file_hash": "29ae9c5aee7316751df85affb99520e5980c2f877ca755520a0cee46388ed22a",
-    "last_update": "2026-09-05T08:35:03+00:00"
+    "file_hash": "573f04100e058bde079cf0445abeaf394e0900a99028ce0f0c8c0124b5ee3856",
+    "last_update": "2026-09-05T08:41:35+00:00"
   },
   "packages/pole_rag/phase-1-package-scaffold/PAIML-POLE-RAG-001.md": {
     "created_date": "2026-09-03T19:21:14+00:00",
@@ -2273,6 +2278,11 @@
     "created_date": "2026-09-05T07:26:02+00:00",
     "file_hash": "6d941efc6bc50983b5e52009115a1dd97e55621ffe6794864ebe09ac8b461f76",
     "last_update": "2026-09-05T07:25:51+00:00"
+  },
+  "packages/pole_rag/phase-6-staging-ship/PAIML-POLE-RAG-037.md": {
+    "created_date": "2026-09-05T08:41:44+00:00",
+    "file_hash": "228ee66b4af445bc5b062cf00f4c252f5b0d882480da4b4befc94b77b1ead5c7",
+    "last_update": "2026-09-05T08:41:25+00:00"
   },
   "packages/pole_rag/phase-7-pymupdf-swap/PAIML-POLE-RAG-032.md": {
     "created_date": "2026-09-04T16:11:29+00:00",

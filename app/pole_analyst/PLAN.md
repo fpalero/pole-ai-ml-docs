@@ -113,6 +113,7 @@
 | 21 | Coach-insights positives ("What's working" guard: solo `score_pct ≥ 70`) | 📋 PLANNED | [plan/PLAN_PHASE_21.md](plan/PLAN_PHASE_21.md) |
 | 22 | Coach plain-language chat | 📋 PLANNED | [phase-22-coach-plain-language-chat/](phase-22-coach-plain-language-chat/) |
 | 23 | FE chat cards (score_summary / phasic_feedback / metric_matrix / drills / quick_replies) | 📋 PLANNED | [plan/PLAN_PHASE_23.md](plan/PLAN_PHASE_23.md) |
+| 24 | FE failed-turn error state (error bubble/chip + retry) + image endpoint URLs | 📋 PLANNED | [plan/PLAN_PHASE_24.md](plan/PLAN_PHASE_24.md) |
 
 
 ---

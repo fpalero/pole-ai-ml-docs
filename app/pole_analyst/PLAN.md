@@ -112,6 +112,7 @@
 | 20 | Sidebar Option B (solo menú lateral; sin Coach/Upload) | ✅ DONE (#120, merged locally 2026-08-24) | [plan/PLAN_PHASE_20.md](plan/PLAN_PHASE_20.md) |
 | 21 | Coach-insights positives ("What's working" guard: solo `score_pct ≥ 70`) | 📋 PLANNED | [plan/PLAN_PHASE_21.md](plan/PLAN_PHASE_21.md) |
 | 22 | Coach plain-language chat | 📋 PLANNED | [phase-22-coach-plain-language-chat/](phase-22-coach-plain-language-chat/) |
+| 23 | FE chat cards (score_summary / phasic_feedback / metric_matrix / drills / quick_replies) | 📋 PLANNED | [plan/PLAN_PHASE_23.md](plan/PLAN_PHASE_23.md) |
 
 
 ---

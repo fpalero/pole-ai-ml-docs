@@ -481,13 +481,13 @@
   },
   "app/pole_analyst/PLAN.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
-    "file_hash": "0d350891feb4aca32f1e4fb8cb35f2d20f6d2ff777524a904ce3d4105a0f5512",
-    "last_update": "2026-09-04T13:17:43+00:00"
+    "file_hash": "737af0d4b26afb32b6da5e3b776019757de3506bb99b69a3a0d215ea30968f57",
+    "last_update": "2026-09-06T07:07:10+00:00"
   },
   "app/pole_analyst/PROJECT_VARS.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
-    "file_hash": "bc62d603c32f798cf476ee0dd96647e59db70c30819c2671411819523466063f",
-    "last_update": "2026-09-04T13:16:45+00:00"
+    "file_hash": "d008ba5be243bb37a42131b5a61d3e5808de9e8c7058f5f1c9f9cb4b899cd4ea",
+    "last_update": "2026-09-06T07:07:06+00:00"
   },
   "app/pole_analyst/fe_design.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
@@ -728,6 +728,11 @@
     "created_date": "2026-09-04T13:17:33+00:00",
     "file_hash": "4cfc99a7416a7a0ebd7c82cd4b4e539b13304e6c11a5bf18be7a8859d5e278da",
     "last_update": "2026-09-04T13:16:50+00:00"
+  },
+  "app/pole_analyst/phase-22-coach-plain-language-chat/PAIML-POLE-ANALYST-071.md": {
+    "created_date": "2026-09-06T07:07:23+00:00",
+    "file_hash": "8b47d1c61dbb01954e0fa9279f3fc2e8b2d23637a64724f5c22551996ab9d436",
+    "last_update": "2026-09-06T07:07:03+00:00"
   },
   "app/pole_analyst/phase-3-video-library-upload/PAIML-POLE-ANALYST-010.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
@@ -971,8 +976,8 @@
   },
   "app/pole_api/PLAN.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
-    "file_hash": "3152e789bbf4e92ce8ff706dcc5efe82fc3dd4afeadcf6a9965e5668faefd609",
-    "last_update": "2026-09-04T13:17:43+00:00"
+    "file_hash": "e9528685c0867d541c77a961857433cb2f62b1220166fb9e99b0c5245f481cca",
+    "last_update": "2026-09-06T07:07:08+00:00"
   },
   "app/pole_api/POLE-API.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
@@ -981,8 +986,8 @@
   },
   "app/pole_api/PROJECT_VARS.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
-    "file_hash": "e881abdfb6ec944b0b2ee6759e4464a7cbc058c6e0df9d417a51274f33564a67",
-    "last_update": "2026-09-04T13:16:45+00:00"
+    "file_hash": "6826185a38138a77f99bd511efb5084cffea84299ad697e2cac370ec93786a60",
+    "last_update": "2026-09-06T07:07:05+00:00"
   },
   "app/pole_api/be_train_retrain_test_guide.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
@@ -1418,6 +1423,26 @@
     "created_date": "2026-09-04T13:17:33+00:00",
     "file_hash": "3a27ecfe7501e3f61669bcb5a759601e4a84357dbab33fe14cf78a2b69671b95",
     "last_update": "2026-09-04T13:16:50+00:00"
+  },
+  "app/pole_api/phase-28-coach-plain-language-output/PAIML-POLE-API-084.md": {
+    "created_date": "2026-09-06T07:07:23+00:00",
+    "file_hash": "d9799767e6ef7c95ca4a549c3c1b8e3f100a6a93fa0137492e3027d6acf3235b",
+    "last_update": "2026-09-06T07:34:20+00:00"
+  },
+  "app/pole_api/phase-28-coach-plain-language-output/PAIML-POLE-API-085.md": {
+    "created_date": "2026-09-06T07:07:23+00:00",
+    "file_hash": "e3cb6db23f7961c45f4318d00f804b513108eb650c912827f77e6db3e4a6c24d",
+    "last_update": "2026-09-06T07:34:27+00:00"
+  },
+  "app/pole_api/phase-28-coach-plain-language-output/PAIML-POLE-API-086.md": {
+    "created_date": "2026-09-06T07:07:23+00:00",
+    "file_hash": "6712f1adb69deaabfd171af25a84af75c2f001969ddcbe30a979d5bab98edf9a",
+    "last_update": "2026-09-06T07:34:30+00:00"
+  },
+  "app/pole_api/phase-28-coach-plain-language-output/PAIML-POLE-API-087.md": {
+    "created_date": "2026-09-06T07:07:23+00:00",
+    "file_hash": "ca4cbc9fad1f09f0bad69fd8194f25e8f8c8eb058c0fb445dca348e17fa55f84",
+    "last_update": "2026-09-06T07:34:32+00:00"
   },
   "app/pole_api/plan/PLAN_PHASE_1.md": {
     "created_date": "2026-08-30T19:07:49+00:00",

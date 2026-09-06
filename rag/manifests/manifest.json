@@ -481,13 +481,13 @@
   },
   "app/pole_analyst/PLAN.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
-    "file_hash": "0d350891feb4aca32f1e4fb8cb35f2d20f6d2ff777524a904ce3d4105a0f5512",
-    "last_update": "2026-09-04T13:17:43+00:00"
+    "file_hash": "737af0d4b26afb32b6da5e3b776019757de3506bb99b69a3a0d215ea30968f57",
+    "last_update": "2026-09-06T07:07:10+00:00"
   },
   "app/pole_analyst/PROJECT_VARS.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
-    "file_hash": "bc62d603c32f798cf476ee0dd96647e59db70c30819c2671411819523466063f",
-    "last_update": "2026-09-04T13:16:45+00:00"
+    "file_hash": "d008ba5be243bb37a42131b5a61d3e5808de9e8c7058f5f1c9f9cb4b899cd4ea",
+    "last_update": "2026-09-06T07:07:06+00:00"
   },
   "app/pole_analyst/fe_design.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
@@ -728,6 +728,11 @@
     "created_date": "2026-09-04T13:17:33+00:00",
     "file_hash": "4cfc99a7416a7a0ebd7c82cd4b4e539b13304e6c11a5bf18be7a8859d5e278da",
     "last_update": "2026-09-04T13:16:50+00:00"
+  },
+  "app/pole_analyst/phase-22-coach-plain-language-chat/PAIML-POLE-ANALYST-071.md": {
+    "created_date": "2026-09-06T10:25:31+00:00",
+    "file_hash": "8b47d1c61dbb01954e0fa9279f3fc2e8b2d23637a64724f5c22551996ab9d436",
+    "last_update": "2026-09-06T07:07:03+00:00"
   },
   "app/pole_analyst/phase-3-video-library-upload/PAIML-POLE-ANALYST-010.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
@@ -971,8 +976,8 @@
   },
   "app/pole_api/PLAN.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
-    "file_hash": "3152e789bbf4e92ce8ff706dcc5efe82fc3dd4afeadcf6a9965e5668faefd609",
-    "last_update": "2026-09-04T13:17:43+00:00"
+    "file_hash": "e9528685c0867d541c77a961857433cb2f62b1220166fb9e99b0c5245f481cca",
+    "last_update": "2026-09-06T07:07:08+00:00"
   },
   "app/pole_api/POLE-API.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
@@ -981,8 +986,8 @@
   },
   "app/pole_api/PROJECT_VARS.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
-    "file_hash": "e881abdfb6ec944b0b2ee6759e4464a7cbc058c6e0df9d417a51274f33564a67",
-    "last_update": "2026-09-04T13:16:45+00:00"
+    "file_hash": "6826185a38138a77f99bd511efb5084cffea84299ad697e2cac370ec93786a60",
+    "last_update": "2026-09-06T07:07:05+00:00"
   },
   "app/pole_api/be_train_retrain_test_guide.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
@@ -1418,6 +1423,26 @@
     "created_date": "2026-09-04T13:17:33+00:00",
     "file_hash": "3a27ecfe7501e3f61669bcb5a759601e4a84357dbab33fe14cf78a2b69671b95",
     "last_update": "2026-09-04T13:16:50+00:00"
+  },
+  "app/pole_api/phase-28-coach-plain-language-output/PAIML-POLE-API-084.md": {
+    "created_date": "2026-09-06T10:25:31+00:00",
+    "file_hash": "d9799767e6ef7c95ca4a549c3c1b8e3f100a6a93fa0137492e3027d6acf3235b",
+    "last_update": "2026-09-06T07:34:20+00:00"
+  },
+  "app/pole_api/phase-28-coach-plain-language-output/PAIML-POLE-API-085.md": {
+    "created_date": "2026-09-06T10:25:31+00:00",
+    "file_hash": "e3cb6db23f7961c45f4318d00f804b513108eb650c912827f77e6db3e4a6c24d",
+    "last_update": "2026-09-06T07:34:27+00:00"
+  },
+  "app/pole_api/phase-28-coach-plain-language-output/PAIML-POLE-API-086.md": {
+    "created_date": "2026-09-06T10:25:31+00:00",
+    "file_hash": "6712f1adb69deaabfd171af25a84af75c2f001969ddcbe30a979d5bab98edf9a",
+    "last_update": "2026-09-06T07:34:30+00:00"
+  },
+  "app/pole_api/phase-28-coach-plain-language-output/PAIML-POLE-API-087.md": {
+    "created_date": "2026-09-06T10:25:31+00:00",
+    "file_hash": "ca4cbc9fad1f09f0bad69fd8194f25e8f8c8eb058c0fb445dca348e17fa55f84",
+    "last_update": "2026-09-06T07:34:32+00:00"
   },
   "app/pole_api/plan/PLAN_PHASE_1.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
@@ -2358,5 +2383,190 @@
     "created_date": "2026-08-30T19:10:30+00:00",
     "file_hash": "09cb1f7b9795cf2c278a073e684736dd0fb1cb9efa4e78a16635a96753f66203",
     "last_update": "2026-09-04T12:50:53+00:00"
+  },
+  "tutorials/01-skeleton-pose/README.md": {
+    "created_date": "2026-09-06T10:25:31+00:00",
+    "file_hash": "4884f83aabfce9419bb8ca29038bcc6c64f77079d9b48e7da2e4e9966d1945a7",
+    "last_update": "2026-09-06T10:43:51+00:00"
+  },
+  "tutorials/01-skeleton-pose/fullstack-backend.md": {
+    "created_date": "2026-09-06T10:25:31+00:00",
+    "file_hash": "209b9e6a62b260c2bea3cb7bd6f9e997f2a2d47b685a9eb9b220918d1dbd1e52",
+    "last_update": "2026-09-06T09:53:51+00:00"
+  },
+  "tutorials/01-skeleton-pose/junior-mixed.md": {
+    "created_date": "2026-09-06T10:25:31+00:00",
+    "file_hash": "3360706b99e97fb86deb55e013ebc4e20dcd15154544cd5b42f251bd80caa6cc",
+    "last_update": "2026-09-06T09:53:55+00:00"
+  },
+  "tutorials/01-skeleton-pose/ml-cv.md": {
+    "created_date": "2026-09-06T10:25:31+00:00",
+    "file_hash": "bab1ede0106c5a1b38a4e5dd88fc1a1477f147965043f597f74a61a7b74c643a",
+    "last_update": "2026-09-06T10:44:11+00:00"
+  },
+  "tutorials/01-skeleton-pose/tech-entrepreneur.md": {
+    "created_date": "2026-09-06T10:25:31+00:00",
+    "file_hash": "1976e0ae933fa28cf19a7e75da6b677995a84eb14d16863bd0c9fb6714d1d9a4",
+    "last_update": "2026-09-06T09:54:00+00:00"
+  },
+  "tutorials/02-tensorflow-models/README.md": {
+    "created_date": "2026-09-06T10:25:31+00:00",
+    "file_hash": "a7a15f8ec13c8bd3813f5ccd87f3bca33e9e4a55595d1835b77c7dc4f31aa68c",
+    "last_update": "2026-09-06T10:43:54+00:00"
+  },
+  "tutorials/02-tensorflow-models/fullstack-backend.md": {
+    "created_date": "2026-09-06T10:25:31+00:00",
+    "file_hash": "fbfeb0d54dd43e2f4a5f4b0aab3e8272a56e7b7740780f6b356570dd99720c58",
+    "last_update": "2026-09-06T09:54:32+00:00"
+  },
+  "tutorials/02-tensorflow-models/junior-mixed.md": {
+    "created_date": "2026-09-06T10:25:31+00:00",
+    "file_hash": "30cb308c6758e04faf7550a624fb5fa55e8f5dedb202e289785e469c6ab88fe4",
+    "last_update": "2026-09-06T09:54:37+00:00"
+  },
+  "tutorials/02-tensorflow-models/ml-cv.md": {
+    "created_date": "2026-09-06T10:25:31+00:00",
+    "file_hash": "efd0819131676259661408bbc3f418cdbc704e7b4902c847f1f05ab1045ed9ea",
+    "last_update": "2026-09-06T10:44:14+00:00"
+  },
+  "tutorials/02-tensorflow-models/tech-entrepreneur.md": {
+    "created_date": "2026-09-06T10:25:31+00:00",
+    "file_hash": "7f0d6607316729055492d58ae60f2ade2f563652789f25d33c147643fc086fd1",
+    "last_update": "2026-09-06T09:54:44+00:00"
+  },
+  "tutorials/03-embeddings-vector-search/README.md": {
+    "created_date": "2026-09-06T10:25:31+00:00",
+    "file_hash": "a39f329910b61abe274385a23b41fc4a49c13524947c705cee37232745383ddd",
+    "last_update": "2026-09-06T09:52:20+00:00"
+  },
+  "tutorials/03-embeddings-vector-search/fullstack-backend.md": {
+    "created_date": "2026-09-06T10:25:31+00:00",
+    "file_hash": "2e49bbee9526e47439dfc1fee356815f3ae5d12b5603b0668be2d1bbe0246e06",
+    "last_update": "2026-09-06T09:55:03+00:00"
+  },
+  "tutorials/03-embeddings-vector-search/junior-mixed.md": {
+    "created_date": "2026-09-06T10:25:31+00:00",
+    "file_hash": "52ab4708e814697da20b37348bb6ede3d446b761e607a69e89434b7b269cb02f",
+    "last_update": "2026-09-06T09:55:08+00:00"
+  },
+  "tutorials/03-embeddings-vector-search/ml-cv.md": {
+    "created_date": "2026-09-06T10:25:31+00:00",
+    "file_hash": "3fe0490a45820b697bab746b7d19c439e7c6299af1d32c95a79b4cef85c74ea4",
+    "last_update": "2026-09-06T09:54:50+00:00"
+  },
+  "tutorials/03-embeddings-vector-search/tech-entrepreneur.md": {
+    "created_date": "2026-09-06T10:25:31+00:00",
+    "file_hash": "5240ee5a41299b3444b9f8cbddd8288b6226f5b7af35f257e7a4867a9b9688f2",
+    "last_update": "2026-09-06T09:55:15+00:00"
+  },
+  "tutorials/04-rag-retrieval/README.md": {
+    "created_date": "2026-09-06T10:25:31+00:00",
+    "file_hash": "b66b7a4f8c4acf24266ee9415fb4f3688e9a13ba400859518d4fbb3e62e57481",
+    "last_update": "2026-09-06T10:43:57+00:00"
+  },
+  "tutorials/04-rag-retrieval/fullstack-backend.md": {
+    "created_date": "2026-09-06T10:25:31+00:00",
+    "file_hash": "24adda8774ba868b1a72b2d0fac019f2d8a46bbdd6d71185c210781515ebb3d7",
+    "last_update": "2026-09-06T09:55:33+00:00"
+  },
+  "tutorials/04-rag-retrieval/junior-mixed.md": {
+    "created_date": "2026-09-06T10:25:31+00:00",
+    "file_hash": "ae9d2fe55d23d3ba39ea9558c2176fab4526c663af5eeae544881b24031ff35d",
+    "last_update": "2026-09-06T09:55:39+00:00"
+  },
+  "tutorials/04-rag-retrieval/ml-cv.md": {
+    "created_date": "2026-09-06T10:25:31+00:00",
+    "file_hash": "fec2e4e8933734306ad84dab7f239907d7601c81213f478c85ae242d50ace38c",
+    "last_update": "2026-09-06T10:44:26+00:00"
+  },
+  "tutorials/04-rag-retrieval/tech-entrepreneur.md": {
+    "created_date": "2026-09-06T10:25:31+00:00",
+    "file_hash": "1302f5ec0fddf8db0d985c19f885aaa9b0236f8223be26e1eabf1742f6bf6683",
+    "last_update": "2026-09-06T09:55:42+00:00"
+  },
+  "tutorials/05-realtime-fullstack/README.md": {
+    "created_date": "2026-09-06T10:25:31+00:00",
+    "file_hash": "28cf217fd6b5cbd39c8cd5837f367447949a6b5dfdb9a1e996e7e9d6cea3269e",
+    "last_update": "2026-09-06T10:52:43+00:00"
+  },
+  "tutorials/05-realtime-fullstack/fullstack-backend.md": {
+    "created_date": "2026-09-06T10:25:31+00:00",
+    "file_hash": "018ac033e19ef72c72d682504102c5f687cf14a2482246089af614ce27976497",
+    "last_update": "2026-09-06T10:52:56+00:00"
+  },
+  "tutorials/05-realtime-fullstack/junior-mixed.md": {
+    "created_date": "2026-09-06T10:25:31+00:00",
+    "file_hash": "276fd8018af434176cc81f7c56da6af7ddd1297ba6cc452d2ab20b74a6dbdbcd",
+    "last_update": "2026-09-06T10:53:04+00:00"
+  },
+  "tutorials/05-realtime-fullstack/ml-cv.md": {
+    "created_date": "2026-09-06T10:25:31+00:00",
+    "file_hash": "4affdd3b9639c728de8aa9fc383530d06fe5b34f18252aa101100c457e55e2ce",
+    "last_update": "2026-09-06T09:55:50+00:00"
+  },
+  "tutorials/05-realtime-fullstack/tech-entrepreneur.md": {
+    "created_date": "2026-09-06T10:25:31+00:00",
+    "file_hash": "09daf102978e0bb9dd10faf954615e35de6514df299b93522da4ae6f4afea291",
+    "last_update": "2026-09-06T10:37:35+00:00"
+  },
+  "tutorials/06-data-infra/README.md": {
+    "created_date": "2026-09-06T10:25:31+00:00",
+    "file_hash": "b3134c17b21b6e02b59bf3a94ba129b9ddb537583334c57b8884d03280d86706",
+    "last_update": "2026-09-06T10:52:46+00:00"
+  },
+  "tutorials/06-data-infra/fullstack-backend.md": {
+    "created_date": "2026-09-06T10:25:31+00:00",
+    "file_hash": "43ddae830b74999ac441e24380222568d958a81565d00902406a657b72edd7d7",
+    "last_update": "2026-09-06T10:53:10+00:00"
+  },
+  "tutorials/06-data-infra/junior-mixed.md": {
+    "created_date": "2026-09-06T10:25:31+00:00",
+    "file_hash": "c538c4ca237bf4be070facccfaa5b686faf05d2d6d67e23669418fa5bedcb404",
+    "last_update": "2026-09-06T09:56:57+00:00"
+  },
+  "tutorials/06-data-infra/ml-cv.md": {
+    "created_date": "2026-09-06T10:25:31+00:00",
+    "file_hash": "dffb63f536dfe793c2875d5418b11bb959e1b6fb49b4055f592c6e184fb50095",
+    "last_update": "2026-09-06T09:56:21+00:00"
+  },
+  "tutorials/06-data-infra/tech-entrepreneur.md": {
+    "created_date": "2026-09-06T10:25:31+00:00",
+    "file_hash": "a39f02329da496d971779ab2e6e94070f9c193c676b4f4fb396434a6f87e72ad",
+    "last_update": "2026-09-06T09:57:03+00:00"
+  },
+  "tutorials/07-meta-process/README.md": {
+    "created_date": "2026-09-06T10:25:31+00:00",
+    "file_hash": "4f3ec3648ccbf3c4242cc93e08118f723ed11baee0cdbf9f9f45c3341e59cb94",
+    "last_update": "2026-09-06T10:44:04+00:00"
+  },
+  "tutorials/07-meta-process/fullstack-backend.md": {
+    "created_date": "2026-09-06T10:25:31+00:00",
+    "file_hash": "15f76ccdaa9524d31c6080ad711508ec4ba95ff2aea393ef21790c25131121fd",
+    "last_update": "2026-09-06T10:44:29+00:00"
+  },
+  "tutorials/07-meta-process/junior-mixed.md": {
+    "created_date": "2026-09-06T10:25:31+00:00",
+    "file_hash": "a3509edc8fee41bcf9aad76f102bbae37912a8cebf21b413b71aa540790db92c",
+    "last_update": "2026-09-06T09:57:34+00:00"
+  },
+  "tutorials/07-meta-process/ml-cv.md": {
+    "created_date": "2026-09-06T10:25:31+00:00",
+    "file_hash": "61d24cc7a6b952f18b11ae115fe51952a8e3408b5b3c277d22527e16f9833104",
+    "last_update": "2026-09-06T09:57:20+00:00"
+  },
+  "tutorials/07-meta-process/tech-entrepreneur.md": {
+    "created_date": "2026-09-06T10:25:31+00:00",
+    "file_hash": "2231e604c2401dcd480ea3d9dcfbb6f8905d057e16679dc229779dc95b464828",
+    "last_update": "2026-09-06T09:57:46+00:00"
+  },
+  "tutorials/ARTICLE_CATALOG.md": {
+    "created_date": "2026-09-06T10:25:31+00:00",
+    "file_hash": "d1b11be853657b5be5e5bd1e08e7457547a93bbd248791bd31077f76d856d73d",
+    "last_update": "2026-09-06T10:52:39+00:00"
+  },
+  "tutorials/README.md": {
+    "created_date": "2026-09-06T10:25:31+00:00",
+    "file_hash": "c33fa78d51fab60f633217f69b822a29c81f6927f3daad534f57bc6e28de4953",
+    "last_update": "2026-09-06T10:52:50+00:00"
   }
 }

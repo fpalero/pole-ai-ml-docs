@@ -93,6 +93,7 @@
 | 25 | Classify-first pipeline (detección de fases con la clase correcta) | ✅ DONE (`b321fda`, merged `3a2fcf8`) | [PLAN_PHASE_25.md](plan/PLAN_PHASE_25.md) |
 | 26 | Analyst coach tools (chatbot: compare_sessions, cohort_percentiles, improvement_plan, metric_deep_dive, frame_pose, progress_trend, focus_recommendation, risk_scan, get_coach_summary/pose) | ✅ DONE (`52234f7`) | [PLAN_PHASE_26.md](plan/PLAN_PHASE_26.md) |
 | 27 | Coach-insights positives (relax rule-based `perfect` bar to `score_pct ≥ 70` / `\|z\| ≤ 0.6`) | 📋 PLANNED | [PLAN_PHASE_27.md](plan/PLAN_PHASE_27.md) |
+| 28 | Coach plain-language output | 📋 PLANNED | [phase-28-coach-plain-language-output/](phase-28-coach-plain-language-output/) |
 
 ---
 

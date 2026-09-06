@@ -1,4 +1,4 @@
 # Project Variables: pole_api
 
 ## Ticket Counter
-- **Last ticket number**: 83
+- **Last ticket number**: 87

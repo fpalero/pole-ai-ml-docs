@@ -29,6 +29,11 @@
     "file_hash": "c1e231fed2f3f9c1bc3de6df14efacf1649fb539cc857c2f35711f4343743f45",
     "last_update": "2026-09-04T12:50:53+00:00"
   },
+  "api.md": {
+    "created_date": "2026-09-06T12:11:49+00:00",
+    "file_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "last_update": "2026-09-06T12:01:54+00:00"
+  },
   "app/crew/PROJECT_VARS.md": {
     "created_date": "2026-09-01T08:26:41+00:00",
     "file_hash": "0b9e26d0d1275f7deaa970f040afb6a2aba28c934cba53f23478de86ef2bda1c",
@@ -1764,6 +1769,76 @@
     "file_hash": "b57910d3bfcc592a3a7282d25e4f2bede3cf6447b1a08835f65e2ce5cb41e415",
     "last_update": "2026-09-04T12:50:53+00:00"
   },
+  "business/MARKET_RESEARCH.md": {
+    "created_date": "2026-09-06T12:11:49+00:00",
+    "file_hash": "33d95849f692411289e43a8f5abd647fb58f81c111c19dd33eb8a26c16e7e74d",
+    "last_update": "2026-09-06T12:10:53+00:00"
+  },
+  "business/README.md": {
+    "created_date": "2026-09-06T11:53:30+00:00",
+    "file_hash": "042eb7947073faae24b2f980c81fe4d20f757a5c0e068623a373cc2a17f76798",
+    "last_update": "2026-09-06T12:01:51+00:00"
+  },
+  "business/api/b2b-video-analysis-api.md": {
+    "created_date": "2026-09-06T11:53:30+00:00",
+    "file_hash": "af7783c9fe3d49e8cde6d90c0998e5a5b6f934b181e7100f08d89aed2c170f78",
+    "last_update": "2026-09-06T11:57:06+00:00"
+  },
+  "business/api/pay-per-query-chatbot.md": {
+    "created_date": "2026-09-06T11:53:30+00:00",
+    "file_hash": "70dee86786ad8d33e350fe43c631833ce89e581cf3e3cb8a6fcfed4ad415e8a1",
+    "last_update": "2026-09-06T11:57:03+00:00"
+  },
+  "business/events/virtual-challenges.md": {
+    "created_date": "2026-09-06T11:53:30+00:00",
+    "file_hash": "29851853aa30b979adebc592fbb2a031c522aa03636fe558e59ac3234739bc31",
+    "last_update": "2026-09-06T11:57:46+00:00"
+  },
+  "business/licensing/dataset-library-license.md": {
+    "created_date": "2026-09-06T11:53:30+00:00",
+    "file_hash": "8d1038edcdb52462a98da0a43b43c16649d629c2fc0c8befe5f73988992925c2",
+    "last_update": "2026-09-06T11:57:30+00:00"
+  },
+  "business/licensing/white-label-license.md": {
+    "created_date": "2026-09-06T11:53:30+00:00",
+    "file_hash": "918523d37c69e1bad80e1a8c318c2305501735c8137a131acd641d296afe58aa",
+    "last_update": "2026-09-06T11:57:27+00:00"
+  },
+  "business/marketplace/coach-leadgen.md": {
+    "created_date": "2026-09-06T11:53:30+00:00",
+    "file_hash": "09cee839fcb6b61667843b87bf2054a2b291d6fbaa796fbc268ecf3c7f0e8076",
+    "last_update": "2026-09-06T11:57:39+00:00"
+  },
+  "business/marketplace/verified-athlete-profiles.md": {
+    "created_date": "2026-09-06T11:53:30+00:00",
+    "file_hash": "9da3f07790cfcaad4dad45bb79004631e4e9e503acef0b7ea9a628650d0a24f0",
+    "last_update": "2026-09-06T11:57:41+00:00"
+  },
+  "business/per-service/grade-assessment.md": {
+    "created_date": "2026-09-06T11:53:30+00:00",
+    "file_hash": "ded9d8f88e1b969348b8a081eb1432c4c3d4dfb5ccf691255850f9422771fb4d",
+    "last_update": "2026-09-06T11:57:20+00:00"
+  },
+  "business/per-service/pay-per-video-credits.md": {
+    "created_date": "2026-09-06T11:53:30+00:00",
+    "file_hash": "f35bc7ab9475fa7f5af89a0bf48fe1e5e0bf1f9e24801bba97e7cac307a38ab2",
+    "last_update": "2026-09-06T11:57:18+00:00"
+  },
+  "business/subscription/coach-gym-saas.md": {
+    "created_date": "2026-09-06T11:53:30+00:00",
+    "file_hash": "e349d7434644ead244c0f1c1e367122e04a2abbe4cdb6573791f27f373b3d0af",
+    "last_update": "2026-09-06T11:56:52+00:00"
+  },
+  "business/subscription/deep-report-upgrade.md": {
+    "created_date": "2026-09-06T11:53:30+00:00",
+    "file_hash": "065dc032b549526d444255bbe13754c3b9b94159e5f681a8cba1f2a9a45890d0",
+    "last_update": "2026-09-06T11:56:59+00:00"
+  },
+  "business/subscription/personal-trainer-tiers.md": {
+    "created_date": "2026-09-06T11:53:30+00:00",
+    "file_hash": "fdf0c24d50bb88476501d39036ff38bd3ae81899a2fdd7a2943a5928cbc105d3",
+    "last_update": "2026-09-06T11:56:50+00:00"
+  },
   "decisions/ADR-001-crewai-implementation-flows.md": {
     "created_date": "2026-08-31T12:33:38+00:00",
     "file_hash": "6af99f0140336d253d47bff8906bab2eabedda88c853faa47677550926eae686",
@@ -2383,6 +2458,11 @@
     "created_date": "2026-08-30T19:10:30+00:00",
     "file_hash": "09cb1f7b9795cf2c278a073e684736dd0fb1cb9efa4e78a16635a96753f66203",
     "last_update": "2026-09-04T12:50:53+00:00"
+  },
+  "subscription.md": {
+    "created_date": "2026-09-06T12:11:49+00:00",
+    "file_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "last_update": "2026-09-06T12:01:45+00:00"
   },
   "tutorials/01-skeleton-pose/README.md": {
     "created_date": "2026-09-06T10:25:31+00:00",

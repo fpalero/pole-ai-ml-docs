@@ -37,6 +37,11 @@ Backend block shapes (`analyst_chatbot/blocks.py`, `PAIML-POLE-API-087`, phase-2
    `ChatbotService.sendMessage` (reuse the composer path, disable while state Thinking/Working).
 6. **Unit tests** — cover all five renderers in the chat-pane specs (or child card components), ≥ 80%
    coverage; aria-label checks; design-token classes asserted.
+7. **"New conversation" reset action in the chat-pane header** — clears local messages and starts a fresh
+   WS session (disconnect + reconnect WITHOUT sending the resume frame / without session_id), per the
+   analyst chatbot WS protocol. Must work from any state (Idle/Thinking/Working/Error), be disabled
+   while Thinking/Working or no-op safe, include aria-label/WCAG styling with design tokens, and be
+   covered by unit tests (chat-state / chat-pane spec).
 
 ## Acceptance
 
@@ -44,6 +49,9 @@ Backend block shapes (`analyst_chatbot/blocks.py`, `PAIML-POLE-API-087`, phase-2
 - Unknown types keep the existing `@default` placeholder (never raw JSON — cf. Phase 22 guard).
 - Quick pill click sends the message via the composer path; disabled while Thinking/Working.
 - No subscription leaks (`takeUntilDestroyed`).
+- Long-session guard: a reset round-trip yields a new ws_connection_id/session (no resume), and a
+  40-question UI drive does not hit context saturation (questions after ~15 do not fall back) — reset
+  between chunks.
 - `npx ng test --watch=false` green, `npx ng lint` clean, `npx ng build` typecheck passes.
 
 ## Dependencies

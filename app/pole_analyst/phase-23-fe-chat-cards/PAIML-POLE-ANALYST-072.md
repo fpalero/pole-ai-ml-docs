@@ -24,12 +24,20 @@ Render all five as Stitch-styled cards/pills against the backend contract (`anal
 - [ ] Style with design tokens (`app.scss`/`design-tokens`), WCAG 2.1 AA aria labels, no subscription
       leaks (`takeUntilDestroyed`); keep the `@default` placeholder for unknown types.
 - [ ] Add/adjust unit specs for all five renderers (chat-pane specs or child card components), ≥ 80% coverage.
+- [ ] Add "New conversation" reset action in the chat-pane header — clears local messages and starts a
+      fresh WS session (disconnect + reconnect WITHOUT sending the resume frame / without session_id),
+      per the analyst chatbot WS protocol. Must work from any state (Idle/Thinking/Working/Error), be
+      disabled while Thinking/Working or no-op safe, include aria-label/WCAG styling with design tokens,
+      and be covered by unit tests (chat-state / chat-pane spec).
 
 ## Acceptance Criteria (Definition of Done for this Ticket)
 - [ ] Each block type renders its card when present in `agent_reply.blocks`.
 - [ ] Unknown types keep the existing default placeholder (never raw JSON).
 - [ ] Quick pill click sends the message; pills disabled while Thinking/Working.
 - [ ] No subscription leaks (`takeUntilDestroyed`).
+- [ ] Long-session guard: a reset round-trip yields a new ws_connection_id/session (no resume), and a
+      40-question UI drive does not hit context saturation (questions after ~15 do not fall back) — reset
+      between chunks.
 - [ ] `npx ng test --watch=false` green, `npx ng lint` clean, `npx ng build` typecheck passes.
 
 ## Integration Tests to Run (Local Verification)

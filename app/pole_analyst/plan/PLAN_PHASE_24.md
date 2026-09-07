@@ -20,6 +20,7 @@ endpoint HTTP con URLs alcanzables en `image.src` (item (a)).
 | Ticket | Scope | Estado |
 | :--- | :--- | :--- |
 | `PAIML-POLE-ANALYST-073` | Error bubble/chip + retry sobre la señal (d); aria-labels + design tokens; adopción verify-only de URLs de endpoint en `image` | 📋 PLANNED |
+| `PAIML-POLE-ANALYST-075` | Sanitización de display args en tool chips (sin rutas `/data/…`: caso chip `crop` de TOOL-06-SUB); helper compartido + specs | 📋 PLANNED |
 
 ## Tasks
 
@@ -35,6 +36,9 @@ endpoint HTTP con URLs alcanzables en `image.src` (item (a)).
    rompe; sin strings `/data/` en FE.
 5. **Unit tests** — specs de error bubble/chip + estados de retry + `image` con URL; ≥ 80%
    cobertura; asserts de aria-labels y clases de design tokens.
+6. **Tool-chip sanitization (075)** — helper compartido que elimina rutas absolutas
+   (`/data/…`) de los display args de todos los tool chips (caso `crop` TOOL-06-SUB);
+   specs de sanitización; sin cambios de comportamiento de chips.
 
 ## Acceptance
 
@@ -42,6 +46,7 @@ endpoint HTTP con URLs alcanzables en `image.src` (item (a)).
 - Retry reenvía por el composer path; deshabilitado en Thinking/Working.
 - Sin subscription leaks; `npx ng test --watch=false` verde, `lint` limpio, `build` typecheck OK.
 - Los bloques `image` con URL de endpoint cargan (verify-only si no hubo cambio).
+- Los tool chips no muestran rutas de servidor (075: sin strings `/data/` en el chat pane).
 
 ## Dependencies
 

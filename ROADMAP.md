@@ -4,6 +4,14 @@
 > implementation order, considering blockers and inter-app dependencies.
 > **Re-verify before starting work:** `docs/app/<project>/PLAN.md`, `docs/packages/<project>/PLAN.md`,
 > and the live `git log` + `.opencode/state/` merge logs. Full phase/ticket inventory: `docs/DEVELOPEMENT.md`.
+>
+> **Status update (2026-09-07):** new **`pole_coach`** project (LangGraph multi-agent
+> virtual coach, `docs/packages/pole-coach/`, code `packages/pole_coach/`): 6 phases /
+> one big ticket per phase (`PAIML-POLE-COACH-001..006`, counter 6), all 📋 PLANNED.
+> Chain 001→002→003→004→005 plus 006 (translation, after 001+002). Rollback tag
+> `pole-ai-v1` pushed on `origin/develop` in all three repos (`pole-ai-ml`,
+> `pole-ai-ml-docs`, `pole-ai-ml-infra`). No blockers; separate track from
+> in-flight `PAIML-POLE-API-101` / `PAIML-POLE-ANALYST-076`.
 
 > **Status reconciliation note (2026-08-31):** phase tables reconciled against `docs/app/*/PLAN.md`,
 > `PROJECT_VARS.md` counters, and verified code state.
@@ -31,6 +39,7 @@
 | `keycloak` Phases 1–4 | none | ✅ Done (merged + QA-verified) |
 | dev-ops CI phases 1–7 (unticketed) | none | ✅ Unblocked |
 | `crew` Phase 1 (guardrails) | none | ✅ Unblocked |
+| `pole_coach` chain (002←001, 003←002, 004←003, 005←004, 006←001+002) | in-chain only | ✅ Unblocked |
 
 > **Done chains (2026-08-24):** analyst Phase 18 `-063` (#117), Phase 19 `-064/-065` (#119/#118),
 > Phase 20 `-068/-069` (#120). `pole_api` Phase 24 `-072` (#114), Phase 25 `-073` (merged `3a2fcf8`),
@@ -101,6 +110,24 @@
 > algorithmic guardrails to prevent agent infinite loops: `max_iter`/`max_rpm` on agents, task
 > validation functions, and explicit tool success states.
 
+### `pole_coach` (LangGraph multi-agent virtual coach) — counter: 6 — NEW
+
+| Phase | Name | Tickets | Status |
+| :--- | :--- | :--- | :--- |
+| 1 (A) | Scaffold + polemovebook scraper + trick catalog | `PAIML-POLE-COACH-001` | 📋 PLANNED |
+| 2 (B) | State schema + 7 nodes + protocols | `PAIML-POLE-COACH-002` | 📋 PLANNED |
+| 3 (C) | 7 graphs + supergraph + LLM router | `PAIML-POLE-COACH-003` | 📋 PLANNED |
+| 4 (D) | analyst_chatbot wiring + profile + Phase-33 biomech | `PAIML-POLE-COACH-004` | 📋 PLANNED |
+| 5 (E) | Integration tests + analyst E2E + docs | `PAIML-POLE-COACH-005` | 📋 PLANNED |
+| 6 (F) | Hy-MT2 translation + glossary + cache | `PAIML-POLE-COACH-006` | 📋 PLANNED |
+
+> One big ticket per phase (whole scope + unit tests); each ticket's DoD starts the
+> integration test. Chain 001→002→003→004→005 plus 006 (after 001+002; extends 005's
+> gate). New layer for the pole-analysis FE chatbot (`analyst_chatbot` slice);
+> `chatbot` + `training_chatbot` untouched; `pole_fe` untouched. Code
+> `packages/pole_coach/` (Option A, no pyproject); Helm/`translatorModel` changes live
+> in `pole-ai-ml-infra`. Rollback: tag `pole-ai-v1` on `origin/develop` in all three repos.
+
 ### `infra` (CI/CD deploy pipeline) — counter: 24
 
 | Phase | Name | Tickets | Status |
@@ -129,6 +156,7 @@
 | `jobs` | v1 complete; future items (retry policies, DLQ) unticketed |
 | `pole_crawler` | v1 complete; future items unticketed |
 | `pole_crop` | v1 complete; future items unticketed |
+| `pole_coach` | NEW 2026-09-07 — 6 phases ticketed (`PAIML-POLE-COACH-001..006`), all 📋 PLANNED; plan: `docs/packages/pole-coach/PLAN.md` |
 
 ### `dev-ops` (CI workflows) — counter: 0
 
@@ -157,6 +185,11 @@
 2. **`crew` Phase 1** — guardrails (anti-infinite-loop) for the CrewAI engine. Standalone
    dev-tooling improvement; no external blockers.
 
+### Tier 1b — `pole_coach` chain (sequential, unblocked)
+3. **`pole_coach` Phases 1→6** — LangGraph coach package (`001..006`, PLAN at
+   `docs/packages/pole-coach/`). Internally sequential (001→005 + 006 after 001+002);
+   parallel vs crew/infra tracks; no blockers. Awaiting implementation go-ahead.
+
 ### Tier 2 — `pole_analyst` remaining
 3. **`pole_analyst` Phase 19 `-066`** — plan auto-generation for detected trick (only open app ticket).
 
@@ -175,6 +208,7 @@
 
 - **No active blocker chains** — every ticketed pending phase is unblocked:
   `pole_analyst` 19 `-066`, `infra` 3–8. (`pole_api` Phases 25–26 and `keycloak` 1–4 are ✅ done.)
+- `pole_coach` chain is unblocked and self-contained (separate track from in-flight `-101`/`-076`).
 - `pole_analyst` Phase 7 (Keycloak per-user library) remains deferred; the *login* is already deployed.
 - **Non-blocking follow-ups backlog (from 2026-08-23/24 reviews):** peak aggregation `$isNaN` guard
   (BE); fail-open cutoff docstring; extract shared search-bar component; stale-response race guard;
@@ -195,3 +229,4 @@
 | `crew` | 7 | `docs/packages/crew/PROJECT_VARS.md` |
 | `dev-ops` | 0 | `docs/dev-ops/PROJECT_VARS.md` |
 | `pole_ml` | 1 | `docs/packages/pole_ml/PROJECT_VARS.md` |
+| `pole_coach` | 6 | `docs/packages/pole-coach/PROJECT_VARS.md` |

@@ -61,6 +61,11 @@ class RagSpec:
     exclude_dirnames: tuple[str, ...] = ()
     include_suffixes: tuple[str, ...] = ()
     exclude_filenames: tuple[str, ...] = ()
+    # optional per-file project inference: rel posix path -> project name.
+    # When set, chunk metadata uses it instead of ``name`` (docs RAG uses this
+    # so ``--project pole_api`` filters keep working; ``None`` keeps the old
+    # single-label behavior for code RAGs).
+    project_for: Callable[[str], str | None] | None = None
 
     def __post_init__(self) -> None:
         if self.iter_files is None:
@@ -200,10 +205,11 @@ def write_index(
         chunks = spec.splitter(text)
         prefix = hashlib.sha1(rel_str.encode("utf-8")).hexdigest()
         ids = [f"{prefix}::chunk-{i}" for i in range(len(chunks))]
+        project_name = spec.project_for(rel_str) if spec.project_for else spec.name
         metadatas = [{
             "path": rel_str,
             "file_name": file_path.name,
-            "project_name": spec.name,
+            "project_name": project_name or spec.name,
             "created_date": created,
             "last_update": last_update,
             "file_hash": digest,

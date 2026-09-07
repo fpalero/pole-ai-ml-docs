@@ -1,9 +1,4 @@
 {
-  ".trash/Sin t\u00edtulo.md": {
-    "created_date": "2026-09-05T08:35:37+00:00",
-    "file_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "last_update": "2026-08-31T05:18:09+00:00"
-  },
   "ARCHITECTURE.md": {
     "created_date": "2026-08-31T13:56:21+00:00",
     "file_hash": "29e4ca4fc066895553dd7111334164c67815595f7385f6ec89cb1c4d78e24bfc",
@@ -16,8 +11,8 @@
   },
   "ENV_VARS.md": {
     "created_date": "2026-08-31T08:28:19+00:00",
-    "file_hash": "1e15f14046d7eaa62e3c6c6a9c772da93ce70856a29e48c6ba476a581beb256c",
-    "last_update": "2026-09-04T12:50:53+00:00"
+    "file_hash": "02c0be090f4036b6ab32349342188013166158194e2bc21f214ff93292c3e24f",
+    "last_update": "2026-09-07T04:25:51+00:00"
   },
   "ROADMAP.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
@@ -28,11 +23,6 @@
     "created_date": "2026-08-30T19:07:49+00:00",
     "file_hash": "c1e231fed2f3f9c1bc3de6df14efacf1649fb539cc857c2f35711f4343743f45",
     "last_update": "2026-09-04T12:50:53+00:00"
-  },
-  "api.md": {
-    "created_date": "2026-09-06T16:43:50+00:00",
-    "file_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "last_update": "2026-09-06T12:01:54+00:00"
   },
   "app/crew/PROJECT_VARS.md": {
     "created_date": "2026-09-01T08:26:41+00:00",
@@ -486,13 +476,13 @@
   },
   "app/pole_analyst/PLAN.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
-    "file_hash": "094e4819f6144f83725b832060b0189c15f5cb666c29676b8daecff2a3418e92",
-    "last_update": "2026-09-06T21:18:06+00:00"
+    "file_hash": "52a82c2aae5d5d035b6d02c8dcabe231cce4375ac89c6716da49e2ef8db2dea3",
+    "last_update": "2026-09-07T04:12:33+00:00"
   },
   "app/pole_analyst/PROJECT_VARS.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
-    "file_hash": "d894ac9ae31c8f5fcd01d58b05484e2709aea7741717b7ac56d015f789d3c5b0",
-    "last_update": "2026-09-06T21:18:08+00:00"
+    "file_hash": "b6947ea80f2676a84d17ffb8c68d25b5ddd5e2ca93315580fae3df0d5fd494fb",
+    "last_update": "2026-09-07T04:12:49+00:00"
   },
   "app/pole_analyst/fe_design.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
@@ -749,6 +739,11 @@
     "file_hash": "d1870bcbcdb0c7b900bef1abc86a290326b597e909e06343fbf12db175db9e31",
     "last_update": "2026-09-06T19:44:19+00:00"
   },
+  "app/pole_analyst/phase-24-failed-turn-error-state/PAIML-POLE-ANALYST-075.md": {
+    "created_date": "2026-09-07T04:14:07+00:00",
+    "file_hash": "86d349e360b2d0a855b89f731ce1429ca646c80999af945976438a1783f2ee76",
+    "last_update": "2026-09-07T04:11:27+00:00"
+  },
   "app/pole_analyst/phase-25-analysis-summary-plain-language/PAIML-POLE-ANALYST-074.md": {
     "created_date": "2026-09-06T21:18:26+00:00",
     "file_hash": "0cbb7e2c7f5b3661f9cf72672181a22ce142334bbb3b9f19aec848a310b6866c",
@@ -946,8 +941,8 @@
   },
   "app/pole_analyst/plan/PLAN_PHASE_24.md": {
     "created_date": "2026-09-06T19:44:49+00:00",
-    "file_hash": "485eff7a035a3802cf34fac8210870fe5de60151de8ad641772a4d493ec86695",
-    "last_update": "2026-09-06T19:44:25+00:00"
+    "file_hash": "160a49dfaf49087c8367f3295eaa0cca540f850511dd40537a5f28cf3db1d278",
+    "last_update": "2026-09-07T04:12:49+00:00"
   },
   "app/pole_analyst/plan/PLAN_PHASE_25.md": {
     "created_date": "2026-09-06T21:18:26+00:00",
@@ -1011,8 +1006,8 @@
   },
   "app/pole_api/PLAN.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
-    "file_hash": "4cf2dca6b3f0f45f736741219a940181630092540ebf0c62e8147a4e449d9b22",
-    "last_update": "2026-09-06T19:44:08+00:00"
+    "file_hash": "31d92ad3be39f78a60dbaec01daeb75fe75cfa967a5603f634aed3f1bb75aee1",
+    "last_update": "2026-09-07T04:12:33+00:00"
   },
   "app/pole_api/POLE-API.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
@@ -1021,8 +1016,8 @@
   },
   "app/pole_api/PROJECT_VARS.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
-    "file_hash": "554a88f573133eb6bc8d46e39084804d2df0a7e2fce6c43322cbc8f6e30ac998",
-    "last_update": "2026-09-06T21:18:08+00:00"
+    "file_hash": "4a32374688065199e35b2b6e283587582c797f488031849e1eb8e1c8e3d89c25",
+    "last_update": "2026-09-07T04:26:05+00:00"
   },
   "app/pole_api/be_train_retrain_test_guide.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
@@ -1489,6 +1484,21 @@
     "file_hash": "92085816fab9b0c70acd5a406f1ad1ff7754d27c5cbbc5f93ad58e1b32fd9ec7",
     "last_update": "2026-09-06T21:17:23+00:00"
   },
+  "app/pole_api/phase-29-staging-qa-followups/PAIML-POLE-API-096.md": {
+    "created_date": "2026-09-07T04:14:07+00:00",
+    "file_hash": "511206242887f16cdb0ae9c5b9e141783f457e7ea404b3ab8d2ac7999608542b",
+    "last_update": "2026-09-07T04:10:52+00:00"
+  },
+  "app/pole_api/phase-29-staging-qa-followups/PAIML-POLE-API-097.md": {
+    "created_date": "2026-09-07T04:14:07+00:00",
+    "file_hash": "ec16ceba72a313f86895c75d24b21d82119118a3e62fcbef571651eec14b10a5",
+    "last_update": "2026-09-07T04:11:13+00:00"
+  },
+  "app/pole_api/phase-30-chatbot-turn-budget/PAIML-POLE-API-095.md": {
+    "created_date": "2026-09-07T04:27:41+00:00",
+    "file_hash": "33f7ef9fcc0aac2e696a8925c49d5a2d6a2d1eb1ca5c26800c51d0c98de51dc1",
+    "last_update": "2026-09-07T04:25:51+00:00"
+  },
   "app/pole_api/plan/PLAN_PHASE_1.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
     "file_hash": "2161484346244f3bc997a8d125d7c3e1030c1d6d55f2986ea3eabb24046d7f5d",
@@ -1591,8 +1601,8 @@
   },
   "app/pole_api/plan/PLAN_PHASE_29.md": {
     "created_date": "2026-09-06T19:44:49+00:00",
-    "file_hash": "dcc1ef8e4e5a10536cf54ece145f5bb63a11b95a891507a91bcd200b1460cbd3",
-    "last_update": "2026-09-06T21:17:43+00:00"
+    "file_hash": "6bf823b0914e10a7a593abe3d0a1ed222ef738204cc45fa38c81cd65bab78dc1",
+    "last_update": "2026-09-07T04:26:16+00:00"
   },
   "app/pole_api/plan/PLAN_PHASE_3.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
@@ -2438,10 +2448,5 @@
     "created_date": "2026-08-30T19:10:30+00:00",
     "file_hash": "09cb1f7b9795cf2c278a073e684736dd0fb1cb9efa4e78a16635a96753f66203",
     "last_update": "2026-09-04T12:50:53+00:00"
-  },
-  "subscription.md": {
-    "created_date": "2026-09-06T16:43:50+00:00",
-    "file_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "last_update": "2026-09-06T12:01:45+00:00"
   }
 }

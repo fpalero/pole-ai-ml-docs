@@ -58,6 +58,7 @@ Tres bundles backend bajo la misma fase (el tercero + deadline adoptado 095):
 | `PAIML-POLE-API-095` | Per-turn wall-clock deadline (`CHATBOT_TURN_TIMEOUT`, default 120s) — **ADOPTED** (canónico mergeado en pole-ai-ml-docs#26, `phase-30-chatbot-turn-budget/`; no duplicado aquí — ver nota de adopción abajo) | 📋 PLANNED (mergeado en #26) |
 | `PAIML-POLE-API-096` | Answer shaping: tool results → typed card blocks; sin rutas de servidor en prosa/resultados; sin call syntax cruda ni block-JSON inline en prosa | 📋 PLANNED |
 | `PAIML-POLE-API-097` | Blank-completion hardening: blank-detection + retry budget + model fallback (sin hangs ~152s → ABANDONED) | 📋 PLANNED |
+| `PAIML-POLE-API-099` | Test-only: `llm._timeout = 120.0` en el double `OpenRouterLLM` de `test_openrouter_chat_sends_max_tokens` (095 hizo que `chat()` lea `self._timeout`) | 📋 PLANNED |
 
 ### PAIML-POLE-API-095 (adopted) — per-turn wall-clock deadline
 
@@ -138,6 +139,14 @@ blank-exhaustion deben seguir distinguibles (coordinar acceptance 095/097).
   (primario = pin `deepseek-v4-flash` de 095).
 - Turno aún-fallido → señal de error 093(d) (nunca hang silencioso ni `analysis_failed`
   solo-prosa); tests en `packages/chatbot/tests/` + `test_analyst_chatbot*.py`.
+
+**QA follow-up (099 — test-only, review de PRs #253/#254):**
+
+- Añadir `llm._timeout = 120.0` al double `OpenRouterLLM` (`__new__`, sin
+  `__init__`) de `test_openrouter_chat_sends_max_tokens`
+  (`app/pole_api/tests/test_analyst_chatbot_093_followups.py`, ~línea 472):
+  095 hizo que `chat()` lea `self._timeout` y rompió ese test pre-existente en
+  develop limpio. Sin cambio prod; acceptance = ese test en verde.
 
 ## Acceptance
 

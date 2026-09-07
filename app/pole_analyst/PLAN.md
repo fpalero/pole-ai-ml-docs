@@ -115,6 +115,7 @@
 | 23 | FE chat cards (score_summary / phasic_feedback / metric_matrix / drills / quick_replies) | 📋 PLANNED | [plan/PLAN_PHASE_23.md](plan/PLAN_PHASE_23.md) |
 | 24 | FE failed-turn error state (error bubble/chip + retry) + image endpoint URLs + tool-chip arg sanitization (075) | 📋 PLANNED | [plan/PLAN_PHASE_24.md](plan/PLAN_PHASE_24.md) |
 | 25 | Analysis summary plain language (coach sentences; no metric ids / z-scores / frame numbers / deviation counts) | 📋 PLANNED | [plan/PLAN_PHASE_25.md](plan/PLAN_PHASE_25.md) |
+| 26 | FE media auth (`?token=` en todos los bindings `<img>`/`<video>` + retry-once-with-fresh-token) | 📋 PLANNED | [plan/PLAN_PHASE_26.md](plan/PLAN_PHASE_26.md) |
 
 
 ---

@@ -757,7 +757,7 @@
   "app/pole_analyst/phase-26-fe-media-auth/PAIML-POLE-ANALYST-077.md": {
     "created_date": "2026-09-07T22:08:14+00:00",
     "file_hash": "fcd7270e0f745424003e296bed085c45a543c15a36525bcf134e454f71e19b64",
-    "last_update": "2026-09-07T22:07:12+00:00"
+    "last_update": "2026-09-07T22:52:28+00:00"
   },
   "app/pole_analyst/phase-3-video-library-upload/PAIML-POLE-ANALYST-010.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
@@ -1022,7 +1022,7 @@
   "app/pole_api/PLAN.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
     "file_hash": "8ac6774b319aa1ce6432ad9f49ef649dd9df19ac56032c7f360891711d22aa32",
-    "last_update": "2026-09-07T22:06:32+00:00"
+    "last_update": "2026-09-07T22:52:28+00:00"
   },
   "app/pole_api/POLE-API.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
@@ -1032,7 +1032,7 @@
   "app/pole_api/PROJECT_VARS.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
     "file_hash": "05088b041b147c620e32904955fa1438430732b8cc47ef4a10de008381e73d48",
-    "last_update": "2026-09-07T22:06:32+00:00"
+    "last_update": "2026-09-07T22:52:28+00:00"
   },
   "app/pole_api/be_train_retrain_test_guide.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
@@ -1527,7 +1527,7 @@
   "app/pole_api/phase-29-staging-qa-followups/PAIML-POLE-API-103.md": {
     "created_date": "2026-09-07T21:40:06+00:00",
     "file_hash": "156ee5e336ad372446591be799869ed55945d6d14f3b571adc4a65356183dd93",
-    "last_update": "2026-09-07T22:06:32+00:00"
+    "last_update": "2026-09-07T22:52:28+00:00"
   },
   "app/pole_api/phase-30-chatbot-turn-budget/PAIML-POLE-API-095.md": {
     "created_date": "2026-09-07T04:27:41+00:00",
@@ -1889,6 +1889,11 @@
     "file_hash": "bb6e5b07d32445738c55158746b6cf417a266d496c93d59707cb4b6108f3da38",
     "last_update": "2026-09-07T22:06:32+00:00"
   },
+  "decisions/ADR-005-keycloak-temp-user-expiry-cronjob.md": {
+    "created_date": "2026-09-07T22:53:55+00:00",
+    "file_hash": "5201d3447b1c53087709ce4897518b26b5bfd89a8322d2b7a151ef7d848ca2c3",
+    "last_update": "2026-09-07T22:53:39+00:00"
+  },
   "decisions/README.md": {
     "created_date": "2026-08-31T12:31:41+00:00",
     "file_hash": "22ea394fa32db8c0f1cd2ae69ae278aee636c5c0b800c4e95f1a5b3b49e4a4d3",
@@ -1903,6 +1908,11 @@
     "created_date": "2026-08-30T19:07:49+00:00",
     "file_hash": "312f6d6bd540b0635f5c144c1f5bca049ab470ab93c84e2e3e679a31619b50f5",
     "last_update": "2026-09-07T22:06:32+00:00"
+  },
+  "dev-ops/keycloak-user-expiry/README.md": {
+    "created_date": "2026-09-07T22:53:55+00:00",
+    "file_hash": "df77a3170513195403e053903e8e0a6beb37f7899d7e7ee05635591c4916fab0",
+    "last_update": "2026-09-07T22:53:17+00:00"
   },
   "dev-ops/opencode-omnirouter-api-reference.md": {
     "created_date": "2026-08-31T14:04:19+00:00",

@@ -1,7 +1,7 @@
 # Project Variables: pole_api
 
 ## Ticket Counter
-- **Last ticket number**: 101
+- **Last ticket number**: 102
 
 > Anomaly note (reconciliation): 95 is consumed by adopted ticket PAIML-POLE-API-095
 > (canonical file `phase-30-chatbot-turn-budget/PAIML-POLE-API-095.md`, merged in
@@ -13,3 +13,4 @@
 > pole-ai-ml#257 code + pole-ai-ml-docs#31 docs, both merged — reserved, untouched here).
 > 101 = `phase-29-staging-qa-followups/PAIML-POLE-API-101.md` (salvage of
 > closed docs #29 items 2–4; #29 item 1 done via pole-ai-ml#259 + docs #30).
+> 102 = `phase-29-staging-qa-followups/PAIML-POLE-API-102.md` (gate-3 residual bundle). Same branch salvages the two 101-item-4 ENV rows missed by docs #32.

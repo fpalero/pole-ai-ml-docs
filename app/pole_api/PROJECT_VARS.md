@@ -1,7 +1,7 @@
 # Project Variables: pole_api
 
 ## Ticket Counter
-- **Last ticket number**: 99
+- **Last ticket number**: 100
 
 > Anomaly note (reconciliation): 95 is consumed by adopted ticket PAIML-POLE-API-095
 > (canonical file `phase-30-chatbot-turn-budget/PAIML-POLE-API-095.md`, merged in

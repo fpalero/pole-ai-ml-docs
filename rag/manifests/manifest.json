@@ -1016,8 +1016,8 @@
   },
   "app/pole_api/PROJECT_VARS.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
-    "file_hash": "4a32374688065199e35b2b6e283587582c797f488031849e1eb8e1c8e3d89c25",
-    "last_update": "2026-09-07T04:26:05+00:00"
+    "file_hash": "e7a60a249ce5d249106c086ddd9f16e30cdcce81ddd67544833896b6a66fbf82",
+    "last_update": "2026-09-07T05:52:12+00:00"
   },
   "app/pole_api/be_train_retrain_test_guide.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
@@ -1494,10 +1494,20 @@
     "file_hash": "ec16ceba72a313f86895c75d24b21d82119118a3e62fcbef571651eec14b10a5",
     "last_update": "2026-09-07T04:11:13+00:00"
   },
+  "app/pole_api/phase-29-staging-qa-followups/PAIML-POLE-API-099.md": {
+    "created_date": "2026-09-07T05:54:43+00:00",
+    "file_hash": "c94580a30dbc478033cd79d17a25d67184db3c69a56363d679f05a957300b688",
+    "last_update": "2026-09-07T05:52:00+00:00"
+  },
   "app/pole_api/phase-30-chatbot-turn-budget/PAIML-POLE-API-095.md": {
     "created_date": "2026-09-07T04:27:41+00:00",
     "file_hash": "33f7ef9fcc0aac2e696a8925c49d5a2d6a2d1eb1ca5c26800c51d0c98de51dc1",
     "last_update": "2026-09-07T04:25:51+00:00"
+  },
+  "app/pole_api/phase-31-base-image-hash/PAIML-POLE-API-098.md": {
+    "created_date": "2026-09-07T05:54:43+00:00",
+    "file_hash": "0a22e8b0e51bb7c0df4f374e6f7102497ac94aefdeb91058fe3d1a6c2dd2ef3b",
+    "last_update": "2026-09-07T05:51:34+00:00"
   },
   "app/pole_api/plan/PLAN_PHASE_1.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
@@ -1601,8 +1611,8 @@
   },
   "app/pole_api/plan/PLAN_PHASE_29.md": {
     "created_date": "2026-09-06T19:44:49+00:00",
-    "file_hash": "6bf823b0914e10a7a593abe3d0a1ed222ef738204cc45fa38c81cd65bab78dc1",
-    "last_update": "2026-09-07T04:26:16+00:00"
+    "file_hash": "8ec59d668c8bf5291d5be5171cbbf897e70e27bc75965d06ad9af2feb7cc40f0",
+    "last_update": "2026-09-07T05:52:36+00:00"
   },
   "app/pole_api/plan/PLAN_PHASE_3.md": {
     "created_date": "2026-08-30T19:07:49+00:00",

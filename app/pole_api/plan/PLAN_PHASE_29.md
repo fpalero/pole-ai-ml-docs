@@ -12,7 +12,9 @@
 
 ## Contexto
 
-Tres bundles backend bajo la misma fase (el tercero + deadline adoptado 095):
+Tres bundles backend bajo la misma fase (el tercero + deadline adoptado 095),
+más un micro-bundle de polish (099, leftovers de revisión #253/#254, sin cambio
+de comportamiento):
 
 **Bundle 1 (093) — cuatro causas raíz del staging gate:**
 
@@ -49,6 +51,19 @@ Tres bundles backend bajo la misma fase (el tercero + deadline adoptado 095):
 - (i) Desambiguación: con 2+ videos del mismo truco en staging,
   "my handspring video" resuelve al latest y lo nombra.
 
+**Bundle 4 (099) — reviewer leftovers #253/#254 (verificados, no bloqueantes):**
+
+- (j) `test_openrouter_chat_sends_max_tokens` (`test_analyst_chatbot_093_followups.py:448-476`):
+  dobles vía `__new__` sin `_timeout` (budget per-call de 095) — fix de una línea
+  (`llm._timeout = 120.0`), solo tests; el único rojo en las suites de 096
+  (pre-existente probado en develop limpio).
+- (k) Hint de tipo en `agent_langgraph.py:289` (`fallback_llm: OllamaLLM | None`
+  pero `main.py` pasa `OpenRouterLLM`) — ensanchar a unión o Protocol.
+- (l) Robustez en `agent_langgraph.py:1108` (`if not reply.strip()` log-only) →
+  None-safe (`is_blank_completion(...)` o `(reply or "").strip()`).
+- (m) Filas `ENV_VARS.md` de las dos vars de 097 (`CHATBOT_BLANK_MAX_RETRIES`
+  default 2, `OPENROUTER_FALLBACK_MODEL` default unset/disabled).
+
 ## Tickets
 
 | Ticket | Scope | Estado |
@@ -58,6 +73,7 @@ Tres bundles backend bajo la misma fase (el tercero + deadline adoptado 095):
 | `PAIML-POLE-API-095` | Per-turn wall-clock deadline (`CHATBOT_TURN_TIMEOUT`, default 120s) — **ADOPTED** (canónico mergeado en pole-ai-ml-docs#26, `phase-30-chatbot-turn-budget/`; no duplicado aquí — ver nota de adopción abajo) | 📋 PLANNED (mergeado en #26) |
 | `PAIML-POLE-API-096` | Answer shaping: tool results → typed card blocks; sin rutas de servidor en prosa/resultados; sin call syntax cruda ni block-JSON inline en prosa | 📋 PLANNED |
 | `PAIML-POLE-API-097` | Blank-completion hardening: blank-detection + retry budget + model fallback (sin hangs ~152s → ABANDONED) | 📋 PLANNED |
+| `PAIML-POLE-API-099` | Reviewer leftovers (#253/#254): test-double `_timeout` fix + `fallback_llm` hint + None-safe blank check + `ENV_VARS.md` rows (sin cambio de comportamiento) | 📋 PLANNED |
 
 ### PAIML-POLE-API-095 (adopted) — per-turn wall-clock deadline
 
@@ -139,6 +155,12 @@ blank-exhaustion deben seguir distinguibles (coordinar acceptance 095/097).
 - Turno aún-fallido → señal de error 093(d) (nunca hang silencioso ni `analysis_failed`
   solo-prosa); tests en `packages/chatbot/tests/` + `test_analyst_chatbot*.py`.
 
+**Bundle 4 (099 — reviewer leftovers, sin cambio de comportamiento):**
+
+- Fix de una línea en el doble de test (`llm._timeout = 120.0`); ensanchar hint
+  `fallback_llm`; check None-safe en `agent_langgraph.py:1108`; dos filas
+  `ENV_VARS.md` (097 vars). Tests donde sea factible que aserten no-cambio.
+
 ## Acceptance
 
 **Bundle 1 (093):**
@@ -179,6 +201,12 @@ blank-exhaustion deben seguir distinguibles (coordinar acceptance 095/097).
 - Retry/fallback nunca exceden el wall-clock budget de 095 (acceptance
   coordinada: deadline-expiry ≠ blank-exhaustion, distinguibles).
 - `pixi run test-api` + `pixi run test-chatbot` verdes, cobertura ≥ 80%.
+
+**Bundle 4 (099):**
+
+- Named test `test_openrouter_chat_sends_max_tokens` verde; suites afectadas
+  (`test-api` + `test-chatbot`) verdes, cobertura ≥ 80%.
+- Sin cambio de comportamiento (asertado en tests donde sea factible).
 
 ## FUTURE — ayesha deferral (no ticket, no code)
 

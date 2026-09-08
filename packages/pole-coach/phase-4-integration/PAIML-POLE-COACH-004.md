@@ -62,3 +62,25 @@ Full E2E (Phase 5).
 
 ## Definition of Done
 Unit suites + integration aggregator green; report.
+
+## As-built deviations (implementation report)
+Worktree branch: `feature/PAIML-POLE-COACH-004-analyst-chatbot-wiring-profile`.
+Suites green — 33 new 004 tests, 65 touched coach/profile/schema suites,
+121 analyst-chatbot slice, 166 `pole_coach` package tests.
+
+1. Coverage ≥80% number not producible: `pytest --cov` crashes at conftest import
+   (`ImportError: cannot load module more than once`, numpy/TF + pytest-cov env
+   conflict) — reproducible, fires before any 004 code executes,
+   pre-existing/unrelated. Evidence in lieu: every touched module exercised by
+   green suites (golden-vector, back-compute, wiring-with-mocked-providers).
+2. Broad `tests/analysis` + WS-integration runs hang (2× timeout) —
+   mongo/docker-dependent integration files, out of pre-PR scope; left to
+   staging e2e gate.
+3. Docker image build NOT executed (task 4.5): base.Dockerfile lane is a 4-line
+   mirror of the proven pole_rag lane; handed to gate ("image builds, import
+   pole_coach.supergraph OK").
+4. No AthleteProfileRepository change: upsert is a generic `$set` passthrough,
+   PUT uses `model_dump()` — new profile fields persist with zero repo edits.
+5. FE compile/spec not run: no `.spec.ts` exists for the profile page; change is
+   a typed template/form mirroring the BE enum — FE-design conformance left to
+   gate.

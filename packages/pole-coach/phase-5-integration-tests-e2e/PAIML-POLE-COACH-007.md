@@ -93,3 +93,19 @@ block assertions per the matrix above. Then gate verdict per ticket DoD.
 150/150 asked, thresholds met, transcript + judge report attached, gate verdict
 reported. Green unblocks 006. (`develop` → `main` stays user-owned; never opened
 by the agent.)
+
+## Bank approval (2026-09-08)
+
+- **Verdict:** user-approved as-is, no edits. Bank copied verbatim (no question
+  reworded) to `coach-150q.bank.json` (same folder as this ticket — the bank is
+  this ticket's core artifact).
+- **Scope:** 150 English-only questions, 30 per flow — `video_analysis`
+  (`COACH7-VA-01..30`), `progress` (`COACH7-PR-01..30`), `training_plan`
+  (`COACH7-TP-01..30`), `injury` (`COACH7-IN-01..30`), `readiness`
+  (`COACH7-RE-01..30`). Shape per entry: `id`, `flow`, `question`,
+  `expected_blocks`, `rag_domains`, `requires_disclaimer`.
+- **Pass threshold:** >=27/30 per flow.
+- **Run environment:** staging `ipsf-server`, `*_test` DBs only.
+- **Required artifacts:** full transcript + LLM-judge report attached to the run
+  report; gate verdict per this ticket's DoD.
+- **Pointer:** [`coach-150q.bank.json`](./coach-150q.bank.json).

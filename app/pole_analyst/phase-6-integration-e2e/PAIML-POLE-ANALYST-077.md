@@ -92,3 +92,13 @@ hermetic (`AUTH_ENABLED=0` + `E2E_FAKES=1`); only the FE shell blocks.
 - Key scoping facts: 005's diff is tests-only (2 files, +521/-0, zero prod changes), so the hidden-h1 behavior is identical on develop — pre-existing FE drift, NOT a 005 regression. Keycloak login + local mongo both worked in that run (setup project passed), so this is NOT the login-required drift mode already in the ticket — different root cause (heading rendered but hidden; app-side, predating the ticket).
 - Required fix direction: app-side investigation of why the Coach h1 stays hidden (render/guard/visibility condition in the chat pane) + E2E coverage; explicitly out of 005 scope.
 - Acceptance: C4/C5 green; legs-5/6 waiver for 005 extended to cover this mode pending the fix.
+
+## Second additional failure mode (found by hidden-h1 gate 2026-09-08)
+- E2E-C1 RED: `locator('app-analysis-tab')` element(s) not found, 20s timeout. E2E-C3 RED: `locator('app-analysis-notification')` element(s) not found, 20s timeout.
+- Classification CONFIRMED-PRE-EXISTING: byte-identical failures with the hidden-h1 fix reverted (same locators/errors/durations); the h1 fix is irrelevant (analysis-detail pane never touches the chat header). Out of the hidden-h1 scope; needs its own analysis-pane investigation.
+- Acceptance: C1/C3 green.
+
+### Harness note: `pole-analyst-e2e` pixi task does not export `MONGODB_URI`
+- `pole-analyst-e2e` pixi task does not export `MONGODB_URI`, so `seedCohort()` dies with `KeyError: 'MONGODB_URI'` in bare shells (false-reds on cohort-seeded specs); workaround is exporting the standard localhost URI.
+- Recommended fix: default `MONGODB_URI` in the pixi task or `helpers.ts`.
+- Related: `pixi run pole-analyst-e2e -- <args>` swallows Playwright filters (bash -c); targeted runs need `pixi run npx playwright test <file> -g <pattern>` from app/pole_analyst.

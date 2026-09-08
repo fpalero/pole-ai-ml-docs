@@ -71,8 +71,9 @@ Suites green — 33 new 004 tests, 65 touched coach/profile/schema suites,
 1. Coverage ≥80% number not producible: `pytest --cov` crashes at conftest import
    (`ImportError: cannot load module more than once`, numpy/TF + pytest-cov env
    conflict) — reproducible, fires before any 004 code executes,
-   pre-existing/unrelated. Evidence in lieu: every touched module exercised by
-   green suites (golden-vector, back-compute, wiring-with-mocked-providers).
+    pre-existing/unrelated. Evidence in lieu: every touched module exercised by
+    green suites (golden-vector, back-compute, wiring-with-mocked-providers).
+> Update (gate 2026-09-08): pytest-cov reproduced fine — `pixi run test` reports 82.42%. Original crash not observed; treating as env-specific flake.
 2. Broad `tests/analysis` + WS-integration runs hang (2× timeout) —
    mongo/docker-dependent integration files, out of pre-PR scope; left to
    staging e2e gate.

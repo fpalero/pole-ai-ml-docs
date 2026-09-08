@@ -86,3 +86,9 @@ hermetic (`AUTH_ENABLED=0` + `E2E_FAKES=1`); only the FE shell blocks.
 
 ## Estimated Effort
 - [S]
+
+## Additional failure mode (found by 005 gate 2026-09-08)
+- E2E-C4/C5 in `app/pole_analyst/e2e/workflow-coach.spec.ts` (new in 005, spec lines ~262/~324): `getByRole('heading', {name:'Coach', exact:true})` resolves to `<h1 class="chat-title">Coach</h1>` but stays `hidden` for 20s (43 retries); WS-stubbed blocks never exercised; failure is pre-chat-render.
+- Key scoping facts: 005's diff is tests-only (2 files, +521/-0, zero prod changes), so the hidden-h1 behavior is identical on develop — pre-existing FE drift, NOT a 005 regression. Keycloak login + local mongo both worked in that run (setup project passed), so this is NOT the login-required drift mode already in the ticket — different root cause (heading rendered but hidden; app-side, predating the ticket).
+- Required fix direction: app-side investigation of why the Coach h1 stays hidden (render/guard/visibility condition in the chat pane) + E2E coverage; explicitly out of 005 scope.
+- Acceptance: C4/C5 green; legs-5/6 waiver for 005 extended to cover this mode pending the fix.

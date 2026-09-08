@@ -109,3 +109,32 @@ by the agent.)
 - **Required artifacts:** full transcript + LLM-judge report attached to the run
   report; gate verdict per this ticket's DoD.
 - **Pointer:** [`coach-150q.bank.json`](./coach-150q.bank.json).
+
+## Gate run 1 (2026-09-08) — aborted on systematic signal
+
+- **Verdict:** RED. 14/14 `video_analysis` (VA) turns failed; run aborted on the
+  systematic signal (no point burning the remaining flows). Wall-clock ~27 min
+  (probe 19:25–19:31Z, run 19:32–19:59Z). 0 retries — systematic, not flaky.
+  Worktree verified clean afterwards; the run modified no code.
+- **Probe GREEN:** live OpenRouter `deepseek-v4-flash` turn — 5× HTTP 200,
+  114.5 s wall, status ok, markdown-first blocks rendered, 9 successful
+  `tool_calls`. No stub, no bare LLM. Chat shell renders (077 fix present).
+- **Topology deviation (SAFETY-CRITICAL):** the staging `pole-api` deployment
+  is wired to the PROD DBs (`pole_api`, `skeleton_data`, `analysis_db`) — the
+  literal remote-backend path would have touched prod. The run used the
+  compliant equivalent instead: local backend + FE built from the 007 worktree,
+  data plane = staging Mongo via `ipsf-server` port-forward, `*_test` DBs only,
+  `*_test` suffix guard passed. **Recommendation (noted, not created):** open a
+  ticket for a staging deployment DB-wiring review.
+- **RAG caveat:** local RAG domain DBs were unseeded, so the
+  `query_pole` / `biomechanics` / `calisthenics` tools errored (caught, empty
+  hits). Answers were metric-grounded, not RAG-hit-grounded. Options for the
+  record: seed `POLE_RAG_DATA_DIR` (staging `/data/rag` is 1.1G) or accept
+  metric-only grounding in judge review.
+- **Failure modes:** A — 7× turn exceeded the 150 s budget (server likely still
+  reasoning; live p50 114 s, tails 25–52 s); B — 6× multi-md assertion defect
+  despite rendered answers; C — 1× VA-09 missing `video_segment` block (agent
+  behaviour, needs judge review). Fix: A+B addressed in the spec (in progress
+  on the 007 branch); full-150 estimate ~5 h+ at current pace.
+- **Artifacts:** `app/pole_analyst/test-results/coach-150q/probe-20260908-1925/`
+  + `full-20260908-1932/` (in the 007 worktree, gitignored — not committed).

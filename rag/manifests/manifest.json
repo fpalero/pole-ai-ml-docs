@@ -491,8 +491,8 @@
   },
   "app/pole_analyst/PROJECT_VARS.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
-    "file_hash": "b0d3898a5839fce963bc34af11827ac95f5f6346eabd55716dd4b4fc1b2280db",
-    "last_update": "2026-09-07T20:20:29+00:00"
+    "file_hash": "fd063988edf713c73b2a95cbc05af7c7988cf22463d56a412cf5dcc161c07793",
+    "last_update": "2026-09-08T09:22:30+00:00"
   },
   "app/pole_analyst/fe_design.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
@@ -853,6 +853,11 @@
     "created_date": "2026-08-30T19:07:49+00:00",
     "file_hash": "75c4dbd47149517618170375982ce6bd011382d26351b6571a64342e2ad10dfa",
     "last_update": "2026-09-07T20:19:57+00:00"
+  },
+  "app/pole_analyst/phase-6-integration-e2e/PAIML-POLE-ANALYST-077.md": {
+    "created_date": "2026-09-08T09:22:46+00:00",
+    "file_hash": "e2608031d69a355fa323130e41b6399082afbb0311d0d722bb86c5f767a3dca7",
+    "last_update": "2026-09-08T09:22:27+00:00"
   },
   "app/pole_analyst/phase-7-keycloak-auth/PAIML-POLE-ANALYST-028.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
@@ -1701,8 +1706,8 @@
   },
   "app/pole_fe/PROJECT_VARS.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
-    "file_hash": "b35212b3276a31dabac96b4fc6b64e3bc2a677c3d8007ce8a02bda76fa42a4ab",
-    "last_update": "2026-09-07T20:19:57+00:00"
+    "file_hash": "4d26bc2e6b6d76e2653e2fe66065833d7f44cafc7d9d47e260e09d1e6ad7c588",
+    "last_update": "2026-09-08T09:22:30+00:00"
   },
   "app/pole_fe/e2e-test-plan.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
@@ -1793,6 +1798,11 @@
     "created_date": "2026-08-30T19:07:49+00:00",
     "file_hash": "c13ef5491980056f17f777d0a443ae3b3955fc655f55d2378576b3623b8e2058",
     "last_update": "2026-09-07T20:19:57+00:00"
+  },
+  "app/pole_fe/phase-8-e2e-playwright/PAIML-POLE-FE-015.md": {
+    "created_date": "2026-09-08T09:22:46+00:00",
+    "file_hash": "edc0d5a137f869caf73095724b0e53243f88523155850d490f7f32626d154d53",
+    "last_update": "2026-09-08T09:22:27+00:00"
   },
   "app/pole_fe/phase-9-biomech-analysis/PAIML-POLE-FE-005.md": {
     "created_date": "2026-08-30T19:07:49+00:00",

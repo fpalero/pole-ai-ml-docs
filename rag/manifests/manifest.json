@@ -1974,6 +1974,16 @@
     "file_hash": "f66a2d7a97d01a38ecdc4e13337b192e6dc73d643dc68a97e0c7146c190678a7",
     "last_update": "2026-09-07T20:19:57+00:00"
   },
+  "diagrams/pole-coach/CLASSES.md": {
+    "created_date": "2026-09-08T14:29:04+00:00",
+    "file_hash": "1f2fff77ea26994b9e4abae2c75acfe38198abfcd5101d2824a57ee0fbb30577",
+    "last_update": "2026-09-08T14:28:51+00:00"
+  },
+  "diagrams/pole-coach/FLOW.md": {
+    "created_date": "2026-09-08T14:29:04+00:00",
+    "file_hash": "cdbf2eab4f8a5f72ab1358591bb7cf2c8ee94bb819db52ef129bec369b627a62",
+    "last_update": "2026-09-08T14:28:03+00:00"
+  },
   "diagrams/pole_analyst/CLASSES.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
     "file_hash": "a5d3cc132bcf31838f39203ec9d27d5781d533cd19884bd7fed972a81e379bdd",
@@ -2151,8 +2161,8 @@
   },
   "packages/pole-coach/PLAN.md": {
     "created_date": "2026-09-07T20:20:47+00:00",
-    "file_hash": "b385f84a421fd2359d0079ed4e237e807431482a120fb480a6339bb4ca516ddc",
-    "last_update": "2026-09-07T20:57:34+00:00"
+    "file_hash": "8b74b47ab4c1af0c2dad7305b322126431de63067e735248213d6d49b9ef25ec",
+    "last_update": "2026-09-08T14:27:14+00:00"
   },
   "packages/pole-coach/PROJECT_VARS.md": {
     "created_date": "2026-09-07T20:20:47+00:00",

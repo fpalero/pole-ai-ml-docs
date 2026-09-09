@@ -1,7 +1,7 @@
 # Project Variables: pole_api
 
 ## Ticket Counter
-- **Last ticket number**: 104
+- **Last ticket number**: 109
 
 > Anomaly note (reconciliation): 95 is consumed by adopted ticket PAIML-POLE-API-095
 > (canonical file `phase-30-chatbot-turn-budget/PAIML-POLE-API-095.md`, merged in
@@ -16,3 +16,8 @@
 > 102 = `phase-29-staging-qa-followups/PAIML-POLE-API-102.md` (gate-3 residual bundle). Same branch salvages the two 101-item-4 ENV rows missed by docs #32.
 > 103 = `phase-29-staging-qa-followups/PAIML-POLE-API-103.md` (in-flight tool grace on turn-deadline expiry, option A).
 > 104 = `phase-33-test-collection-hygiene/PAIML-POLE-API-104.md` (gate-hygiene: duplicate pytest basename test_temp_access_purge, test-only).
+> 105 = `phase-29-staging-qa-followups/PAIML-POLE-API-105.md` (staging-gate harness; reserved by parallel branch, lands via its own PR).
+> 106 = `phase-34-unified-images/PAIML-POLE-API-106.md` (unified image endpoint via path-hash; docs PR #42).
+> 107 = `phase-29-staging-qa-followups/PAIML-POLE-API-107.md` (analyst turn fail-safes; coach branch).
+> 108 = `phase-29-staging-qa-followups/PAIML-POLE-API-108.md` (data-backed progress matrix tool; coach branch).
+> 109 = `phase-35-rag-image-blocks/PAIML-POLE-API-109.md` (deterministic RAG image block synthesis — query_pole/biomechanics/calisthenics/psicology; this PR).

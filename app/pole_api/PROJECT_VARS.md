@@ -14,7 +14,7 @@
 > 101 = `phase-29-staging-qa-followups/PAIML-POLE-API-101.md` (salvage of
 > closed docs #29 items 2–4; #29 item 1 done via pole-ai-ml#259 + docs #30).
 > 102 = `phase-29-staging-qa-followups/PAIML-POLE-API-102.md` (gate-3 residual bundle). Same branch salvages the two 101-item-4 ENV rows missed by docs #32.
-<> 103 = `phase-29-staging-qa-followups/PAIML-POLE-API-103.md` (in-flight tool grace on turn-deadline expiry, option A; reserved parallel branch `feature/PAIML-POLE-API-103-inflight-tool-grace`).
+> 103 = `phase-29-staging-qa-followups/PAIML-POLE-API-103.md` (in-flight tool grace on turn-deadline expiry, option A; reserved parallel branch `feature/PAIML-POLE-API-103-inflight-tool-grace`).
 > 104 = `phase-33-test-collection-hygiene/PAIML-POLE-API-104.md` (gate-hygiene: duplicate pytest basename test_temp_access_purge, test-only; reserved parallel branch `feature/PAIML-POLE-GATE-HYGIENE-API104-FE14`).
 >
 > Backlog gap closes from closed-but-unmerged docs PRs (landed in develop side of this unification):
@@ -30,3 +30,4 @@
 > 111 = `phase-29-staging-qa-followups/PAIML-POLE-API-111.md` (analyst output-contract enforcement: progress routing + drills emission + tool hygiene).
 >
 > Anomaly note (docs-unified reconciliation): MAX counter 111 wins (develop side was 109). No numbers skipped in 103–111; 103/104 reserved meanings from both sides kept above.
+> Docs-unified: incoming `feature/PAIML-POLE-DOCS-028-026-phase-docs-commit` counter was 87 (older); superseded, MAX 111 kept.

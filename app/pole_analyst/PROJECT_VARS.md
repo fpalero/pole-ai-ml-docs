@@ -15,3 +15,5 @@
 > (chip artifact links) vs COACH branch
 > `phase-6-integration-e2e/PAIML-POLE-ANALYST-077.md` (staging-gate harness,
 > sister ticket PAIML-POLE-FE-015). Both kept; MAX counter 78 wins.
+> Docs-unified: incoming `feature/PAIML-POLE-DOCS-028-026-phase-docs-commit`
+> counter was 71 (older); superseded, MAX 78 kept.

@@ -156,3 +156,35 @@ by the agent.)
   unrecorded turns invisible; fixed to count the asked set.
 - **Artifacts:** `app/pole_analyst/test-results/coach-150q/sample5-retry-20260908-222654/`
   (worktree, gitignored); `/tmp/coach150q-sample5-retry-20260908-222654.log`.
+
+## Gate run 3 — SAMPLE-5 retry2 (2026-09-09): RED 11/25
+
+- **Verdict:** RED vs the 5/5-per-flow bar. Per-flow live turns: `video_analysis`
+  4/5, `progress` 0/5, `training_plan` 1/5, `injury` 2/5, `readiness` 4/5 →
+  **11/25 PASS**. Zero `unrecorded-turn` rows — the run-2 re-auth (per-turn
+  login) + honest-tally (asked-set counting) fixes are verified. Retry budget
+  spent (1/1): the first attempt died in Keycloak setup login on
+  `ERR_NETWORK_CHANGED`; this retry ran clean. No per-turn retries left.
+  Wall ~36 m (46 s setup-blocked attempt + 35.4 m retry).
+- **Failing modes (14):** 3× turn-timeouts (VA-03, TP-03, RE-02 — transient
+  family, UNRETRIED, need fresh budget); 11× missing-block / wrong-shape with
+  `rag=false` — PR-01 no matrix ("only one session on file"); PR-02–05 matrix
+  rendered without M-01..M-05 metric names; TP-02/04/05 bare markdown, TP-05
+  "knowledge-base tools are currently offline"; IN-01/02/04
+  `SAFETY_DISCLAIMER` regex miss, IN-02 "couldn't pull my technique library
+  just now".
+- **Key correlation:** `rag=false` on ALL 14 fails, `rag=true` on ALL 11
+  passes — mid-run RAG flakiness (tools reporting "offline") is the likely
+  common cause, not 14 independent model failures. Run-1 caveat stands: local
+  RAG domain DBs unseeded — candidate root cause. Recommendation (noted, not
+  created): seed from staging `/data/rag` (1.1G) before re-gate.
+- **Rendering:** `img` 0/0 on all 25 turns — zero images rendered anywhere (no
+  broken `src`s, but zero RAG visuals). `tables=3` (VA-01/VA-04), `tables=5`
+  (RE-03), `cards=4` (TP-01) — all valued/titled where present.
+- **Safety flag (follow-up ticket needed, NOT created):** deterministic
+  `SAFETY_DISCLAIMER` is not enforced on the analyst path — IN-03/05 carry it
+  (LLM-generated), IN-01/02/04 don't. Companion gap: block-contract-on-fallbacks
+  (bare-md answers, nameless matrices pass through instead of a contract-shaped
+  fallback).
+- **Artifacts:** `app/pole_analyst/test-results/coach-150q/20260909-gate-retry2/`
+  (worktree, gitignored).

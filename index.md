@@ -65,3 +65,11 @@ Each component has two docs:
 | infra | [`app/infra/PLAN.md`](app/infra/PLAN.md) |
 | keycloak | [`app/keycloak/PLAN.md`](app/keycloak/PLAN.md) |
 | dev-ops | [`dev-ops/PLAN.md`](dev-ops/PLAN.md) |
+
+---
+
+## 📚 Tutorials
+
+| Tutorial | Description |
+| :--- | :--- |
+| [Deterministic answer and block synthesis for chatbot tools](tutorials/answer-block-synthesis.md) | Replay the PAIML-POLE-API-109 recipe: declare, synthesise, and register a deterministic block synthesiser for a new chatbot tool type. |

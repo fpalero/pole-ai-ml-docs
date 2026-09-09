@@ -2101,8 +2101,8 @@
   },
   "index.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
-    "file_hash": "dfcb317160f767015a257d4eedc4417dcc765761b3503ce245db6877ac4b9c82",
-    "last_update": "2026-09-09T09:51:29+00:00"
+    "file_hash": "12abcc94ca6ecf8371603b0f3d62c03757cd2f9a769ec94a1d8fd954964dc7f4",
+    "last_update": "2026-09-09T10:28:29+00:00"
   },
   "manual-test/analyst-ws-integration-test.md": {
     "created_date": "2026-09-06T16:43:50+00:00",
@@ -2593,5 +2593,10 @@
     "created_date": "2026-08-30T19:10:30+00:00",
     "file_hash": "09cb1f7b9795cf2c278a073e684736dd0fb1cb9efa4e78a16635a96753f66203",
     "last_update": "2026-09-09T09:51:29+00:00"
+  },
+  "tutorials/answer-block-synthesis.md": {
+    "created_date": "2026-09-09T10:28:45+00:00",
+    "file_hash": "ac1905ff14d4bf823c6444e22e77eb31548afcd370237d6bbf0cc1c7ea501b96",
+    "last_update": "2026-09-09T10:28:25+00:00"
   }
 }

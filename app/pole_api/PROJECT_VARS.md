@@ -1,7 +1,7 @@
 # Project Variables: pole_api
 
 ## Ticket Counter
-- **Last ticket number**: 110
+- **Last ticket number**: 111
 
 > Anomaly note (reconciliation): 95 is consumed by adopted ticket PAIML-POLE-API-095
 > (canonical file `phase-30-chatbot-turn-budget/PAIML-POLE-API-095.md`, merged in
@@ -34,3 +34,6 @@
 > 110 = `phase-29-staging-qa-followups/PAIML-POLE-API-110.md` (coach catalog
 > stores: trick_catalog Mongo collection + separate catalog RAG; same bucket —
 > staging-QA analyst/coach-path follow-up, not 107/108 scope).
+> 111 = `phase-29-staging-qa-followups/PAIML-POLE-API-111.md` (analyst
+> output-contract enforcement: progress routing + drills emission + tool
+> hygiene; same bucket — staging-QA analyst-path follow-up).

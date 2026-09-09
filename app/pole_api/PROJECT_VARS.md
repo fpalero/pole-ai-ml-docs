@@ -1,7 +1,7 @@
 # Project Variables: pole_api
 
 ## Ticket Counter
-- **Last ticket number**: 104
+- **Last ticket number**: 106
 
 > Anomaly note (reconciliation): 95 is consumed by adopted ticket PAIML-POLE-API-095
 > (canonical file `phase-30-chatbot-turn-budget/PAIML-POLE-API-095.md`, merged in
@@ -16,3 +16,9 @@
 > 102 = `phase-29-staging-qa-followups/PAIML-POLE-API-102.md` (gate-3 residual bundle). Same branch salvages the two 101-item-4 ENV rows missed by docs #32.
 > 103 = `phase-29-staging-qa-followups/PAIML-POLE-API-103.md` (in-flight tool grace on turn-deadline expiry, option A).
 > 104 = `phase-33-test-collection-hygiene/PAIML-POLE-API-104.md` (gate-hygiene: duplicate pytest basename test_temp_access_purge, test-only).
+> 105 = `phase-29-staging-qa-followups/PAIML-POLE-API-105.md` (staging-gate harness:
+> E2E_FAKES unset for coach-flow integration test — reserved by parallel branch
+> `feature/PAIML-POLE-COACH-docs`, unmerged at the time 106 was cut; counter
+> advanced past it to keep the sequence gapless).
+> 106 = `phase-34-unified-images/PAIML-POLE-API-106.md` (unified image endpoint
+> via path-hash `GET /api/images/{hash}`, registry ALLOWED_ROOTS, legacy 301).

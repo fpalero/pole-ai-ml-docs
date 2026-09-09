@@ -138,3 +138,21 @@ by the agent.)
   on the 007 branch); full-150 estimate ~5 h+ at current pace.
 - **Artifacts:** `app/pole_analyst/test-results/coach-150q/probe-20260908-1925/`
   + `full-20260908-1932/` (in the 007 worktree, gitignored — not committed).
+
+## Gate run 2 — SAMPLE-5 retry (2026-09-08): RED 0/25, harness session lifetime
+
+- **RUN_ID:** `sample5-retry-20260908-222654`.
+- **Verdict:** RED — 0/5 per flow against the 5/5 bar. 2 passed / 26 failed,
+  setup+seed turns only; execution 18.8 min; 0 retries (deterministic harness
+  failure — retrying identically cannot pass).
+- **VA-01:** server-side graph timeout → fallback reply (transient-infra
+  candidate). **VA-02:** hung turn + pymongo `_OperationCancelled` (staging
+  port-forward stall; transient-infra candidate).
+- **Other 23 (deterministic):** single setup login cannot span the >10-min
+  sequential run (VA-01 3.8m + VA-02 6.0m); all later turns land on the login
+  page (screenshot-proven). Fix in progress: per-turn re-auth + honest tally
+  (asked-fixed counting).
+- **Gate-fidelity quirk:** tally counted transcript rows (asked=2/0/0/0/0) —
+  unrecorded turns invisible; fixed to count the asked set.
+- **Artifacts:** `app/pole_analyst/test-results/coach-150q/sample5-retry-20260908-222654/`
+  (worktree, gitignored); `/tmp/coach150q-sample5-retry-20260908-222654.log`.

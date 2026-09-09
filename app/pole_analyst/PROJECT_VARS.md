@@ -19,3 +19,5 @@
 > counter was 71 (older); superseded, MAX 78 kept.
 > Docs-unified: incoming `docs/PAIML-POLE-API-083-coach-insights-positives`
 > counter was 70 (older, 070 era); superseded, MAX 78 kept (070 file already present).
+> Docs-unified: incoming `feature/PAIML-POLE-DOCS-023-answer-cards`
+> counter was 72 (older, 072 era); superseded, MAX 78 kept (072 file already present; PLAN_PHASE_23 keep-both merged).

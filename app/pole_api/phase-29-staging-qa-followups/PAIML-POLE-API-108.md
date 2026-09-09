@@ -90,3 +90,22 @@ Source: `packages/pole-coach/phase-5-integration-tests-e2e/PAIML-POLE-COACH-007.
 
 ## Estimated Effort
 - [M]
+
+## As-built deviations (implementation report)
+1. Proceeded despite 2 dirty agent-doc files in main checkout (unrelated
+   docs-landing edits; worktree cut from clean develop ref, fully isolated —
+   no contamination).
+2. 007 spec NOT edited from the 108 worktree (worktree isolation); proposed
+   patch supplied for team-lead to apply on the 007 branch (progress
+   data-backed asserts: get_progress_matrix called + progress_matrix block;
+   readiness keeps retrieval-with-hits; FE pixel-mapping is noted FE
+   follow-up). 150 questions untouched.
+3. Drill registry is NEW static analyst-path registry (none existed);
+   cohort_version=1 constant (no versioned cohort source — bump on methodology
+   change).
+4. Pre-existing failure observed, untouched:
+   test_submit_analyze_submits_analysis_slice_job fails identically on clean
+   develop (unrelated kwargs drift).
+- HEAD 9d8b235? No — correct HEAD is 9d8bce7, branch
+  feature/PAIML-POLE-API-108-progress-matrix-tool; 37/37 new tests,
+  progress_matrix.py 95% coverage, 218 regression sweep green.

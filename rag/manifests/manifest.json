@@ -1041,8 +1041,8 @@
   },
   "app/pole_api/PROJECT_VARS.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
-    "file_hash": "bbb320e108a7ef70669637bc4301921bbecfb9a39af22b1c28e719ccb6905408",
-    "last_update": "2026-09-09T09:18:22+00:00"
+    "file_hash": "7a921e52af9d35496557dc74f91a625b3841ae9e96f5ce5f6f0bf9c472192241",
+    "last_update": "2026-09-09T09:24:51+00:00"
   },
   "app/pole_api/be_train_retrain_test_guide.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
@@ -1546,8 +1546,8 @@
   },
   "app/pole_api/phase-29-staging-qa-followups/PAIML-POLE-API-108.md": {
     "created_date": "2026-09-09T09:18:40+00:00",
-    "file_hash": "a4a06a1fe24fb0424dcc2c4c806909a19535f76da131b5b07a6dfe2570a8bef6",
-    "last_update": "2026-09-09T09:18:16+00:00"
+    "file_hash": "1aba93ecf20d10b97ce24e3a7730faa169d3dd378548507b53ebf1b5dd849def",
+    "last_update": "2026-09-09T11:17:58+00:00"
   },
   "app/pole_api/phase-30-chatbot-turn-budget/PAIML-POLE-API-095.md": {
     "created_date": "2026-09-07T04:27:41+00:00",
@@ -1563,6 +1563,11 @@
     "created_date": "2026-09-07T18:23:02+00:00",
     "file_hash": "5e321cf815f6446c38a6d2640e215159689be98ece54b07dc69967f06eb275e6",
     "last_update": "2026-09-07T20:56:13+00:00"
+  },
+  "app/pole_api/phase-35-rag-image-blocks/PAIML-POLE-API-109.md": {
+    "created_date": "2026-09-09T09:44:46+00:00",
+    "file_hash": "3d831a84e1ce5aa5de2a5ad8291c57d836d7a9cb8ba488793bd231e69558b9e7",
+    "last_update": "2026-09-09T09:24:37+00:00"
   },
   "app/pole_api/plan/PLAN_PHASE_1.md": {
     "created_date": "2026-08-30T19:07:49+00:00",
@@ -2588,5 +2593,10 @@
     "created_date": "2026-09-07T22:22:45+00:00",
     "file_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "last_update": "2026-09-06T12:01:45+00:00"
+  },
+  "tutorials/answer-block-synthesis.md": {
+    "created_date": "2026-09-09T09:44:46+00:00",
+    "file_hash": "ac1905ff14d4bf823c6444e22e77eb31548afcd370237d6bbf0cc1c7ea501b96",
+    "last_update": "2026-09-09T09:44:30+00:00"
   }
 }

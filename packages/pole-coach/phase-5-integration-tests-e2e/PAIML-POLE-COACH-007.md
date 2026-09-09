@@ -220,3 +220,27 @@ by the agent.)
 - **Artifacts:** worktree
   `test-results/coach-150q/sample5-20260909-direct/` (transcript + judge,
   gitignored); `/tmp/coach150q-sample5.log` (75 KB).
+
+## Gate run 5 — SAMPLE-5 vs staging 108 image (2026-09-09): RED 8/25
+
+- **RUN_ID:** `20260909-remote108-sample5-r2`. **Verdict:** RED vs the 5/5-per-flow
+  bar. Per-flow: `video_analysis` 5/5 PASS; `progress` 0/5; `training_plan` 2/5
+  (TP-02,03); `injury` 0/5; `readiness` 1/5 (RE-04) → **8/25 PASS**.
+  Wall ~26 m for 25 turns. 1 transient retry (shell reaped mid-VA-01, excluded).
+- **Staging:** served `pole-api:2c9e521` (108) — verified pre-run.
+- **Progress 0/5:** `get_progress_matrix` fired 1/5 only — routing
+  nondeterministic (agent used `compare_sessions` / `progress_trend` instead).
+  PR-01: tool fired + block present but TWO `.matrix-card` elements → spec
+  single-element strict-violation (spec-vs-product mismatch).
+- **Training-plan 2/5:** TP-01 broken image (`/api/images/<hash>?token=` failed
+  to load; drills otherwise rich, 12 tools). TP-04/05 no drills block despite
+  6–9 RAG calls. Side note: tool name `query_psicology` (typo) fires
+  successfully.
+- **Injury 0/5:** no `SAFETY_DISCLAIMER` on any turn (IN-03 flipped pass→fail
+  vs run 4). 107 backstop not yet implemented — expected.
+- **Readiness 1/5:** RE-01/02/03/05 deterministic "No catalog entry was
+  resolved" — NO catalog collection in staging working DBs (seed gap, not
+  code). RE-04 passes via RAG path.
+- **Pass quality / asserts:** passes all had real tool calls + valued
+  tables/cards + zero broken images (except TP-01's one). `rag_proof:false` on
+  fails partly assert-ordering artifact.

@@ -3,12 +3,14 @@
 ## Ticket Counter
 - **Last ticket number**: 111
 
+> Docs-unified: incoming `feature/PAIML-POLE-API-099-reviewer-leftovers` counter was 99 (older, 099 era); superseded, MAX 111 kept (099 file keep-both merged: 4-item bundle canonical + HEAD trimmed variant noted).
+
 > Anomaly note (reconciliation): 95 is consumed by adopted ticket PAIML-POLE-API-095
 > (canonical file `phase-30-chatbot-turn-budget/PAIML-POLE-API-095.md`, merged in
 > pole-ai-ml-docs#26 — NOT duplicated in this PR; see PLAN_PHASE_29 adoption note).
 > 96/97 created by this PR. Counter rebased onto develop post-#26 (95 live) → 97.
-> 98 = `phase-31-base-image-hash/PAIML-POLE-API-098.md` (merged #28).
-> 99 = `phase-29-staging-qa-followups/PAIML-POLE-API-099.md` (timeout test double, test-only).
+<> 98 = `phase-31-base-image-hash/PAIML-POLE-API-098.md` (merged #28).
+> 99 = `phase-29-staging-qa-followups/PAIML-POLE-API-099.md` (reviewer leftovers from pole-ai-ml#253/#254: test-double timeout + fallback hint + None-safe blank check + ENV_VARS rows; HEAD trimmed variant scoped to timeout test double only — keep-both merged, 4-item bundle canonical).
 > 100 = `phase-32-english-only/PAIML-POLE-API-100.md` (parallel session
 > pole-ai-ml#257 code + pole-ai-ml-docs#31 docs, both merged — reserved, untouched here).
 > 101 = `phase-29-staging-qa-followups/PAIML-POLE-API-101.md` (salvage of
@@ -32,3 +34,4 @@
 > Anomaly note (docs-unified reconciliation): MAX counter 111 wins (develop side was 109). No numbers skipped in 103–111; 103/104 reserved meanings from both sides kept above.
 > Docs-unified: incoming `feature/PAIML-POLE-DOCS-028-026-phase-docs-commit` counter was 87 (older); superseded, MAX 111 kept.
 > Docs-unified: incoming `docs/PAIML-POLE-API-083-coach-insights-positives` counter was 83 (older, 083 era); superseded, MAX 111 kept (083 file already present).
+> Docs-unified: incoming `feature/PAIML-POLE-API-099-reviewer-leftovers` 98/99 note (98 base-hash, 099 reviewer leftovers) already covered above; superseded, MAX 111 kept.

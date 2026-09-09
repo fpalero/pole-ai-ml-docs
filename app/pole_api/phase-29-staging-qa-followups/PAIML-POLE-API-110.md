@@ -99,3 +99,10 @@ Source: `packages/pole-coach/phase-5-integration-tests-e2e/PAIML-POLE-COACH-007.
 
 ## Estimated Effort
 - [M]
+
+## As-built deviations
+
+### Rebase onto 108 tip
+- Branch cut from stale fc04c80 (missing 108/109); rebased cleanly onto 2c9e521 — no conflicts, disjoint hunks.
+- Deviation 1 resolved: progress gates now accept injected Mongo catalog dict via facade thread-through; static-JSON behavior byte-identical when omitted.
+- 4 new tests (18 total). HEAD 20d821b.

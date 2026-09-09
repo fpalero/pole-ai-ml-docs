@@ -16,3 +16,8 @@
 > 102 = `phase-29-staging-qa-followups/PAIML-POLE-API-102.md` (gate-3 residual bundle). Same branch salvages the two 101-item-4 ENV rows missed by docs #32.
 > 103 = `phase-29-staging-qa-followups/PAIML-POLE-API-103.md` (in-flight tool grace on turn-deadline expiry, option A).
 > 104 = `phase-33-test-collection-hygiene/PAIML-POLE-API-104.md` (gate-hygiene: duplicate pytest basename test_temp_access_purge, test-only).
+>
+> Backlog gap closes from closed-but-unmerged docs PRs (landed in this batch):
+> 088 = `phase-29-chat-hardening/PAIML-POLE-API-088.md` (never-echo raw JSON for unknown block types — FUTURE hardening; docs PR #19).
+> 089 = `phase-29-chat-hardening/PAIML-POLE-API-089.md` (coach signal repo injection for `*_test` isolation — FUTURE hardening; docs PR #19).
+> 090 = `phase-30-chatbot-resilience/PAIML-POLE-API-090.md` (empty-reply recovery + RAG picture blocks; note: RAG-picture portion superseded by API-106/109 image-registry; docs PR #20).

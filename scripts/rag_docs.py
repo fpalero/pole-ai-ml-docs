@@ -33,6 +33,22 @@ def iter_markdown(spec: RagSpec):
             yield path
 
 
+def docs_project_for(rel_posix: str) -> str:
+    """Infer the chunk ``project_name`` from a docs-relative path.
+
+    ``app/<project>/…`` / ``package(s)/<project>/…`` → ``<project>`` (so
+    ``--project pole_api`` / ``--project pole_analyst`` filters match);
+    top-level groups (``diagrams``, ``scripts``) keep their own name;
+    everything else → ``root``.
+    """
+    parts = rel_posix.split("/")
+    if parts[0] in ("app", "package", "packages") and len(parts) > 1:
+        return parts[1]
+    if parts[0] in ("diagrams", "scripts"):
+        return parts[0]
+    return "root"
+
+
 def build_docs_spec(docs_dir: Path) -> RagSpec:
     source = docs_dir.resolve()
     # The default docs folder is the repo "docs" dir -> keep a stable label.
@@ -45,6 +61,7 @@ def build_docs_spec(docs_dir: Path) -> RagSpec:
         kind="docs",
         splitter=docs_splitter,
         iter_files=iter_markdown,
+        project_for=docs_project_for,
     )
 
 

@@ -93,6 +93,9 @@
 | 25 | Classify-first pipeline (detección de fases con la clase correcta) | ✅ DONE (`b321fda`, merged `3a2fcf8`) | [PLAN_PHASE_25.md](plan/PLAN_PHASE_25.md) |
 | 26 | Analyst coach tools (chatbot: compare_sessions, cohort_percentiles, improvement_plan, metric_deep_dive, frame_pose, progress_trend, focus_recommendation, risk_scan, get_coach_summary/pose) | ✅ DONE (`52234f7`) | [PLAN_PHASE_26.md](plan/PLAN_PHASE_26.md) |
 | 27 | Coach-insights positives (relax rule-based `perfect` bar to `score_pct ≥ 70` / `\|z\| ≤ 0.6`) | 📋 PLANNED | [PLAN_PHASE_27.md](plan/PLAN_PHASE_27.md) |
+| 28 | Coach plain-language output | 📋 PLANNED | [phase-28-coach-plain-language-output/](phase-28-coach-plain-language-output/) |
+| 29 | Staging QA follow-ups (image endpoint + path-leak strip + `segment_insight` trim + failed-turn signal + turn deadline [095 adopted] + answer shaping [096] + blank hardening [097] + in-flight tool grace [103]) | 📋 PLANNED (093/094/095/096/097/099/101/102 documented; 103 📋 PLANNED) | [PLAN_PHASE_29.md](plan/PLAN_PHASE_29.md) |
+| 34 | Unified image endpoint via path-hash (`GET /api/images/{hash}`, registry `ALLOWED_ROOTS`, legacy 301) | 📋 PLANNED | [PLAN_PHASE_34.md](plan/PLAN_PHASE_34.md) |
 
 ---
 

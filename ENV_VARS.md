@@ -64,10 +64,13 @@ the k3s Helm configmaps (`infrastracture/helm/pole-ai/charts/*/templates/configm
 | `OPENROUTER_API_KEY` | OpenRouter API key (`LLM_PROVIDER=openrouter`). | `sk-or-...` | key or empty; default none |
 | `OPENROUTER_MODEL` | OpenRouter model. | `meta-llama/llama-3.3-70b-instruct` | model id |
 | `OPENROUTER_BASE_URL` | OpenRouter endpoint. | `https://openrouter.ai/api/v1` | URL |
+| `OPENROUTER_FALLBACK_MODEL` | Fallback model when the blank-retry budget is exhausted (PAIML-POLE-API-097). | `meta-llama/llama-3.3-70b-instruct` | model id or empty; default unset (disabled) |
 | `LLM_MONTHLY_BUDGET_USD` | Per-user monthly LLM budget. | `5.5` | float; default `5.5` |
 | `LLM_DAILY_BUDGET_USD` | Per-user daily LLM budget. | `0.75` | float; default `0.75` |
 | `MAX_AGENT_ITERATIONS` | Max agent reasoning iterations. | `6` | positive int; default `6` |
 | `LLM_TIMEOUT` | LLM request timeout (seconds). | `120` | seconds; default `120` |
+| `CHATBOT_TURN_TIMEOUT` | Wall-clock budget for a whole agent turn (PAIML-POLE-API-095). | `120` | seconds; default `120` |
+| `CHATBOT_BLANK_MAX_RETRIES` | Max blank-completion retries before model fallback (PAIML-POLE-API-097). | `2` | int; default `2` |
 | `AGENT_REPHRASE_BUDGET` | Max agent rephrase attempts. | `2` | int; default `2` |
 | `CHATBOT_COLLECT_METRICS` | Collect chatbot usage metrics. | `true` | `0/1`, `true/false`; default off |
 | `CHATBOT_OUT_DIR` | Chatbot output directory (tool artifacts). | `chatbot_output` | path; default `chatbot_output` |

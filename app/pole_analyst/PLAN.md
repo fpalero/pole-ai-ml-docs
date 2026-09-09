@@ -111,6 +111,12 @@
 | 19 | Stitch tabs parity round 2 (PO requirements 2026-08-23) | 🟡 PARTIAL (`-064/-065` ✅ #119/#118 · `-066` 📋 · `-067` ❌ cancelado por PO) | [plan/PLAN_PHASE_19.md](plan/PLAN_PHASE_19.md) |
 | 20 | Sidebar Option B (solo menú lateral; sin Coach/Upload) | ✅ DONE (#120, merged locally 2026-08-24) | [plan/PLAN_PHASE_20.md](plan/PLAN_PHASE_20.md) |
 | 21 | Coach-insights positives ("What's working" guard: solo `score_pct ≥ 70`) | 📋 PLANNED | [plan/PLAN_PHASE_21.md](plan/PLAN_PHASE_21.md) |
+| 22 | Coach plain-language chat | 📋 PLANNED | [phase-22-coach-plain-language-chat/](phase-22-coach-plain-language-chat/) |
+| 23 | FE chat cards (score_summary / phasic_feedback / metric_matrix / drills / quick_replies) | 📋 PLANNED | [plan/PLAN_PHASE_23.md](plan/PLAN_PHASE_23.md) |
+| 24 | FE failed-turn error state (error bubble/chip + retry) + image endpoint URLs + tool-chip arg sanitization (075) | 📋 PLANNED | [plan/PLAN_PHASE_24.md](plan/PLAN_PHASE_24.md) |
+| 25 | Analysis summary plain language (coach sentences; no metric ids / z-scores / frame numbers / deviation counts) | 📋 PLANNED | [plan/PLAN_PHASE_25.md](plan/PLAN_PHASE_25.md) |
+| 26 | FE media auth (`?token=` en todos los bindings `<img>`/`<video>` + retry-once-with-fresh-token) + tool-chip `[artifact]` follow-up (-077) | 📋 PLANNED | [plan/PLAN_PHASE_26.md](plan/PLAN_PHASE_26.md) |
+| 27 | Question-card status chip (status ONLY on user question card; supersedes 073 thinking-bubble, reuses retry contract) | 📋 PLANNED | [plan/PLAN_PHASE_27.md](plan/PLAN_PHASE_27.md) |
 
 
 ---

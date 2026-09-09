@@ -139,7 +139,7 @@
 - [ ] [Application] Integration test (marked `integration`): tools query a seeded test DB
       and return expected source documents.
 
-### Phase 6: Staging ship (image + data dir + seed + verify) — 📋 PLANNED
+### Phase 6: Staging ship (image + data dir + seed + verify) — ✅ DONE (2026-09-05: tickets 029/030/031/035/036/037 merged or verified; 030 tester PASS on staging pod digest sha256:9555b1d8…, 4 tools k=3, unknown-DB ToolError, movement_embeddings 7712 intact)
 - [ ] [Infrastructure] Ship `pole_rag` in the pole-api base image (`base.Dockerfile`
       COPY + import path; slow base rebuild lane). Ticket 027 (`pole-ai-ml`).
 - [ ] [Application] `POLE_RAG_DATA_DIR` env override in
@@ -149,12 +149,20 @@
       seed of the 4 DBs + `kubectl cp` transfer runbook + embedder-model lane.
       Ticket 029 (`pole-ai-ml-infra`; seed/cp are a runbook, no repo change).
 - [ ] [Application] Verify on staging: 4 tools return hits; unknown DB still
-      `ToolError`; `/data/chroma` untouched. Ticket 030 (`pole-ai-ml`).
+      `ToolError`; `/data/chroma` untouched. Ticket 030 (`pole-ai-ml`,
+      blocked by 029 + 031).
+- [ ] [CI] Include `pole_rag` sources in base-image `HASH_INPUTS` so any
+      `pole_rag` change forces a base rebuild. Ticket 031 (`pole-ai-ml`,
+      blocks 030).
 - [ ] Detail: [plan/PLAN_PHASE_6.md](plan/PLAN_PHASE_6.md) · Tickets:
-      [phase-6-staging-ship](phase-6-staging-ship/) (027, 028, 029, 030).
+      [phase-6-staging-ship](phase-6-staging-ship/) (027, 028, 029, 030, 031).
 - [ ] Decision record (Chroma/RAG investigation: image absence, `/data/chroma`
   occupied by `movement_embeddings`, `/data/rag` home, seed-locally choice):
   [plan/PLAN_PHASE_6.md](plan/PLAN_PHASE_6.md#decision-record--why-datarag-why-seed-then-copy).
+- [ ] Follow-ups: 035 (HF embedder bake lane, blocks 030) + 036 (psychology
+  DB-name mapping, blocks 030) in [phase-6-staging-ship](phase-6-staging-ship/);
+  037 (CPU-only torch fix for the 035 base-image disk-full, blocked by 035 —
+  030's embedder proof proceeds once the baked image builds).
 
 ### Phase 7: PyMuPDF swap (deterministic text extraction) — 📋 PLANNED
 - [ ] [Infrastructure] Ticket 032 (`pole-ai-ml`): uninstall Marker — remove

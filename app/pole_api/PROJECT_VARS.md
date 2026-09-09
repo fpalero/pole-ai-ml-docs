@@ -1,7 +1,7 @@
 # Project Variables: pole_api
 
 ## Ticket Counter
-- **Last ticket number**: 107
+- **Last ticket number**: 108
 
 > Anomaly note (reconciliation): 95 is consumed by adopted ticket PAIML-POLE-API-095
 > (canonical file `phase-30-chatbot-turn-budget/PAIML-POLE-API-095.md`, merged in
@@ -26,3 +26,6 @@
 > so 107 is used here to avoid collision).
 > 107 = `phase-29-staging-qa-followups/PAIML-POLE-API-107.md` (analyst turn
 > fail-safes: terminal fallback status + deterministic disclaimer; this ticket).
+> 108 = `phase-29-staging-qa-followups/PAIML-POLE-API-108.md` (data-backed
+> progress matrix tool + deterministic assembly; same bucket — staging-QA
+> analyst-path follow-up, not 107 scope).

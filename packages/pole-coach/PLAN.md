@@ -14,11 +14,11 @@ feeds readiness/progression.
 
 | Phase | Ticket | Scope | State |
 |---|---|---|---|
-| 1 (A) | [PAIML-POLE-COACH-001](phase-1-scaffold-scrape/PAIML-POLE-COACH-001.md) | `packages/pole_coach` scaffold (Option A: `src/`, PYTHONPATH, no pyproject — mirrors `pole_rag`) + facts+desc+image scraper + `trick_catalog.json` + alias map | 📋 PLANNED |
-| 2 (B) | [PAIML-POLE-COACH-002](phase-2-nodes/PAIML-POLE-COACH-002.md) | State schema + 7 nodes (own file each) + protocols | 📋 PLANNED |
-| 3 (C) | [PAIML-POLE-COACH-003](phase-3-graphs-supergraph/PAIML-POLE-COACH-003.md) | 7 graphs + supergraph + LLM intent router | 📋 PLANNED |
-| 4 (D) | [PAIML-POLE-COACH-004](phase-4-integration/PAIML-POLE-COACH-004.md) | `analyst_chatbot` wiring + profile extension + Phase-33 biomech + angle fix | 📋 PLANNED |
-| 5 (E) | [PAIML-POLE-COACH-005](phase-5-integration-tests-e2e/PAIML-POLE-COACH-005.md) | Integration tests + analyst E2E + docs | 📋 PLANNED |
+| 1 (A) | [PAIML-POLE-COACH-001](phase-1-scaffold-scrape/PAIML-POLE-COACH-001.md) | `packages/pole_coach` scaffold (Option A: `src/`, PYTHONPATH, no pyproject — mirrors `pole_rag`) + facts+desc+image scraper + `trick_catalog.json` + alias map | ✅ DONE |
+| 2 (B) | [PAIML-POLE-COACH-002](phase-2-nodes/PAIML-POLE-COACH-002.md) | State schema + 7 nodes (own file each) + protocols | ✅ DONE |
+| 3 (C) | [PAIML-POLE-COACH-003](phase-3-graphs-supergraph/PAIML-POLE-COACH-003.md) | 7 graphs + supergraph + LLM intent router | ✅ DONE |
+| 4 (D) | [PAIML-POLE-COACH-004](phase-4-integration/PAIML-POLE-COACH-004.md) | `analyst_chatbot` wiring + profile extension + Phase-33 biomech + angle fix | ✅ DONE |
+| 5 (E) | [PAIML-POLE-COACH-005](phase-5-integration-tests-e2e/PAIML-POLE-COACH-005.md) | Integration tests + analyst E2E + docs | 🟡 PARTIAL — code done, PR pending; docs close-out (5.3) in progress, QA gate (5.4) pending |
 | 6 (F) | [PAIML-POLE-COACH-006](phase-6-translation/PAIML-POLE-COACH-006.md) | Translation layer (Hy-MT2 + glossary + cache, no new infra) | 📋 PLANNED |
 
 Dependency chain: 001 → 002 → 003 → 004 → 005, plus 006 (translation, after 001+002; extends 005's gate).

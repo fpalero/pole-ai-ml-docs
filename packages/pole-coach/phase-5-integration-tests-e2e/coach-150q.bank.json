@@ -1,0 +1,2182 @@
+{
+  "meta": {
+    "flow_counts": {
+      "injury": 30,
+      "progress": 30,
+      "readiness": 30,
+      "training_plan": 30,
+      "video_analysis": 30
+    },
+    "id_scheme": "COACH7-<FLOW>-<NN> (VA=video_analysis, PR=progress, TP=training_plan, IN=injury, RE=readiness)",
+    "language": "English-only",
+    "out_of_scope_flows": [
+      "improve_trick",
+      "query"
+    ],
+    "ticket": "PAIML-POLE-COACH-007",
+    "total": 150,
+    "version": 1
+  },
+  "questions": [
+    {
+      "expected_blocks": [
+        "md",
+        "analysis_link"
+      ],
+      "flow": "video_analysis",
+      "id": "COACH7-VA-01",
+      "question": "Analyse my latest handspring video and tell me what to focus on first.",
+      "rag_domains": [
+        "pole",
+        "biomechanics"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "analysis_link"
+      ],
+      "flow": "video_analysis",
+      "id": "COACH7-VA-02",
+      "question": "In my handspring video, how was my angular_speed during the EXECUTION phase?",
+      "rag_domains": [
+        "pole",
+        "biomechanics"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "analysis_link"
+      ],
+      "flow": "video_analysis",
+      "id": "COACH7-VA-03",
+      "question": "Compare my hip_height in the last upload against the reference cohort.",
+      "rag_domains": [
+        "pole",
+        "biomechanics"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "analysis_link"
+      ],
+      "flow": "video_analysis",
+      "id": "COACH7-VA-04",
+      "question": "My video analysis flags wrist_stability issues - which part of the video matters most?",
+      "rag_domains": [
+        "pole",
+        "biomechanics"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "analysis_link"
+      ],
+      "flow": "video_analysis",
+      "id": "COACH7-VA-05",
+      "question": "Review my latest video: was my body_tilt consistent from ENTRANCE to EXIT?",
+      "rag_domains": [
+        "pole",
+        "biomechanics"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "analysis_link"
+      ],
+      "flow": "video_analysis",
+      "id": "COACH7-VA-06",
+      "question": "How did my torso_tilt_speed look in the video I just analyzed?",
+      "rag_domains": [
+        "pole",
+        "biomechanics"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "analysis_link"
+      ],
+      "flow": "video_analysis",
+      "id": "COACH7-VA-07",
+      "question": "Break down my handspring video phase by phase: ENTRANCE, EXECUTION, EXIT.",
+      "rag_domains": [
+        "pole",
+        "biomechanics"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "analysis_link"
+      ],
+      "flow": "video_analysis",
+      "id": "COACH7-VA-08",
+      "question": "Which metric deviated most from the cohort in my latest analysis?",
+      "rag_domains": [
+        "pole",
+        "biomechanics"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "analysis_link"
+      ],
+      "flow": "video_analysis",
+      "id": "COACH7-VA-09",
+      "question": "In my last video, was my hip_height higher in ENTRANCE or in EXIT?",
+      "rag_domains": [
+        "pole",
+        "biomechanics"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "analysis_link"
+      ],
+      "flow": "video_analysis",
+      "id": "COACH7-VA-10",
+      "question": "Show me how my angular_speed percentile in this video compares with my baseline.",
+      "rag_domains": [
+        "pole",
+        "biomechanics"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "analysis_link"
+      ],
+      "flow": "video_analysis",
+      "id": "COACH7-VA-11",
+      "question": "My latest handspring attempt is on video - did my wrists stay stable on the push?",
+      "rag_domains": [
+        "pole",
+        "biomechanics"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "analysis_link"
+      ],
+      "flow": "video_analysis",
+      "id": "COACH7-VA-12",
+      "question": "Analyse the video I uploaded today: handspring timing and hip drive.",
+      "rag_domains": [
+        "pole",
+        "biomechanics"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "analysis_link"
+      ],
+      "flow": "video_analysis",
+      "id": "COACH7-VA-13",
+      "question": "What does my body_tilt curve say about my line in the latest video?",
+      "rag_domains": [
+        "pole",
+        "biomechanics"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "analysis_link"
+      ],
+      "flow": "video_analysis",
+      "id": "COACH7-VA-14",
+      "question": "In my analyzed video, which phase had the weakest torso_tilt_speed?",
+      "rag_domains": [
+        "pole",
+        "biomechanics"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "analysis_link"
+      ],
+      "flow": "video_analysis",
+      "id": "COACH7-VA-15",
+      "question": "Compare ENTRANCE versus EXECUTION hip_height in my most recent handspring video.",
+      "rag_domains": [
+        "pole",
+        "biomechanics"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "analysis_link"
+      ],
+      "flow": "video_analysis",
+      "id": "COACH7-VA-16",
+      "question": "My training partner says my spin is slow - does my latest video confirm low angular_speed?",
+      "rag_domains": [
+        "pole",
+        "biomechanics"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "analysis_link"
+      ],
+      "flow": "video_analysis",
+      "id": "COACH7-VA-17",
+      "question": "Review my video: did I hold my shape through the EXIT phase?",
+      "rag_domains": [
+        "pole",
+        "biomechanics"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "analysis_link"
+      ],
+      "flow": "video_analysis",
+      "id": "COACH7-VA-18",
+      "question": "How do my wrist_stability percentiles look in the video from this session?",
+      "rag_domains": [
+        "pole",
+        "biomechanics"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "analysis_link"
+      ],
+      "flow": "video_analysis",
+      "id": "COACH7-VA-19",
+      "question": "Analyse my handspring video and rank the five metrics from best to worst.",
+      "rag_domains": [
+        "pole",
+        "biomechanics"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "analysis_link"
+      ],
+      "flow": "video_analysis",
+      "id": "COACH7-VA-20",
+      "question": "In my latest upload, was my torso_tilt_speed too aggressive in ENTRANCE?",
+      "rag_domains": [
+        "pole",
+        "biomechanics"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "analysis_link"
+      ],
+      "flow": "video_analysis",
+      "id": "COACH7-VA-21",
+      "question": "Does my latest video show clean hand placement for the handspring?",
+      "rag_domains": [
+        "pole",
+        "biomechanics"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "analysis_link"
+      ],
+      "flow": "video_analysis",
+      "id": "COACH7-VA-22",
+      "question": "Break down the biggest execution error visible in my latest video.",
+      "rag_domains": [
+        "pole",
+        "biomechanics"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "analysis_link"
+      ],
+      "flow": "video_analysis",
+      "id": "COACH7-VA-23",
+      "question": "How does my EXIT-phase body_tilt in this video compare with the cohort average?",
+      "rag_domains": [
+        "pole",
+        "biomechanics"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "analysis_link"
+      ],
+      "flow": "video_analysis",
+      "id": "COACH7-VA-24",
+      "question": "My latest analysis shows a hip_height dip in EXECUTION - is it a timing pattern or a strength pattern?",
+      "rag_domains": [
+        "pole",
+        "biomechanics"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "analysis_link"
+      ],
+      "flow": "video_analysis",
+      "id": "COACH7-VA-25",
+      "question": "Analyse my video moment by moment: where exactly does my angular_speed peak?",
+      "rag_domains": [
+        "pole",
+        "biomechanics"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "analysis_link"
+      ],
+      "flow": "video_analysis",
+      "id": "COACH7-VA-26",
+      "question": "In the video I just analyzed, did my wrists wobble during the push phase?",
+      "rag_domains": [
+        "pole",
+        "biomechanics"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "analysis_link"
+      ],
+      "flow": "video_analysis",
+      "id": "COACH7-VA-27",
+      "question": "Summarize my latest handspring video in three bullet points.",
+      "rag_domains": [
+        "pole",
+        "biomechanics"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "analysis_link"
+      ],
+      "flow": "video_analysis",
+      "id": "COACH7-VA-28",
+      "question": "Which single weakness stands out most in my most recent video?",
+      "rag_domains": [
+        "pole",
+        "biomechanics"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "analysis_link"
+      ],
+      "flow": "video_analysis",
+      "id": "COACH7-VA-29",
+      "question": "In my latest video, did I hold my line better than in my previous session?",
+      "rag_domains": [
+        "pole",
+        "biomechanics"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "analysis_link"
+      ],
+      "flow": "video_analysis",
+      "id": "COACH7-VA-30",
+      "question": "Open my latest analysis: am I spinning faster than the cohort median?",
+      "rag_domains": [
+        "pole",
+        "biomechanics"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "metric_matrix"
+      ],
+      "flow": "progress",
+      "id": "COACH7-PR-01",
+      "question": "Am I improving on handspring this month?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "metric_matrix"
+      ],
+      "flow": "progress",
+      "id": "COACH7-PR-02",
+      "question": "Compare my angular_speed now versus last month.",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "metric_matrix"
+      ],
+      "flow": "progress",
+      "id": "COACH7-PR-03",
+      "question": "Show my hip_height trend across my last three sessions.",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "metric_matrix"
+      ],
+      "flow": "progress",
+      "id": "COACH7-PR-04",
+      "question": "Is my wrist_stability better or worse than two weeks ago?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "metric_matrix"
+      ],
+      "flow": "progress",
+      "id": "COACH7-PR-05",
+      "question": "Chart my body_tilt progress since I started training handspring.",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "metric_matrix"
+      ],
+      "flow": "progress",
+      "id": "COACH7-PR-06",
+      "question": "How has my torso_tilt_speed changed over my last five videos?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "metric_matrix"
+      ],
+      "flow": "progress",
+      "id": "COACH7-PR-07",
+      "question": "Am I getting more consistent in the EXECUTION phase week over week?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "metric_matrix"
+      ],
+      "flow": "progress",
+      "id": "COACH7-PR-08",
+      "question": "Compare my latest percentiles with my best historical session.",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "metric_matrix"
+      ],
+      "flow": "progress",
+      "id": "COACH7-PR-09",
+      "question": "Which metric improved the most since my first analysis?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "metric_matrix"
+      ],
+      "flow": "progress",
+      "id": "COACH7-PR-10",
+      "question": "Which metric is regressing compared with my previous session?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "metric_matrix"
+      ],
+      "flow": "progress",
+      "id": "COACH7-PR-11",
+      "question": "Has my EXIT-phase control improved over time?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "metric_matrix"
+      ],
+      "flow": "progress",
+      "id": "COACH7-PR-12",
+      "question": "Show my angular_speed story: first video versus latest video.",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "metric_matrix"
+      ],
+      "flow": "progress",
+      "id": "COACH7-PR-13",
+      "question": "Am I plateauing on hip_height? Compare my last month of sessions.",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "metric_matrix"
+      ],
+      "flow": "progress",
+      "id": "COACH7-PR-14",
+      "question": "Rank my five metrics by improvement since baseline.",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "metric_matrix"
+      ],
+      "flow": "progress",
+      "id": "COACH7-PR-15",
+      "question": "Did my wrists get more stable across my last four uploads?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "metric_matrix"
+      ],
+      "flow": "progress",
+      "id": "COACH7-PR-16",
+      "question": "How does this week's body_tilt compare with last week's?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "metric_matrix"
+      ],
+      "flow": "progress",
+      "id": "COACH7-PR-17",
+      "question": "Track my ENTRANCE timing consistency over my training history.",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "metric_matrix"
+      ],
+      "flow": "progress",
+      "id": "COACH7-PR-18",
+      "question": "Is my overall trend up, flat, or down across all five metrics?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "metric_matrix"
+      ],
+      "flow": "progress",
+      "id": "COACH7-PR-19",
+      "question": "Compare my progress rate in the EXECUTION phase versus the EXIT phase.",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "metric_matrix"
+      ],
+      "flow": "progress",
+      "id": "COACH7-PR-20",
+      "question": "What is my best historical hip_height percentile, and when did I hit it?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "metric_matrix"
+      ],
+      "flow": "progress",
+      "id": "COACH7-PR-21",
+      "question": "Has my angular_speed bounced back since the session where it dipped?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "metric_matrix"
+      ],
+      "flow": "progress",
+      "id": "COACH7-PR-22",
+      "question": "Show my trend: torso_tilt_speed across every handspring video so far.",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "metric_matrix"
+      ],
+      "flow": "progress",
+      "id": "COACH7-PR-23",
+      "question": "Am I improving faster on power-linked metrics or on control-linked metrics?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "metric_matrix"
+      ],
+      "flow": "progress",
+      "id": "COACH7-PR-24",
+      "question": "Compare my last session with my average across all uploads.",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "metric_matrix"
+      ],
+      "flow": "progress",
+      "id": "COACH7-PR-25",
+      "question": "How many sessions did it take for my wrist_stability to cross the median?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "metric_matrix"
+      ],
+      "flow": "progress",
+      "id": "COACH7-PR-26",
+      "question": "Is my body_tilt variance shrinking session over session?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "metric_matrix"
+      ],
+      "flow": "progress",
+      "id": "COACH7-PR-27",
+      "question": "Plot my handspring scores oldest to newest, all five metrics.",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "metric_matrix"
+      ],
+      "flow": "progress",
+      "id": "COACH7-PR-28",
+      "question": "What regressed most between my best session and my latest one?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "metric_matrix"
+      ],
+      "flow": "progress",
+      "id": "COACH7-PR-29",
+      "question": "Has my hip_height stabilized at its current level over the last sessions?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "metric_matrix"
+      ],
+      "flow": "progress",
+      "id": "COACH7-PR-30",
+      "question": "Give me a month-over-month summary of my handspring progress.",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "drills"
+      ],
+      "flow": "training_plan",
+      "id": "COACH7-TP-01",
+      "question": "Give me a 4-week plan to clean up my handspring.",
+      "rag_domains": [
+        "calisthenics",
+        "pole",
+        "psychology"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "drills"
+      ],
+      "flow": "training_plan",
+      "id": "COACH7-TP-02",
+      "question": "Build a 3-day-per-week program for pull strength for Ayesha.",
+      "rag_domains": [
+        "calisthenics",
+        "pole",
+        "psychology"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "drills"
+      ],
+      "flow": "training_plan",
+      "id": "COACH7-TP-03",
+      "question": "I train 3 days a week - plan my next 6 weeks toward a clean Ayesha by spring.",
+      "rag_domains": [
+        "calisthenics",
+        "pole",
+        "psychology"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "drills"
+      ],
+      "flow": "training_plan",
+      "id": "COACH7-TP-04",
+      "question": "Give me a 2-week program to build wrist prep for handspring loading.",
+      "rag_domains": [
+        "calisthenics",
+        "pole",
+        "psychology"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "drills"
+      ],
+      "flow": "training_plan",
+      "id": "COACH7-TP-05",
+      "question": "Design an 8-week plan from Brass Monkey to Aerial Shoulder Mount.",
+      "rag_domains": [
+        "calisthenics",
+        "pole",
+        "psychology"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "drills"
+      ],
+      "flow": "training_plan",
+      "id": "COACH7-TP-06",
+      "question": "I have 30 minutes per session, 4 days a week - program my handspring work.",
+      "rag_domains": [
+        "calisthenics",
+        "pole",
+        "psychology"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "drills"
+      ],
+      "flow": "training_plan",
+      "id": "COACH7-TP-07",
+      "question": "Give me a conditioning plan for better hip_height: hips and core, 3 weeks.",
+      "rag_domains": [
+        "calisthenics",
+        "pole",
+        "psychology"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "drills"
+      ],
+      "flow": "training_plan",
+      "id": "COACH7-TP-08",
+      "question": "Plan a deload week that keeps my handspring sharp without heavy loading.",
+      "rag_domains": [
+        "calisthenics",
+        "pole",
+        "psychology"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "drills"
+      ],
+      "flow": "training_plan",
+      "id": "COACH7-TP-09",
+      "question": "Build a 4-week grip-strength program for static holds like Cocoon and Teddy.",
+      "rag_domains": [
+        "calisthenics",
+        "pole",
+        "psychology"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "drills"
+      ],
+      "flow": "training_plan",
+      "id": "COACH7-TP-10",
+      "question": "I am an intermediate - give me a weekly schedule balancing pole and conditioning.",
+      "rag_domains": [
+        "calisthenics",
+        "pole",
+        "psychology"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "drills"
+      ],
+      "flow": "training_plan",
+      "id": "COACH7-TP-11",
+      "question": "Program 6 weeks toward my first Jade split, 3 sessions per week.",
+      "rag_domains": [
+        "calisthenics",
+        "pole",
+        "psychology"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "drills"
+      ],
+      "flow": "training_plan",
+      "id": "COACH7-TP-12",
+      "question": "Give me a 4-week plan to tighten up my EXIT-phase control.",
+      "rag_domains": [
+        "calisthenics",
+        "pole",
+        "psychology"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "drills"
+      ],
+      "flow": "training_plan",
+      "id": "COACH7-TP-13",
+      "question": "Design a 2-day-per-week maintenance plan for Butterfly and Gemini while I focus on handspring.",
+      "rag_domains": [
+        "calisthenics",
+        "pole",
+        "psychology"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "drills"
+      ],
+      "flow": "training_plan",
+      "id": "COACH7-TP-14",
+      "question": "I want to compete next season - map a 12-week training arc for me.",
+      "rag_domains": [
+        "calisthenics",
+        "pole",
+        "psychology"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "drills"
+      ],
+      "flow": "training_plan",
+      "id": "COACH7-TP-15",
+      "question": "Give me a beginner-friendly on-ramp to Shoulder Mount across 6 weeks.",
+      "rag_domains": [
+        "calisthenics",
+        "pole",
+        "psychology"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "drills"
+      ],
+      "flow": "training_plan",
+      "id": "COACH7-TP-16",
+      "question": "Program wrist-prep and shoulder-prep into my 3 weekly sessions for the next month.",
+      "rag_domains": [
+        "calisthenics",
+        "pole",
+        "psychology"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "drills"
+      ],
+      "flow": "training_plan",
+      "id": "COACH7-TP-17",
+      "question": "Build a 4-week spin-entry program: timing work and video check-ins for angular_speed.",
+      "rag_domains": [
+        "calisthenics",
+        "pole",
+        "psychology"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "drills"
+      ],
+      "flow": "training_plan",
+      "id": "COACH7-TP-18",
+      "question": "I can only train twice a week - what is the highest-leverage handspring plan?",
+      "rag_domains": [
+        "calisthenics",
+        "pole",
+        "psychology"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "drills"
+      ],
+      "flow": "training_plan",
+      "id": "COACH7-TP-19",
+      "question": "Give me a 3-week intensive to lock in my Scorpio before the showcase.",
+      "rag_domains": [
+        "calisthenics",
+        "pole",
+        "psychology"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "drills"
+      ],
+      "flow": "training_plan",
+      "id": "COACH7-TP-20",
+      "question": "Plan my week: one pole session, one calisthenics session, one mobility session, handspring goal.",
+      "rag_domains": [
+        "calisthenics",
+        "pole",
+        "psychology"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "drills"
+      ],
+      "flow": "training_plan",
+      "id": "COACH7-TP-21",
+      "question": "Design a 6-week core program for straighter body_tilt lines in Pegasus and Dove.",
+      "rag_domains": [
+        "calisthenics",
+        "pole",
+        "psychology"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "drills"
+      ],
+      "flow": "training_plan",
+      "id": "COACH7-TP-22",
+      "question": "Give me a progressive pull-up and invert program over 8 weeks.",
+      "rag_domains": [
+        "calisthenics",
+        "pole",
+        "psychology"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "drills"
+      ],
+      "flow": "training_plan",
+      "id": "COACH7-TP-23",
+      "question": "I train at home with limited space - adapt a 4-week Ayesha prep plan for me.",
+      "rag_domains": [
+        "calisthenics",
+        "pole",
+        "psychology"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "drills"
+      ],
+      "flow": "training_plan",
+      "id": "COACH7-TP-24",
+      "question": "Build a 4-week plan alternating handspring technique days and Superman strength days.",
+      "rag_domains": [
+        "calisthenics",
+        "pole",
+        "psychology"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "drills"
+      ],
+      "flow": "training_plan",
+      "id": "COACH7-TP-25",
+      "question": "Give me a taper week before my performance weekend that preserves hip drive.",
+      "rag_domains": [
+        "calisthenics",
+        "pole",
+        "psychology"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "drills"
+      ],
+      "flow": "training_plan",
+      "id": "COACH7-TP-26",
+      "question": "Program 5 weeks toward Iron X foundations from a solid Shoulder Mount.",
+      "rag_domains": [
+        "calisthenics",
+        "pole",
+        "psychology"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "drills"
+      ],
+      "flow": "training_plan",
+      "id": "COACH7-TP-27",
+      "question": "I sit at a desk all day - add daily 10-minute mobility to my 4-week handspring plan.",
+      "rag_domains": [
+        "calisthenics",
+        "pole",
+        "psychology"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "drills"
+      ],
+      "flow": "training_plan",
+      "id": "COACH7-TP-28",
+      "question": "Design a 3-day split - push, pull, pole-play - aimed at Phoenix control.",
+      "rag_domains": [
+        "calisthenics",
+        "pole",
+        "psychology"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "drills"
+      ],
+      "flow": "training_plan",
+      "id": "COACH7-TP-29",
+      "question": "Give me a 6-week plan to hold Cocoon and Layback longer with clean lines.",
+      "rag_domains": [
+        "calisthenics",
+        "pole",
+        "psychology"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "drills"
+      ],
+      "flow": "training_plan",
+      "id": "COACH7-TP-30",
+      "question": "Build my spring season calendar: base, build, peak, and deload blocks for Ayesha.",
+      "rag_domains": [
+        "calisthenics",
+        "pole",
+        "psychology"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "disclaimer"
+      ],
+      "flow": "injury",
+      "id": "COACH7-IN-01",
+      "question": "My wrist hurts when I invert - should I keep training handspring?",
+      "rag_domains": [
+        "biomechanics",
+        "calisthenics",
+        "psychology"
+      ],
+      "requires_disclaimer": true
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "disclaimer"
+      ],
+      "flow": "injury",
+      "id": "COACH7-IN-02",
+      "question": "I have a nagging shoulder pain on my top arm in Shoulder Mount.",
+      "rag_domains": [
+        "biomechanics",
+        "calisthenics",
+        "psychology"
+      ],
+      "requires_disclaimer": true
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "disclaimer"
+      ],
+      "flow": "injury",
+      "id": "COACH7-IN-03",
+      "question": "I sprained my left wrist last year and it still aches on weight-bearing moves.",
+      "rag_domains": [
+        "biomechanics",
+        "calisthenics",
+        "psychology"
+      ],
+      "requires_disclaimer": true
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "disclaimer"
+      ],
+      "flow": "injury",
+      "id": "COACH7-IN-04",
+      "question": "Sharp elbow pain when I pull into Ayesha - what should I do?",
+      "rag_domains": [
+        "biomechanics",
+        "calisthenics",
+        "psychology"
+      ],
+      "requires_disclaimer": true
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "disclaimer"
+      ],
+      "flow": "injury",
+      "id": "COACH7-IN-05",
+      "question": "My lower back hurts after backbend-heavy tricks like Cocoon and Layback.",
+      "rag_domains": [
+        "biomechanics",
+        "calisthenics",
+        "psychology"
+      ],
+      "requires_disclaimer": true
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "disclaimer"
+      ],
+      "flow": "injury",
+      "id": "COACH7-IN-06",
+      "question": "I strained my hamstring - which pole moves must I avoid until it heals?",
+      "rag_domains": [
+        "biomechanics",
+        "calisthenics",
+        "psychology"
+      ],
+      "requires_disclaimer": true
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "disclaimer"
+      ],
+      "flow": "injury",
+      "id": "COACH7-IN-07",
+      "question": "Forearm pain after long grip sessions - is it safe to keep doing static holds?",
+      "rag_domains": [
+        "biomechanics",
+        "calisthenics",
+        "psychology"
+      ],
+      "requires_disclaimer": true
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "disclaimer"
+      ],
+      "flow": "injury",
+      "id": "COACH7-IN-08",
+      "question": "My knee hurts when I hook for Cupid and Genie entries.",
+      "rag_domains": [
+        "biomechanics",
+        "calisthenics",
+        "psychology"
+      ],
+      "requires_disclaimer": true
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "disclaimer"
+      ],
+      "flow": "injury",
+      "id": "COACH7-IN-09",
+      "question": "I have a skin tear on my palm that stings on the pole - how do I train around it?",
+      "rag_domains": [
+        "biomechanics",
+        "calisthenics",
+        "psychology"
+      ],
+      "requires_disclaimer": true
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "disclaimer"
+      ],
+      "flow": "injury",
+      "id": "COACH7-IN-10",
+      "question": "Rib pain when I compress for Teddy and Cocoon - should I see a professional?",
+      "rag_domains": [
+        "biomechanics",
+        "calisthenics",
+        "psychology"
+      ],
+      "requires_disclaimer": true
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "disclaimer"
+      ],
+      "flow": "injury",
+      "id": "COACH7-IN-11",
+      "question": "My ankle hurts after drops and floorwork landings.",
+      "rag_domains": [
+        "biomechanics",
+        "calisthenics",
+        "psychology"
+      ],
+      "requires_disclaimer": true
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "disclaimer"
+      ],
+      "flow": "injury",
+      "id": "COACH7-IN-12",
+      "question": "Neck strain from a bad Jasmine exit - how long should I rest it?",
+      "rag_domains": [
+        "biomechanics",
+        "calisthenics",
+        "psychology"
+      ],
+      "requires_disclaimer": true
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "disclaimer"
+      ],
+      "flow": "injury",
+      "id": "COACH7-IN-13",
+      "question": "Hip flexor pain when I lift into Gemini and Scorpio.",
+      "rag_domains": [
+        "biomechanics",
+        "calisthenics",
+        "psychology"
+      ],
+      "requires_disclaimer": true
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "disclaimer"
+      ],
+      "flow": "injury",
+      "id": "COACH7-IN-14",
+      "question": "I injured my rotator cuff months ago - which overhead moves are risky now?",
+      "rag_domains": [
+        "biomechanics",
+        "calisthenics",
+        "psychology"
+      ],
+      "requires_disclaimer": true
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "disclaimer"
+      ],
+      "flow": "injury",
+      "id": "COACH7-IN-15",
+      "question": "Wrist sprain recovery: what prep is safe before reloading handspring?",
+      "rag_domains": [
+        "biomechanics",
+        "calisthenics",
+        "psychology"
+      ],
+      "requires_disclaimer": true
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "disclaimer"
+      ],
+      "flow": "injury",
+      "id": "COACH7-IN-16",
+      "question": "Thumb joint pain when I grip for Superman - is my grip the problem?",
+      "rag_domains": [
+        "biomechanics",
+        "calisthenics",
+        "psychology"
+      ],
+      "requires_disclaimer": true
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "disclaimer"
+      ],
+      "flow": "injury",
+      "id": "COACH7-IN-17",
+      "question": "My shoulder hurts more the day after training - is that normal soreness or injury pain?",
+      "rag_domains": [
+        "biomechanics",
+        "calisthenics",
+        "psychology"
+      ],
+      "requires_disclaimer": true
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "disclaimer"
+      ],
+      "flow": "injury",
+      "id": "COACH7-IN-18",
+      "question": "I have a splint-like forearm pain after high-volume spin training.",
+      "rag_domains": [
+        "biomechanics",
+        "calisthenics",
+        "psychology"
+      ],
+      "requires_disclaimer": true
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "disclaimer"
+      ],
+      "flow": "injury",
+      "id": "COACH7-IN-19",
+      "question": "Bruised shins from drops hurt to the touch - can I still train floorwork?",
+      "rag_domains": [
+        "biomechanics",
+        "calisthenics",
+        "psychology"
+      ],
+      "requires_disclaimer": true
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "disclaimer"
+      ],
+      "flow": "injury",
+      "id": "COACH7-IN-20",
+      "question": "Elbow strain on my bottom arm in Brass Monkey - should I train through it?",
+      "rag_domains": [
+        "biomechanics",
+        "calisthenics",
+        "psychology"
+      ],
+      "requires_disclaimer": true
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "disclaimer"
+      ],
+      "flow": "injury",
+      "id": "COACH7-IN-21",
+      "question": "My back seizes with sharp pain after Remi Sit dismounts.",
+      "rag_domains": [
+        "biomechanics",
+        "calisthenics",
+        "psychology"
+      ],
+      "requires_disclaimer": true
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "disclaimer"
+      ],
+      "flow": "injury",
+      "id": "COACH7-IN-22",
+      "question": "I hurt my wrist catching myself in a failed invert last week.",
+      "rag_domains": [
+        "biomechanics",
+        "calisthenics",
+        "psychology"
+      ],
+      "requires_disclaimer": true
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "disclaimer"
+      ],
+      "flow": "injury",
+      "id": "COACH7-IN-23",
+      "question": "Knee strain from over-hooking Marley and Butterfly - how do I deload it?",
+      "rag_domains": [
+        "biomechanics",
+        "calisthenics",
+        "psychology"
+      ],
+      "requires_disclaimer": true
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "disclaimer"
+      ],
+      "flow": "injury",
+      "id": "COACH7-IN-24",
+      "question": "Shoulder impingement-type pain when I hang from Pegasus - what is safe?",
+      "rag_domains": [
+        "biomechanics",
+        "calisthenics",
+        "psychology"
+      ],
+      "requires_disclaimer": true
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "disclaimer"
+      ],
+      "flow": "injury",
+      "id": "COACH7-IN-25",
+      "question": "My hamstring strain keeps coming back every time I train Jade splits.",
+      "rag_domains": [
+        "biomechanics",
+        "calisthenics",
+        "psychology"
+      ],
+      "requires_disclaimer": true
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "disclaimer"
+      ],
+      "flow": "injury",
+      "id": "COACH7-IN-26",
+      "question": "Finger pulley pain from a tight Cup grip - should I stop climbing?",
+      "rag_domains": [
+        "biomechanics",
+        "calisthenics",
+        "psychology"
+      ],
+      "requires_disclaimer": true
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "disclaimer"
+      ],
+      "flow": "injury",
+      "id": "COACH7-IN-27",
+      "question": "I injured my tailbone in a slide fall - sitting tricks like Remi Sit hurt.",
+      "rag_domains": [
+        "biomechanics",
+        "calisthenics",
+        "psychology"
+      ],
+      "requires_disclaimer": true
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "disclaimer"
+      ],
+      "flow": "injury",
+      "id": "COACH7-IN-28",
+      "question": "Bicep tendon pain when I press into Iron X foundations.",
+      "rag_domains": [
+        "biomechanics",
+        "calisthenics",
+        "psychology"
+      ],
+      "requires_disclaimer": true
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "disclaimer"
+      ],
+      "flow": "injury",
+      "id": "COACH7-IN-29",
+      "question": "My wrist pain flares only during cold sessions - how should I warm up safely?",
+      "rag_domains": [
+        "biomechanics",
+        "calisthenics",
+        "psychology"
+      ],
+      "requires_disclaimer": true
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "disclaimer"
+      ],
+      "flow": "injury",
+      "id": "COACH7-IN-30",
+      "question": "I am cleared to return after my ankle sprain - what is a safe first week back on pole?",
+      "rag_domains": [
+        "biomechanics",
+        "calisthenics",
+        "psychology"
+      ],
+      "requires_disclaimer": true
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "retrieval_hits"
+      ],
+      "flow": "readiness",
+      "id": "COACH7-RE-01",
+      "question": "Am I ready for Ayesha?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "retrieval_hits"
+      ],
+      "flow": "readiness",
+      "id": "COACH7-RE-02",
+      "question": "Can I compete this season with my current handspring?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "retrieval_hits"
+      ],
+      "flow": "readiness",
+      "id": "COACH7-RE-03",
+      "question": "Are my percentiles high enough for Aerial Shoulder Mount?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "retrieval_hits"
+      ],
+      "flow": "readiness",
+      "id": "COACH7-RE-04",
+      "question": "What prerequisites am I missing for the Jade split?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "retrieval_hits"
+      ],
+      "flow": "readiness",
+      "id": "COACH7-RE-05",
+      "question": "Am I ready to attempt Brass Monkey on spin?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "retrieval_hits"
+      ],
+      "flow": "readiness",
+      "id": "COACH7-RE-06",
+      "question": "Is my wrist_stability good enough for Iron X foundations?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "retrieval_hits"
+      ],
+      "flow": "readiness",
+      "id": "COACH7-RE-07",
+      "question": "Should I try Butterfly next, or stick with Gemini a while longer?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "retrieval_hits"
+      ],
+      "flow": "readiness",
+      "id": "COACH7-RE-08",
+      "question": "Am I ready for Superman based on my latest metrics?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "retrieval_hits"
+      ],
+      "flow": "readiness",
+      "id": "COACH7-RE-09",
+      "question": "Which is closer for me right now: Scorpio or Gemini?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "retrieval_hits"
+      ],
+      "flow": "readiness",
+      "id": "COACH7-RE-10",
+      "question": "Do I meet the strength gates for Shoulder Mount?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "retrieval_hits"
+      ],
+      "flow": "readiness",
+      "id": "COACH7-RE-11",
+      "question": "Am I ready to perform handspring in the showcase?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "retrieval_hits"
+      ],
+      "flow": "readiness",
+      "id": "COACH7-RE-12",
+      "question": "What is my weakest readiness gate for Phoenix?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "retrieval_hits"
+      ],
+      "flow": "readiness",
+      "id": "COACH7-RE-13",
+      "question": "Can I start training Allegra, or do I need more hip_height first?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "retrieval_hits"
+      ],
+      "flow": "readiness",
+      "id": "COACH7-RE-14",
+      "question": "Am I ready for aerial inverts, given my latest session?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "retrieval_hits"
+      ],
+      "flow": "readiness",
+      "id": "COACH7-RE-15",
+      "question": "Which progression should come first: Cocoon or Layback?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "retrieval_hits"
+      ],
+      "flow": "readiness",
+      "id": "COACH7-RE-16",
+      "question": "Is my EXIT-phase control sufficient for Pegasus?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "retrieval_hits"
+      ],
+      "flow": "readiness",
+      "id": "COACH7-RE-17",
+      "question": "Am I ready to move from static to spin for Scorpio?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "retrieval_hits"
+      ],
+      "flow": "readiness",
+      "id": "COACH7-RE-18",
+      "question": "Do my angular_speed percentiles support attempting Aerial Handspring?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "retrieval_hits"
+      ],
+      "flow": "readiness",
+      "id": "COACH7-RE-19",
+      "question": "What stands between me and a clean Dove?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "retrieval_hits"
+      ],
+      "flow": "readiness",
+      "id": "COACH7-RE-20",
+      "question": "Am I competition-ready on execution consistency?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "retrieval_hits"
+      ],
+      "flow": "readiness",
+      "id": "COACH7-RE-21",
+      "question": "Is my body_tilt stable enough for straight-line tricks like Teddy?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "retrieval_hits"
+      ],
+      "flow": "readiness",
+      "id": "COACH7-RE-22",
+      "question": "Am I ready for Cupid transitions after my latest progress?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "retrieval_hits"
+      ],
+      "flow": "readiness",
+      "id": "COACH7-RE-23",
+      "question": "Which tricks are the usual stepping stones to Ayesha for someone at my level?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "retrieval_hits"
+      ],
+      "flow": "readiness",
+      "id": "COACH7-RE-24",
+      "question": "My hip_height dipped last session - am I still ready for Jade?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "retrieval_hits"
+      ],
+      "flow": "readiness",
+      "id": "COACH7-RE-25",
+      "question": "Am I ready to train Marley, or is my grip the limiting gate?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "retrieval_hits"
+      ],
+      "flow": "readiness",
+      "id": "COACH7-RE-26",
+      "question": "Do I have the prerequisites for Genie, or should I consolidate Jasmine first?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "retrieval_hits"
+      ],
+      "flow": "readiness",
+      "id": "COACH7-RE-27",
+      "question": "Is my overall readiness trending toward competition level?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "retrieval_hits"
+      ],
+      "flow": "readiness",
+      "id": "COACH7-RE-28",
+      "question": "Am I ready for Phoenix if hip_height is my weakest metric?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "retrieval_hits"
+      ],
+      "flow": "readiness",
+      "id": "COACH7-RE-29",
+      "question": "What should I master before Aerial Handspring?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    },
+    {
+      "expected_blocks": [
+        "md",
+        "retrieval_hits"
+      ],
+      "flow": "readiness",
+      "id": "COACH7-RE-30",
+      "question": "Am I ready to link Gemini into Scorpio in one combination?",
+      "rag_domains": [
+        "biomechanics",
+        "pole"
+      ],
+      "requires_disclaimer": false
+    }
+  ]
+}

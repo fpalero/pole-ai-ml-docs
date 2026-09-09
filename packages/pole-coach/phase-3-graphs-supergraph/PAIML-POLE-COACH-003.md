@@ -61,3 +61,12 @@ Endpoint wiring, profile schema changes, biomech feature changes (Phase 4).
 
 ## Definition of Done
 Unit suite green → run the integration aggregator smoke and report.
+
+## As-built deviations (implementation report)
+1. `build_supergraph(metrics_provider, rag_provider, llm=None)` takes an optional 3rd param — Phase-2 nodes need an LLM handle; a 2-arg call still compiles and falls back safely.
+2. `CoachState` extended additively with 8 optional keys (`profile`/`goal`/`history`/`catalog_entry`/`readiness`/`trend_summary`/`node_errors`/`intent_confidence`) to thread gating artefacts; Phase-2 files untouched.
+3. Readiness/injury/video/progress/training-plan graphs add opportunistic passthrough pole/biomech steps beyond the ticket's shorthand chains — the frozen coach_agent contract demands non-empty contexts, else these graphs could never reach coach. Query trick-intents enter via metrics first (pipeline, not standalone, biomechanics).
+4. Test invocation ran the task-equivalent directly (main pixi env python, `PYTHONPATH=src`, cwd `packages/pole_coach`) instead of `pixi run test-polecoach` in-worktree — avoids env reinstall; identical command.
+5. Hardened error recorders (could themselves raise on unreadable state) in new code only, covered by broken-state tests.
+
+Implementation: HEAD `9a5e9ed`, branch `feature/PAIML-POLE-COACH-003-graphs-supergraph-router`, unit suite 164 passed (104 pre-existing + 60 new), coverage 99% total / 100% new modules; router fixtures 22/22.

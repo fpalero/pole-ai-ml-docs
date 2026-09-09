@@ -1,7 +1,7 @@
 # Project Variables: pole_api
 
 ## Ticket Counter
-- **Last ticket number**: 108
+- **Last ticket number**: 110
 
 > Anomaly note (reconciliation): 95 is consumed by adopted ticket PAIML-POLE-API-095
 > (canonical file `phase-30-chatbot-turn-budget/PAIML-POLE-API-095.md`, merged in
@@ -29,3 +29,8 @@
 > 108 = `phase-29-staging-qa-followups/PAIML-POLE-API-108.md` (data-backed
 > progress matrix tool + deterministic assembly; same bucket — staging-QA
 > analyst-path follow-up, not 107 scope).
+> 109 = `phase-35-rag-image-blocks/PAIML-POLE-API-109.md` (deterministic RAG
+> image block synthesis — query_pole/biomechanics/calisthenics/psicology).
+> 110 = `phase-29-staging-qa-followups/PAIML-POLE-API-110.md` (coach catalog
+> stores: trick_catalog Mongo collection + separate catalog RAG; same bucket —
+> staging-QA analyst/coach-path follow-up, not 107/108 scope).

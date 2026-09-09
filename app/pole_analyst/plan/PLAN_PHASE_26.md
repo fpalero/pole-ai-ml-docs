@@ -24,7 +24,7 @@ chat y de pose rinden URLs raw sin pasar por el helper — esos `<img>` cargan
 | Ticket | Scope | Estado |
 | :--- | :--- | :--- |
 | `PAIML-POLE-ANALYST-076` | Helper central `withMediaToken(url)` + aplicarlo en TODOS los bindings media; retry-once-with-fresh-token en `error` de `<img>` (stale-token edge: tokens ~5min vs Cache-Control artefactos 24h); specs + auditoría grep | 📋 PLANNED |
-| `PAIML-POLE-ANALYST-077` | Tool-chip artifact links con placeholder literal `[artifact]` (staging 2026-09-07: `a.artifact-link[href="[artifact]"]` ×6, roto) — auditar renderer + sanitizer (075), tokenizar vía helper 076 o eliminar placeholder; specs chip + regresión 075 | 📋 PLANNED |
+<| `PAIML-POLE-ANALYST-077` | Tool-chip artifact links con placeholder literal `[artifact]` (staging 2026-09-07: `a.artifact-link[href="[artifact]"]` ×6, roto) — auditar renderer + sanitizer (075), tokenizar vía helper 076 o eliminar placeholder; specs chip + regresión 075. Keep-both (incoming side detail): render REAL tokenized URLs vía helper 076 `withMediaToken` + retry-once (mismo transporte que `.rag-image-card`); fallback a texto plano sin href si el href tokenizado no es feasible — nunca el literal `[artifact]`; resolver la redacción server-side desde el tool result; specs del chip (href tokenizado, retry-once-then-placeholder en 401, cero `[artifact]` en chips) | 📋 PLANNED |
 
 ## Tasks
 

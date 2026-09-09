@@ -101,3 +101,13 @@ grep -rn '\[artifact\]' app/pole_analyst/src --include="*.ts" --include="*.html"
 
 ## Estimated Effort
 - [S]
+
+---
+
+## Supplementary note (docs-unified keep-both)
+
+Incoming `feature/PAIML-POLE-ANALYST-077-chip-artifact-links` carried a 75-line
+concise variant of this same ticket (same defect, same evidence paths
+`/tmp/opencode/img-broken/`, same Stitch image IDs). This 103-line expanded
+version is kept canonical (full DOM excerpt + root-cause hypothesis + Option A/B
+fix framing); the concise variant is superseded with no content loss.

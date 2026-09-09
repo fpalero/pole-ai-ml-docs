@@ -21,3 +21,7 @@
 > counter was 70 (older, 070 era); superseded, MAX 78 kept (070 file already present).
 > Docs-unified: incoming `feature/PAIML-POLE-DOCS-023-answer-cards`
 > counter was 72 (older, 072 era); superseded, MAX 78 kept (072 file already present; PLAN_PHASE_23 keep-both merged).
+> Docs-unified: incoming `feature/PAIML-POLE-ANALYST-077-chip-artifact-links`
+> counter was 77 (same ticket era); MAX 78 kept. 077 file keep-both: HEAD 103-line
+> expanded version kept canonical; incoming 75-line concise variant superseded
+> (same defect, less DOM detail). PLAN_PHASE_26 077 row keep-both merged.

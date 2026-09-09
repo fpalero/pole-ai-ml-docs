@@ -188,3 +188,35 @@ by the agent.)
   fallback).
 - **Artifacts:** `app/pole_analyst/test-results/coach-150q/20260909-gate-retry2/`
   (worktree, gitignored).
+
+## Gate run 4 — SAMPLE-5 staging-direct (2026-09-09): RED 5/25, stale staging image
+
+- **RUN_ID:** `sample5-20260909-direct`.
+- **Verdict:** RED vs the 5/5-per-flow bar. Per-flow: `video_analysis` 2/5
+  (VA-01,02), `progress` 0/5, `training_plan` 2/5 (TP-02,03), `injury` 1/5
+  (IN-03), `readiness` 1/5 (RE-04) → **5/25 live turns PASS**.
+- **Live-turn quality:** all 5 PASS turns had answer + rendering + RAG OK;
+  tables up to 4 rows, cards up to 4, zero broken images.
+- **Wall / retries:** ~1.1 h wall. 1 retry spent: COACH7-SETUP seed died on
+  harness `spawnSync python ENOENT` under npx-direct → retry with pixi python
+  on PATH, PASS in 9.6 s.
+- **Mode T — 7 turns never complete (@360 s):** staging `pole-api` logs
+  `status=ABANDONED` on every one; `agent: unknown tool requested:
+  metric_matrix`; repeated `coach LLM reply invalid` (JSON
+  control-char/unterminated-string) → graph-level fallback reply that never
+  reaches terminal status on the FE. Systematic backend defects, not transient.
+- **Mode R — 13 completed-but-assert-fails:** PR-03 matrix names a real metric
+  yet asserts fail; PR-04 no `.matrix-card`; TP-04/05 no `.drills-list`
+  DESPITE successful `query_*` RAG calls; IN-01/02/04/05 missing
+  `SAFETY_DISCLAIMER`; RE-01/02/03/05 bare-md zero-tool-calls.
+- **HEADLINE — staging image STALE:** `unknown tool requested: metric_matrix`
+  proves the deployed staging backend predates current develop (001–005 +
+  fixes). Gate tested old code; verdicts provisional pending staging redeploy
+  + re-run.
+- **Recommended app follow-ups (NOT created):** (1) register/stop-hallucinating
+  `metric_matrix` tool, (2) harden coach summary JSON parsing, (3) fallbacks
+  must drive terminal FE status, (4) disclaimer + retrieval + block-contract
+  enforcement on fallback paths, (5) harness python-PATH note.
+- **Artifacts:** worktree
+  `test-results/coach-150q/sample5-20260909-direct/` (transcript + judge,
+  gitignored); `/tmp/coach150q-sample5.log` (75 KB).

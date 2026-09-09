@@ -115,7 +115,7 @@
 | 23 | FE chat cards (score_summary / phasic_feedback / metric_matrix / drills / quick_replies) | 📋 PLANNED | [plan/PLAN_PHASE_23.md](plan/PLAN_PHASE_23.md) |
 | 24 | FE failed-turn error state (error bubble/chip + retry) + image endpoint URLs + tool-chip arg sanitization (075) | 📋 PLANNED | [plan/PLAN_PHASE_24.md](plan/PLAN_PHASE_24.md) |
 | 25 | Analysis summary plain language (coach sentences; no metric ids / z-scores / frame numbers / deviation counts) | 📋 PLANNED | [plan/PLAN_PHASE_25.md](plan/PLAN_PHASE_25.md) |
-| 26 | FE media auth (`?token=` en todos los bindings `<img>`/`<video>` + retry-once-with-fresh-token) + tool-chip `[artifact]` follow-up (-077) | 📋 PLANNED | [plan/PLAN_PHASE_26.md](plan/PLAN_PHASE_26.md) |
+<| 26 | FE media auth (`?token=` en todos los bindings `<img>`/`<video>` + retry-once-with-fresh-token) + tool-chip `[artifact]` follow-up (-077 artifact links; 076, 077 📋 PLANNED) | 📋 PLANNED | [plan/PLAN_PHASE_26.md](plan/PLAN_PHASE_26.md) |
 | 27 | Question-card status chip (status ONLY on user question card; supersedes 073 thinking-bubble, reuses retry contract) | 📋 PLANNED | [plan/PLAN_PHASE_27.md](plan/PLAN_PHASE_27.md) |
 
 

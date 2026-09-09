@@ -92,3 +92,12 @@ Graph composition, supergraph, endpoint wiring, catalog-gated readiness logic (P
 
 ## Definition of Done
 Unit suite green → run the integration aggregator smoke and report.
+
+## As-built deviations (implementation report)
+1. No FEATURE_NAMES constant exists anywhere (verified by grep over pole-train-model, pole-tools, chatbot) — defined KNOWN_JOINTS = the 4 joint angles the extractor actually measures (left/right_elbow/knee_deg), enforced on optional joint_angles payload; UC-13/004 extends the set.
+2. Intent labels not enumerated in ticket — used Phase-4 scenario names from the plan (UC-15..21): video_analysis, progress, query, training_plan, injury, improve_trick, readiness.
+3. Coach safety backstop: node deterministically appends SAFETY_DISCLAIMER when the question is injury-related and the LLM omitted any disclaimer (fail-safe, test-covered).
+4. Router never errors: LLM failure yields {"intent": "query", "confidence": 0.0}; low-confidence threshold 0.5.
+5. formatter accepts optional rag_hits (from CoachState.rag_hits) to emit image blocks.
+
+Implementation HEAD 5d9cb0e, worktree branch feature/PAIML-POLE-COACH-002-state-schema-nodes, unit `pixi run test-polecoach` 104 passed.

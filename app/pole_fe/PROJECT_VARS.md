@@ -10,3 +10,4 @@
 > fe-e2e Keycloak login-required bypass).
 
 > Anomaly note (docs-unified reconciliation): MAX counter 15 wins (develop side was 14). No numbers skipped.
+> Docs-unified: incoming `docs/PAIML-POLE-FE-013-logout` counter was 13 (older); superseded, MAX 15 kept.

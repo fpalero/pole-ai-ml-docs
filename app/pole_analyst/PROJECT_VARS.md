@@ -1,7 +1,7 @@
 # Project Variables: pole_analyst
 
 ## Ticket Counter
-- **Last ticket number**: 78
+- **Last ticket number**: 80
 - **Last ticket**: PAIML-POLE-ANALYST-078 (question-card status chip, phase-27-question-status-chip/)
 
 > 77 = `phase-26-fe-media-auth/PAIML-POLE-ANALYST-077.md` (tool-chip `[artifact]`
@@ -25,3 +25,14 @@
 > counter was 77 (same ticket era); MAX 78 kept. 077 file keep-both: HEAD 103-line
 > expanded version kept canonical; incoming 75-line concise variant superseded
 > (same defect, less DOM detail). PLAN_PHASE_26 077 row keep-both merged.
+> 79 = `phase-31-baseline-test-repair/PAIML-POLE-ANALYST-079.md` (baseline rojo
+> + `lint` target + FE PR checks antes de `/oc`; sequencing note: start after
+> 078 merged to avoid spec collisions).
+> 80 = `phase-29-chatbot-welcome-message/PAIML-POLE-ANALYST-080.md` (welcome message
+> with capabilities overview and clickable quick-reply pills; in-flight by third
+> party, adopted verbatim from working tree during PR #48 reconciliation).
+> Anomaly note (PR #48 reconciliation): ticket ID 078 is used twice — HEAD
+> `phase-27-question-status-chip/PAIML-POLE-ANALYST-078.md` (chip, code PR #277)
+> and `phase-30-responsive-pixel-perfect/PAIML-POLE-ANALYST-078.md` (responsive
+> shell, code PR #297). Both kept; phases renumbered 27/28 → 30/31 to avoid
+> colliding with the question-status-chip Phase 27.

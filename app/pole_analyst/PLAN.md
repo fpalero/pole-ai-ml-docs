@@ -117,6 +117,8 @@
 | 25 | Analysis summary plain language (coach sentences; no metric ids / z-scores / frame numbers / deviation counts) | 📋 PLANNED | [plan/PLAN_PHASE_25.md](plan/PLAN_PHASE_25.md) |
 <| 26 | FE media auth (`?token=` en todos los bindings `<img>`/`<video>` + retry-once-with-fresh-token) + tool-chip `[artifact]` follow-up (-077 artifact links; 076, 077 📋 PLANNED) | 📋 PLANNED | [plan/PLAN_PHASE_26.md](plan/PLAN_PHASE_26.md) |
 | 27 | Question-card status chip (status ONLY on user question card; supersedes 073 thinking-bubble, reuses retry contract) | 📋 PLANNED | [plan/PLAN_PHASE_27.md](plan/PLAN_PHASE_27.md) |
+| 30 | Responsive pixel-perfect Stitch (LIGHT only, login excluido, single-ticket 078 + ajuste tests) | ✅ DONE (code PR #297, `244661a`) | [plan/PLAN_PHASE_30.md](plan/PLAN_PHASE_30.md) |
+| 31 | Baseline test repair + lint gate (9 files/80 tests + `lint` target + FE PR checks antes de `/oc`) | 📋 PLANNED (sequenced after 078) | [plan/PLAN_PHASE_31.md](plan/PLAN_PHASE_31.md) |
 
 
 ---

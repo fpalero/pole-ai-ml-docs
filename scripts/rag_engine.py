@@ -21,6 +21,7 @@ from __future__ import annotations
 import hashlib
 import json
 import logging
+import os
 import shutil
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
@@ -40,6 +41,16 @@ logging.basicConfig(
     format="%(asctime)s | %(levelname)-7s | %(message)s",
 )
 logger = logging.getLogger("rag_engine")
+
+# ---------------------------------------------------------------------------
+# Offline-first embeddings: the sentence-transformers model is cached locally
+# under ~/.cache/huggingface/hub/. Force HF/transformers offline mode so no
+# request ever hits huggingface.co (HEAD/GET to resolve modules.json, config,
+# tokenizer, …). Env set here as default; an explicit caller export wins.
+# ---------------------------------------------------------------------------
+os.environ.setdefault("HF_HUB_OFFLINE", "1")
+os.environ.setdefault("TRANSFORMERS_OFFLINE", "1")
+os.environ.setdefault("HF_DATASETS_OFFLINE", "1")
 
 # ---------------------------------------------------------------------------
 # RagSpec

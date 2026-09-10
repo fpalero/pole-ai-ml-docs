@@ -1,7 +1,7 @@
 # Project Variables: pole_analyst
 
 ## Ticket Counter
-- **Last ticket number**: 77
+- **Last ticket number**: 79
 
-> 77 = `phase-6-integration-e2e/PAIML-POLE-ANALYST-077.md` (staging-gate harness:
-> pole-analyst-e2e Keycloak setup bypass; sister ticket PAIML-POLE-FE-015).
+> 79 = `phase-28-baseline-test-repair/PAIML-POLE-ANALYST-079.md` (baseline rojo
+> + `lint` target + FE PR checks antes de `/oc`; Blocked By 078).

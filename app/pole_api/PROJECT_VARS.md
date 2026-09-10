@@ -1,7 +1,7 @@
 # Project Variables: pole_api
 
 ## Ticket Counter
-- **Last ticket number**: 118
+- **Last ticket number**: 120
 
 > Docs-unified: incoming `feature/PAIML-POLE-API-099-reviewer-leftovers` counter was 99 (older, 099 era); superseded, MAX 111 kept (099 file keep-both merged: 4-item bundle canonical + HEAD trimmed variant noted).
 
@@ -37,6 +37,8 @@
 > 116 = RESERVED parallel lane `phase-38-coach-routing-residuals/PAIML-POLE-API-116.md` (supergraph routing residuals; unmerged side branch — not consumed here, no collision).
 > 117 = `phase-39-staging-gate-residuals/PAIML-POLE-API-117.md` (explicit unknown-trick reply on query-graph path; Phase 36 gate batch-1 Q3).
 > 118 = `phase-39-staging-gate-residuals/PAIML-POLE-API-118.md` (M-code to metric-name mapping pre-metric_deep_dive; Phase 36 gate batch-3 Q9).
+> 119 = `phase-40-pr-checks-gate/PAIML-POLE-API-119.md` (BE PR checks gate + inline review-merge auto-flow; requested as 117 but 117/118 consumed by Phase 39 staging-gate residuals, counter at 118 → max+1; Phase 40 since 39 taken, 38 reserved by parallel 116 lane).
+> 120 = `phase-41-pr-checks-gate-workflow-run/PAIML-POLE-API-120.md` (BE PR checks gate + workflow_run-triggered review-merge, user-confirmed "option C": test-jobs-only be-checks, no inline review job; requested as 117 in phase-39-pr-checks-gate but 117/118 consumed by Phase 39 residuals, 119 by Phase 40 inline design, counter at 119 → max+1; Phase 41 since 39/40 taken).
 >
 > Anomaly note (docs-unified reconciliation): MAX counter 111 wins (develop side was 109). No numbers skipped in 103–111; 103/104 reserved meanings from both sides kept above.
 > Docs-unified: incoming `feature/PAIML-POLE-DOCS-028-026-phase-docs-commit` counter was 87 (older); superseded, MAX 111 kept.

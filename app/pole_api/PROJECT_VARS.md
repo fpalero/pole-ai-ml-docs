@@ -1,7 +1,7 @@
 # Project Variables: pole_api
 
 ## Ticket Counter
-- **Last ticket number**: 114
+- **Last ticket number**: 115
 
 > Docs-unified: incoming `feature/PAIML-POLE-API-099-reviewer-leftovers` counter was 99 (older, 099 era); superseded, MAX 111 kept (099 file keep-both merged: 4-item bundle canonical + HEAD trimmed variant noted).
 
@@ -33,6 +33,7 @@
 > 112 = `phase-36-free-text-trick-extraction/PAIML-POLE-API-112.md` (deterministic free-text trick extraction in `_build_state`).
 > 113 = `phase-36-free-text-trick-extraction/PAIML-POLE-API-113.md` (progression catalog-first routing: QUERY_DOMAINS + P4 prompt).
 > 114 = `phase-36-free-text-trick-extraction/PAIML-POLE-API-114.md` (answer shaping "what next" + UC coverage incl. bank #27).
+> 115 = `phase-37-coach-grounding-regression/PAIML-POLE-API-115.md` (coach grounding regression: video resolution + guarded delegation).
 >
 > Anomaly note (docs-unified reconciliation): MAX counter 111 wins (develop side was 109). No numbers skipped in 103–111; 103/104 reserved meanings from both sides kept above.
 > Docs-unified: incoming `feature/PAIML-POLE-DOCS-028-026-phase-docs-commit` counter was 87 (older); superseded, MAX 111 kept.

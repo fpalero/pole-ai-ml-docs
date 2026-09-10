@@ -11,6 +11,11 @@
 
 ## Contexto
 
+> Scope note (phase-end QA 2026-09-10): the implementation merged the detail
+> tabs into a two-tab `Analysis/Plan` redesign (phases 13/14); ticket scope
+> text mentioning `Summary/Histogram/Pose/Plan` is historical wording, not a
+> regression.
+
 La app ya implementa tokens Kinetic en `src/app/design-tokens/tokens.ts` y shell
 sidebar 256px + top-bar slim + split 40/60 (fases 15/18/20), pero no aplica el
 responsive Stitch pixel-perfect: Bento 70/30 → single-column en móvil, header

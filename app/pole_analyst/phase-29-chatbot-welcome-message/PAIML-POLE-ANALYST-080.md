@@ -59,7 +59,9 @@ When a user accesses the chatbot for the first time after login, the chat is emp
 Phase 29: Chatbot Welcome Experience
 
 ## Status
-📋 PLANNED
+✅ DONE
+
+**PR:** [#301](https://github.com/fpalero/pole-ai-ml/pull/301) (merged as `d1778c1`)
 
 ## Assignee
 Developer

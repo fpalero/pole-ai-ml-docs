@@ -1,4 +1,4 @@
-# Fase 31 — Baseline test repair + lint gate (pole_analyst) — 📋 PLANNED
+# Fase 31 — Baseline test repair + lint gate (pole_analyst) — ✅ DONE (code PR #300)
 
 > Plan maestro: [PLAN.md](../PLAN.md) · Backend requerido: ninguno (FE-only +
 > repo CI). Origen: hallazgo del pre-PR QA de `PAIML-POLE-ANALYST-078`

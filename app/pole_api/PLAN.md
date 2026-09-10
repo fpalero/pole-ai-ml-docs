@@ -96,7 +96,7 @@
 | 28 | Coach plain-language output | 📋 PLANNED | [phase-28-coach-plain-language-output/](phase-28-coach-plain-language-output/) |
 | 29 | Staging QA follow-ups (image endpoint + path-leak strip + `segment_insight` trim + failed-turn signal + turn deadline [095 adopted] + answer shaping [096] + blank hardening [097] + in-flight tool grace [103]) | 📋 PLANNED (093/094/095/096/097/099/101/102 documented; 103 📋 PLANNED) | [PLAN_PHASE_29.md](plan/PLAN_PHASE_29.md) |
 | 34 | Unified image endpoint via path-hash (`GET /api/images/{hash}`, registry `ALLOWED_ROOTS`, legacy 301) | 📋 PLANNED | [PLAN_PHASE_34.md](plan/PLAN_PHASE_34.md) |
-| 36 | Free-text trick extraction for progression/readiness (deterministic extraction in `_build_state` [112] + catalog-first routing [113] + "what next" shaping incl. bank #27 [114]) | 📋 PLANNED | [PLAN_PHASE_36.md](plan/PLAN_PHASE_36.md) |
+| 36 | Free-text trick extraction for progression/readiness (deterministic extraction in `_build_state` [112] + catalog-first routing [113] + "what next" shaping incl. bank #27 [114]) | ✅ DONE (112: pole-ai-ml#304 `72d6576` + #307 `e5ae239`; 113: #310 `27a6e50`; 114: #312 `8425896`, all merged 2026-09-10) | [PLAN_PHASE_36.md](plan/PLAN_PHASE_36.md) |
 | 37 | Coach grounding regression (video resolution + guarded delegation) | 📋 PLANNED | [phase-37-coach-grounding-regression/](phase-37-coach-grounding-regression/) |
 
 ---

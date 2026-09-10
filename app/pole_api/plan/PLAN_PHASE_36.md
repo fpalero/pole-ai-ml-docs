@@ -1,4 +1,4 @@
-# Fase 36 — free-text trick extraction for progression/readiness — 📋 PLANNED
+# Fase 36 — free-text trick extraction for progression/readiness — ✅ DONE (112: pole-ai-ml#304 `72d6576` + #307 `e5ae239`; 113: #310 `27a6e50`; 114: #312 `8425896`, all merged 2026-09-10)
 
 > Plan maestro: [PLAN.md](../PLAN.md) · Tickets:
 > [`phase-36-free-text-trick-extraction/PAIML-POLE-API-112.md`](../phase-36-free-text-trick-extraction/PAIML-POLE-API-112.md) ·

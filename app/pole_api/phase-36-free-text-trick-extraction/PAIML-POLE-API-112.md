@@ -4,7 +4,7 @@
 Deterministic free-text trick extraction in `_build_state`
 
 ## Status
-📋 PLANNED
+✅ DONE — Implemented in pole-ai-ml#304 (squash `72d6576`, merged 2026-09-10T17:22:05Z) + #307 (squash `e5ae239`, merged 2026-09-10T17:55:34Z).
 
 ## Description
 `SupergraphAnalystAgent._build_state`

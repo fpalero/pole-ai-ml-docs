@@ -98,6 +98,7 @@
 | 34 | Unified image endpoint via path-hash (`GET /api/images/{hash}`, registry `ALLOWED_ROOTS`, legacy 301) | 📋 PLANNED | [PLAN_PHASE_34.md](plan/PLAN_PHASE_34.md) |
 | 36 | Free-text trick extraction for progression/readiness (deterministic extraction in `_build_state` [112] + catalog-first routing [113] + "what next" shaping incl. bank #27 [114]) | ✅ DONE (112: pole-ai-ml#304 `72d6576` + #307 `e5ae239`; 113: #310 `27a6e50`; 114: #312 `8425896`, all merged 2026-09-10) | [PLAN_PHASE_36.md](plan/PLAN_PHASE_36.md) |
 | 37 | Coach grounding regression (video resolution + guarded delegation) | 📋 PLANNED | [phase-37-coach-grounding-regression/](phase-37-coach-grounding-regression/) |
+| 39 | Staging-gate residuals, Phase 36 gate 2026-09-10 (explicit unknown-trick reply [117] + M-code→metric-name mapping [118]; 38 reserved by parallel 116 lane) | 📋 PLANNED | [PLAN_PHASE_39.md](plan/PLAN_PHASE_39.md) |
 
 ---
 

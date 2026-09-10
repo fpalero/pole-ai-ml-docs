@@ -1,7 +1,7 @@
 # Project Variables: pole_api
 
 ## Ticket Counter
-- **Last ticket number**: 115
+- **Last ticket number**: 118
 
 > Docs-unified: incoming `feature/PAIML-POLE-API-099-reviewer-leftovers` counter was 99 (older, 099 era); superseded, MAX 111 kept (099 file keep-both merged: 4-item bundle canonical + HEAD trimmed variant noted).
 
@@ -34,6 +34,9 @@
 > 113 = `phase-36-free-text-trick-extraction/PAIML-POLE-API-113.md` (progression catalog-first routing: QUERY_DOMAINS + P4 prompt).
 > 114 = `phase-36-free-text-trick-extraction/PAIML-POLE-API-114.md` (answer shaping "what next" + UC coverage incl. bank #27).
 > 115 = `phase-37-coach-grounding-regression/PAIML-POLE-API-115.md` (coach grounding regression: video resolution + guarded delegation).
+> 116 = RESERVED parallel lane `phase-38-coach-routing-residuals/PAIML-POLE-API-116.md` (supergraph routing residuals; unmerged side branch — not consumed here, no collision).
+> 117 = `phase-39-staging-gate-residuals/PAIML-POLE-API-117.md` (explicit unknown-trick reply on query-graph path; Phase 36 gate batch-1 Q3).
+> 118 = `phase-39-staging-gate-residuals/PAIML-POLE-API-118.md` (M-code to metric-name mapping pre-metric_deep_dive; Phase 36 gate batch-3 Q9).
 >
 > Anomaly note (docs-unified reconciliation): MAX counter 111 wins (develop side was 109). No numbers skipped in 103–111; 103/104 reserved meanings from both sides kept above.
 > Docs-unified: incoming `feature/PAIML-POLE-DOCS-028-026-phase-docs-commit` counter was 87 (older); superseded, MAX 111 kept.

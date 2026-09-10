@@ -63,7 +63,7 @@ What to do (no code in this ticket — spec for the implementer):
 
 ## Dependencies
 - **Blocks**: none.
-- **Blocked By**: none (independent of PAIML-POLE-API-118).
+- **Blocked By**: none.
 
 ## Estimated Effort
 - [S]

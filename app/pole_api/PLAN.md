@@ -98,6 +98,7 @@
 | 34 | Unified image endpoint via path-hash (`GET /api/images/{hash}`, registry `ALLOWED_ROOTS`, legacy 301) | 📋 PLANNED | [PLAN_PHASE_34.md](plan/PLAN_PHASE_34.md) |
 | 36 | Free-text trick extraction for progression/readiness (deterministic extraction in `_build_state` [112] + catalog-first routing [113] + "what next" shaping incl. bank #27 [114]) | 📋 PLANNED | [PLAN_PHASE_36.md](plan/PLAN_PHASE_36.md) |
 | 37 | Coach grounding regression (video resolution + guarded delegation) | 📋 PLANNED | [phase-37-coach-grounding-regression/](phase-37-coach-grounding-regression/) |
+| 38 | Supergraph routing residuals (progress consumes trick + list reaches list_videos; blocked by 113) | 📋 PLANNED | [phase-38-coach-routing-residuals/](phase-38-coach-routing-residuals/) |
 
 ---
 

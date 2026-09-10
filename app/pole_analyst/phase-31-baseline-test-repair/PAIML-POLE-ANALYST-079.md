@@ -33,7 +33,10 @@ el baseline verde y añade el gate de lint.
 - [ ] CI de PR: nuevo workflow (p.ej. `.github/workflows/fe-checks.yml`)
   con `on: pull_request` + `paths: app/pole_analyst/**`, jobs `ng lint` +
   `ng test --watch=false` + `ng build` (Node desde `.nvmrc`/`package.json`
-  engines si existe; `npm ci` con caché).
+  engines si existe; `npm ci` con caché). **Runners: `runs-on: self-hosted`**
+  (convención del repo — `build-push.yml` usa `[self-hosted, Linux, X64]`,
+  `opencode/reconcile/cleanup` usan `self-hosted`; prohibido `ubuntu-latest`,
+  billing bypass PAIML-INFRA-029).
 - [ ] Verificar orden: en el PR de este ticket el check FE debe aparecer en
   verde; (opcional) push temporal con un error de lint para probar que el
   check falla y `/oc` no mergea; revertir la prueba.

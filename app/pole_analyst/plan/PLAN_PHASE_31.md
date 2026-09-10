@@ -38,8 +38,9 @@ de modo que el review `/oc` nunca mergea con lint roto.
    o equivalente manual) + target `lint` en `angular.json`; `npx ng lint`
    limpio en `app/pole_analyst`.
 3. **CI de PR** — nuevo workflow (p.ej. `fe-checks.yml`, `pull_request` sobre
-   paths `app/pole_analyst/**`) que corre `ng lint` + `ng test --watch=false` +
-   `ng build`. Al ser check del PR y dado que `opencode.yml` prohíbe mergear
+   `paths: app/pole_analyst/**`) que corre `ng lint` + `ng test --watch=false` +
+   `ng build`, con **`runs-on: self-hosted`** (convención del repo, prohibido
+   `ubuntu-latest`). Al ser check del PR y dado que `opencode.yml` prohíbe mergear
    con checks fallando, el lint queda **automáticamente antes** del review/merge
    `/oc`, como pide el PO.
 4. **Protección de rama (paso manual del usuario)** — documentar en el ticket

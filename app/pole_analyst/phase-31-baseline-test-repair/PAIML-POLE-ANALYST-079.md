@@ -4,7 +4,7 @@
 [Test-hygiene] Repair red baseline (9 files/80 tests) + add `lint` target + FE PR checks before `/oc` review
 
 ## Description
-Fase 28 — ver [PLAN_PHASE_28](../plan/PLAN_PHASE_28.md). Hallazgo del pre-PR
+Fase 31 — ver [PLAN_PHASE_31](../plan/PLAN_PHASE_31.md). Hallazgo del pre-PR
 QA de `PAIML-POLE-ANALYST-078` (2026-09-10, verificado en `develop`):
 
 - `npx ng test --watch=false` rojo pre-existente: **9 ficheros / 80 tests**

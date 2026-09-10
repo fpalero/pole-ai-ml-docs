@@ -4,7 +4,7 @@
 [Responsive] Pixel-perfect Stitch Pole AI Coach (LIGHT only, login excluido) + ajuste de tests afectados
 
 ## Description
-Fase 27 — ver [PLAN_PHASE_27](../plan/PLAN_PHASE_27.md). Aplicar el diseño
+Fase 30 — ver [PLAN_PHASE_30](../plan/PLAN_PHASE_30.md). Aplicar el diseño
 responsive Stitch `Pole AI Coach` (`projects/4315784734923719370`, rev
 2026-09-09) pixel-perfect en `pole_analyst`, **un solo ticket** (scope estrecho
 confirmado por PO). Solo `pole_analyst`; `pole_fe` fuera.
@@ -74,3 +74,9 @@ AI Coach Chat, Multimodal Response Card.
 
 ## Estimated Effort
 - [M]
+
+## Anomaly note (PR #48 reconciliation)
+Ticket ID `078` is used twice: `phase-27-question-status-chip/PAIML-POLE-ANALYST-078.md`
+(chip, code PR #277) and this file (responsive shell, code PR #297, merged
+`244661a`). Both kept; this phase was renumbered 27 → 30 to avoid colliding
+with the question-status-chip Phase 27.

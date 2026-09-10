@@ -1,4 +1,4 @@
-# Fase 27 — Responsive pixel-perfect (Stitch Pole AI Coach, LIGHT only) — 📋 PLANNED
+# Fase 30 — Responsive pixel-perfect (Stitch Pole AI Coach, LIGHT only) — ✅ DONE (code PR #297)
 
 > Plan maestro: [PLAN.md](../PLAN.md) · Backend requerido: ninguno (FE-only; todos los
 > datos ya los proveen los endpoints `analysis` + WS `/ws/analyst-chat` + `?token=` media auth).

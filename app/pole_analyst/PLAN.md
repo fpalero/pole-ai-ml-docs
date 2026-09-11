@@ -120,6 +120,7 @@
 | 30 | Responsive pixel-perfect Stitch (LIGHT only, login excluido, single-ticket 078 + ajuste tests) | ✅ DONE (code PR #297, `244661a`) | [plan/PLAN_PHASE_30.md](plan/PLAN_PHASE_30.md) |
 | 31 | Baseline test repair + lint gate (9 files/80 tests + `lint` target + FE PR checks antes de `/oc`) | ✅ DONE (code PR #300, checks green) | [plan/PLAN_PHASE_31.md](plan/PLAN_PHASE_31.md) |
 | 32 | Chatbot welcome message with capabilities overview and clickable quick-reply pills | ✅ DONE (#301, merged `d1778c1`) | [phase-29-chatbot-welcome-message/PAIML-POLE-ANALYST-080.md](phase-29-chatbot-welcome-message/PAIML-POLE-ANALYST-080.md) |
+| 33 | Capability catalog expansion + synonym/keyword routing (082 BE) + welcome message expansion (083 FE) | 📋 PLANNED | [phase-33-capability-catalog-expansion/PAIML-POLE-ANALYST-082.md](phase-33-capability-catalog-expansion/PAIML-POLE-ANALYST-082.md), [PAIML-POLE-ANALYST-083.md](phase-33-capability-catalog-expansion/PAIML-POLE-ANALYST-083.md) |
 
 
 ---

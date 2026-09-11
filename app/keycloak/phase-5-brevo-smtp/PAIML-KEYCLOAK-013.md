@@ -11,7 +11,7 @@ Keycloak realm SMTP currently points at the in-cluster Mailpit sandbox (dev only
 - **Login (username):** `b7c0c6001@smtp-brevo.com`
 - **Password (SMTP key):** secret — referenced via Helm Secret + GitHub Actions secret, NEVER committed.
 - **From:** `no-reply@fpalero.cc` (display name "Pole AI")
-- **Mailpit stays the local default** (`values-local.yaml` unchanged); Brevo is the staging/prod override (`values-prod.yaml` + CI `--set`).
+- **Mailpit stays the local default** (`values-local.yaml` unchanged); Brevo is the DuckDNS-staging override (`values-prod.yaml` — historical name, NOT production traffic — + CI `--set`).
 
 ## What to Do (Implementation Steps)
 - [x] Step 1: Make the SMTP `host` a chart value in `infrastracture/helm/pole-ai/charts/keycloak/templates/configmap.yaml` (currently hardcoded to the Mailpit service name) — default resolves to the Mailpit service for local.

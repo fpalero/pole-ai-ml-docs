@@ -1,8 +1,8 @@
 # Project Variables: pole_analyst
 
 ## Ticket Counter
-- **Last ticket number**: 80
-- **Last ticket**: PAIML-POLE-ANALYST-078 (question-card status chip, phase-27-question-status-chip/)
+- **Last ticket number**: 83
+- **Last ticket**: PAIML-POLE-ANALYST-083 (welcome message expansion, phase-33-capability-catalog-expansion/)
 
 > 77 = `phase-26-fe-media-auth/PAIML-POLE-ANALYST-077.md` (tool-chip `[artifact]`
 > placeholder links; staging-gate harness sister ticket PAIML-POLE-FE-015).
@@ -31,6 +31,8 @@
 > 80 = `phase-29-chatbot-welcome-message/PAIML-POLE-ANALYST-080.md` (welcome message
 > with capabilities overview and clickable quick-reply pills; in-flight by third
 > party, adopted verbatim from working tree during PR #48 reconciliation).
+> 81 = consumed by code PR #302 (numbered-list welcome follow-up, branch feature/PAIML-POLE-ANALYST-081-welcome-numbered-list) — no ticket file created.
+> 82/83 = `phase-33-capability-catalog-expansion/` (082 BE capability catalog expansion + synonym/keyword routing + prompt wiring; 083 FE welcome message expansion to the full 10-capability catalog).
 > Anomaly note (PR #48 reconciliation): ticket ID 078 is used twice — HEAD
 > `phase-27-question-status-chip/PAIML-POLE-ANALYST-078.md` (chip, code PR #277)
 > and `phase-30-responsive-pixel-perfect/PAIML-POLE-ANALYST-078.md` (responsive

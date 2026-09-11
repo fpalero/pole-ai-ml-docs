@@ -13,6 +13,10 @@
 
 ## 1. Contexto
 
+> **2026-09-11:** FC1 (tool-proof progress) landed in `pole-ai-ml` develop via direct commit
+> `7501edb` (merged on branch `feature/PAIML-POLE-API-122-coach-gate-25`, no PR).
+> FC2–FC6 remain in progress on the same branch. Phase flag stays 🟡 PARTIAL.
+
 Tras estabilizar 116/117/118/121, la batería completa SAMPLE-5 (25 preguntas, 5 slices,
 barra 5/5) sigue en rojo: 17 de 25 caen en 6 clases de fallo, todas con path de código evidencado:
 

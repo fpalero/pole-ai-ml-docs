@@ -8,6 +8,9 @@ Coach 25-battery gate: ground all unanswered flows (FC1–FC6) — local-only un
 full `COACH150Q_SAMPLE=5` battery is **25/25 green** locally. Code PR targets
 `pole-ai-ml` `develop` (auto-deploys to staging on merge).
 
+> 2026-09-11: FC1 (tool-proof progress) merged into pole-ai-ml develop via direct commit
+> `7501edb` (no PR). FC2–FC6 pending on `feature/PAIML-POLE-API-122-coach-gate-25`.
+
 ## Description
 The full SAMPLE-5 battery (2026-09-11T05:57Z, RUN_ID
 `sample5-post116-20260911-055758`, staging image `9c88ab0`) scored

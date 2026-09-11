@@ -1,5 +1,12 @@
 # Environment Variables Reference
 
+> **Environment mapping (2026-09-10 — no prod exists):** live staging/pre-prod
+> = namespace `pole-ai` on DuckDNS (`pole-coach.duckdns.org`,
+> `pole-ml.duckdns.org`, `pole-keycloack.duckdns.org`, working DBs `pole_api` /
+> `skeleton_data` / `analysis_db`); `pole-ai-staging` + `*.pole.local` (e.g.
+> `keycloak.pole.local` examples below) = local/legacy overlay;
+> `values-prod.yaml` naming is historical, NOT production traffic.
+
 All environment variables used by the **pole-ai** monorepo, grouped by app /
 package. Column meanings:
 

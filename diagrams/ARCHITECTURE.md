@@ -144,3 +144,19 @@ flowchart LR
 
 > **Reuse rule:** packages are installed editable by the pixi workspace and imported as
 > `pole_ml.*` / `pole_tools.*` / `pole_crawler.*` — no `sys.path` hacks.
+
+---
+
+## 4. Environments (clarified 2026-09-10 — no prod exists)
+
+- **Current staging/pre-prod (live):** namespace `pole-ai` on `ipsf-server`
+  (release `pole-ai`, ingress `pole-ai/pole-ai-pole-analyst`), served on public
+  DuckDNS hosts `pole-coach.duckdns.org`, `pole-ml.duckdns.org`,
+  `pole-keycloack.duckdns.org`. Backend ConfigMap `pole-ai-pole-api-env`:
+  `POLE_API_DB=pole_api`, `SKELETON_DB=skeleton_data`,
+  `ANALYSIS_DB=analysis_db`, `AUTH_ENABLED=1`. Seeded E2E writes to these
+  working DBs are accepted while no prod exists.
+- **Local/legacy staging overlay:** namespace `pole-ai-staging`, served only on
+  `*.pole.local` hosts (`pole-analyst.local`, `api.pole.local`, `keycloak.pole.local`).
+- **Naming trap:** `values-prod.yaml` (`poleAnalystHost`) is historical — it
+  renders the DuckDNS staging stack above, NOT production traffic.

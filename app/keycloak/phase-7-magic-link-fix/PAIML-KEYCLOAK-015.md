@@ -8,7 +8,7 @@ Live diagnosis shows the Keycloak pod serves a **stale theme** (live `login.ftl`
 
 Why this phase (decision record):
 - **Stale pod:** theme/realm ConfigMap changes do not force a Keycloak rollout, so the pod keeps serving the old theme. Fix with a checksum/config-hash annotation on the Keycloak Deployment.
-- **Relative endpoint:** `fetch("/api/...")` resolves against the Keycloak origin. Fix with an **absolute `data-endpoint` per env** (FE host from `values-local` + `values-prod`).
+- **Relative endpoint:** `fetch("/api/...")` resolves against the Keycloak origin. Fix with an **absolute `data-endpoint` per env** (FE host from `values-local` + `values-prod` — `values-prod.yaml` is a historical name; it renders the current DuckDNS staging stack, no prod exists).
 - **Import-realm semantics:** realm/theme source of truth is the repo (`infrastracture/keycloak/` + helm chart); the live pod is derived state. Verification must compare live served bytes against repo files, never assume the deploy applied.
 
 ## Repository
@@ -16,7 +16,7 @@ pole-ai-ml-infra
 
 ## What to Do (Implementation Steps)
 - [ ] Verify/fix magic-link button as `type="submit"` in `infrastracture/keycloak/themes/pole-ai-login/login/login.ftl` (keep `url.loginAction`, `username`/`password`, `credentialId`, `messagesPerField`, `msg()` keys).
-- [ ] Set absolute `data-endpoint` per env to the pole_api FE host: `values-local.yaml` → local FE host, `values-prod.yaml` → prod FE host (keep `data-endpoint` override support in `temporary-access.js`).
+- [ ] Set absolute `data-endpoint` per env to the pole_api FE host: `values-local.yaml` → local FE host, `values-prod.yaml` → DuckDNS staging FE host (historical filename; no prod exists — see `docs/diagrams/ARCHITECTURE.md` §4) (keep `data-endpoint` override support in `temporary-access.js`).
 - [ ] Extend `temporary-access.js` error parser to also surface backend `data.error` (besides existing message shapes); keep strings locale-free via `data-*` from `msg()`.
 - [ ] Add checksum/config-hash annotation (theme + realm ConfigMap hash) to the Keycloak Deployment template so theme/realm changes force a rollout.
 - [ ] `helm lint` + `helm upgrade --dry-run` (local + prod values).

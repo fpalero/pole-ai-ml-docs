@@ -4,7 +4,7 @@
 Route progression to catalog-first: QUERY_DOMAINS + catalog, P4 prompt example
 
 ## Status
-📋 PLANNED
+✅ DONE — Implemented in pole-ai-ml#310 (squash `27a6e50`, merged 2026-09-10T19:32:41Z).
 
 ## Description
 Even with `trick_name` resolved (112), the query graph cannot answer

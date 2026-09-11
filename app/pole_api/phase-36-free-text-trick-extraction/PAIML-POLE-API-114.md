@@ -4,7 +4,7 @@
 Answer shaping "what next" + UC coverage incl. bank #27
 
 ## Status
-📋 PLANNED
+✅ DONE — Implemented in pole-ai-ml#312 (squash `8425896`, merged 2026-09-10T20:29:58Z, review-approved).
 
 ## Description
 With extraction (112) and catalog-first routing (113) in place, the reply

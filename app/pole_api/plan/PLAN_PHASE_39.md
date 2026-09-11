@@ -69,7 +69,8 @@ nombres de métrica fuera del vocabulario del vídeo.
 - [ ] 117: reply explícito unknown-trick en path query-fallback (o ruteo
   a readiness) + tests + re-run Q3.
 - [ ] 118: mapeo M-code→nombre pre-insights + tests + re-run Q9.
-- [x] 121: carry de mención cruda + 31 casos verdes (código en PR);
+- [x] 121: carry de mención cruda + 31 casos verdes (código mergeado
+  pole-ai-ml#316, squash `20dfc90`, 2026-09-11T06:35:17Z);
   pendiente re-run Q3 de staging.
 
 ## 4. Endpoints
@@ -95,5 +96,5 @@ Acceptance (resumen; detalle por ticket):
   turno no ABANDONED; precedencia de vídeo intacta;
   `pixi run test-api` verde.
 - **UC-03 (121):** carry de mención cruda en `_build_state` + 31 casos
-  verdes (hecho, en PR); cierra con el re-run Q3 de UC-01
+  verdes (hecho, mergeado pole-ai-ml#316); cierra con el re-run Q3 de UC-01
   (`Unknown trick 'moonflip-9000'`, cero candidatos).

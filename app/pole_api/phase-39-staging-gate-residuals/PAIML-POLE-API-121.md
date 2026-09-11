@@ -4,7 +4,7 @@
 Carry raw unknown-trick mention into supergraph state (117 enabler — Q3 names the trick)
 
 ## Status
-🔧 IN REVIEW — code PR https://github.com/fpalero/pole-ai-ml/pull/316 (`075e409`, branch `feature/PAIML-POLE-API-119-unknown-mention`, OPEN)
+✅ MERGED — code PR https://github.com/fpalero/pole-ai-ml/pull/316 (squash `20dfc90`, merged 2026-09-11T06:35:17Z, branch `feature/PAIML-POLE-API-119-unknown-mention`)
 
 ## Description
 Phase 36 staging gate, batch-1 Q3: *"I can do the moonflip-9000, what
@@ -63,7 +63,7 @@ Staging proof pending: Q3 re-run must show
       transitions.
 - [ ] No regression to known-trick progression or the genuine-None
       generic path.
-- [ ] Code PR merged to develop.
+- [x] Code PR merged to develop (pole-ai-ml#316, squash `20dfc90`, 2026-09-11T06:35:17Z).
 
 ## Dependencies
 - **Blocks**: none.

@@ -10,3 +10,6 @@ __pycache__/
 # Docs RAG vector store (binary, git-ignored). Only the source markdown and the
 # versioned manifest under rag/manifests/ are tracked.
 rag/chroma/
+
+# Scratch (untracked agent/user scratch — never commit, never index in RAG)
+commands/

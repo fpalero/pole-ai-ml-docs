@@ -1091,8 +1091,8 @@
   },
   "app/pole_api/PLAN.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "01f614384089230191de57d86353a214f3cb66743a552dc20e1295efb300a10a",
-    "last_update": "2026-09-11T13:15:08+00:00"
+    "file_hash": "2988a018dc914b8b52597cf7b802c32cf05fbe898688c9d9be2bc056e695e1cb",
+    "last_update": "2026-09-12T08:10:16+00:00"
   },
   "app/pole_api/POLE-API.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -2163,11 +2163,6 @@
     "created_date": "2026-09-10T14:47:18+00:00",
     "file_hash": "fdf0c24d50bb88476501d39036ff38bd3ae81899a2fdd7a2943a5928cbc105d3",
     "last_update": "2026-09-10T14:45:09+00:00"
-  },
-  "commands/Testing Command.md": {
-    "created_date": "2026-09-12T07:42:59+00:00",
-    "file_hash": "5fa8427b14f7f6f5b9b940653620b9abb3ebff966144fa1a3c7605293a1379f0",
-    "last_update": "2026-09-12T06:39:49+00:00"
   },
   "decisions/ADR-001-crewai-implementation-flows.md": {
     "created_date": "2026-09-10T14:47:18+00:00",

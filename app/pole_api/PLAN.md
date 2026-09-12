@@ -101,7 +101,12 @@
 | 39 | Staging-gate residuals, Phase 36 gate 2026-09-10 (explicit unknown-trick reply [117] + M-code→metric-name mapping [118] + raw unknown-mention carry [121, 117 enabler]; 38 reserved by parallel 116 lane) | 📋 PLANNED | [PLAN_PHASE_39.md](plan/PLAN_PHASE_39.md) |
 | 40 | BE PR checks gate + inline review-merge (auto-flow: be-checks → READ-ONLY review citing `gh pr checks` → approve + squash merge on green) | 📋 PLANNED | [phase-40-pr-checks-gate/](phase-40-pr-checks-gate/) |
 | 41 | BE PR checks gate + workflow_run-triggered review-merge, user-confirmed "option C" (test-jobs-only be-checks; `opencode.yml` triggered via `workflow_run`, no inline review job — supersedes Phase 40 inline design) | 📋 PLANNED | [phase-41-pr-checks-gate-workflow-run/](phase-41-pr-checks-gate-workflow-run/) |
-| 42 | Coach 25-battery gate: ground all unanswered flows (SAMPLE-5 8/25 → 25/25; FC1 tool-proof progress [122] + FC2 no-context fallback [122] + FC3 fail-closed images [122, symptom] / hash unverifiability deep-dive [123, FUTURE] + FC4 WS turn guard [122] + FC5 trick-less injury [122] + FC6 harness ping [122]) | 🟡 PARTIAL — FC1 merged (`7501edb`); FC2–FC6 in progress | [phase-42-coach-gate-25/](phase-42-coach-gate-25/) |
+| 42 | Coach 25-battery gate: ground all unanswered flows (SAMPLE-5 8/25 → 25/25; FC1 tool-proof progress [122] + FC2 no-context fallback [122] + FC3 fail-closed images [122, symptom] / hash unverifiability deep-dive [123, FUTURE] + FC4 WS turn guard [122] + FC5 trick-less injury [122] + FC6 harness ping [122] + residuals: [124](phase-42-coach-gate-25/PAIML-POLE-API-124.md) (FE renderer + image) · [125](phase-42-coach-gate-25/PAIML-POLE-API-125.md) (prompt/tool-selection) · [126](phase-42-coach-gate-25/PAIML-POLE-API-126.md) (WS guard)) | 🟡 PARTIAL — FC1 merged (`7501edb`); FC2–FC6 in progress; post-PR-#322 staging run `sample5-e743e61-20260912-083119` = 13/25 → residuals 124/125/126 📋 PLANNED; gate PARTIAL until full SAMPLE-5 25/25 | [phase-42-coach-gate-25/](phase-42-coach-gate-25/) |
+
+> **Phase 42 note (2026-09-12):** post-PR-#322 staging run `sample5-e743e61-20260912-083119` = **13/25**;
+> residuals split into [124](phase-42-coach-gate-25/PAIML-POLE-API-124.md) (FE renderer + image),
+> [125](phase-42-coach-gate-25/PAIML-POLE-API-125.md) (prompt/tool-selection),
+> [126](phase-42-coach-gate-25/PAIML-POLE-API-126.md) (WS guard); phase gate stays **🟡 PARTIAL** until full SAMPLE-5 **25/25**.
 
 ---
 

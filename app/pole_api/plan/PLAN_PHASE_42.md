@@ -2,7 +2,12 @@
 
 > Plan maestro: [PLAN.md](../PLAN.md) · Tickets:
 > [`phase-42-coach-gate-25/PAIML-POLE-API-122.md`](../phase-42-coach-gate-25/PAIML-POLE-API-122.md) ·
-> [`phase-42-coach-gate-25/PAIML-POLE-API-123.md`](../phase-42-coach-gate-25/PAIML-POLE-API-123.md)
+> [`phase-42-coach-gate-25/PAIML-POLE-API-123.md`](../phase-42-coach-gate-25/PAIML-POLE-API-123.md) ·
+> [`phase-42-coach-gate-25/PAIML-POLE-API-124.md`](../phase-42-coach-gate-25/PAIML-POLE-API-124.md) ·
+> [`phase-42-coach-gate-25/PAIML-POLE-API-125.md`](../phase-42-coach-gate-25/PAIML-POLE-API-125.md) ·
+> [`phase-42-coach-gate-25/PAIML-POLE-API-126.md`](../phase-42-coach-gate-25/PAIML-POLE-API-126.md)
+> Nota (2026-09-12): post-PR-#322 staging run `sample5-e743e61-20260912-083119` = **13/25**;
+> residuals split into 124 (FE renderer+image), 125 (prompt/tool-selection), 126 (WS guard).
 > Origen: SAMPLE-5 battery (2026-09-11T05:57Z, `RUN_ID sample5-post116-20260911-055758`,
 > staging image `9c88ab0`) — **8/25 PASS, GATE FAIL** (bar 5/5 per flow).
 > Evidencia: `app/pole_analyst/test-results/coach-150q/sample5-post116-20260911-055758/` +

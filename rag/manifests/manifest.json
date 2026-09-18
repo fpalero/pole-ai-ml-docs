@@ -2364,6 +2364,56 @@
     "file_hash": "12abcc94ca6ecf8371603b0f3d62c03757cd2f9a769ec94a1d8fd954964dc7f4",
     "last_update": "2026-09-10T14:45:09+00:00"
   },
+  "linkedin-posts/post-01-sequence-to-vector-lstm.md": {
+    "created_date": "2026-09-18T12:18:57+00:00",
+    "file_hash": "706cbfee60a4805b92b5be3e46ab216bf80eaaa06f1b0fd556ade087a9dbffe0",
+    "last_update": "2026-09-18T12:18:28+00:00"
+  },
+  "linkedin-posts/post-02-hybrid-classifier.md": {
+    "created_date": "2026-09-18T12:18:57+00:00",
+    "file_hash": "40772043910826e4190bef9301f7445be1ce378fd5b377375d76e67af288b693",
+    "last_update": "2026-09-18T12:18:30+00:00"
+  },
+  "linkedin-posts/post-03-zero-cost-offline-rag.md": {
+    "created_date": "2026-09-18T12:18:57+00:00",
+    "file_hash": "c90b9cd4e9dc8adace65fd8cf84007a7a9d77e6b04df0167c6622816c40df6bf",
+    "last_update": "2026-09-18T12:18:32+00:00"
+  },
+  "linkedin-posts/post-04-language-aware-code-splitting.md": {
+    "created_date": "2026-09-18T12:18:57+00:00",
+    "file_hash": "d874d0c6c192e2c0800a991adb8a411ada43525264c9835575d585367873c46f",
+    "last_update": "2026-09-18T12:18:33+00:00"
+  },
+  "linkedin-posts/post-05-multimodal-rag.md": {
+    "created_date": "2026-09-18T12:18:57+00:00",
+    "file_hash": "2e50ab03141682c472f540a3c30fc6dc281f074b436a795594dc3e040c305795",
+    "last_update": "2026-09-18T12:18:35+00:00"
+  },
+  "linkedin-posts/post-06-mediapipe-pose-normalization.md": {
+    "created_date": "2026-09-18T12:18:57+00:00",
+    "file_hash": "eb79f8e7f699c890cbcdce9f837b06fa586b6f0bd31869f23ab5ecf3fd39c782",
+    "last_update": "2026-09-18T12:18:36+00:00"
+  },
+  "linkedin-posts/post-07-react-vs-langgraph.md": {
+    "created_date": "2026-09-18T12:18:57+00:00",
+    "file_hash": "d9f3d65955038e8d352af5bd2f2994bddb1b969fc5472c8766aeb0417c0b6ace",
+    "last_update": "2026-09-18T12:18:38+00:00"
+  },
+  "linkedin-posts/post-08-deterministic-guardrails.md": {
+    "created_date": "2026-09-18T12:18:57+00:00",
+    "file_hash": "b21b3e683f8057c11ad57f31d32fed7d88e4b95322b36cd197803ea095f5f2e2",
+    "last_update": "2026-09-18T12:18:39+00:00"
+  },
+  "linkedin-posts/post-09-software-factory.md": {
+    "created_date": "2026-09-18T12:18:57+00:00",
+    "file_hash": "80a52f48ed5dc38d65783bed7f8558af3e6e4fb2b8bfbc3cafdb0122ba2d6b7e",
+    "last_update": "2026-09-18T12:18:41+00:00"
+  },
+  "linkedin-posts/post-10-docker-to-k3s.md": {
+    "created_date": "2026-09-18T12:18:57+00:00",
+    "file_hash": "d060e54e3ad98efbc96f13a0330b517baf08ef5225fc56eb16801a8d208e9602",
+    "last_update": "2026-09-18T12:18:43+00:00"
+  },
   "manual-test/analyst-ws-integration-test.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
     "file_hash": "b3628af2215e0f4dcb84dd110fd0e9962bf0d6d92573578607d9971db7b4b84d",

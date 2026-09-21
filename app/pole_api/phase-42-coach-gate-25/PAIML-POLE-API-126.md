@@ -4,13 +4,14 @@
 Empty-answer: WS per-turn wall-clock guard (VA-02, VA-05)
 
 ## Status
-📋 PLANNED — third in order (can parallelize with PAIML-POLE-API-125).
-Part of the phase-42 residuals split after the post-PR-#322 staging run
-(`RUN_ID sample5-e743e61-20260912-083119`, images `e743e61` = PR #322 merge,
-FC1–FC6 landed; score **13/25, GATE FAIL**, bar 5/5 per flow). Judge:
-`<feature-wt>/app/pole_analyst/test-results/coach-150q/sample5-e743e61-20260912-083119/coach-150q-judge.md`,
-transcript `coach-150q-transcript.jsonl`. The 12 fails split into exactly 3
-classes → tickets 124/125/126. Gate stays 🟡 PARTIAL until full 25/25.
+✅ DONE — implemented and merged into `pole-ai-ml` `develop` via
+PR #328 (`feature/PAIML-POLE-API-126-ws-turn-guard`, merge `647d57e`).
+Context: this ticket was the third residual of the phase-42 split after the
+post-PR-#322 staging run (`RUN_ID sample5-e743e61-20260912-083119`, images
+`e743e61` = PR #322 merge, FC1–FC6 landed; score **13/25, GATE FAIL**, bar
+5/5 per flow). Gate stays 🟡 PARTIAL until the SAMPLE-5 gate is green 25/25
+(phase-end staging QA). Pre-PR acceptance: unit suite green (4/4 new tests),
+BE checks (incl. stock ruff) green on PR #328.
 
 ## Description
 

@@ -11,7 +11,7 @@
 | :--- | :--- |
 | [Repository Development Status](DEVELOPEMENT.md) | All projects, phases, phase status, and ticket descriptions. |
 | [Implementation Roadmap](ROADMAP.md) | Pending phases per project + ordered implementation with blockers (run `/team-lead:roadmap` to refresh). |
-| [System Architecture](ARCHITECTURE.md) | Overall architecture: apps ↔ packages ↔ shared infrastructure + communication layers. |
+| [System Architecture](diagrams/ARCHITECTURE.md) | Overall architecture: apps ↔ packages ↔ shared infrastructure + communication layers. |
 | [Agents Flow](diagrams/agents/FLOW.md) | Team-lead implementation workflow: plan → backlog → implementation (dev/review/test/PR). |
 | [k3s Verification](diagrams/infra/K3S_VERIFICATION.md) | Live test results of the deployed k3s stack. |
 
@@ -43,6 +43,8 @@ Each component has two docs:
 | **jobs** | [FLOW](diagrams/jobs/FLOW.md) | [CLASSES](diagrams/jobs/CLASSES.md) | Job infrastructure |
 | **pole_crop** | [FLOW](diagrams/pole_crop/FLOW.md) | [CLASSES](diagrams/pole_crop/CLASSES.md) | FFmpeg service |
 | **pole_crawler** | [FLOW](diagrams/pole_crawler/FLOW.md) | [CLASSES](diagrams/pole_crawler/CLASSES.md) | Instagram crawler |
+| **pole-coach** | [FLOW](diagrams/pole-coach/FLOW.md) | [CLASSES](diagrams/pole-coach/CLASSES.md) | LangGraph virtual coach |
+| **pole_rag** | [FLOW](diagrams/pole_rag/FLOW.md) | [CLASSES](diagrams/pole_rag/CLASSES.md) | Multimodal RAG seeder |
 
 ---
 
@@ -62,8 +64,9 @@ Each component has two docs:
 | jobs | [`packages/jobs/PLAN.md`](packages/jobs/PLAN.md) |
 | pole_crop | [`packages/pole_crop/PLAN.md`](packages/pole_crop/PLAN.md) |
 | pole_crawler | [`packages/pole_crawler/PLAN.md`](packages/pole_crawler/PLAN.md) |
-| infra | [`app/infra/PLAN.md`](app/infra/PLAN.md) |
-| keycloak | [`app/keycloak/PLAN.md`](app/keycloak/PLAN.md) |
+| pole-coach | [`packages/pole-coach/PLAN.md`](packages/pole-coach/PLAN.md) |
+| pole_rag | [`packages/pole_rag/PLAN.md`](packages/pole_rag/PLAN.md) |
+| crew | [`packages/crew/PLAN.md`](packages/crew/PLAN.md) |
 | dev-ops | [`dev-ops/PLAN.md`](dev-ops/PLAN.md) |
 
 ---

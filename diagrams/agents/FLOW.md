@@ -106,7 +106,7 @@ sequenceDiagram
 ## 3. Step-by-step Process (prose)
 
 ### 3.1 `team-lead:plan`
-1. **Gather context** — team-lead reads the relevant docs (e.g. `docs/app/pola_api/PLAN.md`), the
+1. **Gather context** — team-lead reads the relevant docs (e.g. `docs/app/pole_api/PLAN.md`), the
    ticket(s), and the current codebase to understand the goal and constraints.
 2. **Produce a plan** — an ordered set of phases/steps with scope, affected components, and a
    Definition of Done, written to a `PLAN.md`-style doc.

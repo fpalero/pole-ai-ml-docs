@@ -21,20 +21,21 @@ It is generated from the authoritative plans under `docs/app/<project>/PLAN.md` 
 | Project | Type | Description | Progress |
 | :--- | :--- | :--- | :--- |
 | [`pola_agent`](#apppola_agent) | App | Conversational AI coaching agent (crop → analyze → LLM feedback over WebSocket). | 8/8 phases done |
-| [`pola_api`](#apppola_api) | App | FastAPI backend: training, crawler, video, tools & analysis slices. | 25/26 phases done · 1 partial |
-| [`pole_analyst`](#apppole_analyst) | App | Angular FE "Pole AI Coach" — athlete video-analysis coach (upload → analyze → feedback → chat). | 18/20 phases done · 1 partial · 1 future |
-| [`pole_fe`](#apppole_fe) | App | Angular FE training-workflow manager (tricks, video editor, studio, model registry, jobs). | 10/11 phases done · 1 future |
+| [`pole_api`](#apppole_api) | App | FastAPI backend: training, crawler, video, tools & analysis slices. | 26 done · 2 partial/future (10, 42) · 8 planned (27–29, 34, 37, 39–41) |
+| [`pole_analyst`](#apppole_analyst) | App | Angular FE "Pole AI Coach" — athlete video-analysis coach (upload → analyze → feedback → chat). | 21 done · 1 partial (19) · 1 future (7) · 7 planned (21–25, 27, 33) |
+| [`pole_fe`](#apppole_fe) | App | Angular FE training-workflow manager (tricks, video editor, studio, model registry, jobs). | 11/12 phases done · 1 future |
 | [`infra`](#appinfra) | App | CI/CD deploy pipeline: Helm, GHCR build-push, DEV/STAGING/PROD auto-deploy + observability logs. | Phases 1–2 landed (026 PAT+belt, 027 sha-tag E2E green) · 3–5 ticketed · 6–8 planned |
-| [`keycloak`](#appkeycloak) | App | Temporary magic-link access (custom login theme, verify-email, Redis cooldown/activation, expiry purge). | 4/4 phases done |
-| [`dev-ops`](#appdev-ops) | App | CI workflows (PR gate, phase-completion, full-suite, MediaPipe, nightly docs). | Pending analysis |
+| [`keycloak`](#appkeycloak) | App | Temporary magic-link access (custom login theme, verify-email, Redis cooldown/activation, expiry purge). | 7/8 phases done · 1 partial |
+| [`dev-ops`](#appdev-ops) | App | GitHub Actions CI/CD: PR gate, phase-completion, full-suite, MediaPipe, nightly docs. | Phases 1–7 planned (unticketed, counter 0) |
 | [`chatbot`](#packageschatbot) | Package | ReAct conversational agent backend (WebSocket, tools, OpenCode client). | Complete (v1) |
 | [`jobs`](#packagesjobs) | Package | Shared job infrastructure (Mongo repo, Redis queue, worker, orchestrator, router). | Complete (v1) |
 | [`pole_crawler`](#packagespole_crawler) | Package | Instagram video crawler (client, disk writer, anti-bot). | Complete (core) |
 | [`pole_crop`](#packagespole_crop) | Package | FFmpeg video service (crop, shift, thumbnails, frame capture). | Complete (v1) |
+| [`pole-coach`](#packagespole-coach) | Package | LangGraph multi-agent virtual coach (state schema, 7 nodes, 7 graphs + supergraph, LLM intent router). | Phases 1–4 DONE · 5 PARTIAL · 6 planned |
 | [`pole_ml`](#packagespole_ml) | Package | ML pipeline: skeleton extraction, histogram features, LSTM training, embeddings, Chroma. | Core complete · 1 pending phase |
 | [`pole_tools`](#packagespole_tools) | Package | Reusable tools (HistogramAnalyzer, PoseCorrector, Crop/Shift, LLM client). | Complete (Phase 1) |
 | [`pole_rag`](#packagespole_rag) | Package | Multimodal RAG seeder (Marker/PyMuPDF → chunk → MiniLM → Chroma, 4 DBs) + chatbot query tools. | Phase 6 DONE (030 CLOSED) · Phase 7 planned |
-| [`crew`](#packagescrew) | Package | CrewAI-based multi-agent implementation engine (tickets → worktrees → PRs). | Phase 1 planned |
+| [`crew`](#packagescrew) | Package | CrewAI-based multi-agent implementation engine (tickets → worktrees → PRs). | Phase 1 PARTIAL · Phase 2 planned |
 
 ---
 
@@ -45,7 +46,8 @@ It is generated from the authoritative plans under `docs/app/<project>/PLAN.md` 
 crawler (crawl + QC), video (upload, cut, review, shift, thumbnails), tools/histogram/analysis
 slices, coach services (LLM prompts + rule-based insights), and the analyst chatbot.
 Reuses `pole_ml`, `pole_tools`, `pole_crawler`, `pole_crop`, `packages/chatbot` and `packages/jobs`.
-Auth via Keycloak JWT (`core/auth.py`). **All 26 phases done** (2026-08-28).
+Auth via Keycloak JWT (`core/auth.py`). Phases 1–26 and 36 ✅ DONE; phases 10 and 42 🟡 PARTIAL;
+phases 27–29, 34, 37, 39–41 📋 PLANNED (as of 2026-09-18).
 
 | Phase | Description | Status |
 | :--- | :--- | :--- |
@@ -75,16 +77,26 @@ Auth via Keycloak JWT (`core/auth.py`). **All 26 phases done** (2026-08-28).
 | 24 — Stitch detail gaps BE | Session-over-session metric deltas endpoint + peak flags (`PAIML-POLE-API-072` #114). | **Done** |
 | 25 — Classify-first pipeline | Single detection pass with the correct reference histograms — classify before phase detection (`PAIML-POLE-API-073`). | **Done** |
 | 26 — Analyst coach tools (chatbot) | 9 chatbot tools: compare_sessions, cohort_percentiles, improvement_plan, metric_deep_dive, frame_pose, progress_trend, focus_recommendation, risk_scan, get_coach_summary/pose. | **Done** |
+| 27 — Coach-insights positives | Relax rule-based `perfect` bar to `score_pct ≥ 70` (`\|z\| ≤ 0.6`) so "What's working" positives surface (`083`). | **Planned** |
+| 28 — Coach plain-language output | LLM-generated insights primary (remove rule-based short-circuit), coach prompt v3 (drop dead metric_deviation contract), z-score robustness (relative sigma floor), replies never leak raw JSON (`084..087`). | **Planned** |
+| 29 — Staging QA follow-ups | Image-serving endpoint + path-leak strip + `segment_insight` trim + distinct failed-turn signal + turn deadline [095 adopted] + answer shaping [096] + blank hardening [097] + in-flight tool grace [103]; 093/094/095/096/097/099/101/102 documented; 103 planned. | **Planned (093/094/095/096/097/099/101/102 documented; 103 📋 PLANNED)** |
+| 34 — Unified image endpoint via path-hash | `GET /api/images/{hash}`, registry `ALLOWED_ROOTS`, legacy 301 (`106`). | **Planned** |
+| 36 — Free-text trick extraction for progression/readiness | Deterministic extraction in `_build_state` [112] + catalog-first routing [113] + "what next" shaping incl. bank #27 [114]. | **Done** (112: pole-ai-ml#304 `72d6576` + #307 `e5ae239`; 113: #310 `27a6e50`; 114: #312 `8425896`, all merged 2026-09-10) |
+| 37 — Coach grounding regression | Video resolution + guarded delegation for coach chatbot grounding (`115`). | **Planned** |
+| 39 — Staging-gate residuals, Phase 36 gate 2026-09-10 | Explicit unknown-trick reply [117] + M-code→metric-name mapping [118] + raw unknown-mention carry [121, 117 enabler]; 38 reserved by parallel 116 lane. | **Planned** |
+| 40 — BE PR checks gate + inline review-merge | Auto-flow: be-checks → READ-ONLY review citing `gh pr checks` → approve + squash merge on green (`119`). | **Planned** |
+| 41 — BE PR checks gate + workflow_run-triggered review-merge | User-confirmed "option C": test-jobs-only be-checks; `opencode.yml` triggered via `workflow_run`, no inline review job — supersedes Phase 40 inline design (`120`). | **Planned** |
+| 42 — Coach 25-battery gate | Ground all unanswered flows (SAMPLE-5 8/25 → 25/25): FC1 tool-proof [122] + FC2 no-context fallback [122] + FC3 fail-closed images [122, symptom] / hash unverifiability deep-dive [123, FUTURE] + FC4 WS turn guard [122] + FC5 trick-less injury [122] + FC6 harness ping [122] + residuals 124/125/126. | **Partial** — FC1 merged (`7501edb`); FC2–FC6 in progress; post-PR-#322 staging run `sample5-e743e61-20260912-083119` = 13/25 → residuals 124/125/126 📋 PLANNED; gate PARTIAL until full SAMPLE-5 25/25 |
 
 #### Phase 20 — Analysis enrichment (6 tickets)
-- **PAIML-POLE-API-056 — Enriched analysis summary list schema + repository** — `VideoSummaryRepository` aggregation (`videos/summary`).
-- **PAIML-POLE-API-057 — Enriched list service + controller** — `GET /api/analysis/videos/summary` returning `AnalysisSummaryRecord[]`.
-- **PAIML-POLE-API-058 — Enriched list integration tests** — Cover aggregation + empty/no-skeleton cases.
-- **PAIML-POLE-API-059 — Multi-frame pose schema + service + controller** — `GET /pose/frames` returning `PoseFrameGallery`.
-- **PAIML-POLE-API-060 — Multi-frame pose integration tests** — Cover multi-frame + single-frame fallback.
-- **PAIML-POLE-API-061 — Docs: enriched list + multi-frame pose** — Regenerate API docs.
+- **PAIML-POLE-API-056 — Enriched analysis summary list schema + repository** — `AnalysisVideoSummary` Pydantic model + Mongo aggregation joining `videos` + `video_histograms`.
+- **PAIML-POLE-API-057 — Enriched list service + controller** — `GET /api/analysis/videos/summary` returning per-video summary data (trick_label, overall_score, phases).
+- **PAIML-POLE-API-058 — Enriched list integration tests + UC-B1/B2** — Integration tests for the enriched list endpoint + UC validation.
+- **PAIML-POLE-API-059 — Multi-frame pose schema + service + controller** — `GET .../pose/frames` multi-frame pose endpoints.
+- **PAIML-POLE-API-060 — Multi-frame pose integration tests + UC-B3/B4/B5** — Integration tests for the multi-frame pose endpoints + UC validation.
+- **PAIML-POLE-API-061 — Update POLE-API.md + cross-ticket regression test** — Document the new endpoints; ensure no regressions across the phase.
 
-#### Phase 21 — Coach prompts (LLM) (3 tickets)
+#### Phase 21 — Coach prompts (LLM endpoints) (3 tickets)
 - **PAIML-POLE-API-062 — Coach prompt registry** — `CoachPrompts` with templates + builders + JSON schemas for summary/plan/pose-analysis.
 - **PAIML-POLE-API-063 — Coach services** — `CoachService` (deterministic data gather + one-shot LLM + cached envelopes).
 - **PAIML-POLE-API-064 — Coach REST endpoints** — `GET /coach-summary`, `POST /coach-plan`, `GET /pose-analysis`.
@@ -127,36 +139,6 @@ Auth via Keycloak JWT (`core/auth.py`). **All 26 phases done** (2026-08-28).
 - **PAIML-POLE-API-054 — Idempotent reprocessing** — `previously_analyzed` flag on re-POST so re-analysis replaces, not duplicates.
 - **PAIML-POLE-API-055 — Quality gates (SLA + one-analysis-at-a-time)** — Analysis SLA <1 min; one-analysis-at-a-time concurrency gate; coverage ≥80%.
 
-#### Phase 20 — Analysis slice enrichment (Stitch FE) (6 tickets)
-- **PAIML-POLE-API-056 — Enriched analysis list schema + repository** — `AnalysisVideoSummary` Pydantic model + Mongo aggregation joining `videos` + `video_histograms`.
-- **PAIML-POLE-API-057 — Enriched list service + controller** — `GET /api/analysis/videos/summary` returning per-video summary data (trick_label, overall_score, phases).
-- **PAIML-POLE-API-058 — Enriched list integration tests + UC-B1/B2** — Integration tests for the enriched list endpoint + UC validation.
-- **PAIML-POLE-API-059 — Multi-frame pose schema + service + controller** — `GET .../pose/frames` multi-frame pose endpoints.
-- **PAIML-POLE-API-060 — Multi-frame pose integration tests + UC-B3/B4/B5** — Integration tests for the multi-frame pose endpoints + UC validation.
-- **PAIML-POLE-API-061 — Update POLE-API.md + cross-ticket regression test** — Document the new endpoints; ensure no regressions across the phase.
-
-#### Phase 21 — Coach prompts (LLM endpoints) (3 tickets)
-- **PAIML-POLE-API-062 — Coach prompt registry** — Templates + builder functions + JSON schemas for one-shot coach prompts.
-- **PAIML-POLE-API-063 — Coach services** — Deterministic data gather + one-shot LLM call + persistence of coach envelopes.
-- **PAIML-POLE-API-064 — Coach REST endpoints** — coach-summary / coach-plan / pose-analysis endpoints (text-only inputs).
-
-#### Phase 22 — Coach insights (rule-based) (5 tickets)
-- **PAIML-POLE-API-065 — Store fps on video doc at upload time** — Persist frame rate for coach pose extraction.
-- **PAIML-POLE-API-066 — Lazy pose frame extraction** — Extract pose frames on first `/pose/frames` access.
-- **PAIML-POLE-API-067 — `CoachInsightsService`** — Threshold-based frame classification + persistence of rule-based insights.
-- **PAIML-POLE-API-068 — Coach insights endpoint + chatbot tool** — Expose rule-based insights via REST + analyst chatbot.
-- **PAIML-POLE-API-069 — Integrate coach insights into analysis worker** — Compute insights as part of the analysis pipeline.
-
-#### Phase 23 — Coach UI (pole_analyst) (2 tickets)
-- **PAIML-POLE-API-070 — Summary tab enhancement** — CoachInsights cards + DetectedError card + PhaseDurations bar.
-- **PAIML-POLE-API-071 — Analysis completion notification + chat auto-suggestion** — Notify on analysis completion and auto-suggest next steps in the chat.
-
-#### Phase 24 — Stitch detail gaps BE (1 ticket)
-- **PAIML-POLE-API-072 — Metric deltas endpoint** — Session-over-session comparison + peak flags via `MetricDeltasService`.
-
-#### Phase 25 — Classify-first pipeline (1 ticket)
-- **PAIML-POLE-API-073 — Classify before phase detection** — Single detection pass with the correct reference histograms.
-
 #### Phase 26 — Analyst coach tools (chatbot) (9 tickets)
 - **PAIML-POLE-API-074 — `compare_sessions` tool** — Session-over-session metric deltas + peak flags via `MetricDeltasService`.
 - **PAIML-POLE-API-075 — `cohort_percentiles` tool** — Athlete percentile rank per metric vs the same-trick cohort.
@@ -168,13 +150,87 @@ Auth via Keycloak JWT (`core/auth.py`). **All 26 phases done** (2026-08-28).
 - **PAIML-POLE-API-081 — `risk_scan` tool** — Injury-risk joint-angle frame scanning.
 - **PAIML-POLE-API-082 — `get_coach_summary`/`get_coach_pose` tools** — Read cached Phase 21 coach envelopes.
 
+#### Phase 27 — Coach-insights positives (1 ticket)
+- **PAIML-POLE-API-083 — Relax rule-based `perfect` bar** — `CoachInsightsService` `PERFECT_Z_THRESHOLD` 0.6 → `perfect` when `score_pct ≥ 70`, surfacing "What's working" positives.
+
+#### Phase 28 — Coach plain-language output (4 tickets)
+- **PAIML-POLE-API-084 — LLM-generated insights primary** — Remove the rule-based short-circuit in coach insights; LLM output becomes authoritative.
+- **PAIML-POLE-API-085 — Coach prompt v3** — Remove dead `metric_deviation` contract + enforce RAG-grounded athlete language.
+- **PAIML-POLE-API-086 — Z-score robustness (relative sigma floor)** — Relative sigma floor so small-cohort standard deviations cannot blow up z-scores.
+- **PAIML-POLE-API-087 — Chat replies never leak raw JSON** — Reply normalization + history replay (no raw JSON in user prose).
+
+#### Phase 29 — Staging QA follow-ups (16 tickets)
+- **PAIML-POLE-API-088 — Backend never echoes raw JSON for unknown block types** — Fail/sanitize instead of leaking block internals.
+- **PAIML-POLE-API-089 — Inject signal repo for coach cohort reads** — Full `*_test` isolation for coach cohort repository reads.
+- **PAIML-POLE-API-090 — Empty-reply recovery + RAG picture blocks (offline embeddings)** — Recover from empty replies; RAG picture blocks work without online embeddings.
+- **PAIML-POLE-API-093 — Staging QA follow-ups batch** — Image-serving endpoint + path-leak strip + `segment_insight` trim + distinct failed-turn signal.
+- **PAIML-POLE-API-094 — Video resolution end-to-end** — Substring/trick_label fallbacks + placeholder-ID guard + per-tool unify + resolution ADR.
+- **PAIML-POLE-API-095 — Deepseek-v4-flash config + per-turn wall-clock deadline** — Save staging model config; per-turn deadline fixes chatbot session error (adopted into Phase 29).
+- **PAIML-POLE-API-096 — Analyst answer shaping** — Typed card blocks + no server paths + no raw call/block-JSON in user prose.
+- **PAIML-POLE-API-097 — Blank-completion hardening** — Blank-detection + retry budget + model fallback (no ~152s hangs).
+- **PAIML-POLE-API-099 — Reviewer-noted leftovers from #253/#254** — Test-double timeout, fallback type hint, None-safe blank check, ENV_VARS rows (no behavior change).
+- **PAIML-POLE-API-101 — Salvage of closed docs PR #29 live items** — `fallback_llm` type hint, None-safe blank check, `ENV_VARS.md` rows (no behavior change).
+- **PAIML-POLE-API-102 — Gate-3 residual: TOOL-08 + wire shaping** — Segment-insight trace + fix; wire shaping (empty-slot joins + nested-block double-encode); empty-input graceful nudge.
+- **PAIML-POLE-API-103 — In-flight tool call landing when turn deadline fires** — Option A: bounded grace budget so completed tool calls land.
+- **PAIML-POLE-API-105 — Fix staging-gate harness failure: coach-flow real MediaPipe path** — `E2E_FAKES` unset leaves coach-flow integration test running real MediaPipe.
+- **PAIML-POLE-API-107 — Analyst turn fail-safes** — Terminal fallback status + deterministic disclaimer.
+- **PAIML-POLE-API-108 — Data-backed progress matrix tool** — Progress matrix tool with deterministic assembly.
+- **PAIML-POLE-API-110 — Coach catalog stores** — `trick_catalog` Mongo collection + separate catalog RAG.
+- **PAIML-POLE-API-111 — Analyst output-contract enforcement** — Progress routing + drills emission + tool hygiene.
+
+#### Phase 30 — Parallel lane (resilience + turn budget) (adopted tickets)
+- **PAIML-POLE-API-090 — Empty-reply recovery + RAG picture blocks (offline embeddings)** — Recovered-reply path + picture blocks from offline-embedded RAG (folder `phase-30-chatbot-resilience`).
+- **PAIML-POLE-API-095 — Save deepseek-v4-flash staging model config + per-turn wall-clock deadline** — Fixed chatbot session hang (folder `phase-30-chatbot-turn-budget`; adopted into Phase 29).
+
+#### Phase 31 — Parallel lane (CI base-image hash) (1 ticket)
+- **PAIML-POLE-API-098 — Base-image content hash misses local package sources** — Staging shipped new app code against stale `pole_chatbot`; include local package sources in the hash input set.
+
+#### Phase 32 — Parallel lane (English-only replies) (1 ticket)
+- **PAIML-POLE-API-100 — Analyst + training replies always in English** — Drop mirror-language responses.
+
+#### Phase 33 — Parallel lane (test hygiene) (1 ticket)
+- **PAIML-POLE-API-104 — Fix duplicate pytest basename blocking test-api collection** — Remove duplicate file basenames so pytest collects both API test modules.
+
+#### Phase 34 — Unified image endpoint via path-hash (1 ticket)
+- **PAIML-POLE-API-106 — Unified image endpoint via path-hash** — `GET /api/images/{hash}` with registry `ALLOWED_ROOTS` + legacy 301; fixes RAG image 404s (db-scoped `rag-images` routes cannot serve real Chroma paths).
+
+#### Phase 35 — Parallel lane (deterministic RAG image blocks) (1 ticket)
+- **PAIML-POLE-API-109 — Deterministic RAG image block synthesis** — Deterministic RAG image block synthesis for analyst chat answers.
+
+#### Phase 36 — Free-text trick extraction (3 tickets)
+- **PAIML-POLE-API-112 — Deterministic free-text trick extraction in `_build_state`** — Extract the trick from free-text user input deterministically.
+- **PAIML-POLE-API-113 — Route progression to catalog-first** — `QUERY_DOMAINS` + catalog routing, P4 prompt example.
+- **PAIML-POLE-API-114 — Answer shaping "what next" + UC coverage** — "What next" shaping incl. test bank #27.
+
+#### Phase 37 — Coach grounding regression (1 ticket)
+- **PAIML-POLE-API-115 — Coach chatbot grounding regression** — Video resolution + guarded delegation so coach answers stay grounded.
+
+#### Phase 39 — Staging-gate residuals, Phase 36 gate 2026-09-10 (3 tickets)
+- **PAIML-POLE-API-117 — Explicit unknown-trick reply on the query-graph path** — Batch-1 Q3 residual: name the unknown trick explicitly.
+- **PAIML-POLE-API-118 — M-code to metric-name mapping before `metric_deep_dive`** — Batch-3 Q9 residual: map M-codes before deep-dive tool call.
+- **PAIML-POLE-API-121 — Carry raw unknown-trick mention into supergraph state** — 117 enabler: Q3 names the trick in the state.
+
+#### Phase 40 — BE PR checks gate + inline review-merge (1 ticket)
+- **PAIML-POLE-API-119 — BE PR checks gate + inline review-merge (auto-flow)** — be-checks → READ-ONLY review citing `gh pr checks` → approve + squash merge on green.
+
+#### Phase 41 — BE PR checks gate + workflow_run (1 ticket)
+- **PAIML-POLE-API-120 — BE PR checks gate + workflow_run-triggered review-merge** — Test-jobs-only be-checks; `opencode.yml` via `workflow_run`; no inline review job (supersedes Phase 40 design).
+
+#### Phase 42 — Coach 25-battery gate (5 tickets)
+- **PAIML-POLE-API-122 — Coach 25-battery gate: ground all unanswered flows (FC1–FC6)** — Local-only until 25/25 green; tool-proof progress, no-context fallback, fail-closed images, WS turn guard, trick-less injury, harness ping.
+- **PAIML-POLE-API-123 — Investigate RAG/analyst image hash unverifiability** — FC3 deep-dive into why image hashes become unverifiable. **FUTURE**.
+- **PAIML-POLE-API-124 — FE: render `progress_matrix` card + resilient image blocks** — PR-01..05, TP-05 residuals (renderer gaps).
+- **PAIML-POLE-API-125 — Prompt/tool-selection: force RAG grounding for plan + trick-less injury** — TP-01/03, IN-02/03 residuals.
+- **PAIML-POLE-API-126 — Empty-answer: WS per-turn wall-clock guard** — VA-02, VA-05 residuals (turn guard hardening).
+
 ---
 
 ### `app/pole_analyst`
 **Angular SPA "Pole AI Coach"** — the athlete-facing video-analysis coach: upload → analyze →
 feedback → conversation. Two panes (chat left, tools right), resilient WebSocket, light theme,
-lazy-loaded features. Consumes the `pola_api` `analysis` slice (done). Phases 1–18, 20 done
-(`PAIML-POLE-ANALYST-001..069`); Phase 19 PARTIAL (`-066`); Phase 7 (Keycloak) deferred.
+lazy-loaded features. Consumes the `pole_api` `analysis` slice (done). Phases 1–18, 20, 30–32 done
+(`PAIML-POLE-ANALYST-001..069, 078(30), 079, 080`); Phase 19 PARTIAL (`-066`); Phase 7 (Keycloak)
+deferred; phases 21–25, 27, 33 planned.
 
 | Phase | Description | Status |
 | :--- | :--- | :--- |
@@ -198,6 +254,22 @@ lazy-loaded features. Consumes the `pola_api` `analysis` slice (done). Phases 1�
 | 18 — Stitch sidebar submenu | Collapsible Dashboard group (structural parity). | **Done** |
 | 19 — Stitch tabs parity round 2 | Statistics tab radar/spider + Pose Data tab (PO requirements 2026-08-23). | **Partial** |
 | 20 — Sidebar Option B | Sidebar simplification (remove Coach nav item + Upload button); E2E realignment. | **Done** |
+| 21 — Coach-insights positives | "What's working" guard: show positives only when `score_pct ≥ 70` (`070`). | **Planned** |
+| 22 — Coach plain-language chat | Coach plain-language chat (`071`). | **Planned** |
+| 23 — FE chat cards | Render score_summary / phasic_feedback / metric_matrix / drills / quick_replies (`072`). | **Planned** |
+| 24 — FE failed-turn error state | Error bubble/chip + retry + image endpoint URLs + tool-chip arg sanitization (`073`, `075`). | **Planned** |
+| 25 — Analysis summary plain language | Coach sentences; no metric ids / z-scores / frame numbers / deviation counts (`074`). | **Planned** |
+| 27 — Question-card status chip | Status ONLY on user question card; supersedes 073 thinking-bubble, reuses retry contract (`078`). | **Planned** |
+| 30 — Responsive pixel-perfect Stitch | LIGHT only, login excluido, single-ticket 078 + ajuste tests. | **Done** (code PR #297, `244661a`) |
+| 31 — Baseline test repair + lint gate | 9 files/80 tests + `lint` target + FE PR checks antes de `/oc`. | **Done** (code PR #300, checks green) |
+| 32 — Chatbot welcome message | Capabilities overview + clickable quick-reply pills. | **Done** (#301, merged `d1778c1`) |
+| 33 — Capability catalog expansion | Synonym/keyword routing (082 BE) + welcome message expansion (083 FE). | **Planned** |
+
+> **Docs-repo numbering note:** `PAIML-POLE-ANALYST-078` is used by **two** ticket files with different
+> scopes (Phase 27 question-card status chip vs Phase 30 responsive pixel-perfect). Same for `072`
+> (FE chat cards vs Stitch chatbot answer cards) and `077` (staging-gate harness vs tool-chip artifact
+> links). The regenerated text follows the PLAN.md rows; the duplicate numberings are a known docs-repo
+> anomaly.
 
 #### Phase 12 — Stitch: Tab Navigation + Analysis History (5 tickets)
 - **PAIML-POLE-ANALYST-038 — Enriched analysis summary list DTOs** — `AnalysisSummaryRecord` DTO for the history table.
@@ -245,59 +317,45 @@ lazy-loaded features. Consumes the `pola_api` `analysis` slice (done). Phases 1�
 - **PAIML-POLE-ANALYST-066 — Plan tab auto-generates for detected trick** — Open (not started).
 - **PAIML-POLE-ANALYST-067 — Sidebar Upload button investigation** — Investigate missing upload button + fix (cancelled by PO).
 
-#### Phase 20 — Sidebar Option B (1 ticket)
+#### Phase 20 — Sidebar Option B (2 tickets)
 - **PAIML-POLE-ANALYST-068 — Sidebar simplification: remove Coach nav + Upload button** — Option B: sidebar only (chat always visible).
 - **PAIML-POLE-ANALYST-069 — Option-B E2E realignment** — Playwright E2E tests realigned to new layout.
 
-#### Phase 12 — Stitch: Tab Navigation + Analysis History (5 tickets)
-- **PAIML-POLE-ANALYST-038 — DTOs for enriched analysis summary list** — TypeScript DTOs for the enriched `GET /api/analysis/videos/summary` list.
-- **PAIML-POLE-ANALYST-039 — VideosLibrary tab bar** — Tab bar for the videos library view.
-- **PAIML-POLE-ANALYST-040 — AnalysisHistoryTable + AnalysisHistoryPage** — Analysis History table + page components.
-- **PAIML-POLE-ANALYST-041 — AnalysisHistoryService** — Service wiring the enriched analysis summary data.
-- **PAIML-POLE-ANALYST-042 — Router: history route + navigation wiring** — Add history route and connect navigation.
+#### Phase 21 — Coach-insights positives (1 ticket)
+- **PAIML-POLE-ANALYST-070 — Tips & Insights "What's working"** — Surface positives with `score_pct ≥ 70` guard.
 
-#### Phase 13 — Stitch: Results→Summary merge + Tab Reorder (3 tickets)
-- **PAIML-POLE-ANALYST-043 — Merge ResultsView into SummaryTab** — Merge the results view into the summary tab.
-- **PAIML-POLE-ANALYST-044 — Remove Results tab, update AnalysisTabId** — Remove the Results tab and update the tab id enum.
-- **PAIML-POLE-ANALYST-045 — Consolidate results-summary.ts into summary.ts** — Merge the results-summary DTO into summary.
+#### Phase 22 — Coach plain-language chat (1 ticket)
+- **PAIML-POLE-ANALYST-071 — FE never renders raw JSON / technical data** — Chat + insights defensive fallback so users never see raw JSON.
 
-#### Phase 14 — Stitch: Pose Gallery + Metric Detail Modal (6 tickets)
-- **PAIML-POLE-ANALYST-046 — DTOs for multi-frame pose response** — DTOs for the multi-frame pose endpoint.
-- **PAIML-POLE-ANALYST-047 — PoseGallery component** — Gallery component for multiple annotated pose frames.
-- **PAIML-POLE-ANALYST-048 — Replace PoseTab with PoseGallery** — Swap the single-frame PoseTab for the gallery.
-- **PAIML-POLE-ANALYST-049 — MetricDetailModal component** — Modal for a single metric's detail/breakdown.
-- **PAIML-POLE-ANALYST-050 — Wire MetricDetailModal in HistogramTab** — Connect the metric detail modal to the histogram tab.
-- **PAIML-POLE-ANALYST-051 — PoseGalleryService** — Service for loading multi-frame pose data.
+#### Phase 23 — FE chat cards (1 ticket)
+- **PAIML-POLE-ANALYST-072 — Render the 5 missing FE chat-card types** — score_summary / phasic_feedback / metric_matrix / drills / quick_replies (docs-repo also has a duplicate 072 file "Stitch chatbot answer cards").
 
-#### Phase 15 — Sidebar Navigation (6 tickets)
-- **PAIML-POLE-ANALYST-052 — Design Token Migration to Stitch Teal Palette** — Move CSS custom properties to the Stitch teal design tokens + sidebar tokens.
-- **PAIML-POLE-ANALYST-053 — Create SidebarComponent** — New sidebar navigation component.
-- **PAIML-POLE-ANALYST-054 — Refactor AppComponent Layout** — Sidebar + slim top bar layout.
-- **PAIML-POLE-ANALYST-055 — Wire Sidebar Navigation to Routes + Remove TabBar** — Connect sidebar to routes; remove the legacy tab bar.
-- **PAIML-POLE-ANALYST-056 — Unit Tests for Sidebar + Updated App Shell** — Unit test coverage for the new shell.
-- **PAIML-POLE-ANALYST-057 — Playwright E2E Tests for Sidebar Navigation** — E2E coverage for sidebar navigation.
+#### Phase 24 — FE failed-turn error state (2 tickets)
+- **PAIML-POLE-ANALYST-073 — Render failed turns distinctly** — Error bubble/chip + retry + adopt image endpoint URLs.
+- **PAIML-POLE-ANALYST-075 — Sanitize tool-chip display args** — No server paths inside tool chips.
 
-#### Phase 16 — Coach tabs (LLM structured content) (2 tickets)
-- **PAIML-POLE-ANALYST-058 — Coach DTOs + AnalysisService methods** — `coachSummary` / `generatePlan` / `poseAnalysis` service methods.
-- **PAIML-POLE-ANALYST-059 — SummaryTab / PlanTab / PoseTab render structured coach content** — Render coach content with legacy fallback.
+#### Phase 25 — Analysis summary plain language (1 ticket)
+- **PAIML-POLE-ANALYST-074 — Plain-language analysis summary** — No metric ids / z-scores / frame numbers / deviation counts.
 
-#### Phase 17 — Stitch detail views (3 tickets)
-- **PAIML-POLE-ANALYST-060 — Video Library Filter Modal** — Status filters (Stitch screen parity).
-- **PAIML-POLE-ANALYST-061 — Metric Distribution Analysis cards** — Session deltas + Peak Performance badges.
-- **PAIML-POLE-ANALYST-062 — Detail-page parity pass** — vs the Stitch "Analysis Details" screen.
+#### Additional lane tickets (media-auth + harness)
+- **PAIML-POLE-ANALYST-076 — Append Keycloak `?token=` to every FE `<img>`/`<video>`** — Retry-once-with-fresh-token for media bindings.
+- **PAIML-POLE-ANALYST-077 — Fix staging-gate harness failure (`pole-analyst-e2e`)** — Setup project requires a live Keycloak (`login-required` blocks shell with no IdP reachable). Docs-repo also has a duplicate 077 file "Tool-chip artifact links render literal `[artifact]` placeholder".
 
-#### Phase 18 — Stitch sidebar submenu (1 ticket)
-- **PAIML-POLE-ANALYST-063 — Sidebar collapsible Dashboard group** — Stitch structural parity.
+#### Phase 27 — Question-card status chip (1 ticket)
+- **PAIML-POLE-ANALYST-078 — Question-card status chip** — Status ONLY on user question card; supersedes 073 thinking-bubble, reuses retry contract (numbering collides with Phase 30 file).
 
-#### Phase 19 — Stitch tabs parity round 2 (4 tickets)
-- **PAIML-POLE-ANALYST-064 — Statistics tab redesign** — Spider/radar of the 5 metrics + metric legend + agent explanation.
-- **PAIML-POLE-ANALYST-065 — Pose Data tab** — Annotated pose list with coach insights + skeleton accents.
-- **PAIML-POLE-ANALYST-066 — Plan tab auto-generate for detected trick** — No manual entry when the trick is known (📋 PLANNED).
-- **PAIML-POLE-ANALYST-067 — Sidebar Upload button** — Investigate "missing" PO report and fix placement (❌ cancelled by PO).
+#### Phase 30 — Responsive pixel-perfect Stitch (1 ticket)
+- **PAIML-POLE-ANALYST-078 — Responsive pixel-perfect Stitch Pole AI Coach** — LIGHT only, login excluido; single-ticket 078 + ajuste de tests afectados (code PR #297, `244661a`).
 
-#### Phase 20 — Sidebar Option B (2 tickets)
-- **PAIML-POLE-ANALYST-068 — Sidebar simplification (Option B)** — Remove the Coach nav item and Upload button.
-- **PAIML-POLE-ANALYST-069 — Option-B E2E realignment** — Retire tab-bar expectations, triage detail-tab failures.
+#### Phase 31 — Baseline test repair + lint gate (1 ticket)
+- **PAIML-POLE-ANALYST-079 — Repair red baseline (9 files/80 tests) + `lint` target** — FE PR checks before `/oc` review (code PR #300, checks green).
+
+#### Phase 32 — Chatbot welcome message (1 ticket)
+- **PAIML-POLE-ANALYST-080 — Welcome message with capabilities overview** — Clickable quick-reply pills (merged #301 `d1778c1`).
+
+#### Phase 33 — Capability catalog expansion (2 tickets)
+- **PAIML-POLE-ANALYST-082 — Capability catalog expansion + synonym/keyword routing** — BE routing + prompt wiring.
+- **PAIML-POLE-ANALYST-083 — Welcome message expansion to the full capability catalog** — FE welcome message covers the entire catalog.
 
 ---
 
@@ -318,6 +376,7 @@ studio, model registry, system jobs, class stats histograms. Playwright E2E done
 | 9 — Extraction → Process (biometric + histogram) | `Extract`/`Biomech`/`Histo` actions, `EXTRACTED`/`HISTO` statuses, Biomechanical Signal Analysis view. | **Done** |
 | 10 — Future: Chatbot FE + cluster selector | Chatbot FE delivered (via `pola_agent` AGENT-013); cluster selector + API-reachability banner remain. | **Future** |
 | 11 — Class stats histograms + reference generation | Class-level cohort histograms panel (mean curves + 8-bin charts) + "Generate Reference" action with job progress. | **Done** |
+| 12 — User menu + logout | App shell user dropdown menu on `account_circle` button + logout via Keycloak end-session. | **Done** |
 
 #### Phase 8 — Integration, E2E & Polish (4 tickets)
 - **PAIML-POLE-FE-001 — Playwright setup** — Add `@playwright/test`, `playwright.config.ts`, `e2e/`, browser install + FE+BE driver on `_testing` DBs.
@@ -336,6 +395,13 @@ studio, model registry, system jobs, class stats histograms. Playwright E2E done
 - **PAIML-POLE-FE-010 — Generate reference histograms action + job progress** — Button + `JobPollService` progress.
 - **PAIML-POLE-FE-011 — Class histogram stats panel** — Per-class cohort mean curves + 8-bin charts.
 - **PAIML-POLE-FE-012 — E2E spec for reference histograms + empty state** — Playwright E2E-24/25.
+
+#### Phase 12 — User menu + logout (1 ticket)
+- **PAIML-POLE-FE-013 — User dropdown menu + logout** — Dropdown on the header `account_circle` button + logout via Keycloak end-session.
+
+#### Additional FE harness tickets
+- **PAIML-POLE-FE-014 — Add `AUTH_ENABLED=0` to pole_fe Playwright backend harness** — FE-014 (folder `phase-13-playwright-auth-harness`).
+- **PAIML-POLE-FE-015 — Fix staging-gate harness failure (`fe-e2e` UI-shell suite)** — Blocks on Keycloak `login-required` with no IdP reachable (no FE auth bypass; folder `phase-8-e2e-playwright`).
 
 ---
 
@@ -359,6 +425,9 @@ Consolidated into `pole_api` as `chatbot` + `training_chatbot` slices. No longer
 ### `app/keycloak`
 **Keycloak realm config + temp-access orchestration.** Custom login theme ("Get temporary access"),
 magic-link delivery, per-app role mapping, 2-hour session limits, expiry purge.
+Phases 1–7 ✅ DONE; Phase 8 🟡 PARTIAL. 20 tickets (`PAIML-KEYCLOAK-001..020`, counter=20);
+8 phase folders. Implemented and merged into `develop` (realm SMTP + Mailpit sandbox,
+`pole-api-admin` client, `pole-ai-login` theme, `core/temp_access.py` orchestration + expiry purge).
 
 | Phase | Description | Status |
 | :--- | :--- | :--- |
@@ -366,6 +435,10 @@ magic-link delivery, per-app role mapping, 2-hour session limits, expiry purge.
 | 2 — pole_api temp-access orchestration | Temp-access settings + Keycloak admin client + Redis repo; public endpoints + lazy activation; 2h + cooldown. | **Done** |
 | 3 — Expiry purge | Delete all temp-user data + disable user (cascade). | **Done** |
 | 4 — Tests + docs | Unit/integration tests + Keycloak README + ENV_VARS. | **Done** |
+| 5 — Brevo SMTP | Send temp-access emails via Brevo SMTP relay (staging/prod) (`013`). | **Done** |
+| 6 — Stitch pixel-perfect login restyle | Kinetic Precision light theme restyle of `pole-ai-login` (`014`). | **Done** (impl + QA GREEN; awaiting user manual develop→main promotion) |
+| 7 — Magic-link fix | Stale theme, absolute endpoint, error parser, rollout hash; emergency probe fix (015, 016, 017). | **Done** |
+| 8 — Temp-access expiry hardening | azp-mismatch + blind-sweeper fix (018, 019, 020). | **Partial** — code+docs merged (pole-ai-ml#220 pole-ai-ml-docs#9), staging QA gate BLOCKED on rollout |
 
 #### Phase 1 — Core realm setup (4 tickets)
 - **PAIML-KEYCLOAK-001 — Configure realm SMTP magic-link delivery** — Verify realm email settings + test magic link.
@@ -385,41 +458,21 @@ magic-link delivery, per-app role mapping, 2-hour session limits, expiry purge.
 - **PAIML-KEYCLOAK-011 — Unit + integration tests** — Cover temp-access flow + cooldown + purge.
 - **PAIML-KEYCLOAK-012 — Temp-access docs** — Keycloak README + ENV_VARS.
 
----
+#### Phase 5 — Brevo SMTP (1 ticket)
+- **PAIML-KEYCLOAK-013 — Send temp-access emails via Brevo SMTP relay** — Staging/prod SMTP delivery through Brevo.
 
-### `app/infra`
-**Kubernetes (k3s) deployment.** Helm charts, GitHub Actions CI/CD, health checks, Slack notifications.
+#### Phase 6 — Stitch login restyle (1 ticket)
+- **PAIML-KEYCLOAK-014 — Pixel-perfect Stitch restyle of `pole-ai-login`** — Kinetic Precision light theme (impl + QA GREEN; awaiting user manual develop→main promotion).
 
-| Phase | Description | Status |
-| :--- | :--- | :--- |
-| 1 — Helm charts + local K3s | Base Helm charts for pole_api/pole_fe/pole_analyst + k3s local cluster. | **Done** |
-| 2 — CI/CD: GHCR build + Trivy scan | Build & push Docker images to GHCR + Trivy security scan. | **PLANNED** |
-| 3 — DEV environment auto-deploy | GitHub Env `dev` + auto-deploy on main merge. | **PLANNED** |
-| 4 — STAGING environment | GitHub Env `staging` + manual deploy gate. | **PLANNED** |
-| 5 — PROD environment + notifications | GitHub Env `prod` + Slack webhook + deploy notifications. | **PLANNED** |
+#### Phase 7 — Magic-link fix (3 tickets)
+- **PAIML-KEYCLOAK-015 — Fix `pole-ai-login` theme** — Submit button, absolute endpoint, error parser, rollout hash.
+- **PAIML-KEYCLOAK-016 — Rollout + live SMTP verify + magic-link e2e gate** — Full verification of magic-link delivery.
+- **PAIML-KEYCLOAK-017 — Emergency probe fix** — Liveness-vs-boot crashloop relief + declarative startupProbe.
 
-#### Phase 2 — CI/CD: GHCR build + Trivy scan (4 tickets)
-- **INFRA-001 — GHCR Build & Push** — `docker/build-push-action` to `ghcr.io/fpalero/pole-ai-*`.
-- **INFRA-002 — Docker Layer Caching** — `docker/build-push-action` cache-from/cache-to.
-- **INFRA-003 — Trivy Security Scan** — `aquasecurity/trivy-action` on built images.
-- **INFRA-004 — GitHub Env `dev`** — Create dev environment with protection rules.
-
-#### Phase 3 — DEV environment auto-deploy (2 tickets)
-- **INFRA-005 — DEV Auto-Deploy** — Helm deploy on push to main via `appleboy/ssh-action`.
-- **INFRA-006 — Health Check Verification** — curl health endpoints post-deploy.
-
-#### Phase 4 — STAGING environment (2 tickets)
-- **INFRA-007 — Env `staging`** — Create staging environment.
-- **INFRA-008 — STAGING Deploy** — Manual deploy gate for staging.
-
-#### Phase 5 — PROD environment + notifications (7 tickets)
-- **INFRA-009 — Env `prod`** — Create production environment.
-- **INFRA-010 — PROD Deploy w/ rollback** — Production deploy with auto-rollback on failure.
-- **INFRA-011 — Slack Webhook Secrets** — Store Slack webhook in GitHub secrets.
-- **INFRA-012 — Slack Notification Job** — Send deploy status to Slack.
-- **INFRA-013 — Document Env Protection Rules** — Document required reviewers + wait timers.
-- **INFRA-014 — Update README CI/CD** — Document the full CI/CD pipeline.
-- **INFRA-015 — Health Check Verification Script** — Reusable health check script.
+#### Phase 8 — Temp-access expiry hardening (3 tickets)
+- **PAIML-KEYCLOAK-018 — Email/owner-scoped temp identity** — Close the azp-mismatch enforcement bypass.
+- **PAIML-KEYCLOAK-019 — Index-independent sweeper** — Enumerate expiries from durable markers + repair index maintenance.
+- **PAIML-KEYCLOAK-020 — Reliable Keycloak disable + purge diagnostics** — Survive the log flood.
 
 ---
 
@@ -449,31 +502,23 @@ short-sha tag deploy loop E2E green on `85e6148`); Phases 3–5 are ticketed; Ph
 
 ---
 
-### `app/keycloak`
-**Temporary magic-link access.** Custom Keycloak login theme offering Login / Get temporary access;
-verify-email magic link; per-app roles; Redis `temp:req` cooldown + `temp:active` window; expiry
-purge of all temp-user resources. 4 phases ✅ DONE, 12 tickets (`PAIML-KEYCLOAK-001..012`,
-counter=12). Implemented, merged into `develop`, and QA-verified on the local cluster (realm SMTP +
-Mailpit sandbox, `pole-api-admin` client, `pole-ai-login` theme, `core/temp_access.py` orchestration
-+ expiry purge).
-
-| Phase | Description | Status |
-| :--- | :--- | :--- |
-| 1 — Keycloak realm, SMTP & custom login theme | `PAIML-KEYCLOAK-001..004`. | **Done** |
-| 2 — pole_api temp-access orchestration | Endpoint + Redis + activation (`PAIML-KEYCLOAK-005..007`). | **Done** |
-| 3 — Temp-user data isolation & expiry purge | `PAIML-KEYCLOAK-008..010`. | **Done** |
-| 4 — Tests, docs & verification | `PAIML-KEYCLOAK-011..012`. | **Done** |
-
----
-
 ### `app/dev-ops`
-**CI workflows.** Planned dev-ops CI pipeline (PR gate, phase-completion, full-suite, MediaPipe
-dedicated action, nightly docs, branch protection). **Pending analysis** — counter=0, only `PLAN.md` +
-`PROJECT_VARS.md`; no tickets or phase folders defined yet.
+> Plan: [dev-ops/PLAN.md](dev-ops/PLAN.md)
+
+**GitHub Actions CI/CD for the monorepo (unticketed).** Planned 7-phase pipeline: CI foundation
++ runner setup, PR workflow (`pr-tests.yml`), phase-completion tests, full-suite tests,
+MediaPipe dedicated action, nightly docs workflow (in `pole-ai-ml-docs`), branch protection +
+secrets. No tickets created yet (`dev-ops` counter 0).
 
 | Phase | Description | Status |
 | :--- | :--- | :--- |
-| 1–7 | CI foundation → PR workflow → phase-completion → full-suite → MediaPipe action → nightly docs → branch protection/secrets/docs. | **Pending Analysis** |
+| 1 — CI Foundation | Shared helpers + runner setup. | 📋 PLANNED (unticketed) |
+| 2 — PR Workflow (`pr-tests.yml`) | PR gate: unit + integration tests for affected components. | 📋 PLANNED (unticketed) |
+| 3 — Phase-Completion Workflow (`phase-tests.yml`) | Phase-completion test runs. | 📋 PLANNED (unticketed) |
+| 4 — Full-Suite Workflow (`full-suite-tests.yml`) | Full-suite run of every component's tests. | 📋 PLANNED (unticketed) |
+| 5 — MediaPipe Dedicated Action (`mediapipe-tests.yml`) | MediaPipe-focused test action. | 📋 PLANNED (unticketed) |
+| 6 — Nightly Docs Workflow | Nightly docs regen in `fpalero/pole-ai-ml-docs`. | 📋 PLANNED (unticketed) |
+| 7 — Branch Protection, Secrets & Documentation | Protection rules, secrets, docs. | 📋 PLANNED (unticketed) |
 
 ---
 
@@ -508,6 +553,42 @@ Complete (core).**
 **FFmpeg video service.** `crop_segment`, `probe_duration`, `probe_metadata`, `capture_frame`,
 frame-accurate re-encode + stream-copy modes. Consumed by `pole_tools`. **Status: Complete (v1).**
 
+### `packages/pole-coach`
+> Plan: [packages/pole-coach/PLAN.md](packages/pole-coach/PLAN.md)
+
+**LangGraph multi-agent virtual coach.** Reusable nodes (Pole / Biomechanics / Coach + retrieval /
+metrics / router / formatter), named graphs per flow, and a supergraph with an LLM intent router.
+New layer consumed by the pole-analysis FE chatbot (`analyst_chatbot` slice). Scraped
+`trick_catalog.json` (polemovebook, facts + description + images) feeds readiness/progression.
+
+| Phase | Description | Status |
+| :--- | :--- | :--- |
+| 1 (A) — Scaffold + scraper + catalog | `packages/pole_coach` scaffold (Option A: `src/`, PYTHONPATH, no pyproject — mirrors `pole_rag`) + facts+desc+image scraper + `trick_catalog.json` + alias map. | ✅ DONE |
+| 2 (B) — State + nodes + protocols | State schema + 7 nodes (own file each) + protocols. | ✅ DONE |
+| 3 (C) — Graphs + supergraph + router | 7 graphs + supergraph + LLM intent router. | ✅ DONE |
+| 4 (D) — analyst wiring | `analyst_chatbot` wiring + profile extension + Phase-33 biomech + angle fix. | ✅ DONE |
+| 5 (E) — Integration + E2E + docs | Integration tests + analyst E2E + docs. | 🟡 PARTIAL — code done, PR pending; docs close-out (5.3) in progress, QA gate (5.4) pending |
+| 6 (F) — Translation | Hy-MT2 + glossary + cache, no new infra. | 📋 PLANNED |
+
+#### Phase 1 (A) — Scaffold + scraper + catalog (1 ticket)
+- **PAIML-POLE-COACH-001 — Phase 1 (A): scaffold + polemovebook scraper + trick catalog** — `packages/pole_coach` scaffold (Option A: `src/`, PYTHONPATH, no pyproject — mirrors `pole_rag`) + facts+desc+image scraper + `trick_catalog.json` + alias map.
+
+#### Phase 2 (B) — State + nodes + protocols (1 ticket)
+- **PAIML-POLE-COACH-002 — Phase 2 (B): state schema + agent nodes + protocols** — State schema + 7 nodes (own file each) + protocols.
+
+#### Phase 3 (C) — Graphs + supergraph + router (1 ticket)
+- **PAIML-POLE-COACH-003 — Phase 3 (C): graphs + supergraph + LLM router** — 7 graphs + supergraph + LLM intent router.
+
+#### Phase 4 (D) — analyst wiring (1 ticket)
+- **PAIML-POLE-COACH-004 — Phase 4 (D): analyst_chatbot wiring + profile + Phase-33 biomech** — `analyst_chatbot` wiring + profile extension + Phase-33 biomech + angle fix.
+
+#### Phase 5 (E) — Integration + E2E + docs (2 tickets)
+- **PAIML-POLE-COACH-005 — Phase 5 (E): integration tests + analyst E2E + docs** — Integration tests + analyst E2E + docs.
+- **PAIML-POLE-COACH-007 — FE 150-question integration test (5 flows x 30, English-only)** — FE battery exercises 5 flows x 30 questions, English-only.
+
+#### Phase 6 (F) — Translation (1 ticket)
+- **PAIML-POLE-COACH-006 — Phase 6 (F): Hy-MT2 translation + glossary + cache** — Translation layer (Hy-MT2 + glossary + cache, no new infra).
+
 ### `packages/pole_ml`
 > Plan: [packages/pole_ml/PLAN.md](packages/pole_ml/PLAN.md)
 
@@ -528,7 +609,7 @@ video cutter, two-phase extraction split. ~549 tests at 81.63% coverage. **Statu
 **Reusable tools package (`pole-tools`).** HTTP-free wrappers — `CropTool`, `ShiftTool`,
 `HistogramAnalyzer`, `PoseCorrector`, `OpenCodeLLMClient` — plus a services
 facade and 35 unit tests. Consumed by `packages/chatbot`. **Status: Complete (Phase 1).** No phase
-folders or tickets defined; future work is tracked under `pola_agent` and `pola_api` Phases 6/11.
+folders or tickets defined; future work is tracked under `pola_agent` and `pole_api` Phases 6/11.
 
 ### `packages/pole_rag`
 > Plan: [packages/pole_rag/PLAN.md](packages/pole_rag/PLAN.md)
@@ -579,9 +660,10 @@ and runs a phase-end staging integration gate. Two flows: `crew-implement` and `
 
 | Phase | Description | Status |
 | :--- | :--- | :--- |
-| 1 — Guardrails (anti-infinite-loop) | Structural + algorithmic guardrails to prevent agent infinite loops: `max_iter`/`max_rpm` on agents, task validation functions, explicit tool success states. | **Pending** |
+| 1 — Guardrails (anti-infinite-loop) | Structural + algorithmic guardrails to prevent agent infinite loops: `max_iter`/`max_rpm` on agents, task validation functions, explicit tool success states. | **Partial** — código implementado en `develop`; falta `PAIML-CREW-008` integración + Ollama |
+| 2 — Multi-repo support | Per-ticket repo routing for the crew engine. | **Planned** |
 
-#### Phase 1 — Guardrails (anti-infinite-loop) (7 tickets)
+#### Phase 1 — Guardrails (anti-infinite-loop) (8 tickets)
 - **PAIML-CREW-001 — Guardrails module** — Create `crew/guardrails.py` with `apply_guardrails()`, task validators, and `tool_result()` helper.
 - **PAIML-CREW-002 — Tool refactor (SUCCESS/ERROR)** — Refactor all tools in `crew_implement.py` to return explicit `SUCCESS:` / `ERROR:` prefixed messages.
 - **PAIML-CREW-003 — Apply guardrails to agents + tasks** — Wire `apply_guardrails()` on all 5 agents; add `guardrail=` to dev/review/test tasks.
@@ -589,3 +671,19 @@ and runs a phase-end staging integration gate. Two flows: `crew-implement` and `
 - **PAIML-CREW-005 — Unit tests** — Unit tests for guardrail functions, tool result formatting, and validator logic.
 - **PAIML-CREW-006 — Documentation update** — Update `crew/README.md` with new env vars (`CREW_MAX_ITER`, `CREW_MAX_RPM`) and guardrail behavior.
 - **PAIML-CREW-007 — Fix `detect_project` for `docs/packages/`** — Make `detect_project()` recognize the plural `packages` segment so package tickets load (prerequisite).
+- **PAIML-CREW-008 — Integration tests: guardrails + local Ollama** — Integration tests of guardrails against local Ollama (not yet landed).
+
+#### Phase 2 — Multi-repo support (1 ticket)
+- **PAIML-CREW-009 — Multi-repo support** — Add `Ticket.repo` + `## Repository` parsing, `_repo_root()` mapping, per-repo worktree lifecycle + PR target, graceful skip when a repo has no test command.
+
+> **Docs-repo numbering note (crew):** a second ticket folder lives at `docs/app/crew/`
+> (`phase-5-cli-model-cleanup`) with `PAIML-CREW-009..012` whose **`PAIML-CREW-009` (“Unify model
+> flags”) collides** with the `packages/crew` `PAIML-CREW-009` (“Multi-repo support”) above.
+> `app/crew/PROJECT_VARS.md` counter reads 12; `packages/crew/PROJECT_VARS.md` reads 9. Both
+> ticket files exist; resolve the numbering before the next crew phase.
+
+#### Phase 5 — CLI model cleanup (`app/crew/phase-5-cli-model-cleanup`)
+- **PAIML-CREW-009 — Unify model flags — replace `--model-flash`/`--model-pro` with `--model`** — Single `--model` CLI flag across `crew_implement.py` / `crew_phase_end.py`; Ollama defaults to `qwen3.8:27b @ localhost:11434`, Opencode to `opencode/big-pickle`.
+- **PAIML-CREW-010 — Fix opencode provider LLM model routing (`openai/` prefix)** — Correlation between configured provider/model and the effective LLM client call.
+- **PAIML-CREW-011 — Rate-limit tuning for the OpenCode Zen gateway (retries, timeout, RPM)** — Retry/backoff/timeout tuning against the OpenCode Zen LLM gateway.
+- **PAIML-CREW-012 — Add OpenRouter provider support to crew LLM** — OpenRouter provider support in the crew LLM layer.

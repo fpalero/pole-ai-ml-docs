@@ -4,15 +4,10 @@
     "file_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "last_update": "2026-08-31T05:18:09+00:00"
   },
-  "ARCHITECTURE.md": {
-    "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "29e4ca4fc066895553dd7111334164c67815595f7385f6ec89cb1c4d78e24bfc",
-    "last_update": "2026-08-31T20:36:34+00:00"
-  },
   "DEVELOPEMENT.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "0a02037458d3014559c851c64077d770156be8dc0fd3144754ff75a514e80ea9",
-    "last_update": "2026-09-21T09:11:48+00:00"
+    "file_hash": "6d7bbe47b5b45eede8f97b1a06ef34268db7ee9d5f44f6cb32f44327413655bb",
+    "last_update": "2026-09-21T10:36:17+00:00"
   },
   "ENV_VARS.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -1086,8 +1081,8 @@
   },
   "app/pole_api/API.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "e78f23a878794fc66ef1085aa9dda3c1c62527f2e6f22eba1b1b9d8bc85f0e06",
-    "last_update": "2026-08-31T20:36:34+00:00"
+    "file_hash": "083a1b2ba3e955391bad0a743fd709130cdfab7b3a938afe5f456c3b89db9dbd",
+    "last_update": "2026-09-21T10:35:15+00:00"
   },
   "app/pole_api/PLAN.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -2216,8 +2211,8 @@
   },
   "diagrams/ARCHITECTURE.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "e83cf8655b7938f41afa9cc4305d86c0537c63afc91cae7a96d05e2bd361f65b",
-    "last_update": "2026-09-11T07:38:44+00:00"
+    "file_hash": "45f9c6ecf13e59c44d89780b0f712f791acfbb6722a91e0fc86951f7d5343501",
+    "last_update": "2026-09-21T10:36:06+00:00"
   },
   "diagrams/agents/FLOW.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -2361,8 +2356,8 @@
   },
   "index.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "e24686513058cf05df9104a799638d19b6b28ac880dfb3153667279fb077f765",
-    "last_update": "2026-09-21T09:10:25+00:00"
+    "file_hash": "cffe96022584292c981dfe986acd1ac4ccb33b395028dfa92f8004abd609ec32",
+    "last_update": "2026-09-21T10:36:30+00:00"
   },
   "linkedin-posts/post-01-sequence-to-vector-lstm.md": {
     "created_date": "2026-09-18T12:18:57+00:00",
@@ -3041,23 +3036,23 @@
   },
   "tutorials/06-data-infra/README.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "b3134c17b21b6e02b59bf3a94ba129b9ddb537583334c57b8884d03280d86706",
-    "last_update": "2026-09-10T14:45:09+00:00"
+    "file_hash": "82b862e2fbf19c94920c09a5282b0695f6e4d3021bdb3967662200e0f0f21251",
+    "last_update": "2026-09-21T10:35:36+00:00"
   },
   "tutorials/06-data-infra/fullstack-backend.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "43ddae830b74999ac441e24380222568d958a81565d00902406a657b72edd7d7",
-    "last_update": "2026-09-10T14:45:09+00:00"
+    "file_hash": "f8be5e2c993d7e683d278345a4ffbeaf4ca36dc3ba4764bfaa15c2acf17ce0ae",
+    "last_update": "2026-09-21T10:35:36+00:00"
   },
   "tutorials/06-data-infra/junior-mixed.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "c538c4ca237bf4be070facccfaa5b686faf05d2d6d67e23669418fa5bedcb404",
-    "last_update": "2026-09-10T14:45:09+00:00"
+    "file_hash": "dc825f771df975fc36c7b92f9125ccc4cad1d28198ac973a0f9624384b610e9d",
+    "last_update": "2026-09-21T10:35:36+00:00"
   },
   "tutorials/06-data-infra/ml-cv.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "dffb63f536dfe793c2875d5418b11bb959e1b6fb49b4055f592c6e184fb50095",
-    "last_update": "2026-09-10T14:45:09+00:00"
+    "file_hash": "b342bdab8d27b6c3a90ec12e0a12c6543d2f2c5778f9d09f7721eba296c9f331",
+    "last_update": "2026-09-21T10:35:36+00:00"
   },
   "tutorials/06-data-infra/tech-entrepreneur.md": {
     "created_date": "2026-09-10T14:47:18+00:00",

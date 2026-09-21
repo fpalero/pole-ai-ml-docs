@@ -22,5 +22,5 @@
 - **Description:** Step-by-step: package the app in Docker, run it locally with
   docker-compose, then lift onto a k3s cluster with a minimal Helm chart and a
   health check. Demystifies the jump from laptop to cluster.
-- **Grounding:** `docs/app/infra/plan/PLAN_PHASE_1.md`, `docs/ARCHITECTURE.md`.
+- **Grounding:** `docs/app/infra/plan/PLAN_PHASE_1.md`, `docs/diagrams/ARCHITECTURE.md`.
 - **Sellable angle:** Beginner-friendly infra is always in demand.

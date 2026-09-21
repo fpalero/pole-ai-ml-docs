@@ -30,6 +30,7 @@ flowchart LR
         CR["pole_crawler<br/>Instagram"]
         CH["chatbot<br/>pole_chatbot + rag_tools"]
         RAG["pole_rag<br/>seeder + query (4 Chroma DBs)"]
+        COACH["pole-coach<br/>LangGraph virtual coach"]
         J["jobs<br/>pole_jobs"]
     end
 
@@ -56,6 +57,7 @@ flowchart LR
     API --> CR
     API --> CH
     API --> RAG
+    API --> COACH
     API --> J
 
     AG --> CH
@@ -63,6 +65,7 @@ flowchart LR
 
     CH --> J
     CH --> RAG
+    COACH --> RAG
     RAG --> RAGDB
     RAG --> CHROMA
 
@@ -113,6 +116,7 @@ flowchart LR
 | **`pole_crawler`** | Instagram video crawler: session, client, disk storage, notifications. |
 | **`chatbot`** | ReAct conversational agent backend: `ReActAgent`, `ToolRegistry`, OpenCode LLM client, job handlers, WS router, session persistence. Plus `rag_tools.py`: 4 sync RAG tools (`query_pole`, `query_calisthenics`, `query_psicology`, `query_biomechanics`, k=3, unknown-DB `ToolError`; `query_psicology` → `psychology` DB since 036). |
 | **`pole_rag`** | Multimodal RAG seeder + query: Marker/PyMuPDF extraction, atomic-table chunking (1000/150), MiniLM-L6-v2 embeddings, `ChromaStore` (`text_chunks` + `image_descriptions`), 4 DBs under `/data/rag`. Phase 6 ✅ DONE (030 CLOSED); Phase 7 PyMuPDF swap planned. |
+| **`pole-coach`** | LangGraph multi-agent virtual coach (`packages/pole_coach`, Option A src/PYTHONPATH): state schema, 7 reusable nodes (Pole / Biomechanics / Coach + retrieval / metrics / router / formatter), 7 named graphs + supergraph with LLM `intent_router`, `trick_catalog.json` (polemovebook scraper) + alias map + readiness gating. Served by the `pole_api` `analyst_chatbot` slice (supergraph brain first, ReAct fallback); `AnalystMetricsProvider` (facade-backed) + `AnalystRAGProvider` (wraps `pole_rag.query.query`) injected via `build_supergraph(metrics, rag, llm)`. Phases 1–4 ✅ DONE, Phase 5 🟡 PARTIAL, Phase 6 planned. |
 | **`jobs`** | Shared job infrastructure: `Job` model, Mongo repository, Redis queue + pub/sub events, `JobWorker`, `JobOrchestrator`, FastAPI job router. |
 
 ### Shared Infrastructure
@@ -137,7 +141,8 @@ flowchart LR
 | :--- | :--- | :--- |
 | `pole_fe` / `pole_analyst` → `pole_api` | HTTP (`/api`), WebSocket (`/ws`) | REST controllers for CRUD/jobs; WS for chatbot and job progress. |
 | `pola_agent` → `chatbot` | WS (`/ws/chat`) | Chatbot host delegates to `pole_chatbot` router. |
-| `pole_api` → packages | Python imports | Uses `pole_ml`, `pole_tools`, `pole_crop`, `pole_crawler`, `chatbot`, `pole_rag`, `jobs` as libraries (imported as `pole_ml.*`, `pole_tools.*`, etc.; `pole_rag` via `PYTHONPATH`, no pyproject). |
+| `pole_api` → packages | Python imports | Uses `pole_ml`, `pole_tools`, `pole_crop`, `pole_crawler`, `chatbot`, `pole_rag`, `pole-coach`, `jobs` as libraries (imported as `pole_ml.*`, `pole_tools.*`, etc.; `pole_rag` and `pole_coach` via `PYTHONPATH`, no pyproject). |
+| `pole_api` → `pole-coach` | Python imports (`analyst_chatbot` slice) | `build_coach_supergraph(metrics, rag, llm)` factory in `coach_providers.py`; supergraph brain first, falls through to the ReAct agent on failure/absence. |
 | `chatbot` → `pole_tools` | Python imports | Tool facade (`crop`/`shift`/`histogram`/`similarity`) — the **only** import surface chatbot may use (plus `pole_rag.query` via `rag_tools.py` for the 4 RAG tools). |
 | `chatbot` → `pole_rag` | Python imports | `rag_tools.py` calls `pole_rag.query.query` (k=3, `source_document` metadata; `POLE_RAG_DATA_DIR` default, explicit `data_dir` wins). |
 | packages → infra | Drivers | Mongo/Redis/Chroma clients, FFmpeg subprocess, httpx to OpenCode/Instagram. |

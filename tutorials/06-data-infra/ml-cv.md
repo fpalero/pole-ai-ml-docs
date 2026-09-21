@@ -24,5 +24,5 @@
   (Mongo + Redis + Ollama + Keycloak) → k3s production with Helm charts, health
   probes, Traefik ingress, Trivy vulnerability scan, and GH Actions auto-deploy
   per environment (dev/staging/prod with manual gate on prod).
-- **Grounding:** `docs/ARCHITECTURE.md` (deployment), `docs/app/infra/PLAN.md`, `docs/app/infra/phase-2-dev-auto-deploy/PAIML-INFRA-005.md`.
+- **Grounding:** `docs/diagrams/ARCHITECTURE.md` (deployment), `docs/app/infra/PLAN.md`, `docs/app/infra/phase-2-dev-auto-deploy/PAIML-INFRA-005.md`.
 - **Sellable angle:** "MLOps for the solo ML dev" — very reachable buyers.

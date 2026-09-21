@@ -68,6 +68,7 @@ Each component has two docs:
 | pole_rag | [`packages/pole_rag/PLAN.md`](packages/pole_rag/PLAN.md) |
 | crew | [`packages/crew/PLAN.md`](packages/crew/PLAN.md) |
 | dev-ops | [`dev-ops/PLAN.md`](dev-ops/PLAN.md) |
+| analysis-tools | _(no PLAN.md — package exists, undocumented)_ |
 
 ---
 

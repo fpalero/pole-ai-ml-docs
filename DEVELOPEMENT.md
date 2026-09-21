@@ -524,6 +524,19 @@ secrets. No tickets created yet (`dev-ops` counter 0).
 
 ## Packages
 
+### `packages/analysis-tools`
+> **No PLAN.md / no tickets yet** — package exists in the codebase but is **not documented** beyond this row.
+
+**Standalone analysis CLIs for Pole AI** (`pyproject` description). Ships three CLIs under
+`src/analysis_tools/`:
+- `plot` — Plotly metric curve plots (resolve metrics, parse video ids, load curves, build figure, save via kaleido).
+- `extract_data` — histogram data extraction.
+- `export_analysis` — analysis payload export: histograms + video summaries + cohort reference → per-metric stats, phase-frame resampled stats, cohort deviation (max |z| vs class reference), Markdown output.
+
+Dependencies: `pole-train-model`, `pole-tools`, `numpy`, `plotly`, `kaleido`, `pymongo`. Tests
+present (`tests/test_cli_plot.py`, `test_extract_data.py`, `test_cli_export_analysis.py`). Also
+contains a `rag/` dir. **Status: undocumented — no plan, no tickets.**
+
 ### `packages/chatbot`
 > Plan: [packages/chatbot/PLAN.md](packages/chatbot/PLAN.md)
 

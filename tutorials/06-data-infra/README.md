@@ -35,7 +35,7 @@
 - `docs/packages/pole_crawler/PLAN.md`, `docs/diagrams/pole_crawler/CLASSES.md`
 - `docs/app/infra/PLAN.md`, `docs/app/infra/phase-2-dev-auto-deploy/PAIML-INFRA-00x`
 - `docs/app/keycloak/phase-7-magic-link-fix/PAIML-KEYCLOAK-015.md`
-- `docs/ARCHITECTURE.md` (deployment architecture)
+- `docs/diagrams/ARCHITECTURE.md` (deployment architecture)
 
 ---
 

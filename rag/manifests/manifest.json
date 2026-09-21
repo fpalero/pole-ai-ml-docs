@@ -11,8 +11,8 @@
   },
   "ENV_VARS.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "bb655e8080160d3fe629cf986078990b296dee0f20158774c8e93e6ed781392b",
-    "last_update": "2026-09-11T07:38:44+00:00"
+    "file_hash": "9ead5009bf35c6832808baf8e8953c8da924ad7c949d07c598091b7c1396e6f1",
+    "last_update": "2026-09-21T17:42:45+00:00"
   },
   "ROADMAP.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -1731,8 +1731,8 @@
   },
   "app/pole_api/phase-42-coach-gate-25/PAIML-POLE-API-126.md": {
     "created_date": "2026-09-12T07:42:59+00:00",
-    "file_hash": "948baef588baff7e7dc86274d9d5aaed7f1297037d3877b120ebc054b8aeca17",
-    "last_update": "2026-09-12T07:41:55+00:00"
+    "file_hash": "7c35bdfb9a8675b44845f54b5c8329bbf8a9ca0e0fcbeeb4b45e5915295af204",
+    "last_update": "2026-09-21T17:42:45+00:00"
   },
   "app/pole_api/phase-42-coach-gate-25/PAIML-POLE-API-127.md": {
     "created_date": "2026-09-21T12:07:54+00:00",
@@ -3191,8 +3191,8 @@
   },
   "scripts/README.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "09cb1f7b9795cf2c278a073e684736dd0fb1cb9efa4e78a16635a96753f66203",
-    "last_update": "2026-08-31T20:36:34+00:00"
+    "file_hash": "5e7c8007c4d8cffa7a76dca73a2e2cad259744b9cb7dd97b54bf02e9e786faf9",
+    "last_update": "2026-09-21T17:44:47+00:00"
   },
   "tutorials/01-skeleton-pose/README.md": {
     "created_date": "2026-09-10T14:47:18+00:00",

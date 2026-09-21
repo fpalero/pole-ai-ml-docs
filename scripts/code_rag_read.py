@@ -39,7 +39,10 @@ def main() -> None:
     parser.add_argument("project", help="App/package name or project path")
     parser.add_argument("query", help="Natural-language query")
     parser.add_argument("--k", type=int, default=4, help="Number of results (default 4)")
-    parser.add_argument("--path", default=None, help="Filter source paths containing SUBSTR")
+    parser.add_argument("--path", default=None,
+                        help="Scope to source paths under this prefix (bare "
+                             "component, e.g. pole_ml, or full path prefix, "
+                             "e.g. src/pole_ml)")
     parser.add_argument("--json", action="store_true", help="Emit JSON output")
     parser.add_argument("--extract", action="store_true",
                         help="Also print the full text of the top hit")

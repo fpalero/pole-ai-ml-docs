@@ -42,6 +42,15 @@ logging.basicConfig(
 )
 logger = logging.getLogger("rag_engine")
 
+# chromadb 1.5.9 does not support the "$contains" operator in metadata `where`
+# filters (it only exists for `where_document`), which made `--path` silently
+# return 0 matches. Path scoping is therefore applied client-side; the
+# server-side n_results is oversampled so the post-filter truncation still
+# yields the requested number of hits:
+#   fetch = k * PATH_FILTER_OVERSAMPLE + PATH_FILTER_EXTRA
+PATH_FILTER_OVERSAMPLE = 2
+PATH_FILTER_EXTRA = 10
+
 # ---------------------------------------------------------------------------
 # Offline-first embeddings: the sentence-transformers model is cached locally
 # under ~/.cache/huggingface/hub/. Force HF/transformers offline mode so no
@@ -275,6 +284,25 @@ def write_index(
 # ---------------------------------------------------------------------------
 
 
+def _path_in_scope(path: str, path_filter: str) -> bool:
+    """Return whether ``path`` lies inside the ``path_filter`` scope.
+
+    Matching happens on whole path components only (never partial names):
+
+    * a multi-component filter must be a leading prefix of the path —
+      ``packages/pole_ml`` covers ``packages/pole_ml/PLAN.md`` but not
+      ``diagrams/pole_ml/FLOW.md`` nor ``packages/pole_ml_x/...``;
+    * a bare component matches any path containing that component —
+      ``pole_ml`` covers ``packages/pole_ml/PLAN.md`` and
+      ``diagrams/pole_ml/FLOW.md``.
+    """
+    filter_parts = path_filter.split("/")
+    path_parts = path.split("/")
+    if len(filter_parts) == 1:
+        return filter_parts[0] in path_parts
+    return path_parts[: len(filter_parts)] == filter_parts
+
+
 def read_query(
     spec: RagSpec,
     query: str,
@@ -300,19 +328,24 @@ def read_query(
             f"Run the corresponding write/generate command first."
         )
 
-    where: dict | None = None
-    if path_filter or project_filter:
-        conds = []
-        if path_filter:
-            conds.append({"path": {"$contains": path_filter}})
-        if project_filter:
-            conds.append({"project_name": {"$eq": project_filter}})
-        where = conds[0] if len(conds) == 1 else {"$and": conds}
+    # chromadb 1.5.9 does not support "$contains" in metadata `where` filters
+    # (it only exists for `where_document`), so path scoping is applied
+    # client-side on the returned hits. Only the project filter stays
+    # server-side, via the exact "$eq" match that is known to work.
+    where = {"project_name": {"$eq": project_filter}} if project_filter else None
+
+    if path_filter:
+        path_filter = path_filter.rstrip("/")
+        # Oversample the server-side result count so the client-side path
+        # filter can still return the requested ``k`` results after truncation.
+        fetch_k = k * PATH_FILTER_OVERSAMPLE + PATH_FILTER_EXTRA
+    else:
+        fetch_k = k
 
     query_embedding = embedder.embed_query(query)
     results = collection.query(
         query_embeddings=[query_embedding],
-        n_results=k,
+        n_results=fetch_k,
         where=where or None,
         include=["metadatas", "documents", "distances"],
     )
@@ -320,9 +353,12 @@ def read_query(
     hits = []
     for i, doc_id in enumerate(results["ids"][0]):
         meta = results["metadatas"][0][i] or {}
+        path = meta.get("path", "")
+        if path_filter and not _path_in_scope(path, path_filter):
+            continue
         hits.append({
             "id": doc_id,
-            "path": meta.get("path", ""),
+            "path": path,
             "project": meta.get("project_name", ""),
             "created_date": meta.get("created_date", ""),
             "last_update": meta.get("last_update", ""),
@@ -341,6 +377,11 @@ def read_query(
         elif h["distance"] < best_by_path[h["path"]]["distance"]:
             best_by_path[h["path"]] = h
     hits = [best_by_path[p] for p in order]
+
+    # After the client-side path filter + dedup the result list may exceed k
+    # (we oversampled server-side); truncate to the requested count. This is a
+    # no-op when no path filter was applied.
+    hits = hits[:k]
 
     if as_json:
         import json as _json

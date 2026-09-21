@@ -4,10 +4,10 @@
 Readiness seed state missing measurements (Class C): seed session measurements so retrieval-with-hits preconditions hold (RE-01, RE-02, RE-03, RE-05)
 
 ## Status
-📋 PLANNED — follow-up gate-fix ticket for phase-42 coach-gate-25, SAMPLE-5 gate
-run `sample5-647d57e-20260921-205203` (**15/25, RED**).
+✅ DONE — follow-up gate-fix ticket for phase-42 coach-gate-25, SAMPLE-5 gate
+run `sample5-647d57e-20260921-205203` (**15/25, RED**). Merged via code PR #332 → `3a335cf` (local review APPROVED, CI green; `seed-measurements` endpoint via FakeSkeletonExtractor).
 
-- **Status**: 📋 PLANNED
+- **Status**: ✅ DONE
 - **Project**: pole_api (seed/coach flow + e2e harness)
 - **Phase**: 42 coach-gate-25
 - **Blocks**: —

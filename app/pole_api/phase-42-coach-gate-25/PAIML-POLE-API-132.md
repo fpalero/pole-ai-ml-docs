@@ -4,10 +4,10 @@
 ensureCoachSession bootstrap flake (Class D): retry waitForURL navigation timeout without masking auth failures (TP-04)
 
 ## Status
-📋 PLANNED — follow-up gate-fix ticket for phase-42 coach-gate-25, SAMPLE-5 gate
-run `sample5-647d57e-20260921-205203` (**15/25, RED**).
+✅ DONE — follow-up gate-fix ticket for phase-42 coach-gate-25, SAMPLE-5 gate
+run `sample5-647d57e-20260921-205203` (**15/25, RED**). Merged via code PR #331 → `5873b0e` (`waitForKeycloakBounce` retry-once).
 
-- **Status**: 📋 PLANNED
+- **Status**: ✅ DONE
 - **Project**: pole_api (frontend lane / e2e harness)
 - **Phase**: 42 coach-gate-25
 - **Blocks**: —

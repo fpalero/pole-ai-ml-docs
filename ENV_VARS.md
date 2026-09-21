@@ -57,6 +57,7 @@ the k3s Helm configmaps (`infrastracture/helm/pole-ai/charts/*/templates/configm
 |---|---|---|---|
 | `EXTRACTION_STRIDE` | Frame stride during skeleton extraction. | `5` | positive int; default `1` |
 | `E2E_FAKES` | Use fake skeleton/ML extractors for end-to-end runs. | `1` | `0/1`, `true/false`, `yes/no`, `on/off`; default off |
+| `ALLOW_SEED_MEASUREMENTS` | Opt-in that lets the `seed-measurements` endpoint (PAIML-POLE-API-131) run on non-testing datasets; testing datasets always allowed. | `1` | `0/1`, `true/false`; default off/unset — never set in prod |
 | `ZSCORE_SIGMA_FLOOR` | Floor for the z-score denominator (std). | `0.000001` | float ≥ `1e-6`; default `1e-6` |
 | `CLASSIFY_CONFIDENCE_THRESHOLD` | LSTM trick-classification confidence floor. | `0.7` | `0.0–1.0`; default `0.7` |
 | `ANALYZE_WORKER_POOL_SIZE` | Max concurrent analyze workers (MediaPipe gate). | `2` | int ≥ 1; default `2` |

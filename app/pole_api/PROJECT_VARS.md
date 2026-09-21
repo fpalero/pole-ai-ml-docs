@@ -1,7 +1,7 @@
 # Project Variables: pole_api
 
 ## Ticket Counter
-- **Last ticket number**: 128
+- **Last ticket number**: 132
 
 > Docs-unified: incoming `feature/PAIML-POLE-API-099-reviewer-leftovers` counter was 99 (older, 099 era); superseded, MAX 111 kept (099 file keep-both merged: 4-item bundle canonical + HEAD trimmed variant noted).
 
@@ -46,6 +46,7 @@
 > (TP-01/03, IN-02/03); 126 = WS per-turn wall-clock guard (VA-02/05).
 > 127 = `phase-42-coach-gate-25/PAIML-POLE-API-127.md` (gate-25 backend regression fix: terminal fallback flag + grounding lazy-fetch + metric_matrix contract; 11 failing tests from PR #322).
 > 128 = `phase-42-coach-gate-25/PAIML-POLE-API-128.md` (upload-dropzone spec timeout flake: mock File.size instead of 501MB allocation).
+> 129/130/131/132 = `phase-42-coach-gate-25/` SAMPLE-5 gate-fix batch (post-run `sample5-647d57e-20260921-205203`, 15/25 RED → 4 independent follow-ups, none block each other): 129 = analyst ReAct sub-budget deadlock, raise `agent.run` `max_turn_seconds` 120→≤240s below WS guard 300s (VA-05/VA-02); 130 = `assertRendering` broken-image false positive on `loading="lazy"` images — probe after viewport/decode, not before fetch (VA-04/TP-03/TP-05/IN-02); 131 = readiness seed state missing measurements — seed mirror extracted 0 frames → truthful no-metrics reply vs spec:597 retrieval-with-hits (RE-01/02/03/05, RE-04 stays green); 132 = `ensureCoachSession` `waitForURL` bootstrap flake — retry on navigation timeout only, assert destination URL (TP-04).
 >
 > Anomaly note (docs-unified reconciliation): MAX counter 111 wins (develop side was 109). No numbers skipped in 103–111; 103/104 reserved meanings from both sides kept above.
 > Docs-unified: incoming `feature/PAIML-POLE-DOCS-028-026-phase-docs-commit` counter was 87 (older); superseded, MAX 111 kept.

@@ -1,9 +1,10 @@
 # PAIML-DEVOPS-002 — staging seed opt-in helm plumbing (`ALLOW_SEED_MEASUREMENTS`)
 
-- **Status**: 📋 PLANNED
+- **Status**: ✅ DONE
 - **Project**: dev-ops
 - **Phase**: Phase 9 — staging seed opt-in
 - **Created**: 2026-09-21
+- **Merged**: infra PR `fpalero/pole-ai-ml-infra#39` merged into infra `develop` — chart renders `ALLOW_SEED_MEASUREMENTS` default `"0"`; `deploy-dev.yml` sets `=1` staging-only; helm `pending-upgrade` lock cleared via rollback to rev 254 → rev 257 deployed; follow-up deploy rev 258 rolled `3a335cf` images + opt-in `=1` verified on staging.
 - **Repo**: `fpalero/pole-ai-ml-infra` (helm + workflows only — implementation PR goes to infra `develop`, NOT `pole-ai-ml`)
 - **Type**: Helm plumbing (staging-only opt-in)
 

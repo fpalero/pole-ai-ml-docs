@@ -1,7 +1,7 @@
 # Project Variables: pole_api
 
 ## Ticket Counter
-- **Last ticket number**: 126
+- **Last ticket number**: 128
 
 > Docs-unified: incoming `feature/PAIML-POLE-API-099-reviewer-leftovers` counter was 99 (older, 099 era); superseded, MAX 111 kept (099 file keep-both merged: 4-item bundle canonical + HEAD trimmed variant noted).
 
@@ -44,6 +44,8 @@
 > `sample5-e743e61-20260912-083119`, 13/25 → 3 classes): 124 = FE renderer +
 > image (PR-01..05, TP-05); 125 = prompt/tool-selection RAG grounding
 > (TP-01/03, IN-02/03); 126 = WS per-turn wall-clock guard (VA-02/05).
+> 127 = `phase-42-coach-gate-25/PAIML-POLE-API-127.md` (gate-25 backend regression fix: terminal fallback flag + grounding lazy-fetch + metric_matrix contract; 11 failing tests from PR #322).
+> 128 = `phase-42-coach-gate-25/PAIML-POLE-API-128.md` (upload-dropzone spec timeout flake: mock File.size instead of 501MB allocation).
 >
 > Anomaly note (docs-unified reconciliation): MAX counter 111 wins (develop side was 109). No numbers skipped in 103–111; 103/104 reserved meanings from both sides kept above.
 > Docs-unified: incoming `feature/PAIML-POLE-DOCS-028-026-phase-docs-commit` counter was 87 (older); superseded, MAX 111 kept.

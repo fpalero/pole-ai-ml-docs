@@ -2501,8 +2501,8 @@
   },
   "dev-ops/PROJECT_VARS.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "23b02e68f4efc2861b5fdf4696f83be65dc8916c93bee1bc3b91f02046e470aa",
-    "last_update": "2026-09-21T11:12:01+00:00"
+    "file_hash": "1e782b0ad2041ba7240a9f314ec85dc425c1354309bdb4ee4879e0f041accffe",
+    "last_update": "2026-09-21T23:14:19+00:00"
   },
   "dev-ops/keycloak-user-expiry/README.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -2518,6 +2518,11 @@
     "created_date": "2026-09-21T11:12:14+00:00",
     "file_hash": "4e01e101c8fab28172a757b55b95d1bb7dec4427c836e627d559cca8c484e29a",
     "last_update": "2026-09-21T11:11:57+00:00"
+  },
+  "dev-ops/phase-9-staging-seed-opt-in/PAIML-DEVOPS-002.md": {
+    "created_date": "2026-09-21T23:14:28+00:00",
+    "file_hash": "d94741e36e267908fc792e07c5987a9b5d53d114cc6ccc85d2d95b5364a60bf5",
+    "last_update": "2026-09-21T23:14:16+00:00"
   },
   "diagrams/ARCHITECTURE.md": {
     "created_date": "2026-09-10T14:47:18+00:00",

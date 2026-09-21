@@ -1,6 +1,6 @@
 # pole_api — HTTP API Reference (`API.md`)
 
-> Auto-generated from OpenAPI (version `0.1.0`) on 2026-08-29T08:05:23.
+> Auto-generated from OpenAPI (version `0.1.0`) on 2026-09-21T12:35:15.
 > Interactive: `/docs` · ReDoc: `/redoc` · spec: `/openapi.json`. End-to-end flows: [`API.FLOWS.md`](./API.FLOWS.md).
 
 
@@ -241,6 +241,11 @@ Create-or-update the biometric profile (partial updates allowed).
 | :--- | :--- | :--- | :--- |
 | `height_cm` | `number | null` | no | Athlete height in centimeters |
 | `weight_kg` | `number | null` | no | Athlete weight in kilograms |
+| `experience_level` | `string | null` | no | Training experience level |
+| `goals` | `string | null` | no | Free-text training goals |
+| `days_per_week` | `integer | null` | no | Training days per week (1-7) |
+| `injury_history` | `string | null` | no | Past injuries the coach must respect |
+| `limitations` | `string | null` | no | Current physical limitations |
 
 
 **Responses**
@@ -900,6 +905,93 @@ header (``<video>`` cannot set headers). The analyst role is enforced here
 curl -s -X GET /api/analysis/videos/<video_id>/video
 ```
 
+### `GET /api/analyst-artifacts/{kind}/{video_id}/{filename}`
+
+Legacy route (106 ADR-3): ``301`` to the unified hash URL.
+
+Resolves exactly like before (traversal-guarded); known files redirect
+with a ``Deprecation: true`` header (+ sunset counter), unknown files
+answer ``410 {code: image_gone}``.
+
+| Param | In | Type | Required | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| `kind` | path | `string` | required |  |
+| `video_id` | path | `string` | required |  |
+| `filename` | path | `string` | required |  |
+
+**Responses**
+
+- **200** — Successful Response
+- **422** — Validation Error — `HTTPValidationError`
+
+
+**Example**
+
+```bash
+curl -s -X GET /api/analyst-artifacts/<kind>/<video_id>/<filename>
+```
+
+### `POST /api/auth/temporary-access`
+
+Validate the email, check the 14-day cooldown, create/find the
+Keycloak user, trigger the verify-email, and return 202.
+
+Error codes:
+- 422: invalid email format, unsupported (non-ASCII/IDN) email, unknown clientId
+- 409: email in cooldown (requested within the last 14 days)
+- 500: Keycloak or infrastructure error
+
+**Request body** — `TemporaryAccessRequest` (media type: `optional`):
+
+| Field | Type | Required | Description |
+| :--- | :--- | :--- | :--- |
+| `email` | `string` | yes |  |
+| `clientId` | `string` | yes |  |
+
+
+**Responses**
+
+- **202** — Successful Response — `TemporaryAccessResponse`
+- **422** — Validation Error — `HTTPValidationError`
+
+
+**Example**
+
+```bash
+curl -s -X POST /api/auth/temporary-access \
+  -H 'Content-Type: application/json' \
+  -d '<json-body>'
+```
+
+### `POST /api/auth/temporary-access/activate`
+
+Validate an activation token and start the 2-hour access window.
+
+Error codes:
+- 404: token not found or already used
+- 410: token expired (past 24h TTL)
+
+**Request body** — `ActivateRequest` (media type: `optional`):
+
+| Field | Type | Required | Description |
+| :--- | :--- | :--- | :--- |
+| `token` | `string` | yes |  |
+
+
+**Responses**
+
+- **200** — Successful Response — `ActivateResponse`
+- **422** — Validation Error — `HTTPValidationError`
+
+
+**Example**
+
+```bash
+curl -s -X POST /api/auth/temporary-access/activate \
+  -H 'Content-Type: application/json' \
+  -d '<json-body>'
+```
+
 ### `POST /api/crawler/classes/{class_id}/crawl`
 
 | Param | In | Type | Required | Description |
@@ -1051,6 +1143,26 @@ curl -s -X POST /api/crawler/posts/<post_id>/qc \
   -d '<json-body>'
 ```
 
+### `GET /api/images/{image_hash}`
+
+Serve one registered image by its path hash (traversal-proof).
+
+| Param | In | Type | Required | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| `image_hash` | path | `string` | required |  |
+
+**Responses**
+
+- **200** — Successful Response
+- **422** — Validation Error — `HTTPValidationError`
+
+
+**Example**
+
+```bash
+curl -s -X GET /api/images/<image_hash>
+```
+
 ### `GET /api/me/llm-usage`
 
 **Responses**
@@ -1062,6 +1174,31 @@ curl -s -X POST /api/crawler/posts/<post_id>/qc \
 
 ```bash
 curl -s -X GET /api/me/llm-usage
+```
+
+### `GET /api/rag-images/{db}/{relative_path}`
+
+Legacy route (106 ADR-3): ``301`` to the unified hash URL.
+
+Resolves exactly like before (traversal-guarded); known files redirect
+with a ``Deprecation: true`` header (+ sunset counter), unknown files
+answer ``410 {code: image_gone}``.
+
+| Param | In | Type | Required | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| `db` | path | `string` | required |  |
+| `relative_path` | path | `string` | required |  |
+
+**Responses**
+
+- **200** — Successful Response
+- **422** — Validation Error — `HTTPValidationError`
+
+
+**Example**
+
+```bash
+curl -s -X GET /api/rag-images/<db>/<relative_path>
 ```
 
 ### `POST /api/tools/correct`

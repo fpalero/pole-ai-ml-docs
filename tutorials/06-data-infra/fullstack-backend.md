@@ -24,7 +24,7 @@
   → k3s with Helm charts (`build-push.sh`/`deploy.sh`/`teardown.sh`), values
   overlays per env, health probes (`/health`), Traefik ingress, Trivy scan, and
   GitHub Envs (dev auto / staging manual / prod gated).
-- **Grounding:** `docs/app/infra/plan/PLAN_PHASE_1.md`, `docs/app/infra/phase-2-dev-auto-deploy/PAIML-INFRA-004/005.md`, `docs/ARCHITECTURE.md`.
+- **Grounding:** `docs/app/infra/plan/PLAN_PHASE_1.md`, `docs/app/infra/phase-2-dev-auto-deploy/PAIML-INFRA-004/005.md`, `docs/diagrams/ARCHITECTURE.md`.
 - **Sellable angle:** Complete, tested recipe — gaps in tutorial land for
   k3s + Helm for ML stacks.
 

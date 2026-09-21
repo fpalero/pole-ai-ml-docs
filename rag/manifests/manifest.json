@@ -4,6 +4,11 @@
     "file_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "last_update": "2026-08-31T05:18:09+00:00"
   },
+  "2026-09-21.md": {
+    "created_date": "2026-09-21T11:12:14+00:00",
+    "file_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "last_update": "2026-09-21T10:52:48+00:00"
+  },
   "DEVELOPEMENT.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
     "file_hash": "6d7bbe47b5b45eede8f97b1a06ef34268db7ee9d5f44f6cb32f44327413655bb",
@@ -2196,8 +2201,8 @@
   },
   "dev-ops/PROJECT_VARS.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "312f6d6bd540b0635f5c144c1f5bca049ab470ab93c84e2e3e679a31619b50f5",
-    "last_update": "2026-08-31T20:36:34+00:00"
+    "file_hash": "23b02e68f4efc2861b5fdf4696f83be65dc8916c93bee1bc3b91f02046e470aa",
+    "last_update": "2026-09-21T11:12:01+00:00"
   },
   "dev-ops/keycloak-user-expiry/README.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -2208,6 +2213,11 @@
     "created_date": "2026-09-10T14:47:18+00:00",
     "file_hash": "d85d9e96b92c776b38ce319a84f36696661550e2ac25d1eb913c616a7c199ecb",
     "last_update": "2026-08-31T14:48:56+00:00"
+  },
+  "dev-ops/phase-8-rag-path-filter/PAIML-DEVOPS-001.md": {
+    "created_date": "2026-09-21T11:12:14+00:00",
+    "file_hash": "4e01e101c8fab28172a757b55b95d1bb7dec4427c836e627d559cca8c484e29a",
+    "last_update": "2026-09-21T11:11:57+00:00"
   },
   "diagrams/ARCHITECTURE.md": {
     "created_date": "2026-09-10T14:47:18+00:00",

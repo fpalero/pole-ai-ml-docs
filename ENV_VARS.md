@@ -83,6 +83,7 @@ the k3s Helm configmaps (`infrastracture/helm/pole-ai/charts/*/templates/configm
 | `CHATBOT_OUT_DIR` | Chatbot output directory (tool artifacts). | `chatbot_output` | path; default `chatbot_output` |
 | `CHATBOT_RATE_LIMIT_MAX` | Chatbot rate-limit max requests per window. | `10` | int; default `10` |
 | `CHATBOT_RATE_LIMIT_WINDOW_S` | Chatbot rate-limit window (seconds). | `30` | int; default `30` |
+| `ANALYST_WS_TURN_BUDGET_S` | Per-turn wall-clock budget for an analyst-chat WS turn — wraps the ENTIRE composed turn (brain + ReAct chain + retries + shaping) so a slow turn emits a terminal frame instead of zero frames (PAIML-POLE-API-126). | `300` | float seconds; default `300` (above supergraph 30s / ReAct 120s, below FE `TURN_BUDGET_MS` 360s) |
 
 ### Auth / Keycloak (`app/pole_api/src/core/auth.py`)
 

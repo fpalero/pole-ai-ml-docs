@@ -127,8 +127,14 @@ Filter by source path or project:
 
 ```bash
 pixi run docs-rag-read "trick classifier" --path packages/pole_ml
+pixi run docs-rag-read "trick classifier" --path pole_ml        # same docs, bare component
 pixi run docs-rag-read "training workflow" --project pole_ml --k 3
 ```
+
+`--path` matches whole path components (never partial names): a bare
+component (`pole_ml`) scopes to every path containing that component
+(`packages/pole_ml/*`, `diagrams/pole_ml/*`); a full prefix
+(`packages/pole_ml`) scopes to that subtree only.
 
 Show similarity distance, or dump the full source of the top hit:
 

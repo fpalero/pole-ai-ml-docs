@@ -2119,6 +2119,271 @@
     "file_hash": "70dee86786ad8d33e350fe43c631833ce89e581cf3e3cb8a6fcfed4ad415e8a1",
     "last_update": "2026-09-10T14:45:09+00:00"
   },
+  "business/content/articles/ai-agents/agent-to-production.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "dc831c644504c140f8dc70879f18b46a951ac90216997dd601835455788a406b",
+    "last_update": "2026-09-21T12:31:52+00:00"
+  },
+  "business/content/articles/ai-agents/autonomous-agent-guardrails.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "7e6bccb7cdf9c5954a74480a32bfbf12a2bd144536f8745d5a8316fd2e979d48",
+    "last_update": "2026-09-21T12:31:57+00:00"
+  },
+  "business/content/articles/ai-agents/deterministic-guardrails.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "25aad64176e3c08b48457e7abc99f97037dfee04691c3528619fc4ff7ffd91d1",
+    "last_update": "2026-09-21T12:31:50+00:00"
+  },
+  "business/content/articles/ai-agents/llm-agent-crew.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "179b2b933748590ed09c7bf07e5e42dee74fca82193e3dc83e14f9a6577dd8d6",
+    "last_update": "2026-09-21T12:31:55+00:00"
+  },
+  "business/content/articles/ai-agents/react-loop-tool-registry.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "9eb819980df3cd6d886d4a3dcfae5e3b887d24337d02b46642ae575dcb7bfe93",
+    "last_update": "2026-09-21T12:31:46+00:00"
+  },
+  "business/content/articles/ai-agents/react-vs-langgraph.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "fb3460264af1037477d40d1f8f7e358017504194c3e61c58e48518457f848472",
+    "last_update": "2026-09-21T12:31:48+00:00"
+  },
+  "business/content/articles/ai-applications/adrs.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "200afe0d5bbdd7d5bf500eb4085e6e76b13c5849d9cb83515f91f6a3edc18d5b",
+    "last_update": "2026-09-21T12:31:36+00:00"
+  },
+  "business/content/articles/ai-applications/ai-generated-ui-feature-scale.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "49a0d2f364e44f42d2f2698adbd9c5529e5464e4a065068ca106b6f88527ca16",
+    "last_update": "2026-09-21T12:31:38+00:00"
+  },
+  "business/content/articles/ai-applications/ci-security.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "b05b24c7a57bde50f508e4abc029b128a32619e1d5a49e515d2bf2bd8ac099c5",
+    "last_update": "2026-09-21T12:31:24+00:00"
+  },
+  "business/content/articles/ai-applications/design-tokens-angular-ui.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "fc1071fed117204d07570eee941d8b6e4f4580b7d0c133b6948c3d938a42857e",
+    "last_update": "2026-09-21T12:30:59+00:00"
+  },
+  "business/content/articles/ai-applications/distributed-logging.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "f2a0a8fccc1577a61423f33783878aae69ede2b2bd40d0dbcdf6084ae83a6238",
+    "last_update": "2026-09-21T12:31:28+00:00"
+  },
+  "business/content/articles/ai-applications/doc-driven-development.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "36ee3ce0981fd8abda125e557a53060549b48abedd73ea5b7cd97facb136e0be",
+    "last_update": "2026-09-21T12:31:32+00:00"
+  },
+  "business/content/articles/ai-applications/docker-to-k3s-helm.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "08534facf445fad0093544aff3be9c28dcb23ab3dc546b3d4dbceb5b51ba649c",
+    "last_update": "2026-09-21T12:31:06+00:00"
+  },
+  "business/content/articles/ai-applications/durable-jobs.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "c0456248058c030d6786b6682396f16246535c25b59ce26476e0f8c7f12e3d94",
+    "last_update": "2026-09-21T12:31:03+00:00"
+  },
+  "business/content/articles/ai-applications/feature-sliced-fastapi.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "d9c564f752297bd7888e41c402bf2647cb6ea06db29d46e4a3ba7d0b6df5a6fa",
+    "last_update": "2026-09-21T12:30:57+00:00"
+  },
+  "business/content/articles/ai-applications/ffmpeg-primitives.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "a3570f8c247950200a1bdf43d2c7dc11c8f60f1213ec2212ac22a09081480f2b",
+    "last_update": "2026-09-21T12:31:22+00:00"
+  },
+  "business/content/articles/ai-applications/instagram-scraper.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "09f535699ca09ddd9a57fb23f2a5f0440cff1301d1c80a96d2459cfeb05bfd70",
+    "last_update": "2026-09-21T12:31:16+00:00"
+  },
+  "business/content/articles/ai-applications/keycloak-branding.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "d866e965ee5d1d903baab085057cbdb20ca17d60c50abfabed47ac7f75645d5c",
+    "last_update": "2026-09-21T12:31:30+00:00"
+  },
+  "business/content/articles/ai-applications/keycloak-identity.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "9b407d42e1cb2487fbfa0bc1e3210ad1a447c001d328d3cebab74d458cf41573",
+    "last_update": "2026-09-21T12:31:08+00:00"
+  },
+  "business/content/articles/ai-applications/magic-links-auth.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "210249329040a34b3d12dc317e1dfd1cf69446b386e6aa58a2aa8dd16fa8cb5a",
+    "last_update": "2026-09-21T12:31:26+00:00"
+  },
+  "business/content/articles/ai-applications/model-registry-ui.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "0ab3097bdd9b554735913cd7e272be634d4c4476015c961b4b0403378093f49c",
+    "last_update": "2026-09-21T12:31:12+00:00"
+  },
+  "business/content/articles/ai-applications/multi-repo-architecture.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "867f5fdb3ac542239ff51c3a1afc9181945000722973a09708c58ea9f414d95f",
+    "last_update": "2026-09-21T12:31:34+00:00"
+  },
+  "business/content/articles/ai-applications/no-class-states-refactor.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "2d96168980cb9a003d32a25218b863c2e905e7cc20509c412f3e69e7d4045530",
+    "last_update": "2026-09-21T12:31:10+00:00"
+  },
+  "business/content/articles/ai-applications/real-time-recognition-websockets.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "64eacc4f7eeb5f42b73e952b60995c6c86c965fae092607dd127349c8a346eea",
+    "last_update": "2026-09-21T12:31:01+00:00"
+  },
+  "business/content/articles/ai-applications/training-studio.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "88074c08307cf1827a1ff11152e2197cabb0741236ea493a62ed8651fd9b5892",
+    "last_update": "2026-09-21T12:31:15+00:00"
+  },
+  "business/content/articles/generative-ai-rag/code-splitting.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "8631ec4e8beb21c9e549a77d371974dbe81317bcf4ee5115a60481300d4ceeea",
+    "last_update": "2026-09-21T12:32:11+00:00"
+  },
+  "business/content/articles/generative-ai-rag/llm-coaching-feedback.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "9e6ba52d1aeb8c8a9e0cd477a80ecad0c2f58479447a01f44b875b38f0bc9879",
+    "last_update": "2026-09-21T12:32:09+00:00"
+  },
+  "business/content/articles/generative-ai-rag/multimodal-rag.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "8d6273c202c5e136e4f73fe22d1df676f8c7fcb07243767e9aa4f674278d5651",
+    "last_update": "2026-09-21T12:32:05+00:00"
+  },
+  "business/content/articles/generative-ai-rag/offline-rag.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "ab9b969e91dd47a1fb0cba110d24d97a408859e31f58dd9690997a2cf48ca918",
+    "last_update": "2026-09-21T12:32:03+00:00"
+  },
+  "business/content/articles/generative-ai-rag/pymupdf-rag.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "0eed7f6c558ee5ff7d1e1f7bc361ec5776cb8bac294c1310ecdb74428f939347",
+    "last_update": "2026-09-21T12:32:13+00:00"
+  },
+  "business/content/articles/generative-ai-rag/self-hosted-llm-routing.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "68b330728ca812377293325c1991f4856d90358ff9a2a19a2daf2bd27e10e75c",
+    "last_update": "2026-09-21T12:32:07+00:00"
+  },
+  "business/content/articles/machine-learning/biomechanical-features.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "63acc90e532a400c2d5cee60a22fc6287f62620677582c3c1e590da05042b695",
+    "last_update": "2026-09-21T12:32:38+00:00"
+  },
+  "business/content/articles/machine-learning/chromadb-knn-voting.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "9fb6e27105b1e8965855fbf8acfcef9e4093ba882729196905f595ceb94afe1f",
+    "last_update": "2026-09-21T12:32:29+00:00"
+  },
+  "business/content/articles/machine-learning/cli-ml-pipeline.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "50bdef89a4ccb2839cd69c461079260622f9705a2e67b433a7bde621a05360f6",
+    "last_update": "2026-09-21T12:32:55+00:00"
+  },
+  "business/content/articles/machine-learning/defensive-training.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "d440f8687dbee99e35848f3f9b47c2b2e9ea804a0499d4329eed3d6c2f9e5507",
+    "last_update": "2026-09-21T12:32:50+00:00"
+  },
+  "business/content/articles/machine-learning/histogram-zscores.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "1156cbc1f8a3a6f8d25f451779a0db32916675b8b8b5f8fd18dded3938fdfcd7",
+    "last_update": "2026-09-21T12:32:44+00:00"
+  },
+  "business/content/articles/machine-learning/human-in-the-loop-promotion.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "4808f53bfd4a14ce05e852d6f040faa2628201c3a57a311aa4d4a1ce7edbff7f",
+    "last_update": "2026-09-21T12:33:00+00:00"
+  },
+  "business/content/articles/machine-learning/hybrid-classifier.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "c42ed27b0c23d1b2cf0cf5460d2694cfd084f92c6139d1a81064594404dccb2e",
+    "last_update": "2026-09-21T12:32:22+00:00"
+  },
+  "business/content/articles/machine-learning/lstm-sequence-to-vector.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "5f51b7adc0195708f775481c245da21422335471a1788be720da975c843e460d",
+    "last_update": "2026-09-21T12:32:25+00:00"
+  },
+  "business/content/articles/machine-learning/mediapipe-pose-extraction.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "1abb20bebe43e6f30a01d0be13d4b9a6d210eeb9c5a1e2af9dc8fe121440aad7",
+    "last_update": "2026-09-21T12:32:26+00:00"
+  },
+  "business/content/articles/machine-learning/mediapipe-timestamp-bug.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "4097e79822434d5d92ce66ae701190bd7f2c2538b902ee67bdde0c4266b655c7",
+    "last_update": "2026-09-21T12:32:36+00:00"
+  },
+  "business/content/articles/machine-learning/model-persistence-retraining.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "bdc504e462b8574fa3546821fef78de4fffab399c459cfb0ecc24bace558139e",
+    "last_update": "2026-09-21T12:32:51+00:00"
+  },
+  "business/content/articles/machine-learning/phase-detection.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "b9247eeccdd80ecba19798ebc9170a540f273b483ea5016565bdf6d04861e5d9",
+    "last_update": "2026-09-21T12:32:41+00:00"
+  },
+  "business/content/articles/machine-learning/retrieval-augmented-recognition.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "6fb8d80dfeb22f0d7c6960db1f0209aa1885b3228002ae6e62905ad7b4529f11",
+    "last_update": "2026-09-21T12:33:02+00:00"
+  },
+  "business/content/articles/machine-learning/sliding-windows-small-data.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "a044bc4f4aa7ec70d2ccae87901ada93c8f7035be13d50ec62b280baa9bbf8b9",
+    "last_update": "2026-09-21T12:32:33+00:00"
+  },
+  "business/content/articles/machine-learning/testing-ml-pipeline.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "af452d00444572918ac54d1be1c541b22cf8e5db376ca9869ff417b690b9d295",
+    "last_update": "2026-09-21T12:32:58+00:00"
+  },
+  "business/content/articles/machine-learning/tfjs-int8-export.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "005c422c380579ce7ccc0b0bc8a6d5408e3ce4fd78e3f7fbad28a651497f07df",
+    "last_update": "2026-09-21T12:32:31+00:00"
+  },
+  "business/content/articles/machine-learning/videocutter.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "e63dcc4d292ece1b22c3cc3d05f1b968f2c7baeb2e419ae28471b4bb0641d88f",
+    "last_update": "2026-09-21T12:32:53+00:00"
+  },
+  "business/content/hero.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "1abe3652b31b58ddf026c5d68d16748a2648db80495def6ce9417080e0888bb3",
+    "last_update": "2026-09-21T12:30:17+00:00"
+  },
+  "business/content/sections/ai-agents.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "794df5c04c2b0b9eb44cd028632ed2f2220e6082b6f917e1b4ecb24823032215",
+    "last_update": "2026-09-21T12:30:26+00:00"
+  },
+  "business/content/sections/ai-applications.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "9c3b7e38a9cd1292b70acd9f2d0e9fd3b8f4505876d75d4dc97840b4d6a7c1d4",
+    "last_update": "2026-09-21T12:30:23+00:00"
+  },
+  "business/content/sections/generative-ai-rag.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "d8da745f1238ceae7e80478f110ca425ff709e07c1b800887b853c4a570e30b5",
+    "last_update": "2026-09-21T12:30:29+00:00"
+  },
+  "business/content/sections/machine-learning.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "cbe89d2b3d78ab8c1f4722fb4cfcaa2b18376e2c3ae5d47282975b34fb6c3eb5",
+    "last_update": "2026-09-21T12:30:34+00:00"
+  },
   "business/events/virtual-challenges.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
     "file_hash": "29851853aa30b979adebc592fbb2a031c522aa03636fe558e59ac3234739bc31",
@@ -2143,6 +2408,11 @@
     "created_date": "2026-09-10T14:47:18+00:00",
     "file_hash": "9da3f07790cfcaad4dad45bb79004631e4e9e503acef0b7ea9a628650d0a24f0",
     "last_update": "2026-09-10T14:45:09+00:00"
+  },
+  "business/page-design.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "d88c95c6ba83f30a3a9ad3bcf32d493ef28d24e40f04ef9fc4048b695b0950c3",
+    "last_update": "2026-09-21T12:30:13+00:00"
   },
   "business/per-service/grade-assessment.md": {
     "created_date": "2026-09-10T14:47:18+00:00",

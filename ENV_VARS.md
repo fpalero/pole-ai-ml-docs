@@ -76,14 +76,14 @@ the k3s Helm configmaps (`infrastracture/helm/pole-ai/charts/*/templates/configm
 | `LLM_DAILY_BUDGET_USD` | Per-user daily LLM budget. | `0.75` | float; default `0.75` |
 | `MAX_AGENT_ITERATIONS` | Max agent reasoning iterations. | `6` | positive int; default `6` |
 | `LLM_TIMEOUT` | LLM request timeout (seconds). | `120` | seconds; default `120` |
-| `CHATBOT_TURN_TIMEOUT` | Wall-clock budget for a whole agent turn (PAIML-POLE-API-095). | `120` | seconds; default `120` |
+| `CHATBOT_TURN_TIMEOUT` | Wall-clock budget for a single ReAct `agent.run` (PAIML-POLE-API-095; raised 120 → 240 by PAIML-POLE-API-129 so long analyst composed chains complete before the WS per-turn guard). Feeds `Settings.chatbot_max_turn_seconds` → `PoleLangGraphAgent.max_turn_seconds`; `LLM_TIMEOUT` (per-call LLM HTTP timeout) is a different knob. | `240` | seconds; default `240` (must stay < WS guard `ANALYST_WS_TURN_BUDGET_S` 300 and FE `TURN_BUDGET_MS` 360s) |
 | `CHATBOT_BLANK_MAX_RETRIES` | Max blank-completion retries before model fallback (PAIML-POLE-API-097). | `2` | int; default `2` |
 | `AGENT_REPHRASE_BUDGET` | Max agent rephrase attempts. | `2` | int; default `2` |
 | `CHATBOT_COLLECT_METRICS` | Collect chatbot usage metrics. | `true` | `0/1`, `true/false`; default off |
 | `CHATBOT_OUT_DIR` | Chatbot output directory (tool artifacts). | `chatbot_output` | path; default `chatbot_output` |
 | `CHATBOT_RATE_LIMIT_MAX` | Chatbot rate-limit max requests per window. | `10` | int; default `10` |
 | `CHATBOT_RATE_LIMIT_WINDOW_S` | Chatbot rate-limit window (seconds). | `30` | int; default `30` |
-| `ANALYST_WS_TURN_BUDGET_S` | Per-turn wall-clock budget for an analyst-chat WS turn — wraps the ENTIRE composed turn (brain + ReAct chain + retries + shaping) so a slow turn emits a terminal frame instead of zero frames (PAIML-POLE-API-126). | `300` | float seconds; default `300` (above supergraph 30s / ReAct 120s, below FE `TURN_BUDGET_MS` 360s) |
+| `ANALYST_WS_TURN_BUDGET_S` | Per-turn wall-clock budget for an analyst-chat WS turn — wraps the ENTIRE composed turn (brain + ReAct chain + retries + shaping) so a slow turn emits a terminal frame instead of zero frames (PAIML-POLE-API-126). | `300` | float seconds; default `300` (above supergraph 30s / ReAct 240s — PAIML-POLE-API-129, below FE `TURN_BUDGET_MS` 360s) |
 
 ### Auth / Keycloak (`app/pole_api/src/core/auth.py`)
 

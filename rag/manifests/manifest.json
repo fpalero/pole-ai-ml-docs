@@ -1096,8 +1096,8 @@
   },
   "app/pole_api/PROJECT_VARS.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "5ddd2c97c7840746dfdb51428555c96c7735d822284add41eb925143c6a5c2bb",
-    "last_update": "2026-09-22T07:07:59+00:00"
+    "file_hash": "df2a157142430c478fb1947d89502f3174c2d58f40b5fb66e06b1520b036ab32",
+    "last_update": "2026-09-22T11:40:26+00:00"
   },
   "app/pole_api/be_train_retrain_test_guide.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -1788,6 +1788,16 @@
     "created_date": "2026-09-22T07:08:11+00:00",
     "file_hash": "bb33e36592cf8fc38a777d4d8c813f256078cab17269acc1b9ec835ffa19e455",
     "last_update": "2026-09-22T09:12:57+00:00"
+  },
+  "app/pole_api/phase-42-coach-gate-25/PAIML-POLE-API-138.md": {
+    "created_date": "2026-09-22T11:40:38+00:00",
+    "file_hash": "384e51728ecfa0dbbd6a575336548e324170ecc6a25e47495293d26dd72397e5",
+    "last_update": "2026-09-22T11:40:01+00:00"
+  },
+  "app/pole_api/phase-42-coach-gate-25/PAIML-POLE-API-139.md": {
+    "created_date": "2026-09-22T11:40:38+00:00",
+    "file_hash": "7322dd8c976b4016740c339d1d95d511dc27f95591d5cfcd76a4a32b81ede84e",
+    "last_update": "2026-09-22T11:40:14+00:00"
   },
   "app/pole_api/plan/PLAN_PHASE_1.md": {
     "created_date": "2026-09-10T14:47:18+00:00",

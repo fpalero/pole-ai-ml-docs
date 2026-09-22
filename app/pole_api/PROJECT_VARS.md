@@ -1,7 +1,7 @@
 # Project Variables: pole_api
 
 ## Ticket Counter
-- **Last ticket number**: 133
+- **Last ticket number**: 137
 
 > Docs-unified: incoming `feature/PAIML-POLE-API-099-reviewer-leftovers` counter was 99 (older, 099 era); superseded, MAX 111 kept (099 file keep-both merged: 4-item bundle canonical + HEAD trimmed variant noted).
 
@@ -53,3 +53,4 @@
 > Docs-unified: incoming `feature/PAIML-POLE-DOCS-028-026-phase-docs-commit` counter was 87 (older); superseded, MAX 111 kept.
 > Docs-unified: incoming `docs/PAIML-POLE-API-083-coach-insights-positives` counter was 83 (older, 083 era); superseded, MAX 111 kept (083 file already present).
 > Docs-unified: incoming `feature/PAIML-POLE-API-099-reviewer-leftovers` 98/99 note (98 base-hash, 099 reviewer leftovers) already covered above; superseded, MAX 111 kept.
+> 134–137 = `phase-42-coach-gate-25/` iter-3 follow-ups (gate RED 19/25, user-confirmed docs-first): 134 = readiness tiered contract (T1/T2/T3) + RE-02 session-resolution; 135 = blank-retry on ABANDONED turns (VA-05/VA-02); 136 = deterministic readiness retrieval (RE-04); 137 = harness real-session discovery + fake seed-measurements revert (code PR #332).

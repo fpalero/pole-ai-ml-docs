@@ -1096,8 +1096,8 @@
   },
   "app/pole_api/PROJECT_VARS.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "e60dd0911e61d0519bb4a54f8c8c73d52ed37378f6804ee6cec60b902ac3db7e",
-    "last_update": "2026-09-21T22:52:55+00:00"
+    "file_hash": "5ddd2c97c7840746dfdb51428555c96c7735d822284add41eb925143c6a5c2bb",
+    "last_update": "2026-09-22T07:07:59+00:00"
   },
   "app/pole_api/be_train_retrain_test_guide.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -1768,6 +1768,26 @@
     "created_date": "2026-09-21T22:53:04+00:00",
     "file_hash": "6096b409f42b3f67bf9bd75907eebdf03cccfaa969ac5cf1d981f7f3a79cb8cd",
     "last_update": "2026-09-21T22:52:45+00:00"
+  },
+  "app/pole_api/phase-42-coach-gate-25/PAIML-POLE-API-134.md": {
+    "created_date": "2026-09-22T07:08:11+00:00",
+    "file_hash": "804f160fc16c2adbc9b2ea53448a7b3a446854dc68bd587c0a4fdc5d7c939f45",
+    "last_update": "2026-09-22T07:07:22+00:00"
+  },
+  "app/pole_api/phase-42-coach-gate-25/PAIML-POLE-API-135.md": {
+    "created_date": "2026-09-22T07:08:11+00:00",
+    "file_hash": "ce54890ed5c5334d9b1f2c5ef6de826b2b3351b210b0bfc7e7d6a6c28ec68f9d",
+    "last_update": "2026-09-22T07:07:29+00:00"
+  },
+  "app/pole_api/phase-42-coach-gate-25/PAIML-POLE-API-136.md": {
+    "created_date": "2026-09-22T07:08:11+00:00",
+    "file_hash": "1b792e11c6c61cfcb3e4476c76f6d7b88f01032ec41436b425c63b4b007a148c",
+    "last_update": "2026-09-22T07:07:35+00:00"
+  },
+  "app/pole_api/phase-42-coach-gate-25/PAIML-POLE-API-137.md": {
+    "created_date": "2026-09-22T07:08:11+00:00",
+    "file_hash": "d38511102be19a9a3c5f200be0f682d2260c610d4618ae63d0ad663b46a8042d",
+    "last_update": "2026-09-22T07:07:44+00:00"
   },
   "app/pole_api/plan/PLAN_PHASE_1.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -2501,8 +2521,8 @@
   },
   "dev-ops/PROJECT_VARS.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "1e782b0ad2041ba7240a9f314ec85dc425c1354309bdb4ee4879e0f041accffe",
-    "last_update": "2026-09-21T23:14:19+00:00"
+    "file_hash": "e67cb0b226b9102c55b063db1b3b80d1a9ef98b6f89abe34ac38b6c337c73775",
+    "last_update": "2026-09-22T07:07:59+00:00"
   },
   "dev-ops/keycloak-user-expiry/README.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -2523,6 +2543,11 @@
     "created_date": "2026-09-21T23:14:28+00:00",
     "file_hash": "4e5cf2c6cc086a6891eeed92262161f46b0b1b569789dc3d490c64435671462b",
     "last_update": "2026-09-21T23:19:33+00:00"
+  },
+  "dev-ops/phase-9-staging-seed-opt-in/PAIML-DEVOPS-003.md": {
+    "created_date": "2026-09-22T07:08:11+00:00",
+    "file_hash": "74f0e47888620819b5cdc3c4f8685c894866fce904414c2f5a4aa54ca424a7fe",
+    "last_update": "2026-09-22T07:07:51+00:00"
   },
   "diagrams/ARCHITECTURE.md": {
     "created_date": "2026-09-10T14:47:18+00:00",

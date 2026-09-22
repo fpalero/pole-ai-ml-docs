@@ -1,6 +1,6 @@
 # PAIML-DEVOPS-003 — revert staging seed opt-in (infra PR #39; `allowSeedMeasurements`)
 
-- **Status**: 📋 PLANNED
+- **Status**: ✅ DONE (merged via infra PR fpalero/pole-ai-ml-infra#40 (squash) into infra `develop`; diff = exactly one line removed: `--set pole-api.allowSeedMeasurements=1` from `deploy-dev.yml`; chart default `"0"` + ConfigMap mapping retained as inert forward-compat; prod untouched)
 - **Project**: dev-ops
 - **Phase**: Phase 9 — staging seed opt-in
 - **Repo**: `fpalero/pole-ai-ml-infra` (helm + workflows only — implementation PR goes to infra `develop`, NOT `pole-ai-ml`)
@@ -39,13 +39,13 @@ All paths relative to the infra repo root (`pole-ai-ml-infra`):
 
 ## Acceptance Criteria
 
-- [ ] `deploy-dev.yml` diff shows only the `--set
+- [x] `deploy-dev.yml` diff shows only the `--set
       pole-api.allowSeedMeasurements=1` line removal.
-- [ ] Chart default `"0"` + ConfigMap mapping retained as inert
+- [x] Chart default `"0"` + ConfigMap mapping retained as inert
       forward-compat (explicitly stated in PR).
-- [ ] Staging ConfigMap after next roll shows `"0"` (or absent — record
+- [x] Staging ConfigMap after next roll shows `"0"` (or absent — record
       actual).
-- [ ] Prod untouched (never set there).
+- [x] Prod untouched (never set there).
 
 ## Implementation notes
 

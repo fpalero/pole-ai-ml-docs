@@ -3,7 +3,7 @@
 ## Title
 Harness real-session discovery + revert fake seed-measurements endpoint (revert code PR #332; pole-ai-ml repo)
 
-- **Status**: 📋 PLANNED
+- **Status**: ✅ DONE (merged via code PR #333 → squash `9984851` into develop; local review APPROVED; CI green except one unrelated pre-existing vitest tab-spec flake `analysis-detail.page.spec.ts` 1132/1133 — recorded as observed flake)
 - **Project**: pole_api (harness + seed endpoint revert)
 - **Phase**: 42 coach-gate-25
 - **Blocks**: —
@@ -51,15 +51,16 @@ fake-seed approach is rejected, the endpoint must go.
    fake-seed call).
 
 ## Acceptance Criteria
-- [ ] Zero references to `seed-measurements` / forced-fake seeding in app +
-      harness.
-- [ ] PR #332 revert verified item-by-item (endpoint, helpers, setting, error
-      class conditional, tests); `_FakeJobRunner` fidelity fix kept only with
-      develop-failure proof, else reverted.
-- [ ] Harness lists required real sessions per trick (handspring + Shoulder
-      Mount convention defined); fail-fast message exact:
+- [x] Zero references to `seed-measurements` / forced-fake seeding in app +
+      harness (verified: zero `seed-measurements|seed_measurements|allow_seed|_seed_allowed` hits in app).
+- [x] PR #332 revert verified item-by-item (endpoint, helpers, setting, error
+      class conditional, tests) — `ForbiddenError` + test file deletion
+      reverted; `_FakeJobRunner` fidelity fix KEPT with develop-failure proof.
+- [x] Harness lists required real sessions per trick (handspring + Shoulder
+      Mount convention defined via find-or-use real sessions
+      `REAL_SESSION_TRICKS=['handspring','shoulder-mount']`); fail-fast message exact:
       "missing real session for \<trick\>".
-- [ ] No mock/fixture upload path remains in `seedCoachedVideo`/`ensureScored`.
+- [x] No mock/fixture upload path remains in `seedCoachedVideo`/`ensureScored`.
 
 ## Dependencies
 - **Blocked By**: — (pairs with DEVOPS-003 infra revert; neither blocks the

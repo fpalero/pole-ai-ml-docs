@@ -1,7 +1,7 @@
 # Project Variables: pole_api
 
 ## Ticket Counter
-- **Last ticket number**: 139
+- **Last ticket number**: 141
 
 > Docs-unified: incoming `feature/PAIML-POLE-API-099-reviewer-leftovers` counter was 99 (older, 099 era); superseded, MAX 111 kept (099 file keep-both merged: 4-item bundle canonical + HEAD trimmed variant noted).
 
@@ -55,3 +55,4 @@
 > Docs-unified: incoming `feature/PAIML-POLE-API-099-reviewer-leftovers` 98/99 note (98 base-hash, 099 reviewer leftovers) already covered above; superseded, MAX 111 kept.
 > 134–137 = `phase-42-coach-gate-25/` iter-3 follow-ups (gate RED 19/25, user-confirmed docs-first): 134 = readiness tiered contract (T1/T2/T3) + RE-02 session-resolution; 135 = blank-retry on ABANDONED turns (VA-05/VA-02); 136 = deterministic readiness retrieval (RE-04); 137 = harness real-session discovery + fake seed-measurements revert (code PR #332).
 > 138–139 = `phase-42-coach-gate-25/` local-k3s training-slice seeding (user-confirmed docs-first, NO mocks): 138 = training-flow seeding run (cleanup 4 analyst-seeded videos, 3 classes × 67 real clips 21/25/21, median-bounds phase frames handspring/shouldermount only, extract/process/embed + LSTM + cohort signals); 139 = `overall_score` computation + persistence (zero writers today → mean-of-scores formula, worker write + backfill, empty → None).
+> 140–141 = `phase-42-coach-gate-25/` local SAMPLE-5 gate 21/25 follow-ups (run `20260923-205700`, user-confirmed docs-first, deterministic only — grounded-summary explicitly REJECTED): 140 = md-first structural enforcement in shaping (drop whitespace-only md + prepend synthesized per-flow header, prompt prose-first line, unit tests); 141 = RE T2/T3 tier-appropriate spec assertions (test-only, tier shapes replace "matrix has data rows", T1 unchanged).

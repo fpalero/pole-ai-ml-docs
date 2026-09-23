@@ -4,15 +4,24 @@
 Readiness seed state missing measurements (Class C): seed session measurements so retrieval-with-hits preconditions hold (RE-01, RE-02, RE-03, RE-05)
 
 ## Status
-✅ DONE — follow-up gate-fix ticket for phase-42 coach-gate-25, SAMPLE-5 gate
-run `sample5-647d57e-20260921-205203` (**15/25, RED**). Merged via code PR #332 → `3a335cf` (local review APPROVED, CI green; `seed-measurements` endpoint via FakeSkeletonExtractor).
+🔀 SUPERSEDED — terminal, will never resume. Retained as decision record only.
 
-- **Status**: ✅ DONE
+- **Status**: 🔀 SUPERSEDED
 - **Project**: pole_api (seed/coach flow + e2e harness)
 - **Phase**: 42 coach-gate-25
 - **Blocks**: —
 - **Blocked By**: — independent of 129/130/132 (none of the four gate-fix
   tickets block each other).
+- **Superseded By**: PAIML-POLE-API-134 (tiered contract — scope heir).
+- **Reverted By**: PAIML-POLE-API-137 (PR #333).
+
+### Terminal note
+Code merged as PR #332 (`3a335cf`) but acceptance never met — iteration-3 gate:
+seeded handspring-only, bank asks 4+ tricks, so RE-01/02/03/05 stayed red.
+Approach rejected by user decision (no mock data). Code fully reverted by
+PAIML-POLE-API-137 (PR #333, zero remnants verified by two local reviews).
+Scope heir is PAIML-POLE-API-134 (tiered contract). Terminal: will never
+resume, retained as decision record only.
 
 ## Context
 

@@ -3,7 +3,7 @@
 ## Title
 Blank-retry on ABANDONED turns (VA-05 + flaky VA-02): detect degenerate/blank model output and retry/repair instead of finalizing ABANDONED
 
-- **Status**: 📋 PLANNED
+- **Status**: ✅ DONE (merged code PR #336 → squash `935cf3e`; local review APPROVED; blank predicate + 2 shared retries, 240/300/360 ladder intact, error semantics preserved; CI note: `pytest pole_api (scoped)` 25m38s job-timeout on self-hosted runner proven environmental — same suite green locally in 33s/1545 passed, recommend splitting job or raising timeout as follow-up).
 - **Project**: pole_api (analyst graph)
 - **Phase**: 42 coach-gate-25
 - **Blocks**: —

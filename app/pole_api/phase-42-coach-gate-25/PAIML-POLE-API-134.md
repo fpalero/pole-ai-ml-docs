@@ -3,7 +3,7 @@
 ## Title
 Readiness tiered answer contract (T1/T2/T3) + RE-02 session-resolution investigation (phase-42 gate iter-3 residual)
 
-- **Status**: 📋 PLANNED
+- **Status**: ✅ DONE (merged code PR #335 → squash `57fb906`; local review APPROVED after fixing 3 cross-user isolation blockers found in review — owner scoping in latest_scored_video_for_trick + owned_scored_labels + ask-once athlete plumbing, each with two-athlete regression tests; re-review APPROVED; tiered readiness T1/T2/T3 + RE-02 session-resolution fix live).
 - **Project**: pole_api (readiness flow + analyst graph)
 - **Phase**: 42 coach-gate-25
 - **Blocks**: —

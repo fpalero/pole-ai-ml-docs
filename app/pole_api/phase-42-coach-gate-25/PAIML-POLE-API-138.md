@@ -3,7 +3,7 @@
 ## Title
 Training-flow seeding run on LOCAL k3s (all via API): 67 real clips, phase frames, extract/process/embed + LSTM + cohort signals
 
-- **Status**: 📋 PLANNED
+- **Status**: ✅ DONE (ops-side completion, no code PR: 3 classes handspring/shouldermount/transition, 67 clips registered with real landmarks 67/67, proportional phase-frames HS+SM, extract/process 7,839 windows, LSTM trained acc 0.83/val-acc 0.96 run 20260922_120008 approved+ACTIVE, embeddings via train-reembed, cohort 10 docs + references 30 docs HS+SM, transition negative-class only; root-caused E2E_FAKES=1 stale ConfigMap key mid-run).
 - **Project**: pole_api (training slice seeding)
 - **Phase**: 42 coach-gate-25
 - **Blocks**: —

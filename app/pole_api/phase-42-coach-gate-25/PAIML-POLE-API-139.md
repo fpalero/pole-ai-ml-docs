@@ -3,7 +3,7 @@
 ## Title
 Implement `overall_score` computation + persistence (summary join reads None today)
 
-- **Status**: 📋 PLANNED
+- **Status**: ✅ DONE (merged via code PR #334 → squash `7c69e4f` into develop; local review APPROVED; CI green; plain-mean formula, worker + backfill persistence, empty→None; live proof: backfill stamped 72.39/68.05 on local histograms).
 - **Project**: pole_api (analysis histograms + summary)
 - **Phase**: 42 coach-gate-25
 - **Blocks**: —

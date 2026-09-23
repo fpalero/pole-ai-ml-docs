@@ -1,10 +1,10 @@
 # Implementation Plan — `infra` (CI/CD Deployment Pipeline)
 
-> **Environment reality (2026-09-10 — no prod exists):** the live
+> **Environment reality (2026-09-23 — no prod exists):** the live
 > staging/pre-prod stack is namespace `pole-ai` on `ipsf-server` served on
-> DuckDNS hosts (`pole-coach.duckdns.org`, `pole-ml.duckdns.org`,
-> `pole-keycloack.duckdns.org`) from `values-prod.yaml` (historical name, NOT
-> production traffic). Namespace `pole-ai-staging` + `*.pole.local` is the
+> DuckDNS hosts (`demo-ai-agent.duckdns.org`, `demo-ml-agent.duckdns.org`,
+> `demo-ai-keycloak.duckdns.org`) from `values-dev.yaml` (renamed from the
+> historical `values-prod.yaml` by PAIML-INFRA-031; NOT production traffic). Namespace `pole-ai-staging` + `*.pole.local` is the
 > local/legacy staging overlay. `pole-ai-prod` below is planned only.
 >
 > **Status:** Phases 1–2 largely landed in code (build-push GitHub Action + deploy workflows).

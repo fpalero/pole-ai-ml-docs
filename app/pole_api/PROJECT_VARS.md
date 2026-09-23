@@ -1,7 +1,7 @@
 # Project Variables: pole_api
 
 ## Ticket Counter
-- **Last ticket number**: 141
+- **Last ticket number**: 143
 
 > Docs-unified: incoming `feature/PAIML-POLE-API-099-reviewer-leftovers` counter was 99 (older, 099 era); superseded, MAX 111 kept (099 file keep-both merged: 4-item bundle canonical + HEAD trimmed variant noted).
 
@@ -56,3 +56,4 @@
 > 134–137 = `phase-42-coach-gate-25/` iter-3 follow-ups (gate RED 19/25, user-confirmed docs-first): 134 = readiness tiered contract (T1/T2/T3) + RE-02 session-resolution; 135 = blank-retry on ABANDONED turns (VA-05/VA-02); 136 = deterministic readiness retrieval (RE-04); 137 = harness real-session discovery + fake seed-measurements revert (code PR #332).
 > 138–139 = `phase-42-coach-gate-25/` local-k3s training-slice seeding (user-confirmed docs-first, NO mocks): 138 = training-flow seeding run (cleanup 4 analyst-seeded videos, 3 classes × 67 real clips 21/25/21, median-bounds phase frames handspring/shouldermount only, extract/process/embed + LSTM + cohort signals); 139 = `overall_score` computation + persistence (zero writers today → mean-of-scores formula, worker write + backfill, empty → None).
 > 140–141 = `phase-42-coach-gate-25/` local SAMPLE-5 gate 21/25 follow-ups (run `20260923-205700`, user-confirmed docs-first, deterministic only — grounded-summary explicitly REJECTED): 140 = md-first structural enforcement in shaping (drop whitespace-only md + prepend synthesized per-flow header, prompt prose-first line, unit tests); 141 = RE T2/T3 tier-appropriate spec assertions (test-only, tier shapes replace "matrix has data rows", T1 unchanged).
+> 142–143 = `phase-42-coach-gate-25/` local SAMPLE-5 21/25 follow-ups (run `20260923-205700` + targeted rerun, images develop `66a9d83`, 124–141 live verified in-pod, all real data no mocks, user-confirmed docs-first): 142 = RE-05 blank death with no retry trace, forensics-first (135 retry fired-but-unlogged vs ReAct-path coverage gap); 143 = answer-shape alignment, 141 classifier vs actual emission + PR-02 routing (T2 markers on delegated paths, resolved-trick matrix routing, T1 untouched).

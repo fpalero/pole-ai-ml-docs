@@ -56,8 +56,8 @@
   },
   "app/infra/PROJECT_VARS.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "44b661d7a2d231387c5390fec2926a4b546442a768badb8244f4830d1cc8008a",
-    "last_update": "2026-09-10T14:45:54+00:00"
+    "file_hash": "c28fe1779204be50587d6471dd59e90101a33f9adf0c79a4b2ffe297c11143fd",
+    "last_update": "2026-09-23T20:25:37+00:00"
   },
   "app/infra/phase-1-ghcr-build-push/PAIML-INFRA-001.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -133,6 +133,16 @@
     "created_date": "2026-09-10T14:47:18+00:00",
     "file_hash": "03f6d0c64e6d4a82d7f285946084da99e50b184220e9307c9c632ca520812149",
     "last_update": "2026-08-31T20:36:34+00:00"
+  },
+  "app/infra/phase-3-staging-prod-pipeline/PAIML-INFRA-030.md": {
+    "created_date": "2026-09-23T20:23:31+00:00",
+    "file_hash": "abebdb6181fd59b66b9ea94dcfff6d568ee23adcc92cd427f41a0d3850ee05e6",
+    "last_update": "2026-09-23T20:23:18+00:00"
+  },
+  "app/infra/phase-3-staging-prod-pipeline/PAIML-INFRA-031.md": {
+    "created_date": "2026-09-23T20:25:46+00:00",
+    "file_hash": "c7a54f76ec6f6ce5eda2cc93949d1fe6b090f6ecace8cb7a979a892d5fe8b4af",
+    "last_update": "2026-09-23T20:25:33+00:00"
   },
   "app/infra/phase-4-security-notifications/PAIML-INFRA-011.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -1096,8 +1106,8 @@
   },
   "app/pole_api/PROJECT_VARS.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "4a751c7c0ae0d4f0c63312538f1a036f9296ac8e2c7219eb05a2d575cd916a3f",
-    "last_update": "2026-09-23T19:16:30+00:00"
+    "file_hash": "38c68bb8acff197d952d567382bbcf625c581b44c3ebabb2b3094b18f7d5005b",
+    "last_update": "2026-09-23T20:30:02+00:00"
   },
   "app/pole_api/be_train_retrain_test_guide.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -1813,6 +1823,16 @@
     "created_date": "2026-09-23T19:16:39+00:00",
     "file_hash": "b5d1c022ba9e3b5625d739271c23889e4d9aa6a38441eb650b1f3d27211ff81c",
     "last_update": "2026-09-23T19:16:26+00:00"
+  },
+  "app/pole_api/phase-42-coach-gate-25/PAIML-POLE-API-142.md": {
+    "created_date": "2026-09-23T20:30:11+00:00",
+    "file_hash": "ce845bd76e34d428b98d5f441e3722537022030927a1d1ea641b948d9cf0392e",
+    "last_update": "2026-09-23T20:29:56+00:00"
+  },
+  "app/pole_api/phase-42-coach-gate-25/PAIML-POLE-API-143.md": {
+    "created_date": "2026-09-23T20:30:11+00:00",
+    "file_hash": "970f932afae32a73f049f7bc9fc9f4a2dd7bcb5a65d18ea2fd4c44b95bcf3c2d",
+    "last_update": "2026-09-23T20:29:56+00:00"
   },
   "app/pole_api/plan/PLAN_PHASE_1.md": {
     "created_date": "2026-09-10T14:47:18+00:00",

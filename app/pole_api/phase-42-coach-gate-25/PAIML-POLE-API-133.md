@@ -4,9 +4,9 @@
 131 review nits bundle (non-blocking)
 
 ## Status
-📋 PLANNED — parked non-blocking follow-ups from the local review of code PR #332 (PAIML-POLE-API-131).
+✅ DONE — 131 review nits bundle merged (code PR #338 → squash `6a7b725` into develop per user override; local review APPROVED — hygiene-only verified: per-line noqas honest, fake mirrors real submit param-for-param, get_pose_frames restoration byte-faithful, 24+7 tests green locally; CI red at merge time = self-hosted runner disk-full infra `No space left on device`, not code — recorded).
 
-- **Status**: 📋 PLANNED
+- **Status**: ✅ DONE
 - **Project**: pole_api (seed/coach flow + e2e harness)
 - **Phase**: 42 coach-gate-25
 - **Blocks**: —

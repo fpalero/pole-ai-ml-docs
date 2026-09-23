@@ -266,13 +266,13 @@
   },
   "app/keycloak/PLAN.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "062e59b4023c35cca29711be0af2a156f22a12cceed199e5bc893fed7ea91eed",
-    "last_update": "2026-09-09T14:48:45+00:00"
+    "file_hash": "5d09d578b6df28d10f0fb07ec7d2b0cd0499e45366874971f0f4331c8c35cc22",
+    "last_update": "2026-09-23T23:50:02+00:00"
   },
   "app/keycloak/PROJECT_VARS.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "a707c74bb1adbb323f2e0053e71929bb809c249639088caf754fc0faffff78ea",
-    "last_update": "2026-09-10T14:45:09+00:00"
+    "file_hash": "1d833c89a917bd0b667bf1a9dc0255ebb0d8f9c55fa550d1817e9785080ef3f1",
+    "last_update": "2026-09-23T23:50:04+00:00"
   },
   "app/keycloak/phase-1-keycloak-realm-theme/PAIML-KEYCLOAK-001.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -374,6 +374,31 @@
     "file_hash": "6e1e979a7ab437f61ba11e23f5ab2a99b3f10bb79a88e438ac67c90c9205daf5",
     "last_update": "2026-09-04T13:45:45+00:00"
   },
+  "app/keycloak/phase-9-passwordless-link-code/PAIML-KEYCLOAK-021.md": {
+    "created_date": "2026-09-23T23:50:16+00:00",
+    "file_hash": "dfe19400344ca393413ff0e60b04ec4b7e5a0e59ea20e4fed2ab4b3db1c6c23a",
+    "last_update": "2026-09-23T23:49:55+00:00"
+  },
+  "app/keycloak/phase-9-passwordless-link-code/PAIML-KEYCLOAK-022.md": {
+    "created_date": "2026-09-23T23:50:16+00:00",
+    "file_hash": "c3abc21157b6858e17ce8c1c790fcfe9861138d690e973df8665e98b7c58a221",
+    "last_update": "2026-09-23T23:49:55+00:00"
+  },
+  "app/keycloak/phase-9-passwordless-link-code/PAIML-KEYCLOAK-023.md": {
+    "created_date": "2026-09-23T23:50:16+00:00",
+    "file_hash": "8c1ded6029384a7af27d1bfe82f3576cd80abafdedd8a83282d534a3491ca93c",
+    "last_update": "2026-09-23T23:49:55+00:00"
+  },
+  "app/keycloak/phase-9-passwordless-link-code/PAIML-KEYCLOAK-024.md": {
+    "created_date": "2026-09-23T23:50:16+00:00",
+    "file_hash": "00f6036288488ae9e39c3a06e78c014b1d482d979820775766291ce06ea3d838",
+    "last_update": "2026-09-23T23:49:55+00:00"
+  },
+  "app/keycloak/phase-9-passwordless-link-code/PAIML-KEYCLOAK-025.md": {
+    "created_date": "2026-09-23T23:50:16+00:00",
+    "file_hash": "94e8ab13467ef8d1bdcee51a7820313505f74ab189ec09a10c93b23781ca5b83",
+    "last_update": "2026-09-23T23:49:55+00:00"
+  },
   "app/keycloak/plan/PLAN_PHASE_1.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
     "file_hash": "6970183faa0cc28ef51690a611232d86f76ba16b86f54a163259942e2f1de48d",
@@ -408,6 +433,11 @@
     "created_date": "2026-09-10T14:47:18+00:00",
     "file_hash": "c2a3231cfd41cf55b2cab4fc4030ca1dc5f0b37041c0bb9367204bbafbc31238",
     "last_update": "2026-09-04T13:45:45+00:00"
+  },
+  "app/keycloak/plan/PLAN_PHASE_9.md": {
+    "created_date": "2026-09-23T23:50:16+00:00",
+    "file_hash": "afa874b2d7bbb22f94c8bb86c6851b5ee86dc7fda3242aaef3664652c3abbca2",
+    "last_update": "2026-09-23T23:49:17+00:00"
   },
   "app/pola_agent/PLAN.md": {
     "created_date": "2026-09-10T14:47:18+00:00",

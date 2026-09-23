@@ -3,7 +3,7 @@
 ## Title
 Deterministic readiness retrieval for RE-04 (tool-selection nondeterminism, same class ticket 125 cured in plan/injury)
 
-- **Status**: 📋 PLANNED
+- **Status**: ✅ DONE (merged code PR #337 → squash `b614d68`; local review APPROVED; deterministic readiness retrieval via 125-mirror domain pinning + evidence backstop + no-delegate rule; team-lead fixed 2 ruff auto-fixables pre-merge (RUF100 unused-noqa, I001 import sort); CI note: `pytest pole_api (scoped)` 25-min self-hosted-runner job timeout pattern — suite proven green locally, split/raise-timeout follow-up already recorded under 135).
 - **Project**: pole_api (readiness path)
 - **Phase**: 42 coach-gate-25
 - **Blocks**: —

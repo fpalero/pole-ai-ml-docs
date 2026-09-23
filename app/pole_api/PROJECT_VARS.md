@@ -1,7 +1,7 @@
 # Project Variables: pole_api
 
 ## Ticket Counter
-- **Last ticket number**: 143
+- **Last ticket number**: 145
 
 > Docs-unified: incoming `feature/PAIML-POLE-API-099-reviewer-leftovers` counter was 99 (older, 099 era); superseded, MAX 111 kept (099 file keep-both merged: 4-item bundle canonical + HEAD trimmed variant noted).
 
@@ -57,3 +57,4 @@
 > 138–139 = `phase-42-coach-gate-25/` local-k3s training-slice seeding (user-confirmed docs-first, NO mocks): 138 = training-flow seeding run (cleanup 4 analyst-seeded videos, 3 classes × 67 real clips 21/25/21, median-bounds phase frames handspring/shouldermount only, extract/process/embed + LSTM + cohort signals); 139 = `overall_score` computation + persistence (zero writers today → mean-of-scores formula, worker write + backfill, empty → None).
 > 140–141 = `phase-42-coach-gate-25/` local SAMPLE-5 gate 21/25 follow-ups (run `20260923-205700`, user-confirmed docs-first, deterministic only — grounded-summary explicitly REJECTED): 140 = md-first structural enforcement in shaping (drop whitespace-only md + prepend synthesized per-flow header, prompt prose-first line, unit tests); 141 = RE T2/T3 tier-appropriate spec assertions (test-only, tier shapes replace "matrix has data rows", T1 unchanged).
 > 142–143 = `phase-42-coach-gate-25/` local SAMPLE-5 21/25 follow-ups (run `20260923-205700` + targeted rerun, images develop `66a9d83`, 124–141 live verified in-pod, all real data no mocks, user-confirmed docs-first): 142 = RE-05 blank death with no retry trace, forensics-first (135 retry fired-but-unlogged vs ReAct-path coverage gap); 143 = answer-shape alignment, 141 classifier vs actual emission + PR-02 routing (T2 markers on delegated paths, resolved-trick matrix routing, T1 untouched).
+> 144–145 = `phase-42-coach-gate-25/` local gate 21/25 follow-ups (run log `/tmp/coach-full-7ed.log` on develop `7ed367f`, 142+143 live: VA 5/5, PR 4/5 PR-04, TP 4/5 TP-02, IN 5/5, RE 3/5 RE-01/RE-04/RE-05; 142 blank deaths gone, 143 routing proven; user-confirmed docs-first): 144 = finish 143's tier-marker emission on ReAct-delegated readiness paths RE-01/RE-04 (T2/T3 byte-identical, single-source `readiness_tiers`); 145 = spec/harness hardening test-only (multi-element locators, `.auth/state.json` race, GATE tally source).

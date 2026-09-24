@@ -152,16 +152,16 @@ flowchart LR
 
 ---
 
-## 4. Environments (clarified 2026-09-10 — no prod exists)
+## 4. Environments (clarified 2026-09-10; hosts refreshed 2026-09-24 via PAIML-INFRA-031 — no prod exists)
 
 - **Current staging/pre-prod (live):** namespace `pole-ai` on `ipsf-server`
   (release `pole-ai`, ingress `pole-ai/pole-ai-pole-analyst`), served on public
-  DuckDNS hosts `pole-coach.duckdns.org`, `pole-ml.duckdns.org`,
-  `pole-keycloack.duckdns.org`. Backend ConfigMap `pole-ai-pole-api-env`:
+  DuckDNS hosts `demo-ml-agent.duckdns.org`, `demo-ai-agent.duckdns.org`,
+  `demo-ai-keycloak.duckdns.org` (all → 9.246.41.207) from `values-dev.yaml`. Backend ConfigMap `pole-ai-pole-api-env`:
   `POLE_API_DB=pole_api`, `SKELETON_DB=skeleton_data`,
   `ANALYSIS_DB=analysis_db`, `AUTH_ENABLED=1`. Seeded E2E writes to these
   working DBs are accepted while no prod exists.
 - **Local/legacy staging overlay:** namespace `pole-ai-staging`, served only on
   `*.pole.local` hosts (`pole-analyst.local`, `api.pole.local`, `keycloak.pole.local`).
-- **Naming trap:** `values-prod.yaml` (`poleAnalystHost`) is historical — it
-  renders the DuckDNS staging stack above, NOT production traffic.
+- **Naming trap:** `values-prod.yaml` was deleted by PAIML-INFRA-031 (historical/misleading name) —
+  `values-dev.yaml` renders the DuckDNS staging stack above, NOT production traffic.

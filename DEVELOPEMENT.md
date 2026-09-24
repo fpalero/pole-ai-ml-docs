@@ -24,7 +24,7 @@ It is generated from the authoritative plans under `docs/app/<project>/PLAN.md` 
 | [`pole_api`](#apppole_api) | App | FastAPI backend: training, crawler, video, tools & analysis slices. | 26 done · 2 partial/future (10, 42) · 8 planned (27–29, 34, 37, 39–41) |
 | [`pole_analyst`](#apppole_analyst) | App | Angular FE "Pole AI Coach" — athlete video-analysis coach (upload → analyze → feedback → chat). | 21 done · 1 partial (19) · 1 future (7) · 7 planned (21–25, 27, 33) |
 | [`pole_fe`](#apppole_fe) | App | Angular FE training-workflow manager (tricks, video editor, studio, model registry, jobs). | 11/12 phases done · 1 future |
-| [`infra`](#appinfra) | App | CI/CD deploy pipeline: Helm, GHCR build-push, DEV/STAGING/PROD auto-deploy + observability logs. | Phases 1–2 landed (026 PAT+belt, 027 sha-tag E2E green) · 3–5 ticketed · 6–8 planned |
+| [`infra`](#appinfra) | App | CI/CD deploy pipeline: Helm, GHCR build-push, DEV/STAGING/PROD deploy + Keycloak realm-sync + observability logs. | Phases 1–3 landed (027 sha-tag E2E green · 028–037 demo hosts/memory/kubeconfig/realm-sync) · 4–5 ticketed · 6–8 planned |
 | [`keycloak`](#appkeycloak) | App | Temporary magic-link access (custom login theme, verify-email, Redis cooldown/activation, expiry purge). | 7/8 phases done · 1 partial |
 | [`dev-ops`](#appdev-ops) | App | GitHub Actions CI/CD: PR gate, phase-completion, full-suite, MediaPipe, nightly docs. | Phases 1–7 planned (unticketed, counter 0) |
 | [`chatbot`](#packageschatbot) | Package | ReAct conversational agent backend (WebSocket, tools, OpenCode client). | Complete (v1) |
@@ -229,7 +229,7 @@ phases 27–29, 34, 37, 39–41 📋 PLANNED (as of 2026-09-18).
 **Angular SPA "Pole AI Coach"** — the athlete-facing video-analysis coach: upload → analyze →
 feedback → conversation. Two panes (chat left, tools right), resilient WebSocket, light theme,
 lazy-loaded features. Consumes the `pole_api` `analysis` slice (done). Phases 1–18, 20, 30–32 done
-(`PAIML-POLE-ANALYST-001..069, 078(30), 079, 080`); Phase 19 PARTIAL (`-066`); Phase 7 (Keycloak)
+(`PAIML-POLE-ANALYST-001..069, 078(30), 079, 080, 084`); Phase 19 PARTIAL (`-066`); Phase 7 (Keycloak)
 deferred; phases 21–25, 27, 33 planned.
 
 | Phase | Description | Status |
@@ -261,7 +261,7 @@ deferred; phases 21–25, 27, 33 planned.
 | 25 — Analysis summary plain language | Coach sentences; no metric ids / z-scores / frame numbers / deviation counts (`074`). | **Planned** |
 | 27 — Question-card status chip | Status ONLY on user question card; supersedes 073 thinking-bubble, reuses retry contract (`078`). | **Planned** |
 | 30 — Responsive pixel-perfect Stitch | LIGHT only, login excluido, single-ticket 078 + ajuste tests. | **Done** (code PR #297, `244661a`) |
-| 31 — Baseline test repair + lint gate | 9 files/80 tests + `lint` target + FE PR checks antes de `/oc`. | **Done** (code PR #300, checks green) |
+| 31 — Baseline test repair + lint gate + smoke drift | 9 files/80 tests + `lint` target + FE PR checks (079, #300) + smoke quick-reply pills 6→7 (084, #344). | **Done** |
 | 32 — Chatbot welcome message | Capabilities overview + clickable quick-reply pills. | **Done** (#301, merged `d1778c1`) |
 | 33 — Capability catalog expansion | Synonym/keyword routing (082 BE) + welcome message expansion (083 FE). | **Planned** |
 
@@ -347,8 +347,9 @@ deferred; phases 21–25, 27, 33 planned.
 #### Phase 30 — Responsive pixel-perfect Stitch (1 ticket)
 - **PAIML-POLE-ANALYST-078 — Responsive pixel-perfect Stitch Pole AI Coach** — LIGHT only, login excluido; single-ticket 078 + ajuste de tests afectados (code PR #297, `244661a`).
 
-#### Phase 31 — Baseline test repair + lint gate (1 ticket)
+#### Phase 31 — Baseline test repair + lint gate + smoke drift (2 tickets)
 - **PAIML-POLE-ANALYST-079 — Repair red baseline (9 files/80 tests) + `lint` target** — FE PR checks before `/oc` review (code PR #300, checks green).
+- **PAIML-POLE-ANALYST-084 — Fix smoke E2E drift: welcome quick-reply pills 6→7** — Spec-only count fix; source renders 7 `quick_replies` (code PR #344, no prod change).
 
 #### Phase 32 — Chatbot welcome message (1 ticket)
 - **PAIML-POLE-ANALYST-080 — Welcome message with capabilities overview** — Clickable quick-reply pills (merged #301 `d1778c1`).
@@ -402,6 +403,7 @@ studio, model registry, system jobs, class stats histograms. Playwright E2E done
 #### Additional FE harness tickets
 - **PAIML-POLE-FE-014 — Add `AUTH_ENABLED=0` to pole_fe Playwright backend harness** — FE-014 (folder `phase-13-playwright-auth-harness`).
 - **PAIML-POLE-FE-015 — Fix staging-gate harness failure (`fe-e2e` UI-shell suite)** — Blocks on Keycloak `login-required` with no IdP reachable (no FE auth bypass; folder `phase-8-e2e-playwright`).
+- **PAIML-POLE-FE-016 — Remote (staging) mode for the Playwright harness** — `E2E_USE_REMOTE_BACKEND`/`E2E_BASE_URL`/`E2E_API_BASE` + Keycloak auth setup mirroring analyst; local hermetic default unchanged (code PR #347, no prod change).
 
 ---
 
@@ -478,27 +480,48 @@ Phases 1–7 ✅ DONE; Phase 8 🟡 PARTIAL. 20 tickets (`PAIML-KEYCLOAK-001..02
 
 ### `app/infra`
 **CI/CD deploy pipeline.** Helm umbrella charts for local k3s, GHCR build & push, DEV/STAGING/PROD
-auto-deploy + observability (elastic-stack, pole-api structured logging, packages log shipping).
-Phases 1–2 have landed in code (`build-push.yml`, `deploy-prod.yml`, `deploy-staging.yml`,
-repository_dispatch deploy-dev, `build-reconcile.yml` belt, PAT-authenticated `/oc` merges,
-short-sha tag deploy loop E2E green on `85e6148`); Phases 3–5 are ticketed; Phases 6–8 are planned.
-27 tickets (`PAIML-INFRA-001..027`, counter=27); 8 phase folders
-(`phase-1-ghcr-build-push` … `phase-8-packages-logs`).
+deploy + Keycloak realm-sync hook + observability (elastic-stack, pole-api structured logging,
+packages log shipping). Phases 1–3 have landed in code (`build-push.yml`, `deploy-dev.yml`,
+`deploy-staging.yml`, `deploy-prod.yml`, `build-reconcile.yml` belt, PAT-authenticated `/oc` merges,
+short-sha tag deploy loop E2E green on `85e6148`, `values-dev.yaml` demo-* hosts, realm-sync Job);
+Phases 4–5 are ticketed; Phases 6–8 are planned. 37 tickets (`PAIML-INFRA-001..037`, counter=37);
+8 phase folders (`phase-1-ghcr-build-push` … `phase-8-packages-logs`). Unticketed: local ollama host
+override `192.168.2.103` (infra #50).
 
 | Phase | Description | Status |
 | :--- | :--- | :--- |
 | 1 — Helm Charts & Local Deploy (Foundation) | Umbrella `helm/pole-ai` chart + build-push/deploy/teardown scripts + local registry mirror. | **Landed in code** |
-| 2 — Build & Push to GHCR + auto-trigger + sha-tag deploy | `.github/workflows/build-push.yml` (push to main/develop), Docker layer caching, SHA/branch/semver tags, Trivy scan; `PAIML-INFRA-026` PAT merge + `build-reconcile.yml` cron belt (both live on main); `PAIML-INFRA-027` short-sha tag deploy loop (E2E green, CLOSED). | **Done (026/027 CLOSED)** |
-| 3 — DEV Auto-Deploy | GitHub Environment `dev` + `.github/workflows/deploy-dev.yml` + Helm `--wait` + health check. | **Ticketed** |
-| 4 — STAGING & PROD Pipelines | `deploy-staging.yml` / `deploy-prod.yml`, manual gates, auto-rollback, Slack notifications. | **Landed in code (partial)** |
+| 2 — Build & Push to GHCR + DEV auto-deploy | `.github/workflows/build-push.yml` + `deploy-dev.yml` (dev env, `--wait`, health check); `PAIML-INFRA-026` PAT merge + `build-reconcile.yml` cron belt (live on main); `PAIML-INFRA-027` short-sha tag deploy loop (E2E green, CLOSED); `028` Traefik WS timeouts; `029` self-hosted runners. | **Done (026/027 CLOSED; 028/029 merged)** |
+| 3 — STAGING & PROD pipelines + demo hosts + deploy hardening | `deploy-staging.yml` / `deploy-prod.yml` (008/010, manual gates + rollback); demo-* DuckDNS hosts via `values-dev.yaml` (030 superseded → 031); pole-api 16Gi staging overlay (032); kubeconfig hardening (033/034); env-checksum rollout (035); realm re-import + user roles (036/037). | **Done (008/010/031–037 merged)** |
+| 4 — Security & Notifications | Slack webhook secrets + notification job in deploy workflows. | **Ticketed** |
 | 5 — Documentation & Health Verification | Environment protection rules + infrastructure README + post-deploy health verification. | **Ticketed** |
 | 6 — Elasticsearch + Kibana foundation | ES subchart (single-node, ILM 7-day), Kibana ingress + Keycloak SSO, cluster health check. | **Planned** |
 | 7 — Structured logging in pole_api | python-json-logger, LOG_LEVEL/LOG_SERVICE_NAME env, JSON format tests. | **Planned** |
 | 8 — Structured logging in packages + shipping | Shared logger in pole_tools, migrate pole_ml/crawler/jobs, Filebeat DaemonSet. | **Planned** |
 
-#### Phase 2 — Build & Push + auto-trigger + sha-tag deploy (PAIML-INFRA-026/027, CLOSED)
+#### Phase 2 — Build & Push + DEV auto-deploy (PAIML-INFRA-004/005/006/025/026/027/028/029)
+- **PAIML-INFRA-004 — Create GitHub Environment `dev`** — Auto-deploy environment, no protection rules.
+- **PAIML-INFRA-005 — Create DEV auto-deploy workflow** — `.github/workflows/deploy-dev.yml` (auto-deploy after build-push).
+- **PAIML-INFRA-006 — Health check verification in deploy workflow** — Post-deploy health check on the API.
+- **PAIML-INFRA-025 — Fix deploy-dev & build-push to check out `develop` instead of `main`** — Branch checkout fix.
 - **PAIML-INFRA-026 — Fix `/oc` review merges not triggering build-push + cron belt** — PAT-authenticated merges (`ML_REVIEW_PAT` in `opencode.yml`) so `develop` pushes fire `build-push.yml`; `build-reconcile.yml` cron every 15 min + `workflow_dispatch` reconciles any missed SHA. Both live on main.
 - **PAIML-INFRA-027 — Deploy staging with immutable short-sha tag** — `deploy-dev` dispatches short-sha (never rolling `develop`); `build-and-push` publishes the same sha tag (Step 4 build-side fix); E2E green on `develop@85e6148` (build `33962678392` → deploy `33963034087`, pod on `pole-api:85e6148`, 0 restarts, no manual rollout). CLOSED.
+- **PAIML-INFRA-028 — Raise Traefik WebSocket timeouts on pole-analyst + pole-fe ingresses** — Outer Traefik reset 60s-cut long agent turns (1–3 min) mid-reply; timeouts raised so chatbot answers reach the browser (infra #35).
+- **PAIML-INFRA-029 — Run build-push jobs on self-hosted runners (billing bypass)** — `ubuntu-latest` quota blocked (`billing: failed payments`); all three jobs moved to `[self-hosted, Linux, X64]`.
+
+#### Phase 3 — STAGING & PROD pipelines + demo hosts + deploy hardening (PAIML-INFRA-007/008/009/010/030/031/032/033/034/035/036/037)
+- **PAIML-INFRA-007 — Create GitHub Environment `staging`** — Manual-gate environment for staging deploys.
+- **PAIML-INFRA-008 — Create STAGING deploy workflow** — `deploy-staging.yml` (`workflow_dispatch`, `environment: staging` protection gate; infra #43).
+- **PAIML-INFRA-009 — Create GitHub Environment `prod`** — Manual-approval environment for prod deploys (planned-only stack).
+- **PAIML-INFRA-010 — Create PROD deploy workflow with rollback** — `deploy-prod.yml` (`helm upgrade --wait` + auto-rollback on failure; infra #44).
+- **PAIML-INFRA-030 — Point ipsf-server deploy to demo-* DuckDNS hosts via deploy-dev.yml** — First demo-hosts cutover attempt; **CLOSED/superseded by 031** (kept, not deleted).
+- **PAIML-INFRA-031 — Replace values-prod.yaml with values-dev.yaml (demo-* hosts)** — Delete misleading `values-prod.yaml`; new `values-dev.yaml` with verified `demo-ml-agent`/`demo-ai-agent`/`demo-ai-keycloak.duckdns.org` (→ 9.246.41.207); repoint `deploy-dev.yml` (infra #41).
+- **PAIML-INFRA-032 — Raise pole-api memory limit 8Gi → 16Gi on staging overlay** — `values-dev.yaml`-only override (MediaPipe/TF extract headroom; local default stays 8Gi; infra #42).
+- **PAIML-INFRA-033 — Harden kubeconfig context handling in deploy workflows** — Tolerant rename-to-`ipsf-server` + `use-context` so fresh `k3s.yaml` (`default` context) secrets work (infra #45).
+- **PAIML-INFRA-034 — Pin KUBECONFIG to runner-owned config in deploy workflows** — Export `KUBECONFIG=$HOME/.kube/config` so steps stop hitting root-owned `/etc/rancher/k3s/k3s.yaml` (infra #46).
+- **PAIML-INFRA-035 — Trigger FE/analyst rollout on env configmap change (checksum annotation)** — `checksum/env` pod-template annotation on both FE deployments; fixes stale `env.js` behind `subPath` mounts (infra #47).
+- **PAIML-INFRA-036 — Fix feClientRedirects leak + realm re-import on deploy** — `feClientRedirects` list in `values-dev.yaml` + post-deploy realm-sync hook Job (admin-API partial import) so the declarative realm stays authoritative (infra #48).
+- **PAIML-INFRA-037 — realm-sync must also apply declarative user realm-roles** — Reconcile `realmRoles` (`fe-user`/`analyst-user`) for `dev`/`fernando` without touching credentials; fixes post-deploy 403s (infra #49).
 
 ---
 

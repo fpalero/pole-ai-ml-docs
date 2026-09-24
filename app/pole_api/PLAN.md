@@ -102,6 +102,7 @@
 | 40 | BE PR checks gate + inline review-merge (auto-flow: be-checks → READ-ONLY review citing `gh pr checks` → approve + squash merge on green) | 📋 PLANNED | [phase-40-pr-checks-gate/](phase-40-pr-checks-gate/) |
 | 41 | BE PR checks gate + workflow_run-triggered review-merge, user-confirmed "option C" (test-jobs-only be-checks; `opencode.yml` triggered via `workflow_run`, no inline review job — supersedes Phase 40 inline design) | 📋 PLANNED | [phase-41-pr-checks-gate-workflow-run/](phase-41-pr-checks-gate-workflow-run/) |
 | 42 | Coach 25-battery gate: ground all unanswered flows (SAMPLE-5 8/25 → 25/25; FC1 tool-proof progress [122] + FC2 no-context fallback [122] + FC3 fail-closed images [122, symptom] / hash unverifiability deep-dive [123, FUTURE] + FC4 WS turn guard [122] + FC5 trick-less injury [122] + FC6 harness ping [122] + residuals: [124](phase-42-coach-gate-25/PAIML-POLE-API-124.md) (FE renderer + image) · [125](phase-42-coach-gate-25/PAIML-POLE-API-125.md) (prompt/tool-selection) · [126](phase-42-coach-gate-25/PAIML-POLE-API-126.md) (WS guard) · [127](phase-42-coach-gate-25/PAIML-POLE-API-127.md) (gate-25 backend regression fix) · [128](phase-42-coach-gate-25/PAIML-POLE-API-128.md) (upload-dropzone spec timeout flake)) | 🟡 PARTIAL — FC1 merged (`7501edb`); FC2–FC6 in progress; post-PR-#322 staging run `sample5-e743e61-20260912-083119` = 13/25 → residuals 124/125/126 📋 PLANNED; gate PARTIAL until full SAMPLE-5 25/25 | [phase-42-coach-gate-25/](phase-42-coach-gate-25/) |
+| 43 | Staging-gate residuals, staging SAMPLE-5 `20260924-163713` 22/25 → 25/25 (RE-04 Jade T2 citations [146] + RE-05 Brass Monkey T3 CTA [147] + VA tail-latency flake [148]; RE-01/RE-03 fixed by 144) | 📋 PLANNED | [PLAN_PHASE_43.md](plan/PLAN_PHASE_43.md) |
 
 > **Phase 42 note (2026-09-12):** post-PR-#322 staging run `sample5-e743e61-20260912-083119` = **13/25**;
 > residuals split into [124](phase-42-coach-gate-25/PAIML-POLE-API-124.md) (FE renderer + image),
@@ -113,6 +114,14 @@
 > contract) → [127](phase-42-coach-gate-25/PAIML-POLE-API-127.md);
 > upload-dropzone spec timeout flake (501MB allocation vs 5000ms vitest timeout)
 > → [128](phase-42-coach-gate-25/PAIML-POLE-API-128.md).
+>
+> **Phase 43 note (2026-09-24):** staging SAMPLE-5 `20260924-163713` = **22/25**
+> (VA 4/5 VA-05 timeout, RE 3/5 RE-04 T2-citations + RE-05 missing-CTA;
+> RE-01/RE-03 fixed by 144); residuals split into
+> [146](phase-43-staging-gate-residuals/PAIML-POLE-API-146.md) (RE-04 Jade T2),
+> [147](phase-43-staging-gate-residuals/PAIML-POLE-API-147.md) (RE-05 T3 CTA),
+> [148](phase-43-staging-gate-residuals/PAIML-POLE-API-148.md) (VA tail-latency
+> flake); phase gate stays **📋 PLANNED** until full SAMPLE-5 **25/25**.
 
 ---
 

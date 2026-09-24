@@ -1,9 +1,4 @@
 {
-  ".trash/Sin t\u00edtulo.md": {
-    "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "last_update": "2026-08-31T05:18:09+00:00"
-  },
   "DEVELOPEMENT.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
     "file_hash": "55415b35299ffabfa21ccbb8b50278e49ac3f589826516c7afbf3d6b250208fa",
@@ -1166,8 +1161,8 @@
   },
   "app/pole_api/PLAN.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "6f32749c854b24fe153ade017f1a0666232ae583167468aa72181eb0a9f9cbc4",
-    "last_update": "2026-09-21T12:07:39+00:00"
+    "file_hash": "17c076df34f40b42018a6e0711496b356cdfa17adcbae295860c8669efe5d8e7",
+    "last_update": "2026-09-24T17:19:25+00:00"
   },
   "app/pole_api/POLE-API.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -1919,6 +1914,21 @@
     "file_hash": "05702c802ae6ea7fb72d6bb1f381544465f8a65a2a881b5f99bbb020eab0f42b",
     "last_update": "2026-09-25T06:33:37+00:00"
   },
+  "app/pole_api/phase-43-staging-gate-residuals/PAIML-POLE-API-146.md": {
+    "created_date": "2026-09-24T17:21:01+00:00",
+    "file_hash": "f0a23df1b58abf79fa2c611610cfafd1ffc66cc3b290cec5c2a926b280bfc700",
+    "last_update": "2026-09-24T17:18:37+00:00"
+  },
+  "app/pole_api/phase-43-staging-gate-residuals/PAIML-POLE-API-147.md": {
+    "created_date": "2026-09-24T17:21:01+00:00",
+    "file_hash": "dac24f137512206bc796a36367b638f85e3239a75607e6cc0729ce00fa846762",
+    "last_update": "2026-09-24T17:18:45+00:00"
+  },
+  "app/pole_api/phase-43-staging-gate-residuals/PAIML-POLE-API-148.md": {
+    "created_date": "2026-09-24T17:21:01+00:00",
+    "file_hash": "5f934e9f80790ec7409f4ba095f03f8f588a85504e9eb43edc34e77925bd63e7",
+    "last_update": "2026-09-24T17:18:56+00:00"
+  },
   "app/pole_api/plan/PLAN_PHASE_1.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
     "file_hash": "2161484346244f3bc997a8d125d7c3e1030c1d6d55f2986ea3eabb24046d7f5d",
@@ -2053,6 +2063,11 @@
     "created_date": "2026-09-11T11:45:48+00:00",
     "file_hash": "588fc407cbbae679460a8fab08362a61e5b847044859aa845d7e9522024c359d",
     "last_update": "2026-09-12T07:42:38+00:00"
+  },
+  "app/pole_api/plan/PLAN_PHASE_43.md": {
+    "created_date": "2026-09-24T17:21:01+00:00",
+    "file_hash": "b3a210f34f2811166668ee3e6e214d3b822e33b0aa4fafd1fc7a9c691fe3ee50",
+    "last_update": "2026-09-24T17:19:12+00:00"
   },
   "app/pole_api/plan/PLAN_PHASE_5.md": {
     "created_date": "2026-09-10T14:47:18+00:00",

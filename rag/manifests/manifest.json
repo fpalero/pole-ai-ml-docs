@@ -56,8 +56,8 @@
   },
   "app/infra/PROJECT_VARS.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "13532ce987cc5c3ddc97184044b9f312b020bf216712df345822fbec62a1ef09",
-    "last_update": "2026-09-23T23:40:29+00:00"
+    "file_hash": "1f74f22f7d3229d5a55f59562d973b867485e4015a03dd8f49cba42940187366",
+    "last_update": "2026-09-24T00:06:18+00:00"
   },
   "app/infra/phase-1-ghcr-build-push/PAIML-INFRA-001.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -168,6 +168,11 @@
     "created_date": "2026-09-23T23:40:40+00:00",
     "file_hash": "57d79ef55cd5cb403cf4a4623003ed289f9a6445426e2866ec6aab85bfd8583b",
     "last_update": "2026-09-23T23:40:21+00:00"
+  },
+  "app/infra/phase-3-staging-prod-pipeline/PAIML-INFRA-037.md": {
+    "created_date": "2026-09-24T00:06:27+00:00",
+    "file_hash": "238e275b5bfc4c4b5a4843dd1f8e29acaf2880fca73711b7f804128b4845a476",
+    "last_update": "2026-09-24T00:06:13+00:00"
   },
   "app/infra/phase-4-security-notifications/PAIML-INFRA-011.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -526,8 +531,8 @@
   },
   "app/pole_analyst/PROJECT_VARS.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "6937cc30d3ab465feafdcbc9962af2367aa19f261b4d539af6f37a8ca90d79c9",
-    "last_update": "2026-09-11T07:34:13+00:00"
+    "file_hash": "88ca922f07921a57ddc6dea7ee66516b09eb35c321b187de8b30dfd3edffbd19",
+    "last_update": "2026-09-24T00:06:17+00:00"
   },
   "app/pole_analyst/fe_design.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -853,6 +858,11 @@
     "created_date": "2026-09-10T14:47:18+00:00",
     "file_hash": "341bc6ead74566ab5d02e5cddc23bdafecdd57001120b3d1b4c589a2e5ff8d7b",
     "last_update": "2026-09-10T14:50:42+00:00"
+  },
+  "app/pole_analyst/phase-31-baseline-test-repair/PAIML-POLE-ANALYST-084.md": {
+    "created_date": "2026-09-24T00:06:27+00:00",
+    "file_hash": "49972480355b072a88e9c924b9fd4945dfef2fe4a504cc7ff2f9a0269b42a732",
+    "last_update": "2026-09-24T00:05:51+00:00"
   },
   "app/pole_analyst/phase-33-capability-catalog-expansion/PAIML-POLE-ANALYST-082.md": {
     "created_date": "2026-09-11T07:35:10+00:00",
@@ -2041,8 +2051,8 @@
   },
   "app/pole_fe/PROJECT_VARS.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "34a4b8ce0c96f46fd93102b4d2021eb1a8ed209edc623be277abea085b4285d8",
-    "last_update": "2026-09-10T14:45:09+00:00"
+    "file_hash": "43014baa62cfec7fbb05ddeaecb739d6d52e19fdeaa2086a52728164363f07df",
+    "last_update": "2026-09-24T00:06:18+00:00"
   },
   "app/pole_fe/e2e-test-plan.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -2143,6 +2153,11 @@
     "created_date": "2026-09-10T14:47:18+00:00",
     "file_hash": "edc0d5a137f869caf73095724b0e53243f88523155850d490f7f32626d154d53",
     "last_update": "2026-09-09T15:04:29+00:00"
+  },
+  "app/pole_fe/phase-8-e2e-playwright/PAIML-POLE-FE-016.md": {
+    "created_date": "2026-09-24T00:06:27+00:00",
+    "file_hash": "92d8af88a0617f5137a571680f5cae9dcd57d5755be2da19ea5297c1c1cedb98",
+    "last_update": "2026-09-24T00:06:03+00:00"
   },
   "app/pole_fe/phase-9-biomech-analysis/PAIML-POLE-FE-005.md": {
     "created_date": "2026-09-10T14:47:18+00:00",

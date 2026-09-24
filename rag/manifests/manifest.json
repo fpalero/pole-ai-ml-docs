@@ -6,8 +6,8 @@
   },
   "DEVELOPEMENT.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "6d7bbe47b5b45eede8f97b1a06ef34268db7ee9d5f44f6cb32f44327413655bb",
-    "last_update": "2026-09-21T10:36:17+00:00"
+    "file_hash": "55415b35299ffabfa21ccbb8b50278e49ac3f589826516c7afbf3d6b250208fa",
+    "last_update": "2026-09-24T09:43:11+00:00"
   },
   "ENV_VARS.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -2639,6 +2639,11 @@
     "file_hash": "5201d3447b1c53087709ce4897518b26b5bfd89a8322d2b7a151ef7d848ca2c3",
     "last_update": "2026-09-10T14:45:09+00:00"
   },
+  "decisions/ADR-006-readiness-overall-score-gate-precondition.md": {
+    "created_date": "2026-09-24T09:44:04+00:00",
+    "file_hash": "22ed7660f878833b8e046db8ce68742aa28012fe682a4dd243f38c58a40627e0",
+    "last_update": "2026-09-24T09:43:52+00:00"
+  },
   "decisions/README.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
     "file_hash": "22ea394fa32db8c0f1cd2ae69ae278aee636c5c0b800c4e95f1a5b3b49e4a4d3",
@@ -2681,8 +2686,8 @@
   },
   "diagrams/ARCHITECTURE.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "45f9c6ecf13e59c44d89780b0f712f791acfbb6722a91e0fc86951f7d5343501",
-    "last_update": "2026-09-21T10:36:06+00:00"
+    "file_hash": "6d8bb6ca4a29b401b40cacb96e82eee3329600e99929b0b9b3bbae92324fe604",
+    "last_update": "2026-09-24T09:43:25+00:00"
   },
   "diagrams/agents/FLOW.md": {
     "created_date": "2026-09-10T14:47:18+00:00",

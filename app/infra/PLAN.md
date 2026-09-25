@@ -7,10 +7,26 @@
 > historical `values-prod.yaml` by PAIML-INFRA-031; NOT production traffic). Namespace `pole-ai-staging` + `*.pole.local` is the
 > local/legacy staging overlay. `pole-ai-prod` below is planned only.
 >
-> **Status:** Phases 1–2 largely landed in code (build-push GitHub Action + deploy workflows).
-> Phases 3–8 📋 PLANNED — Phases 3–5 ticketed, Phases 6–8 (`elastic-stack`, `pole-api-logs`,
-> `packages-logs`) ticketed but not implemented. 24 tickets total (`PAIML-INFRA-001..024`),
-> 8 phase folders (`phase-1-ghcr-build-push` … `phase-8-packages-logs`).
+> **Status:** Phases 1–3 ✅ DONE (build-push + deploy-dev/staging/prod workflows landed;
+> Phase 3 completed through PAIML-INFRA-037 incl. `values-dev.yaml` demo-* DuckDNS hosts,
+> kubeconfig hardening, checksum rollout, realm-sync hook). Phases 4–8 📋 PLANNED — ticketed
+> but not implemented. **37 tickets total** (`PAIML-INFRA-001..037`), 8 phase folders
+> (`phase-1-ghcr-build-push` … `phase-8-packages-logs`).
+
+---
+
+## Phase Summary
+
+| # | Phase (folder) | Tickets | State |
+| :--- | :--- | :--- | :--- |
+| 1 | `phase-1-ghcr-build-push` | 001–003 | ✅ DONE |
+| 2 | `phase-2-dev-auto-deploy` | 004–006, 025–029 | ✅ DONE |
+| 3 | `phase-3-staging-prod-pipeline` | 007–010, 030–037 | ✅ DONE |
+| 4 | `phase-4-security-notifications` | 011–012 | 📋 PLANNED |
+| 5 | `phase-5-docs-verification` | 013–015 | 📋 PLANNED |
+| 6 | `phase-6-elastic-stack` | 016–018 | 📋 PLANNED |
+| 7 | `phase-7-pole-api-logs` | 019–021 | 📋 PLANNED |
+| 8 | `phase-8-packages-logs` | 022–024 | 📋 PLANNED |
 
 ---
 
@@ -45,6 +61,11 @@
 - **Presentation:** GitHub Actions workflow run status, Slack notifications, PR/commit status checks
 
 ## 3. Implementation Roadmap (Atomic Steps)
+
+> **Note:** the authoritative phase state lives in the **Phase Summary** table above.
+> This section's checklist items are illustrative scope; their completion status may lag
+> the real ticket/PR state. Phase names here are historical and may not match the folder
+> names exactly.
 
 ### Phase 1: Helm Charts & Local Deploy (Foundation)
 - ✅ Umbrella chart (`helm/pole-ai/`) with 6 subcharts (mongodb, redis, keycloak, pole-api, pole-fe, pole-analyst)

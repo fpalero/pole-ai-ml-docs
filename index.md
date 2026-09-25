@@ -10,6 +10,7 @@
 | Doc | Description |
 | :--- | :--- |
 | [Repository Development Status](DEVELOPEMENT.md) | All projects, phases, phase status, and ticket descriptions. |
+| [Testing Guide](TESTING.md) | Every test type (unit / integration / E2E / AI gate) — what each covers, when to run it, and test counts. |
 | [Implementation Roadmap](ROADMAP.md) | Pending phases per project + ordered implementation with blockers (run `/team-lead:roadmap` to refresh). |
 | [System Architecture](diagrams/ARCHITECTURE.md) | Overall architecture: apps ↔ packages ↔ shared infrastructure + communication layers. |
 | [Agents Flow](diagrams/agents/FLOW.md) | Team-lead implementation workflow: plan → backlog → implementation (dev/review/test/PR). |

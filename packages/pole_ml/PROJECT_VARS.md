@@ -1,4 +1,4 @@
 # Project Variables: pole_ml
 
 ## Ticket Counter
-- **Last ticket number**: 1
+- **Last ticket number**: 2

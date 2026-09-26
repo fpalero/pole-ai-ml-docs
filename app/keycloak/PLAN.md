@@ -4,11 +4,15 @@
 > QA-verified on the local cluster). Phase 6 awaits USER manual testing + manual
 > develop→main promotion — NOT closed until the user confirms. Phase 8 🟡 PARTIAL
 > (code+docs merged, staging QA gate BLOCKED on rollout). Phase 9 🟡 PARTIAL — 021 ✅ DONE + 022 ✅ DONE
-> + 023 ✅ DONE
-> (PAIML-KEYCLOAK-021..025 passwordless direct-link + activation-code flow, 024 outstanding, 025 FUTURE).
+> + 023 ✅ DONE; **024 QA gate 🔴 RED (2026-09-26)** — blocked on the Phase 11 fixes 030+031; 025 FUTURE
+> (PAIML-KEYCLOAK-021..025 passwordless direct-link + activation-code flow).
 > **Phase 10 📋 PLANNED** (PAIML-KEYCLOAK-026..029) — the **DEPLOY prerequisite** for Phase 9, in the
 > **infra** repo `pole-ai-ml-infra`: the deployed environments are still unprovisioned, so the Phase 9
 > OTP flow is **unreachable outside local** and no deployed-environment claim is valid yet.
+> **Phase 11 📋 PLANNED** (PAIML-KEYCLOAK-030..031) — the **QA-gate fixes** for the two P1 defects
+> that made the 024 gate RED: the `verify-code` Direct Access Grant (**030**, BLOCKER — realm-required
+> `firstName`/`lastName` missing at creation) and the lapse purge destroying the 14-day `temp:req`
+> cooldown (**031**). Both block the **024 re-run**.
 
 ---
 
@@ -58,8 +62,9 @@
 | 6 | Stitch pixel-perfect login restyle | ✅ DONE (impl + QA GREEN; awaiting user manual develop→main promotion) | [PLAN_PHASE_6.md](plan/PLAN_PHASE_6.md) |
 | 7 | Magic-link fix (stale theme, endpoint, SMTP verify) | ✅ DONE | [phase-7-magic-link-fix](phase-7-magic-link-fix/) (015, 016, 017 emergency probe fix) |
 | 8 | Temp-access expiry hardening (azp-mismatch + blind-sweeper fix) | 🟡 PARTIAL — code+docs merged (pole-ai-ml#220 pole-ai-ml-docs#9), staging QA gate BLOCKED on rollout | [PLAN_PHASE_8.md](plan/PLAN_PHASE_8.md) |
-| 9 | Passwordless direct-link + activation-code flow (Brevo link + 6-digit OTP, hidden-password grant first, token-exchange FUTURE) | 🟡 PARTIAL — **021 ✅ DONE** (passwordless creation + Brevo link) + **022 ✅ DONE** (OTP send/verify, hidden-password grant, `emailVerified`, fixed non-extendable 2h window) + **023 ✅ DONE** (per-app `/activate` pages x2, Validate + code states, deep-link routing); 024 (QA Mailpit E2E) outstanding, 025 FUTURE | [PLAN_PHASE_9.md](plan/PLAN_PHASE_9.md) |
+| 9 | Passwordless direct-link + activation-code flow (Brevo link + 6-digit OTP, hidden-password grant first, token-exchange FUTURE) | 🟡 PARTIAL — **021 ✅ DONE** (passwordless creation + Brevo link) + **022 ✅ DONE** (OTP send/verify, hidden-password grant, `emailVerified`, fixed non-extendable 2h window) + **023 ✅ DONE** (per-app `/activate` pages x2, Validate + code states, deep-link routing); **024 QA gate 🔴 RED** (2026-09-26 — blocked on 030+031), 025 FUTURE | [PLAN_PHASE_9.md](plan/PLAN_PHASE_9.md) |
 | 10 | OTP deploy prerequisites (infra: pepper Secret, Direct Access Grants, host map, Brevo key) | 📋 PLANNED — 026–029 authored in the docs repo; **no infra code yet**. Owns the DEPLOY prerequisite for Phase 9, which is currently provisioned **only in the local stack** | [PLAN_PHASE_10.md](plan/PLAN_PHASE_10.md) |
+| 11 | Phase 9 QA-gate fixes (verify-code grant + purge semantics) | 📋 PLANNED — **030** (BLOCKER: `verify-code` Direct Access Grant, realm-required `firstName`/`lastName`; reused disabled accounts) + **031** (lapse purge destroys the 14-day `temp:req` cooldown, may not clear `temp:code:*`); both **block the 024 re-run** | [PLAN_PHASE_11.md](plan/PLAN_PHASE_11.md) |
 
 > **Phase 9 ⇄ Phase 10 (read this before claiming Phase 9 works).** Phase 9's code
 > is done and is being exercised by the `PAIML-KEYCLOAK-024` QA gate **locally**.

@@ -128,15 +128,23 @@ the k3s Helm configmaps (`infrastracture/helm/pole-ai/charts/*/templates/configm
 |---|---|---|---|
 | `BREVO_API_KEY` | Brevo API key for the transactional-email API (`POST /v3/smtp/email`). **Required** for temp access: when unset the endpoint answers `503` rather than promising an email it cannot send. | `xkeysib-***` | secret string / unset |
 | `DEFAULT_EMAIL_LOCALE` | Fallback template locale when the request carries none. | `en` | `en` \| `es` |
-| `FE_BASE_URL` | Public origin of the `pole-fe` app — the link target for a `pole-fe` temp token. Override in the local sandbox. | `https://demo-ml-agent.duckdns.org` | URL |
-| `ANALYST_BASE_URL` | Public origin of the `pole-analyst` app — the link target for a `pole-analyst` temp token. | `https://demo-ai-agent.duckdns.org` | URL |
+| `FE_BASE_URL` | Public origin of the `pole-fe` app — the link target for a `pole-fe` temp token. **Required per environment**; the code default is the local sandbox host so an unset environment fails closed. | `https://demo-ml-agent.duckdns.org` | URL |
+| `ANALYST_BASE_URL` | Public origin of the `pole-analyst` app — the link target for a `pole-analyst` temp token. **Required per environment** (same rationale). | `https://demo-ai-agent.duckdns.org` | URL |
 
-Local sandbox override:
+Because these are the temp-token **app binding**, an environment that forgets
+them must fail closed rather than mint links to a public host — so the code
+defaults are the local sandbox origins, and dev/staging/prod must each set
+both explicitly:
 
-```bash
-FE_BASE_URL=http://localhost:4200
-ANALYST_BASE_URL=http://localhost:4300
-```
+| Environment | `FE_BASE_URL` | `ANALYST_BASE_URL` |
+|---|---|---|
+| demo / staging | `https://demo-ml-agent.duckdns.org` | `https://demo-ai-agent.duckdns.org` |
+| local sandbox | `http://localhost:4200` | `http://localhost:4300` |
+
+> **Not yet wired in the `pole-api` helm ConfigMap** (it sets `TEMP_ACCESS_*`
+> but not `FE_BASE_URL` / `ANALYST_BASE_URL` / `BREVO_API_KEY`). Until that
+> lands in `pole-ai-ml-infra`, the endpoint answers 503 without a Brevo key and
+> would link to the sandbox hosts.
 
 > The realm SMTP (`smtpServer`) is **no longer used by the temp-access path**. It stays
 > configured for Keycloak's own non-temp self-service flows.

@@ -93,10 +93,13 @@ pole-ai-ml
 
 1. **Host map (confirmed with the user).** `pole-fe` →
    `https://demo-ml-agent.duckdns.org`, `pole-analyst` →
-   `https://demo-ai-agent.duckdns.org`. These are now the **defaults** of
-   `FE_BASE_URL` / `ANALYST_BASE_URL` (previously `https://pole-fe.local` /
-   `https://pole-analyst.local`), so the mapping lives in configuration and the
-   local sandbox overrides it via env.
+   `https://demo-ai-agent.duckdns.org`. These are the **deployment** values of
+   `FE_BASE_URL` / `ANALYST_BASE_URL`. The **code defaults stay on the local
+   sandbox origins** (`https://pole-fe.local` / `https://pole-analyst.local`):
+   these settings are the temp-token *app binding*, so an environment that
+   forgets to set them must fail closed rather than silently mint links to a
+   public host. Every environment (dev/staging/prod) must set both explicitly;
+   the helm chart does not yet, which is a prerequisite tracked below.
 2. **`POST /api/auth/temporary-access/activate` is KEPT as a deprecated shim**
    (confirmed with the user), not deleted this phase. It is flagged
    `deprecated=True` in OpenAPI so clients see the warning. Phase 9 ticket 022
@@ -133,10 +136,11 @@ pole-ai-ml
 
 | Suite | Result |
 |---|---|
-| `pixi run test-api` (CI scope) | **1771 passed**, 0 failed |
+| `pixi run test-api` (CI scope) | **1781 passed**, 0 failed |
 | New/changed temp-access suites | 240 passed |
 | Integration (`test_temp_access_integration_brevo.py`) | 7 passed against real Redis + real HTTP Brevo stub |
 | Coverage of the changed modules (`core.email`, `core.temp_access`, `auth.controllers.temporary_access`) | **90%** total; `core/email` package **94%** |
+| Review follow-ups (closer guards, dead template API, fail-closed host map) | 10 further regression tests |
 | `pixi run test` (ML package) | 677 passed, **82.42%** (≥80% gate) |
 | `ruff check` on every touched file | clean |
 
@@ -145,5 +149,12 @@ pole-ai-ml
 - Remove the deprecated `POST .../activate` once the FE no longer calls it.
 - `BREVO_API_KEY` must be provisioned from a Helm Secret in
   `pole-ai-ml-infra` before this path is live (an unset key answers 503).
+- **Infra (blocking for rollout):** the `pole-api` ConfigMap sets
+  `TEMP_ACCESS_*` but **not** `FE_BASE_URL` / `ANALYST_BASE_URL` /
+  `BREVO_API_KEY`. All three must be added per environment
+  (`pole-ai-ml-infra`) or the endpoint will answer 503 / link to the sandbox
+  hosts. `app/pole_api/.env.example` now documents the whole block.
+- `emailVerified` is still created `false` and nothing flips it yet; ticket 022
+  owns that at `verify-code`.
 - The stored `app` in `temp:token:{hash}` is what 022 must compare against the
   presenting app to answer `403 TEMP_TOKEN_APP_MISMATCH`.

@@ -1,7 +1,7 @@
 # Plan Phase 9 — Passwordless Direct-Link + Activation-Code Flow
 
 > **Parent plan:** [PLAN.md](../PLAN.md)
-> **Status:** 📋 PLANNED
+> **Status:** 🟡 PARTIAL — ticket 021 (BE root) ✅ DONE; 022–025 outstanding
 > **Class:** BE (`pole_api`, repo `pole-ai-ml`) + FE (`pole_fe`/`pole_analyst` activation pages) + QA. No Keycloak realm/theme or Helm changes (theme keeps its self-service entry point; Keycloak sends no email in this phase).
 
 ## Scope
@@ -114,19 +114,25 @@ touch `temp:active`; first `verify-code` success sets `temp:active` with
 
 ## Tasks
 
-### Ticket 021 — Passwordless creation + link email (BE root)
+### Ticket 021 — Passwordless creation + link email (BE root) — ✅ DONE
 
-- [ ] [Application] Remove `temporary: True` from temp-user creation; generate
+- [x] [Application] Remove `temporary: True` from temp-user creation; generate
   a hidden random password stored server-side only (never emailed/shown);
   keep `emailVerified=false` at creation, per-app role assignment, and the
   14d `temp:req` + 24h `temp:token` writes.
-- [ ] [Application] Replace `execute-actions-email` with a Brevo-sent per-app
+- [x] [Application] Replace `execute-actions-email` with a Brevo-sent per-app
   direct link (`https://<host>/?temp_token=xxx`, EN+ES templates, sender
   `no-reply@fpalero.cc`); Keycloak sends nothing on this path.
-- [ ] [Application] Bind the token to one host/app; failure rollback via
+- [x] [Application] Bind the token to one host/app; failure rollback via
   `repo.clear` (no orphaned `temp:*` keys or half-created users on Brevo
-  failure). Full details in
+  failure). Full details and the implementation record (incl. the
+  deprecated-`activate` decision and the `repo.clear` token-leak fix) in
   `phase-9-passwordless-link-code/PAIML-KEYCLOAK-021.md`.
+
+> **Note.** The host map is `FE_BASE_URL` / `ANALYST_BASE_URL` in
+> `core/config.py` (defaults: `https://demo-ml-agent.duckdns.org` for
+> `pole-fe`, `https://demo-ai-agent.duckdns.org` for `pole-analyst`), and
+> `POST .../activate` is kept as a **deprecated** shim until ticket 022.
 
 ### Ticket 022 — OTP send/verify + hidden-password grant + 2h window (BE)
 

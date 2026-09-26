@@ -95,22 +95,60 @@ the k3s Helm configmaps (`infrastracture/helm/pole-ai/charts/*/templates/configm
 | `KEYCLOAK_JWKS_URL` | JWKS endpoint used to verify RS256 signatures. | `http://pole-ai-keycloak:8080/realms/pole-ai/protocol/openid-connect/certs` | URL to the realm `certs` endpoint |
 | `KEYCLOAK_CLIENTS` | Comma-separated allowed `azp` clients. | `pole-fe,pole-analyst,mcp-server` | client IDs, comma-separated |
 
-### Temporary access / magic link (`app/pole_api/src/core/config.py`) — implemented (Phases 2–4 of `docs/app/keycloak`)
+### Temporary access / magic link (`app/pole_api/src/core/config.py`) — implemented (Phases 2–4, 9 of `docs/app/keycloak`)
 
 > These variables back the Keycloak temporary magic-link access feature (see `docs/app/keycloak`,
 > Phases 1–4 ✅ DONE). `KEYCLOAK_ADMIN_*` are supplied by the `pole-api-admin` confidential client
 > service account (secret from a Helm Secret); `TEMP_ACCESS_*` are consumed by
 > `app/pole_api/src/core/temp_access.py`.
+>
+> **Phase 9 (PAIML-KEYCLOAK-021)** changed the delivery model: `pole_api` now emails the
+> per-app direct link through **Brevo** and Keycloak sends **no** email on the temp path.
+> See the Brevo + host-map table below.
 
 | NAME | DESCRIPTION | EXAMPLE | POSIBLE VALUES |
 |---|---|---|---|
-| `KEYCLOAK_ADMIN_CLIENT_ID` | Confidential `pole-api-admin` client id used by the Keycloak admin client (create/disable users, verify-email). | `pole-api-admin` | confidential client id |
+| `KEYCLOAK_ADMIN_CLIENT_ID` | Confidential `pole-api-admin` client id used by the Keycloak admin client (create/disable users). | `pole-api-admin` | confidential client id |
 | `KEYCLOAK_ADMIN_CLIENT_SECRET` | Secret for the `pole-api-admin` service account (from a Helm Secret, not the realm JSON). | `***` | secret string |
 | `KEYCLOAK_ADMIN_ISSUER` | Token issuer for the admin client client-credentials grant. | `http://pole-ai-keycloak:8080/realms/pole-ai` | realm issuer URL |
 | `TEMP_ACCESS_COOLDOWN_S` | 14-day cooldown between temp-access requests for the same email (Redis `temp:req` TTL). | `1209600` | seconds; default 14d |
 | `TEMP_ACCESS_WINDOW_S` | 2-hour activated window for a temp user (Redis `temp:active` TTL; aligns with 2h token `exp`). | `7200` | seconds; default 2h |
 | `TEMP_ACCESS_TOKEN_TTL_S` | TTL of a pending magic-link token (Redis `temp:token` TTL). | `86400` | seconds; default 24h |
 | App→role map | Per-app temporary role assignment (`pole-fe`→`fe-user`, `pole-analyst`→`analyst-user`), enforced from token `azp`. | `pole-fe:fe-user,pole-analyst:analyst-user` | comma-separated map |
+
+### Brevo direct-link email + per-app host map (PAIML-KEYCLOAK-021) — implemented
+
+> `pole_api` owns temp-access delivery: it emails the per-app direct link
+> `https://<host>/?temp_token=xxx` via Brevo (sender `no-reply@fpalero.cc`, EN + ES).
+> The host map is **also** the app binding: the `temp_token` is only ever delivered to the
+> host that owns the requesting `clientId`, so presenting it on the other app is rejected.
+> Consumed by `app/pole_api/src/core/email/{link_templates,brevo_email}.py`.
+
+| NAME | DESCRIPTION | EXAMPLE | POSIBLE VALUES |
+|---|---|---|---|
+| `BREVO_API_KEY` | Brevo API key for the transactional-email API (`POST /v3/smtp/email`). **Required** for temp access: when unset the endpoint answers `503` rather than promising an email it cannot send. | `xkeysib-***` | secret string / unset |
+| `DEFAULT_EMAIL_LOCALE` | Fallback template locale when the request carries none. | `en` | `en` \| `es` |
+| `FE_BASE_URL` | Public origin of the `pole-fe` app — the link target for a `pole-fe` temp token. **Required per environment**; the code default is the local sandbox host so an unset environment fails closed. | `https://demo-ml-agent.duckdns.org` | URL |
+| `ANALYST_BASE_URL` | Public origin of the `pole-analyst` app — the link target for a `pole-analyst` temp token. **Required per environment** (same rationale). | `https://demo-ai-agent.duckdns.org` | URL |
+
+Because these are the temp-token **app binding**, an environment that forgets
+them must fail closed rather than mint links to a public host — so the code
+defaults are the local sandbox origins, and dev/staging/prod must each set
+both explicitly:
+
+| Environment | `FE_BASE_URL` | `ANALYST_BASE_URL` |
+|---|---|---|
+| demo / staging | `https://demo-ml-agent.duckdns.org` | `https://demo-ai-agent.duckdns.org` |
+| local sandbox | `http://localhost:4200` | `http://localhost:4300` |
+
+> **Not yet wired in the `pole-api` helm ConfigMap** (it sets `TEMP_ACCESS_*`
+> but not `FE_BASE_URL` / `ANALYST_BASE_URL` / `BREVO_API_KEY`). Until that
+> lands in `pole-ai-ml-infra`, the endpoint answers 503 without a Brevo key and
+> would link to the sandbox hosts.
+
+> The realm SMTP (`smtpServer`) is **no longer used by the temp-access path**. It stays
+> configured for Keycloak's own non-temp self-service flows.
+
 
 ### Instagram / crawler (also used by `pole_crawler`)
 

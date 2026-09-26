@@ -51,7 +51,40 @@ pole-ai-ml
 
 ## Dependencies
 - **Blocks:** None (phase-end gate)
-- **Blocked By:** PAIML-KEYCLOAK-022, PAIML-KEYCLOAK-023
+- **Blocked By:** PAIML-KEYCLOAK-022, PAIML-KEYCLOAK-023, PAIML-KEYCLOAK-030, PAIML-KEYCLOAK-031
+
+> 🔴 **GATE RAN 2026-09-26 — VERDICT: RED.** Two P1 defects blocked the pass, both
+> now ticketed in **Phase 11** (`phase-11-qa-gate-fixes/`) and both blocking this
+> gate's re-run:
+> - **PAIML-KEYCLOAK-030** (BLOCKER) — `verify-code` Direct Access Grant returns
+>   `400 invalid_grant "Account is not fully set up"` on a clean environment
+>   because the realm-required `firstName`/`lastName` are not set at creation;
+>   the endpoint answers `502` on both apps. Also: reused disabled accounts.
+> - **PAIML-KEYCLOAK-031** — the lapse purge deletes the durable 14-day
+>   `temp:req` cooldown marker, contradicting this ticket's own acceptance
+>   criterion and PLAN.md UC-04.
+>
+> **Gate matrix at RED:**
+> | Gate | Result |
+> | :--- | :--- |
+> | 1a E2E request→link→code→session→window (per app) | ✅ PASS *(only behind a local shim for DEFECT-01)* |
+> | 1b in-app navigation never re-asks | ✅ PASS |
+> | 1c re-entry fresh code, `ts_end` unchanged | ✅ PASS (18/18) |
+> | 1d window lapse → 403 + purge | ⚠️ PARTIAL (`temp:req` deleted — 031) |
+> | 2 rate-limit / attempt matrix | ⛔ NOT RUN |
+> | 3 Phase 8 no-regression UC-06/07/08 + UC-04 | ⛔ NOT RUN (UC-04 failing — 031) |
+> | 4 `pixi run test` ≥80% | ⛔ NOT RUN |
+> | 5 evidence bundle | ⚠️ PARTIAL (no FE screenshots) |
+>
+> **Evidence root:** `/tmp/opencode/qa-024/evidence/`
+> (`DEFECT-01-direct-access-grant-400.md`, `brevo-captures-*.json`,
+> `redis-gate1*-*.txt`, `gate1a-state.json`, `gate1c-pinned.json`, `403-body.json`).
+> **QA harness (not committed):** `/tmp/opencode/qa-024/` + `QA_SECRETS.txt`.
+>
+> ⚠️ **Interim-report caveat.** An earlier, truncated QA output claimed re-entry
+> *extended* the 2h window. The final run did **not** reproduce it — `ts_end`
+> was byte-identical and the pinned case passed 18/18. That claim is **not** an
+> open defect.
 
 > 📌 **Scope note — this gate runs LOCALLY.** The local stack is provisioned with
 > the OTP pepper, the per-app host map and the Brevo key, so a Mailpit pass here

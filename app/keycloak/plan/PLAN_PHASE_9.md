@@ -1,7 +1,10 @@
 # Plan Phase 9 — Passwordless Direct-Link + Activation-Code Flow
 
 > **Parent plan:** [PLAN.md](../PLAN.md)
-> **Status:** 🟡 PARTIAL — tickets 021 (BE root) ✅ DONE, 022 (OTP send/verify) ✅ DONE and 023 (FE activation pages) ✅ DONE; 024 outstanding (QA Mailpit E2E), 025 FUTURE
+> **Status:** 🔴 **RED** — tickets 021 (BE root) ✅ DONE, 022 (OTP send/verify) ✅ DONE and 023 (FE activation pages) ✅ DONE; **024 (QA Mailpit E2E) ran 2026-09-26 → RED**, blocked on the Phase 11 fixes **030** (verify-code Direct Access Grant, BLOCKER) + **031** (purge destroys the 14-day `temp:req` cooldown); 025 FUTURE.
+>
+> **024 gate matrix at RED:** 1a PASS *(only behind a local shim)* · 1b PASS · 1c PASS (18/18) · 1d PARTIAL (031) · 2 NOT RUN · 3 NOT RUN · 4 NOT RUN · 5 PARTIAL.
+> **Trusted-result caveat:** an interim truncated QA output claimed re-entry *extended* the 2h window; the final run did **not** reproduce it (`ts_end` unchanged) — that claim is **not** an open defect. See [PAIML-KEYCLOAK-024.md](../phase-9-passwordless-link-code/PAIML-KEYCLOAK-024.md) for the full record.
 > **Class:** BE (`pole_api`, repo `pole-ai-ml`) + FE (`pole_fe`/`pole_analyst` activation pages) + QA. No Keycloak realm/theme or Helm changes (theme keeps its self-service entry point; Keycloak sends no email in this phase).
 
 > ## 🔴 DEPLOY PREREQUISITE — owned by Phase 10, not by this phase

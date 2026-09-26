@@ -145,7 +145,10 @@ both explicitly:
 > **Not yet wired in the `pole-api` helm ConfigMap** (it sets `TEMP_ACCESS_*`
 > but not `FE_BASE_URL` / `ANALYST_BASE_URL` / `BREVO_API_KEY`). Until that
 > lands in `pole-ai-ml-infra`, the endpoint answers 503 without a Brevo key and
-> would link to the sandbox hosts.
+> would link to the sandbox hosts. **Tracked as PAIML-KEYCLOAK-028**
+> (Phase 10 — OTP Deploy Prerequisites); see the
+> [rollout blockers](#-rollout-blockers-for-the-otp-path-infra-repo-pole-ai-ml-infra-not-code)
+> section below for the full 026–029 table.
 
 > The realm SMTP (`smtpServer`) is **no longer used by the temp-access path**. It stays
 > configured for Keycloak's own non-temp self-service flows.
@@ -198,6 +201,45 @@ Until these land, the OTP endpoints cannot work in a deployed environment:
 > variables in these three groups are wired yet. Items 1–2 change the **realm
 > clients** and the **`pole-api` Secret**, so they belong to
 > `pole-ai-ml-infra` (`infrastracture/helm/pole-ai/…`), **never** to `pole-ai-ml`.
+
+##### ✅ These are now ticketed — Phase 10 (docs only, infra PRs still to come)
+
+Provisioning is **owned** by
+[`app/keycloak/phase-10-otp-deploy-prerequisites/`](app/keycloak/phase-10-otp-deploy-prerequisites/),
+tickets **PAIML-KEYCLOAK-026..029** (plan:
+[`app/keycloak/plan/PLAN_PHASE_10.md`](app/keycloak/plan/PLAN_PHASE_10.md)):
+
+| Blocker | Placement | Ticket |
+| :--- | :--- | :--- |
+| 1 — `TEMP_ACCESS_OTP_PEPPER` | `pole-api` **Secret** (per environment, never hardcoded) | **026** |
+| 2 — Direct Access Grants on `pole-fe` / `pole-analyst` | keycloak realm (`chart configmap` + `keycloak/realm-pole-ai.json`) | **027** |
+| 3 — `FE_BASE_URL` / `ANALYST_BASE_URL` | `pole-api` **ConfigMap** (per-app host map = temp-token app binding) | **028** |
+| 3 — `BREVO_API_KEY` | `pole-api` **Secret** | **028** |
+| Gate — per-environment matrix proving the above in dev/staging/prod | live cluster + realm | **029** |
+
+> **Correction recorded 2026-09-26 (affects blocker 2's scope).** Blocker 2 was
+> written from a code reading, before the realm was inspected. Both declarative
+> sources — `helm/pole-ai/charts/keycloak/templates/configmap.yaml` (embedded
+> realm) and `keycloak/realm-pole-ai.json` — already carry
+> `directAccessGrantsEnabled: true` for `pole-fe` and `pole-analyst`, and so does
+> the **live local realm** (Admin API read). So 027 is a **verify-live /
+> repair-drift** ticket, not a config flip: what is unproven is the *deployed*
+> environments (a realm imported once from an older ConfigMap is not re-imported
+> by `--import-realm`; the `realm-sync` Job, `PAIML-INFRA-036/037`, is what applies
+> changes). A live-console-only fix would be reverted by the next `realm-sync`
+> (`partialImport` `policy: OVERWRITE`), so 027 mandates the declarative fix.
+
+> **Verification order (2026-09-26, local cluster `k3s-local`).** The live
+> `pole-api` ConfigMap carries only `TEMP_ACCESS_COOLDOWN_S`, `WINDOW_S`,
+> `TOKEN_TTL_S`, `SWEEPER_INTERVAL_S`; the live `pole-api` Secret carries only
+> `API_KEY`, `KEYCLOAK_ADMIN_CLIENT_SECRET`, `MONGODB_URI`,
+> `OPENROUTER_API_KEY`. **`TEMP_ACCESS_OTP_PEPPER`, `FE_BASE_URL`,
+> `ANALYST_BASE_URL` and `BREVO_API_KEY` are absent**, and a repo-wide grep in
+> the infra repo finds none of them in any chart, workflow or script. The
+> per-environment values are therefore **not yet provisioned anywhere** — the
+> Phase 9 QA gate (024) passes locally only because the local stack is
+> provisioned. **Until 026–029 land, the deployed Phase 9 flow is unproven —
+> do not report a local 024 green as "Phase 9 works".**
 
 
 ### Instagram / crawler (also used by `pole_crawler`)

@@ -6,6 +6,9 @@
 > (code+docs merged, staging QA gate BLOCKED on rollout). Phase 9 🟡 PARTIAL — 021 ✅ DONE + 022 ✅ DONE
 > + 023 ✅ DONE
 > (PAIML-KEYCLOAK-021..025 passwordless direct-link + activation-code flow, 024 outstanding, 025 FUTURE).
+> **Phase 10 📋 PLANNED** (PAIML-KEYCLOAK-026..029) — the **DEPLOY prerequisite** for Phase 9, in the
+> **infra** repo `pole-ai-ml-infra`: the deployed environments are still unprovisioned, so the Phase 9
+> OTP flow is **unreachable outside local** and no deployed-environment claim is valid yet.
 
 ---
 
@@ -56,6 +59,18 @@
 | 7 | Magic-link fix (stale theme, endpoint, SMTP verify) | ✅ DONE | [phase-7-magic-link-fix](phase-7-magic-link-fix/) (015, 016, 017 emergency probe fix) |
 | 8 | Temp-access expiry hardening (azp-mismatch + blind-sweeper fix) | 🟡 PARTIAL — code+docs merged (pole-ai-ml#220 pole-ai-ml-docs#9), staging QA gate BLOCKED on rollout | [PLAN_PHASE_8.md](plan/PLAN_PHASE_8.md) |
 | 9 | Passwordless direct-link + activation-code flow (Brevo link + 6-digit OTP, hidden-password grant first, token-exchange FUTURE) | 🟡 PARTIAL — **021 ✅ DONE** (passwordless creation + Brevo link) + **022 ✅ DONE** (OTP send/verify, hidden-password grant, `emailVerified`, fixed non-extendable 2h window) + **023 ✅ DONE** (per-app `/activate` pages x2, Validate + code states, deep-link routing); 024 (QA Mailpit E2E) outstanding, 025 FUTURE | [PLAN_PHASE_9.md](plan/PLAN_PHASE_9.md) |
+| 10 | OTP deploy prerequisites (infra: pepper Secret, Direct Access Grants, host map, Brevo key) | 📋 PLANNED — 026–029 authored in the docs repo; **no infra code yet**. Owns the DEPLOY prerequisite for Phase 9, which is currently provisioned **only in the local stack** | [PLAN_PHASE_10.md](plan/PLAN_PHASE_10.md) |
+
+> **Phase 9 ⇄ Phase 10 (read this before claiming Phase 9 works).** Phase 9's code
+> is done and is being exercised by the `PAIML-KEYCLOAK-024` QA gate **locally**.
+> The values that flow needs in a **deployed** environment —
+> `TEMP_ACCESS_OTP_PEPPER` (Secret), `FE_BASE_URL` / `ANALYST_BASE_URL`
+> (ConfigMap), `BREVO_API_KEY` (Secret) — are wired in **no** environment today,
+> so `send-code` / `verify-code` and the request endpoint answer **503** in
+> dev/staging/prod. Phase 10 owns closing that; **ticket 029** owns proving it.
+> A green local `024` run is evidence about the **code**, not about any
+> deployment. Verified 2026-09-26 against the live local cluster + both realm
+> sources — see [PLAN_PHASE_10.md](plan/PLAN_PHASE_10.md#verified-starting-state-read-2026-09-26-local-cluster-k3s-local).
 
 ## 4. Quality Gates & Testing Commands (DoD)
 
@@ -160,3 +175,7 @@
 - **Decision:** Dedicated confidential `pole-api-admin` client (service account) instead of the `fernando` admin password.
 - **Open:** Actual SMTP host/port/creds/from — supply via Helm values/Secret at deploy time.
 - **Open:** 2h token/session cap on `pole-fe`/`pole-analyst` also caps existing `dev`/`fernando` sessions to 2h — confirm acceptable.
+- **Decision (Phase 10):** `TEMP_ACCESS_OTP_PEPPER` and `BREVO_API_KEY` are **Helm Secrets** (injected per environment from the Actions secret store, placeholder-only in `values.yaml`); `FE_BASE_URL` / `ANALYST_BASE_URL` are **ConfigMap** values. The pepper must never be hardcoded or shared across environments — a committed pepper is a broken pepper, and the fail-closed 503 is deliberate.
+- **Decision (Phase 10):** the **deployed environment is unproven** until the Phase 10 prerequisites are observed live in dev/staging/prod. The Phase 9 QA gate runs locally and proves the code path only; ticket 029 is the artifact that changes that.
+- **Decision (Phase 10):** Direct Access Grants stay enabled on `pole-fe` / `pole-analyst` until ticket 025 replaces the hidden-password grant with token exchange — at which point the grant can be turned back off.
+- **Open (infra, `pole-ai-ml-infra`):** the four provisioning gaps are ticketed as 026–029; the code-side infra PRs are scheduled by the team lead, **never** a `develop` → `main` PR.

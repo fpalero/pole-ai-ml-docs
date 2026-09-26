@@ -181,6 +181,16 @@ Items 1–2 belong to `infrastracture/` (realm clients + `pole-api` Secret) and
 must land in `pole-ai-ml-infra` — **never** in `pole-ai-ml`. See
 [`docs/ENV_VARS.md`](../../../ENV_VARS.md) for the full variable contract.
 
+> ✅ **Now ticketed** as **Phase 10 — OTP Deploy Prerequisites**:
+> [`PAIML-KEYCLOAK-026`](../phase-10-otp-deploy-prerequisites/PAIML-KEYCLOAK-026.md)
+> (pepper Secret), **027** (Direct Access Grants — verified *already enabled* in
+> both realm sources and the live local realm, so it is a verify-live /
+> repair-drift task, not a config flip), **028** (host map + Brevo key), **029**
+> (deployed-environment matrix / rollout gate). Plan:
+> [`PLAN_PHASE_10.md`](../plan/PLAN_PHASE_10.md).
+> Until 029 is green, **a local QA run proves the code path only** — the
+> deployed environments are unproven.
+
 ### Follow-ups for PAIML-KEYCLOAK-023 / 024
 
 - 023 must call `send-code` / `verify-code` with **no `clientId`** and send a

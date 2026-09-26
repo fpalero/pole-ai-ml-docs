@@ -53,5 +53,16 @@ pole-ai-ml
 - **Blocks:** None (phase-end gate)
 - **Blocked By:** PAIML-KEYCLOAK-022, PAIML-KEYCLOAK-023
 
+> 📌 **Scope note — this gate runs LOCALLY.** The local stack is provisioned with
+> the OTP pepper, the per-app host map and the Brevo key, so a Mailpit pass here
+> is valid *in the local environment* and verifies the **code path**. It does
+> **not** verify any deployed environment: as of 2026-09-26 those values are
+> wired in **no** environment, so dev/staging/prod answer 503 on the OTP
+> endpoints. That gap is owned by
+> [**Phase 10** — OTP Deploy Prerequisites](../phase-10-otp-deploy-prerequisites/)
+> (tickets **026**–**029**, infra repo `pole-ai-ml-infra`); its gate ticket
+> **029** is what closes it. **Do not report a green 024 run as "Phase 9
+> works"** — it is "Phase 9 code works locally".
+
 ## Estimated Effort
 - [M] (Medium 3–5h)

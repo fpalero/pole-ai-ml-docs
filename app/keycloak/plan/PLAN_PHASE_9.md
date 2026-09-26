@@ -4,6 +4,38 @@
 > **Status:** 🟡 PARTIAL — tickets 021 (BE root) ✅ DONE, 022 (OTP send/verify) ✅ DONE and 023 (FE activation pages) ✅ DONE; 024 outstanding (QA Mailpit E2E), 025 FUTURE
 > **Class:** BE (`pole_api`, repo `pole-ai-ml`) + FE (`pole_fe`/`pole_analyst` activation pages) + QA. No Keycloak realm/theme or Helm changes (theme keeps its self-service entry point; Keycloak sends no email in this phase).
 
+> ## 🔴 DEPLOY PREREQUISITE — owned by Phase 10, not by this phase
+>
+> This phase's code is complete, but **the deployed environments are not
+> provisioned for it**. The `pole-api` chart wires only `TEMP_ACCESS_COOLDOWN_S`
+> / `WINDOW_S` / `TOKEN_TTL_S` / `SWEEPER_INTERVAL_S`; **`TEMP_ACCESS_OTP_PEPPER`,
+> `FE_BASE_URL`, `ANALYST_BASE_URL` and `BREVO_API_KEY` are wired in no
+> environment**, so the OTP endpoints answer **503** and the request endpoint
+> answers **503** in dev/staging/prod.
+>
+> **This work now lives in [Phase 10 — OTP Deploy Prerequisites](PLAN_PHASE_10.md)**
+> (infra repo `pole-ai-ml-infra`, tickets **026**–**029**):
+>
+> | Gap | Failure when missing | Placement | Ticket |
+> | :--- | :--- | :--- | :--- |
+> | `TEMP_ACCESS_OTP_PEPPER` | `send-code`/`verify-code` → **503** | `pole-api` **Secret** | 026 |
+> | Direct Access Grants on `pole-fe`/`pole-analyst` | hidden-password grant rejected | keycloak realm | 027 |
+> | `FE_BASE_URL` / `ANALYST_BASE_URL` | temp-token app binding / link host | `pole-api` **ConfigMap** | 028 |
+> | `BREVO_API_KEY` | request endpoint → **503** | `pole-api` **Secret** | 028 |
+>
+> > **Evidence caveat, recorded because it changes the scope of 027.** The
+> > blocker list below was written from a code reading, before the realm was
+> > inspected. On 2026-09-26 both declarative sources
+> > (`helm/pole-ai/charts/keycloak/templates/configmap.yaml` and
+> > `keycloak/realm-pole-ai.json`) already carry
+> > `directAccessGrantsEnabled: true` for both app clients, and so does the live
+> > local realm. So that blocker is a **verify-live-and-repair-drift** task, not
+> > a config flip — the deployed environments are what remains unproven.
+> >
+> > **A green local run of `PAIML-KEYCLOAK-024` (024 below) proves the code path
+> > and nothing about dev/staging/prod.** Do not report "Phase 9 works" from it;
+> > ticket **029** is the artifact that closes the gap.
+
 ## Scope
 
 Replace the Keycloak `execute-actions-email` magic-link flow (phases 1–8) with a
@@ -182,6 +214,12 @@ touch `temp:active`; first `verify-code` success sets `temp:active` with
 > endpoints answer 503; **Direct Access Grants must be enabled on the `pole-fe`
 > and `pole-analyst` clients**; and the 021 carry-overs `FE_BASE_URL` /
 > `ANALYST_BASE_URL` / `BREVO_API_KEY` must be set per environment.
+>
+> ✅ **These are now ticketed** as
+> [**Phase 10** — OTP Deploy Prerequisites](PLAN_PHASE_10.md) →
+> `phase-10-otp-deploy-prerequisites/`: **026** (pepper Secret), **027**
+> (Direct Access Grants — verify live, repair declaratively), **028** (host map
+> + Brevo key), **029** (deployed-environment matrix / rollout gate).
 
 ### Ticket 023 — Activation pages x2 (FE) — ✅ DONE
 
@@ -249,6 +287,11 @@ touch `temp:active`; first `verify-code` success sets `temp:active` with
 > run the manual Mailpit pass — that is this ticket's scope. 024 must also cover
 > the 022 carry-overs: the 5-attempt cap **under concurrency** and the pinned
 > re-entry window.
+>
+> 📌 **024 runs LOCALLY, by design** — the local stack is provisioned with the
+> pepper/host map/Brevo key, so the Mailpit pass is valid *there*. It therefore
+> verifies the **code path only**. A deployed-environment claim needs
+> [Phase 10](PLAN_PHASE_10.md) ticket **029**, which sweeps dev/staging/prod.
 
 ### Ticket 025 — Token-exchange impersonation (FUTURE, not scheduled)
 
@@ -266,6 +309,10 @@ touch `temp:active`; first `verify-code` success sets `temp:active` with
   emails; realm SMTP is no longer on this path.
 - Ticket order: 021 blocks 022; 022 blocks 023/024/025; 023 blocks 024
   (024 needs the pages); 025 is FUTURE (blocked by 022, never scheduled now).
+- **Deployment of this phase is NOT owned here.** The values this phase's flow
+  needs in a deployed environment are ticketed in
+  [Phase 10](PLAN_PHASE_10.md) (026–029, infra repo `pole-ai-ml-infra`); 024's
+  local green does not discharge them.
 - Keycloak `pole-api-admin` service account (for `emailVerified` update +
   Direct Access Grant lookup) and in-cluster Redis; `settings` additions for
   host map, OTP TTL/attempts, resend cooldown, Brevo templates.
@@ -286,6 +333,10 @@ touch `temp:active`; first `verify-code` success sets `temp:active` with
 - [ ] Pending link 24h, 14d cooldown, per-app roles, purge + disable on expiry,
   token `exp` 2h — all preserved; `pixi run test` stays ≥80% coverage.
 - [ ] Ticket 025 stays FUTURE (no hidden-password removal in this phase).
+- [ ] **Deployed-environment readiness is tracked, not assumed:** Phase 10
+      (026–029) is open until the `TEMP_ACCESS_OTP_PEPPER` / host map /
+      `BREVO_API_KEY` prerequisites are observed live in dev, staging and prod.
+      A local `024` green does **not** satisfy this line.
 
 ## Risks and Mitigations
 

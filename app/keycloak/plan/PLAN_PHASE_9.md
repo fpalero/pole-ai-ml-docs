@@ -1,7 +1,7 @@
 # Plan Phase 9 — Passwordless Direct-Link + Activation-Code Flow
 
 > **Parent plan:** [PLAN.md](../PLAN.md)
-> **Status:** 🟡 PARTIAL — tickets 021 (BE root) ✅ DONE and 022 (OTP send/verify) ✅ DONE; 023–025 outstanding (025 FUTURE)
+> **Status:** 🟡 PARTIAL — tickets 021 (BE root) ✅ DONE, 022 (OTP send/verify) ✅ DONE and 023 (FE activation pages) ✅ DONE; 024 outstanding (QA Mailpit E2E), 025 FUTURE
 > **Class:** BE (`pole_api`, repo `pole-ai-ml`) + FE (`pole_fe`/`pole_analyst` activation pages) + QA. No Keycloak realm/theme or Helm changes (theme keeps its self-service entry point; Keycloak sends no email in this phase).
 
 ## Scope
@@ -183,12 +183,58 @@ touch `temp:active`; first `verify-code` success sets `temp:active` with
 > and `pole-analyst` clients**; and the 021 carry-overs `FE_BASE_URL` /
 > `ANALYST_BASE_URL` / `BREVO_API_KEY` must be set per environment.
 
-### Ticket 023 — Activation pages x2 (FE)
+### Ticket 023 — Activation pages x2 (FE) — ✅ DONE
 
-- [ ] [FE] Per-app `/activate?temp_token=xxx` pages (`pole_fe`,
+- [x] [FE] Per-app `/activate?temp_token=xxx` pages (`pole_fe`,
   `pole_analyst`): Validate button, code input, expired/invalid states,
   per-app branding; deep-link `/?temp_token=xxx` → `/activate` routing. Full
   details in `phase-9-passwordless-link-code/PAIML-KEYCLOAK-023.md`.
+
+> **Implementation record (023).** Merged in `pole-ai-ml` via
+> [`PR #357`](https://github.com/fpalero/pole-ai-ml/pull/357) (merge commit
+> `3e2d935`, 2026-09-26; 38 files, +5835 / −21). Both apps ship
+> `/activate?temp_token=xxx` with deep-link routing, per-app branding, and all
+> backend states rendered distinctly in EN+ES. Five deltas / findings from the
+> plan above, all recorded in the ticket close-out:
+>
+> 1. **`/activate` initialises with `check-sso`, not `login-required`.** With
+>    `login-required`, Keycloak redirects before the page renders and the
+>    emailed link looks broken. A **plain `/` still requires login.**
+> 2. **The deep link is a `redirectTo` function, not a guard** — only the
+>    redirect function sees the partially-matched snapshot, and its target must
+>    be **relative** (Angular raises `AbsoluteRedirect` on an absolute target).
+> 3. **The activation helper is DUPLICATED in both apps**, not shared: the apps
+>    are separate npm builds. `activation-parity.spec.ts` pins the copies
+>    **byte-identical** and fails on drift — that spec is what makes the
+>    duplication safe.
+> 4. **`429` is disambiguated by step** (resend cooldown vs attempt cap), and
+>    **`Retry-After` drives the countdown** — `pole_analyst`'s
+>    `apiInterceptor`/`ApiError` were updated to preserve the header.
+> 5. **No new env vars.** 023 consumed the existing 021/022 contract;
+>    `ENV_VARS.md` is unchanged by this ticket.
+>
+> **Reviewer-caught regression (the blocking `/oc review` finding).** The first
+> implementation classified the **root path** as an activation path, so *every*
+> visit to `/` — token or not — initialised with `check-sso`. Because
+> **`authGuard` is attached to zero routes in either app** (the blocking
+> initializer is the apps' only working auth trigger), that dropped an
+> unauthenticated visitor onto an unguarded feature page with no auth header and
+> no in-app way to sign in — a regression on the front door. The deep link
+> worked and CI was green, but the plain-root case was never checked. Fixed
+> before merge (root is an activation path only when it carries a non-blank
+> `temp_token`).
+>
+> ⚠️ **Known gap, documented but NOT fixed here:** `authGuard` is attached to
+> **zero routes**, so the auth initializer remains the only working auth trigger.
+> Wiring the guard onto the feature routes is a separate change, out of 023's
+> scope.
+>
+> 🔴 **CI follow-up / policy item (not fixed here):** `fe-checks.yml` only
+> triggers on `app/pole_analyst/**`, so the **`pole_fe` half of this diff has no
+> CI coverage** — its 371 tests rest on a local run only. The workflow `paths`
+> were deliberately **not** widened in PR #357 (it would add a `pole_fe` gate to
+> every future PR touching that app — a policy change to a shared CI file). Left
+> for a separate PR. **Half of the Phase 9 UI is currently unguarded by CI.**
 
 ### Ticket 024 — Mailpit E2E + hardening (QA)
 
@@ -196,6 +242,13 @@ touch `temp:active`; first `verify-code` success sets `temp:active` with
   email → navigate → re-entry (fresh code, same window end) → expiry/purge;
   rate-limit (60s resend) and attempt-cap (5) tests. Full details in
   `phase-9-passwordless-link-code/PAIML-KEYCLOAK-024.md`.
+
+> **Now the only open Phase 9 gate.** 023 implemented and unit-covered every UI
+> state 024 must exercise (including the `Origin`-derived 403 cross-app negative,
+> the `Retry-After` countdown and the 5-attempt cap) but deliberately did **not**
+> run the manual Mailpit pass — that is this ticket's scope. 024 must also cover
+> the 022 carry-overs: the 5-attempt cap **under concurrency** and the pinned
+> re-entry window.
 
 ### Ticket 025 — Token-exchange impersonation (FUTURE, not scheduled)
 

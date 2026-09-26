@@ -136,7 +136,7 @@ pole-ai-ml
 
 | Suite | Result |
 |---|---|
-| `pixi run test-api` (CI scope) | **1781 passed**, 0 failed |
+| `pixi run test-api` (CI scope) | **1783 passed**, 0 failed |
 | New/changed temp-access suites | 240 passed |
 | Integration (`test_temp_access_integration_brevo.py`) | 7 passed against real Redis + real HTTP Brevo stub |
 | Coverage of the changed modules (`core.email`, `core.temp_access`, `auth.controllers.temporary_access`) | **90%** total; `core/email` package **94%** |

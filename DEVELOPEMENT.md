@@ -476,6 +476,11 @@ Phases 1–7 ✅ DONE; Phase 8 🟡 PARTIAL. 20 tickets (`PAIML-KEYCLOAK-001..02
 - **PAIML-KEYCLOAK-019 — Index-independent sweeper** — Enumerate expiries from durable markers + repair index maintenance.
 - **PAIML-KEYCLOAK-020 — Reliable Keycloak disable + purge diagnostics** — Survive the log flood.
 
+#### Phase 9 — Passwordless direct-link + activation-code (5 tickets)
+- **PAIML-KEYCLOAK-021 — Passwordless creation + Brevo link email** ✅ DONE — no `temporary` flag,
+  no Keycloak email; `pole_api` emails the per-app direct link via Brevo (EN+ES); token bound to
+  one app; rollback leaves no orphaned `temp:*` keys.
+
 ---
 
 ### `app/infra`

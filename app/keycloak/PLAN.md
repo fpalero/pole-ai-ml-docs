@@ -3,7 +3,7 @@
 > **Status:** Phase 1–7 ✅ DONE (PAIML-KEYCLOAK-001..017 implemented, merged into `develop`,
 > QA-verified on the local cluster). Phase 6 awaits USER manual testing + manual
 > develop→main promotion — NOT closed until the user confirms. Phase 8 🟡 PARTIAL
-> (code+docs merged, staging QA gate BLOCKED on rollout). Phase 9 📋 PLANNED
+> (code+docs merged, staging QA gate BLOCKED on rollout). Phase 9 🟡 PARTIAL — 021 ✅ DONE
 > (PAIML-KEYCLOAK-021..025 passwordless direct-link + activation-code flow, 025 FUTURE).
 
 ---
@@ -54,7 +54,7 @@
 | 6 | Stitch pixel-perfect login restyle | ✅ DONE (impl + QA GREEN; awaiting user manual develop→main promotion) | [PLAN_PHASE_6.md](plan/PLAN_PHASE_6.md) |
 | 7 | Magic-link fix (stale theme, endpoint, SMTP verify) | ✅ DONE | [phase-7-magic-link-fix](phase-7-magic-link-fix/) (015, 016, 017 emergency probe fix) |
 | 8 | Temp-access expiry hardening (azp-mismatch + blind-sweeper fix) | 🟡 PARTIAL — code+docs merged (pole-ai-ml#220 pole-ai-ml-docs#9), staging QA gate BLOCKED on rollout | [PLAN_PHASE_8.md](plan/PLAN_PHASE_8.md) |
-| 9 | Passwordless direct-link + activation-code flow (Brevo link + 6-digit OTP, hidden-password grant first, token-exchange FUTURE) | 📋 PLANNED | [PLAN_PHASE_9.md](plan/PLAN_PHASE_9.md) |
+| 9 | Passwordless direct-link + activation-code flow (Brevo link + 6-digit OTP, hidden-password grant first, token-exchange FUTURE) | 🟡 PARTIAL — 021 ✅ DONE (passwordless creation + Brevo link); 022–025 outstanding | [PLAN_PHASE_9.md](plan/PLAN_PHASE_9.md) |
 
 ## 4. Quality Gates & Testing Commands (DoD)
 

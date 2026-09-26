@@ -1166,8 +1166,8 @@
   },
   "app/pole_api/PLAN.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "17c076df34f40b42018a6e0711496b356cdfa17adcbae295860c8669efe5d8e7",
-    "last_update": "2026-09-25T10:59:11+00:00"
+    "file_hash": "9d1622a292749b98fa04a64c341dc8559bdebe9c44ca87bb2209cc30d54a1322",
+    "last_update": "2026-09-26T03:09:08+00:00"
   },
   "app/pole_api/POLE-API.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -1176,8 +1176,8 @@
   },
   "app/pole_api/PROJECT_VARS.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "cd40877d73b0aad7c47beb3022e49eda9caaf147c52514879f64499f2d7d3434",
-    "last_update": "2026-09-25T10:59:11+00:00"
+    "file_hash": "82ab13bf393a682f27cd982cb449c4363ed7b5f8f75eaafbf732b505d8a8428b",
+    "last_update": "2026-09-26T03:09:08+00:00"
   },
   "app/pole_api/be_train_retrain_test_guide.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -1933,6 +1933,11 @@
     "created_date": "2026-09-24T17:21:01+00:00",
     "file_hash": "c58b97ac39f51b1de9d6e4d00bd98fcf73708554594b6854ca0130001c2d3eba",
     "last_update": "2026-09-25T10:59:11+00:00"
+  },
+  "app/pole_api/phase-43-staging-gate-residuals/PAIML-POLE-API-149.md": {
+    "created_date": "2026-09-26T03:09:15+00:00",
+    "file_hash": "8ba072ba666521d3965818c87b534c0603f301a1f5b366c335ec24e8d8ce658e",
+    "last_update": "2026-09-26T03:09:08+00:00"
   },
   "app/pole_api/plan/PLAN_PHASE_1.md": {
     "created_date": "2026-09-10T14:47:18+00:00",

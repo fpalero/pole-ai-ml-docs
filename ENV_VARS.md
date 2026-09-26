@@ -104,7 +104,8 @@ the k3s Helm configmaps (`infrastracture/helm/pole-ai/charts/*/templates/configm
 >
 > **Phase 9 (PAIML-KEYCLOAK-021)** changed the delivery model: `pole_api` now emails the
 > per-app direct link through **Brevo** and Keycloak sends **no** email on the temp path.
-> See the Brevo + host-map table below.
+> **PAIML-KEYCLOAK-022** added the 6-digit OTP second factor (`send-code` / `verify-code`).
+> See the Brevo + host-map table below and the OTP table after it.
 
 | NAME | DESCRIPTION | EXAMPLE | POSIBLE VALUES |
 |---|---|---|---|
@@ -148,6 +149,55 @@ both explicitly:
 
 > The realm SMTP (`smtpServer`) is **no longer used by the temp-access path**. It stays
 > configured for Keycloak's own non-temp self-service flows.
+
+### 6-digit OTP send/verify + session grant (PAIML-KEYCLOAK-022) — implemented
+
+> Backs `POST /api/auth/temporary-access/send-code {temp_token}` and
+> `POST /api/auth/temporary-access/verify-code {temp_token, code}`. Codes are stored
+> **hashed only** (peppered SHA-256, never plaintext). Consumed by
+> `app/pole_api/src/core/{config.py,temp_access.py}` and
+> `auth/controllers/temporary_access.py`.
+
+| NAME | DESCRIPTION | EXAMPLE | POSIBLE VALUES |
+|---|---|---|---|
+| `TEMP_ACCESS_OTP_PEPPER` | Server-side secret mixed into the OTP hash (peppered SHA-256) so a Redis dump cannot be brute-forced offline. **Required**: when unset, `send-code` / `verify-code` answer **503** (fail-closed — never issue or accept a code hashed without it). | `***` (32+ random bytes) | secret string / unset |
+| `TEMP_ACCESS_OTP_TTL_S` | TTL of a pending 6-digit code (Redis `temp:code` TTL). | `600` | seconds; default 10min |
+| `TEMP_ACCESS_OTP_MAX_ATTEMPTS` | Wrong-code attempts allowed per send before `verify-code` answers `429`. Counted with an **atomic `HINCRBY`** so the cap holds under concurrency. | `5` | integer; default 5 |
+| `TEMP_ACCESS_OTP_RESEND_COOLDOWN_S` | Resend cooldown per `(email, app)` (Redis `temp:code-resend` TTL); a `send-code` inside the window answers `429`. | `60` | seconds; default 60 |
+| `TEMP_ACCESS_WINDOW_S` (reused) | 2-hour activated window. `ts_end` is written **once** (`SETNX`); re-entry inside the live window asks a fresh code but **never** moves the end. | `7200` | seconds; default 2h |
+
+**Not a variable — the hidden password.** The plan's "stored server-side" secret
+is **never stored**: 021 generated it inline in the Keycloak create POST and
+discarded it, so `verify-code` **rotates** the nobody-held password and logs in
+with it **inside a single call** (Direct Access Grant). Nothing is persisted, so
+there is no variable, no secret and no rotation burden. Ticket
+`PAIML-KEYCLOAK-025` (FUTURE) removes the mechanism entirely in favour of
+token-exchange impersonation via `pole-api-admin`.
+
+**App binding without a `clientId`.** The OTP bodies carry no `clientId`; the
+presenting app is resolved from the request **`Origin`** header against the
+`FE_BASE_URL` / `ANALYST_BASE_URL` host map. A **missing or unrecognised
+`Origin` is not treated as a mismatch** (so curl / server-side local
+verification still works) — which makes the `403` a **guardrail / UX boundary,
+not a security boundary**. The real second factor is the inbox OTP plus the
+non-extendable 2h window.
+
+#### 🔴 ROLLOUT BLOCKERS for the OTP path (infra repo `pole-ai-ml-infra`, not code)
+
+Until these land, the OTP endpoints cannot work in a deployed environment:
+
+1. **`TEMP_ACCESS_OTP_PEPPER` must be provisioned per environment** (Helm
+   Secret) or `send-code` / `verify-code` answer **503**.
+2. **Direct Access Grants must be enabled on the `pole-fe` and `pole-analyst`
+   clients** (realm config) — the session fetch is a Direct Access Grant and is
+   rejected otherwise.
+3. **Carried over from 021:** `FE_BASE_URL`, `ANALYST_BASE_URL` and
+   `BREVO_API_KEY` must be set per environment.
+
+> The `pole-api` ConfigMap currently sets only `TEMP_ACCESS_*` — none of the
+> variables in these three groups are wired yet. Items 1–2 change the **realm
+> clients** and the **`pole-api` Secret**, so they belong to
+> `pole-ai-ml-infra` (`infrastracture/helm/pole-ai/…`), **never** to `pole-ai-ml`.
 
 
 ### Instagram / crawler (also used by `pole_crawler`)

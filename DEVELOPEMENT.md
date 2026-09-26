@@ -25,7 +25,7 @@ It is generated from the authoritative plans under `docs/app/<project>/PLAN.md` 
 | [`pole_analyst`](#apppole_analyst) | App | Angular FE "Pole AI Coach" — athlete video-analysis coach (upload → analyze → feedback → chat). | 21 done · 1 partial (19) · 1 future (7) · 7 planned (21–25, 27, 33) |
 | [`pole_fe`](#apppole_fe) | App | Angular FE training-workflow manager (tricks, video editor, studio, model registry, jobs). | 11/12 phases done · 1 future |
 | [`infra`](#appinfra) | App | CI/CD deploy pipeline: Helm, GHCR build-push, DEV/STAGING/PROD deploy + Keycloak realm-sync + observability logs. | Phases 1–3 landed (027 sha-tag E2E green · 028–037 demo hosts/memory/kubeconfig/realm-sync) · 4–5 ticketed · 6–8 planned |
-| [`keycloak`](#appkeycloak) | App | Temporary magic-link access (custom login theme, verify-email, Redis cooldown/activation, expiry purge). | 7/8 phases done · 1 partial |
+| [`keycloak`](#appkeycloak) | App | Temporary passwordless access (custom login theme, Brevo direct link + 6-digit OTP, Redis cooldown/activation, expiry purge). | 7/9 phases done · 2 partial (8, 9) |
 | [`dev-ops`](#appdev-ops) | App | GitHub Actions CI/CD: PR gate, phase-completion, full-suite, MediaPipe, nightly docs. | Phases 1–7 planned (unticketed, counter 0) |
 | [`chatbot`](#packageschatbot) | Package | ReAct conversational agent backend (WebSocket, tools, OpenCode client). | Complete (v1) |
 | [`jobs`](#packagesjobs) | Package | Shared job infrastructure (Mongo repo, Redis queue, worker, orchestrator, router). | Complete (v1) |
@@ -426,10 +426,13 @@ Consolidated into `pole_api` as `chatbot` + `training_chatbot` slices. No longer
 
 ### `app/keycloak`
 **Keycloak realm config + temp-access orchestration.** Custom login theme ("Get temporary access"),
-magic-link delivery, per-app role mapping, 2-hour session limits, expiry purge.
-Phases 1–7 ✅ DONE; Phase 8 🟡 PARTIAL. 20 tickets (`PAIML-KEYCLOAK-001..020`, counter=20);
-8 phase folders. Implemented and merged into `develop` (realm SMTP + Mailpit sandbox,
-`pole-api-admin` client, `pole-ai-login` theme, `core/temp_access.py` orchestration + expiry purge).
+passwordless direct-link + 6-digit activation-code delivery, per-app role mapping, 2-hour
+session limits, expiry purge.
+Phases 1–7 ✅ DONE; Phase 8 🟡 PARTIAL; Phase 9 🟡 PARTIAL (021 + 022 merged). 25 tickets
+(`PAIML-KEYCLOAK-001..025`, counter=25); 9 phase folders. Implemented and merged into `develop`
+(realm SMTP + Mailpit sandbox, `pole-api-admin` client, `pole-ai-login` theme,
+`core/temp_access.py` orchestration + expiry purge, and the Phase 9 passwordless direct-link +
+OTP send/verify path).
 
 | Phase | Description | Status |
 | :--- | :--- | :--- |
@@ -441,6 +444,7 @@ Phases 1–7 ✅ DONE; Phase 8 🟡 PARTIAL. 20 tickets (`PAIML-KEYCLOAK-001..02
 | 6 — Stitch pixel-perfect login restyle | Kinetic Precision light theme restyle of `pole-ai-login` (`014`). | **Done** (impl + QA GREEN; awaiting user manual develop→main promotion) |
 | 7 — Magic-link fix | Stale theme, absolute endpoint, error parser, rollout hash; emergency probe fix (015, 016, 017). | **Done** |
 | 8 — Temp-access expiry hardening | azp-mismatch + blind-sweeper fix (018, 019, 020). | **Partial** — code+docs merged (pole-ai-ml#220 pole-ai-ml-docs#9), staging QA gate BLOCKED on rollout |
+| 9 — Passwordless direct-link + activation code | Brevo direct link (021) + 6-digit OTP send/verify, hidden-password grant, `emailVerified`, non-extendable 2h window (022). | **Partial** — 021 + 022 merged; 023 (FE pages) / 024 (QA) outstanding, 025 FUTURE |
 
 #### Phase 1 — Core realm setup (4 tickets)
 - **PAIML-KEYCLOAK-001 — Configure realm SMTP magic-link delivery** — Verify realm email settings + test magic link.
@@ -480,6 +484,18 @@ Phases 1–7 ✅ DONE; Phase 8 🟡 PARTIAL. 20 tickets (`PAIML-KEYCLOAK-001..02
 - **PAIML-KEYCLOAK-021 — Passwordless creation + Brevo link email** ✅ DONE — no `temporary` flag,
   no Keycloak email; `pole_api` emails the per-app direct link via Brevo (EN+ES); token bound to
   one app; rollback leaves no orphaned `temp:*` keys.
+- **PAIML-KEYCLOAK-022 — OTP send/verify + hidden-password grant + `emailVerified` + fixed 2h
+  window** ✅ DONE — merged in `pole-ai-ml` via [PR #356](https://github.com/fpalero/pole-ai-ml/pull/356)
+  (merge `814596f`, 2026-09-26). `send-code` / `verify-code` public endpoints with hashed OTP
+  (10min TTL, 5 attempts via atomic `HINCRBY`, 60s resend cooldown); `emailVerified=true` set
+  **before** minting the session; `temp:active` = `{app, ts_start, ts_end}` written with
+  **SETNX** so re-entry can never move `ts_end` (10:00→12:00 pinned). Hidden password is
+  **not stored** — rotated and used inline in one call (025 removes it). App binding is
+  `Origin`-derived (guardrail, not a security boundary; the real second factor is the inbox
+  OTP + non-extendable window). 🔴 Rollout blocked on infra: `TEMP_ACCESS_OTP_PEPPER` per env
+  (else 503) + Direct Access Grants enabled on `pole-fe`/`pole-analyst` — see `ENV_VARS.md`.
+- **Planned:** `023` (FE `/activate` pages x2), `024` (Mailpit E2E + hardening),
+  `025` (token-exchange impersonation, FUTURE).
 
 ---
 

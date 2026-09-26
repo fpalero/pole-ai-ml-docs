@@ -1,7 +1,7 @@
 # Plan Phase 9 — Passwordless Direct-Link + Activation-Code Flow
 
 > **Parent plan:** [PLAN.md](../PLAN.md)
-> **Status:** 🟡 PARTIAL — ticket 021 (BE root) ✅ DONE; 022–025 outstanding
+> **Status:** 🟡 PARTIAL — tickets 021 (BE root) ✅ DONE and 022 (OTP send/verify) ✅ DONE; 023–025 outstanding (025 FUTURE)
 > **Class:** BE (`pole_api`, repo `pole-ai-ml`) + FE (`pole_fe`/`pole_analyst` activation pages) + QA. No Keycloak realm/theme or Helm changes (theme keeps its self-service entry point; Keycloak sends no email in this phase).
 
 ## Scope
@@ -132,19 +132,56 @@ touch `temp:active`; first `verify-code` success sets `temp:active` with
 > **Note.** The host map is `FE_BASE_URL` / `ANALYST_BASE_URL` in
 > `core/config.py` (defaults: `https://demo-ml-agent.duckdns.org` for
 > `pole-fe`, `https://demo-ai-agent.duckdns.org` for `pole-analyst`), and
-> `POST .../activate` is kept as a **deprecated** shim until ticket 022.
+> `POST .../activate` is kept as a **deprecated** shim. **022 confirmed it stays**
+> a deprecated shim (not removed this phase); removal is deferred until the
+> Phase 2 FE flow is confirmed migrated.
 
-### Ticket 022 — OTP send/verify + hidden-password grant + 2h window (BE)
+### Ticket 022 — OTP send/verify + hidden-password grant + 2h window (BE) — ✅ DONE
 
-- [ ] [Application] `send-code`: validate pending token + app binding, hash and
+- [x] [Application] `send-code`: validate pending token + app binding, hash and
   store the 6-digit OTP (10min TTL), enforce the 60s resend cooldown, Brevo-send
   the code (EN+ES).
-- [ ] [Application] `verify-code`: check code hash, cap attempts at 5, fetch
+- [x] [Application] `verify-code`: check code hash, cap attempts at 5, fetch
   the Keycloak session via hidden-password Direct Access Grant, set
   `emailVerified=true` via Admin API, start `temp:active` 2h on FIRST success
   only (re-entry never extends `ts_end`).
-- [ ] [Tests] OTP hash/attempt/resend/window matrix. Full details in
+- [x] [Tests] OTP hash/attempt/resend/window matrix. Full details in
   `phase-9-passwordless-link-code/PAIML-KEYCLOAK-022.md`.
+
+> **Implementation record (022).** Merged in `pole-ai-ml` via
+> [`PR #356`](https://github.com/fpalero/pole-ai-ml/pull/356) (merge commit
+> `814596f`, 2026-09-26). Four deltas from the plan above, all recorded in the
+> ticket close-out:
+>
+> 1. **The hidden password is never stored.** 021 generated it inline in the
+>    Keycloak create POST and discarded it, so there was nothing to grant with.
+>    `verify-code` now **rotates** the nobody-held password and logs in with it
+>    **inside a single call** — nothing is persisted (stronger than the plan;
+>    025 removes the mechanism entirely).
+> 2. **`temp:active` holds `{app, ts_start, ts_end}` (as documented) and is
+>    written with SETNX** — this is the re-entry window-extension fix.
+>    `get_active_token` keeps its existence-probe contract; `get_window` is the
+>    new typed read.
+> 3. **App binding is derived from the request `Origin` header** (the OTP bodies
+>    carry no `clientId`). A missing/unrecognised `Origin` is **not** a
+>    mismatch, so local verification still works — which means the `403` is a
+>    **guardrail/UX boundary, not a security boundary**. The real second factor
+>    is the inbox OTP plus the non-extendable 2h window (ADR Decision 3).
+> 4. **TOCTOU between the app-binding read and the OTP write is knowingly left**
+>    (fail-closed); a Redis Lua script was rejected because `fakeredis` cannot
+>    execute it in tests. Accepted risk.
+>
+> Two review-round blocking fixes shipped with it: `emailVerified` is now set
+> **before** the session is minted (it was after, so the JWT carried
+> `email_verified:false` and opted out of the 2h enforcement), and the attempt
+> cap moved from a non-atomic read-modify-write to **`HINCRBY`**.
+> `POST .../activate` remains a **deprecated shim** (021+022 decision).
+>
+> 🔴 **Rollout blockers (infra repo `pole-ai-ml-infra`, not code):**
+> `TEMP_ACCESS_OTP_PEPPER` must be provisioned per environment or both OTP
+> endpoints answer 503; **Direct Access Grants must be enabled on the `pole-fe`
+> and `pole-analyst` clients**; and the 021 carry-overs `FE_BASE_URL` /
+> `ANALYST_BASE_URL` / `BREVO_API_KEY` must be set per environment.
 
 ### Ticket 023 — Activation pages x2 (FE)
 

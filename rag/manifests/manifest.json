@@ -1,5 +1,5 @@
 {
-  ".trash/Sin título.md": {
+  ".trash/Sin t\u00edtulo.md": {
     "created_date": "2026-09-25T10:59:22+00:00",
     "file_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "last_update": "2026-08-31T05:18:09+00:00"
@@ -12,7 +12,7 @@
   "ENV_VARS.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
     "file_hash": "0f4daa0d7c386bcdfb119861d4d6b522528bf2206c36299e408e3693bac577d9",
-    "last_update": "2026-09-26T15:51:31+00:00"
+    "last_update": "2026-09-26T16:27:18+00:00"
   },
   "ROADMAP.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -387,7 +387,7 @@
   "app/keycloak/phase-9-passwordless-link-code/PAIML-KEYCLOAK-021.md": {
     "created_date": "2026-09-23T23:50:16+00:00",
     "file_hash": "8568fee1d897e3687daf1eca22b93dcdafaddd18f5e27516026c7bcd39f0f6e3",
-    "last_update": "2026-09-26T16:25:41+00:00"
+    "last_update": "2026-09-26T16:27:18+00:00"
   },
   "app/keycloak/phase-9-passwordless-link-code/PAIML-KEYCLOAK-022.md": {
     "created_date": "2026-09-23T23:50:16+00:00",
@@ -447,7 +447,7 @@
   "app/keycloak/plan/PLAN_PHASE_9.md": {
     "created_date": "2026-09-23T23:50:16+00:00",
     "file_hash": "d96810e17ad6e2e53e80fb55fb82976a90e088a1a1c31d15214acd41609c16c9",
-    "last_update": "2026-09-26T15:32:56+00:00"
+    "last_update": "2026-09-26T16:27:18+00:00"
   },
   "app/pola_agent/PLAN.md": {
     "created_date": "2026-09-10T14:47:18+00:00",

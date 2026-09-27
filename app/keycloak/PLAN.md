@@ -13,6 +13,9 @@
 > that made the 024 gate RED: the `verify-code` Direct Access Grant (**030**, BLOCKER — realm-required
 > `firstName`/`lastName` missing at creation) and the lapse purge destroying the 14-day `temp:req`
 > cooldown (**031**). Both block the **024 re-run**.
+> **Phase 12 📋 PLANNED** (PAIML-KEYCLOAK-032..035) — **Two-Step Temporary Access: Magic Link + Second-Factor Email OTP**
+> (backend OTP dispatch endpoint, 10-min TTL, single-use, prior OTP invalidation, email delivery via Brevo,
+> Athlete & Analyst verification UIs, and full integration tests & QA gate).
 
 ---
 
@@ -65,6 +68,7 @@
 | 9 | Passwordless direct-link + activation-code flow (Brevo link + 6-digit OTP, hidden-password grant first, token-exchange FUTURE) | 🟡 PARTIAL — **021 ✅ DONE** (passwordless creation + Brevo link) + **022 ✅ DONE** (OTP send/verify, hidden-password grant, `emailVerified`, fixed non-extendable 2h window) + **023 ✅ DONE** (per-app `/activate` pages x2, Validate + code states, deep-link routing); **024 QA gate 🔴 RED** (2026-09-26 — blocked on 030+031), 025 FUTURE | [PLAN_PHASE_9.md](plan/PLAN_PHASE_9.md) |
 | 10 | OTP deploy prerequisites (infra: pepper Secret, Direct Access Grants, host map, Brevo key) | 📋 PLANNED — 026–029 authored in the docs repo; **no infra code yet**. Owns the DEPLOY prerequisite for Phase 9, which is currently provisioned **only in the local stack** | [PLAN_PHASE_10.md](plan/PLAN_PHASE_10.md) |
 | 11 | Phase 9 QA-gate fixes (verify-code grant + purge semantics) | 📋 PLANNED — **030** (BLOCKER: `verify-code` Direct Access Grant, realm-required `firstName`/`lastName`; reused disabled accounts) + **031** (lapse purge destroys the 14-day `temp:req` cooldown, may not clear `temp:code:*`); both **block the 024 re-run** | [PLAN_PHASE_11.md](plan/PLAN_PHASE_11.md) |
+| 12 | Two-Step Temporary Access (Magic Link + Second-Factor Email OTP) | 📋 PLANNED — **032** (Backend OTP dispatch endpoint, 10m TTL, single-use, prior OTP invalidation, Brevo delivery) + **033** (pole_fe Athlete verification UI) + **034** (pole_analyst verification UI) + **035** (Integration tests & QA gate) | [PLAN_PHASE_12.md](plan/PLAN_PHASE_12.md) |
 
 > **Phase 9 ⇄ Phase 10 (read this before claiming Phase 9 works).** Phase 9's code
 > is done and is being exercised by the `PAIML-KEYCLOAK-024` QA gate **locally**.
@@ -184,3 +188,8 @@
 - **Decision (Phase 10):** the **deployed environment is unproven** until the Phase 10 prerequisites are observed live in dev/staging/prod. The Phase 9 QA gate runs locally and proves the code path only; ticket 029 is the artifact that changes that.
 - **Decision (Phase 10):** Direct Access Grants stay enabled on `pole-fe` / `pole-analyst` until ticket 025 replaces the hidden-password grant with token exchange — at which point the grant can be turned back off.
 - **Open (infra, `pole-ai-ml-infra`):** the four provisioning gaps are ticketed as 026–029; the code-side infra PRs are scheduled by the team lead, **never** a `develop` → `main` PR.
+- **Decision (Phase 12):** Two-Step Temporary Access combines Magic Link validation with Second-Factor Email OTP:
+  - Step 1 (Magic Link): User clicks direct link from Brevo containing validation token (`/activate?token=...`), triggering initial validation.
+  - Step 2 (Second-Factor OTP): Backend dispatches a 6-digit OTP code to the user's email (10-minute TTL, single-use, prior OTP invalidation, rate-limited resend).
+  - Verification UIs in `pole_fe` and `pole_analyst` display a dedicated 6-digit input component, status notice, countdown timer, and resend cooldown.
+  - Upon successful OTP verification, the active 2-hour session is granted.

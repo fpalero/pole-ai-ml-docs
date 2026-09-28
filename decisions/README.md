@@ -35,3 +35,14 @@ span the whole repo.
   (opencode / ollama / omni_llm).
 - `ADR-003-oc-pr-review-opencode-big-pickle.md` — `/oc` PR review GitHub Action uses a
   self-contained `opencode/big-pickle` workflow (OmniRoute deferred).
+- `ADR-004-crew-multi-repo-routing.md` — multi-repo routing (a path's repo is
+  determined by its location on disk; never cross-push).
+- `ADR-005-keycloak-temp-user-expiry-cronjob.md` — auto-disable expired temp
+  Keycloak users via a K8s CronJob.
+- `ADR-006-readiness-overall-score-gate-precondition.md` — the readiness
+  "overall score" is a gate **precondition**, not a pass criterion.
+- `ADR-007-temp-access-link-reuse-and-audit-retention.md` — temp-access magic
+  link re-use is bounded by the 2h window (**no code change, record only**), the
+  14-day cooldown stays hard but must be *explained*, owned data is physically
+  deleted while a durable per-user audit ledger is retained **forever (deferred
+  pruning)**.

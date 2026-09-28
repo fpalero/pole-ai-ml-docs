@@ -145,7 +145,7 @@ pole-ai-ml
 - [ ] Full `pixi run test` green with ≥80% coverage.
 
 ## Dependencies
-- **Blocks:** PAIML-KEYCLOAK-033
+- **Blocks:** PAIML-KEYCLOAK-033, PAIML-KEYCLOAK-035
 - **Blocked By:** PAIML-KEYCLOAK-030, PAIML-KEYCLOAK-031
 
 ## Estimated Effort
@@ -155,5 +155,8 @@ pole-ai-ml
 > endpoints, the 10-min TTL, single-use, attempt cap and 60s cooldown this
 > ticket *adjusts* — all already implemented), PAIML-KEYCLOAK-023 (the
 > `/activate` pages and `ActivationFlow` this ticket serves), PAIML-KEYCLOAK-030
-> / -031 (Phase 11 QA-gate fixes on the same temp-access surface), and
+> / -031 (Phase 11 QA-gate fixes on the same temp-access surface),
+> [ADR-007](../../decisions/ADR-007-temp-access-link-reuse-and-audit-retention.md)
+> (Decision 3 — the 60s resend cooldown is the *short* clock; the 14-day
+> re-request cooldown is a different one), and
 > [PLAN_PHASE_12.md](../../plan/PLAN_PHASE_12.md) (decision **B2**).

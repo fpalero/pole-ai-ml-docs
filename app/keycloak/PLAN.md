@@ -13,9 +13,17 @@
 > that made the 024 gate RED: the `verify-code` Direct Access Grant (**030**, BLOCKER — realm-required
 > `firstName`/`lastName` missing at creation) and the lapse purge destroying the 14-day `temp:req`
 > cooldown (**031**). Both block the **024 re-run**.
-> **Phase 12 📋 PLANNED** (PAIML-KEYCLOAK-032..035) — **Two-Step Temporary Access: Magic Link + Second-Factor Email OTP**
-> (backend OTP dispatch endpoint, 10-min TTL, single-use, prior OTP invalidation, email delivery via Brevo,
-> Athlete & Analyst verification UIs, and full integration tests & QA gate).
+> **Phase 12 📋 PLANNED** (PAIML-KEYCLOAK-032..033) — **auto-send hardening** for the
+> two-step OTP flow, **not** a build phase. The `send-code` / `verify-code` endpoints, the 10-min
+> code TTL, single-use consumption, prior-code invalidation, the 5-attempt cap, the 60s resend
+> cooldown, Brevo delivery and the per-app `/activate` pages (`pole_fe` + `pole_analyst`, shared
+> `activation-core.ts` shipped byte-identically) **all already exist** from Phase 9
+> (PAIML-KEYCLOAK-021..023; `pole_fe` at 371 tests passing). Phase 12 adds only what is missing:
+> **automatic send on page load**, the **"a verification code has been sent"** notice replacing the
+> "Validate your access link" gate, and the **idempotent 60s cooldown** (`200 {already_sent: true}`
+> instead of 429 when a live code is armed, so a page refresh is not punished). The original
+> 032–035 draft described shipped work as new work; 034/035 were deleted and 032/033 rewritten
+> (2026-09-28) — hence the `keycloak` counter ending at **33**.
 
 ---
 
@@ -68,7 +76,7 @@
 | 9 | Passwordless direct-link + activation-code flow (Brevo link + 6-digit OTP, hidden-password grant first, token-exchange FUTURE) | 🟡 PARTIAL — **021 ✅ DONE** (passwordless creation + Brevo link) + **022 ✅ DONE** (OTP send/verify, hidden-password grant, `emailVerified`, fixed non-extendable 2h window) + **023 ✅ DONE** (per-app `/activate` pages x2, Validate + code states, deep-link routing); **024 QA gate 🔴 RED** (2026-09-26 — blocked on 030+031), 025 FUTURE | [PLAN_PHASE_9.md](plan/PLAN_PHASE_9.md) |
 | 10 | OTP deploy prerequisites (infra: pepper Secret, Direct Access Grants, host map, Brevo key) | 📋 PLANNED — 026–029 authored in the docs repo; **no infra code yet**. Owns the DEPLOY prerequisite for Phase 9, which is currently provisioned **only in the local stack** | [PLAN_PHASE_10.md](plan/PLAN_PHASE_10.md) |
 | 11 | Phase 9 QA-gate fixes (verify-code grant + purge semantics) | 📋 PLANNED — **030** (BLOCKER: `verify-code` Direct Access Grant, realm-required `firstName`/`lastName`; reused disabled accounts) + **031** (lapse purge destroys the 14-day `temp:req` cooldown, may not clear `temp:code:*`); both **block the 024 re-run** | [PLAN_PHASE_11.md](plan/PLAN_PHASE_11.md) |
-| 12 | Two-Step Temporary Access (Magic Link + Second-Factor Email OTP) | 📋 PLANNED — **032** (Backend OTP dispatch endpoint, 10m TTL, single-use, prior OTP invalidation, Brevo delivery) + **033** (pole_fe Athlete verification UI) + **034** (pole_analyst verification UI) + **035** (Integration tests & QA gate) | [PLAN_PHASE_12.md](plan/PLAN_PHASE_12.md) |
+| 12 | Two-Step Temporary Access — auto-send hardening (auto-send on page load, "code sent" notice, idempotent 60s cooldown) | 📋 PLANNED — **032** (BE: `send-code` idempotent inside the resend cooldown → `200 {already_sent: true}` when a live code is armed; 429 preserved) + **033** (FE `pole_fe` **and** `pole_analyst`: auto-send on load, drop the "Validate" gate, "code sent" notice, consume `already_sent`). **Hardening only** — the BE endpoints, 10-min TTL, single-use, prior-code invalidation, 5-attempt cap and the `/activate` pages **already exist** from Phase 9 (PAIML-KEYCLOAK-021..023); see the scope-correction note in PLAN_PHASE_12.md | [PLAN_PHASE_12.md](plan/PLAN_PHASE_12.md) |
 
 > **Phase 9 ⇄ Phase 10 (read this before claiming Phase 9 works).** Phase 9's code
 > is done and is being exercised by the `PAIML-KEYCLOAK-024` QA gate **locally**.
@@ -188,8 +196,9 @@
 - **Decision (Phase 10):** the **deployed environment is unproven** until the Phase 10 prerequisites are observed live in dev/staging/prod. The Phase 9 QA gate runs locally and proves the code path only; ticket 029 is the artifact that changes that.
 - **Decision (Phase 10):** Direct Access Grants stay enabled on `pole-fe` / `pole-analyst` until ticket 025 replaces the hidden-password grant with token exchange — at which point the grant can be turned back off.
 - **Open (infra, `pole-ai-ml-infra`):** the four provisioning gaps are ticketed as 026–029; the code-side infra PRs are scheduled by the team lead, **never** a `develop` → `main` PR.
-- **Decision (Phase 12):** Two-Step Temporary Access combines Magic Link validation with Second-Factor Email OTP:
-  - Step 1 (Magic Link): User clicks direct link from Brevo containing validation token (`/activate?token=...`), triggering initial validation.
-  - Step 2 (Second-Factor OTP): Backend dispatches a 6-digit OTP code to the user's email (10-minute TTL, single-use, prior OTP invalidation, rate-limited resend).
-  - Verification UIs in `pole_fe` and `pole_analyst` display a dedicated 6-digit input component, status notice, countdown timer, and resend cooldown.
-  - Upon successful OTP verification, the active 2-hour session is granted.
+- **Decision (Phase 12):** Phase 12 is **UX hardening of an already-shipped flow**, re-scoped on 2026-09-28 after reading the code. What exists (from PAIML-KEYCLOAK-021..023): the `send-code` / `verify-code` endpoints, the 10-min code TTL (`TEMP_ACCESS_OTP_TTL_S`), single-use consumption, prior-code invalidation, the 5-attempt cap, the 60s resend cooldown, Brevo delivery, and the `/activate` pages with the byte-identical `activation-core.ts` in **both** `pole_fe` and `pole_analyst`. What Phase 12 adds:
+  - **Decision (B1) — auto-send, no gate:** the code is emailed **automatically** when the verification page loads with a valid `temp_token`. The "Validate your access link" pre-step is **removed**, not re-worded — there is nothing left to validate — and the landing copy becomes "A verification code has been sent to your email. It should arrive in a few seconds." (EN + ES).
+  - **Decision (B2) — idempotent cooldown (user-confirmed):** auto-send turns every page refresh into a `send-code` call, and most land inside the 60s cooldown. Answering 429 there would show the user "please wait before requesting another code" while a **valid code is already in their inbox** — wrong on its own terms, since a 429 says "no code is out there". Therefore a `send-code` inside the cooldown **with a live armed code** returns **200 `{already_sent: true}`** plus the code's **remaining** `expires_in`; the frontend renders the code step without re-sending. The **429 rate-limit path is preserved** for explicit "Resend code" clicks and for the case where there is **no** live code to fall back on.
+  - **Constraint:** the stored value stays a peppered SHA-256 digest; the fallback reports only the record's remaining TTL (a 6-digit code is a 10^6 space — a recoverable digest defeats the whole point of `core.otp`).
+  - **Constraint:** `activation-core.ts` / `activation-flow.ts` and their specs are hand-duplicated into both apps and compared byte-for-byte by `activation-parity.spec.ts`; any FE edit must land in both apps in the same change.
+  - **Ticket numbering:** 034 (Analyst verification UI) and 035 (phase-wide integration/QA gate) were **deleted** — the Analyst UI is already delivered by 023 as a byte-identical mirror, and the Phase 9 gate PAIML-KEYCLOAK-024 (with its Phase 11 fixes 030/031) owns end-to-end verification. The `keycloak` counter therefore ends at **33**.

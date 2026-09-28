@@ -13,17 +13,31 @@
 > that made the 024 gate RED: the `verify-code` Direct Access Grant (**030**, BLOCKER — realm-required
 > `firstName`/`lastName` missing at creation) and the lapse purge destroying the 14-day `temp:req`
 > cooldown (**031**). Both block the **024 re-run**.
-> **Phase 12 📋 PLANNED** (PAIML-KEYCLOAK-032..033) — **auto-send hardening** for the
-> two-step OTP flow, **not** a build phase. The `send-code` / `verify-code` endpoints, the 10-min
-> code TTL, single-use consumption, prior-code invalidation, the 5-attempt cap, the 60s resend
-> cooldown, Brevo delivery and the per-app `/activate` pages (`pole_fe` + `pole_analyst`, shared
-> `activation-core.ts` shipped byte-identically) **all already exist** from Phase 9
-> (PAIML-KEYCLOAK-021..023; `pole_fe` at 371 tests passing). Phase 12 adds only what is missing:
-> **automatic send on page load**, the **"a verification code has been sent"** notice replacing the
-> "Validate your access link" gate, and the **idempotent 60s cooldown** (`200 {already_sent: true}`
-> instead of 429 when a live code is armed, so a page refresh is not punished). The original
-> 032–035 draft described shipped work as new work; 034/035 were deleted and 032/033 rewritten
-> (2026-09-28) — hence the `keycloak` counter ending at **33**.
+> **Phase 12 📋 PLANNED** (PAIML-KEYCLOAK-032..035) — **auto-send hardening + the
+> temp-access product decisions** for the two-step OTP flow, **not** a build phase. The
+> `send-code` / `verify-code` endpoints, the 10-min code TTL, single-use consumption,
+> prior-code invalidation, the 5-attempt cap, the 60s resend cooldown, Brevo delivery and
+> the per-app `/activate` pages (`pole_fe` + `pole_analyst`, shared `activation-core.ts`
+> shipped byte-identically) **all already exist** from Phase 9
+> (PAIML-KEYCLOAK-021..023; `pole_fe` at 371 tests passing). Phase 12 adds only what is
+> missing: **automatic send on page load** (032 BE + 033 FE), the **"a verification code
+> has been sent"** notice replacing the "Validate your access link" gate, the
+> **idempotent 60s cooldown** (`200 {already_sent: true}` instead of 429 when a live code
+> is armed, so a page refresh is not punished), the **cooldown-expiry message** on the
+> activation flow (034 FE ×2), and a **durable `temp_access_audit` ledger** (035 BE).
+> The original 032–035 draft described shipped work as new work; its 034/035 (Analyst
+> verification UI, phase-wide QA gate) were **deleted, not renumbered**, and 032/033 were
+> rewritten (2026-09-28) — the numbers were then **re-issued the same day** for the Q2/Q3
+> work above, hence the `keycloak` counter ending at **35**.
+>
+> **Q1 (link re-use) required no code change.** Per
+> [ADR-007](../decisions/ADR-007-temp-access-link-reuse-and-audit-retention.md)
+> (user-confirmed 2026-09-27): the magic link **may** be re-used, but **only while the
+> 2h window is live**; once the 2h lapses the link is dead and the user must wait out the
+> 14-day cooldown and request a brand-new one. That **is** the shipped behaviour
+> (`temp:token` TTL 24h, `start_window` pins `ts_end = ts_start + 2h` and never extends,
+> request-time `_enforce_temp_access_window` rejects after lapse and lazily purges) — it is
+> recorded **as a decision record only**, so a future reader does not "fix" it.
 
 ---
 
@@ -76,7 +90,7 @@
 | 9 | Passwordless direct-link + activation-code flow (Brevo link + 6-digit OTP, hidden-password grant first, token-exchange FUTURE) | 🟡 PARTIAL — **021 ✅ DONE** (passwordless creation + Brevo link) + **022 ✅ DONE** (OTP send/verify, hidden-password grant, `emailVerified`, fixed non-extendable 2h window) + **023 ✅ DONE** (per-app `/activate` pages x2, Validate + code states, deep-link routing); **024 QA gate 🔴 RED** (2026-09-26 — blocked on 030+031), 025 FUTURE | [PLAN_PHASE_9.md](plan/PLAN_PHASE_9.md) |
 | 10 | OTP deploy prerequisites (infra: pepper Secret, Direct Access Grants, host map, Brevo key) | 📋 PLANNED — 026–029 authored in the docs repo; **no infra code yet**. Owns the DEPLOY prerequisite for Phase 9, which is currently provisioned **only in the local stack** | [PLAN_PHASE_10.md](plan/PLAN_PHASE_10.md) |
 | 11 | Phase 9 QA-gate fixes (verify-code grant + purge semantics) | 📋 PLANNED — **030** (BLOCKER: `verify-code` Direct Access Grant, realm-required `firstName`/`lastName`; reused disabled accounts) + **031** (lapse purge destroys the 14-day `temp:req` cooldown, may not clear `temp:code:*`); both **block the 024 re-run** | [PLAN_PHASE_11.md](plan/PLAN_PHASE_11.md) |
-| 12 | Two-Step Temporary Access — auto-send hardening (auto-send on page load, "code sent" notice, idempotent 60s cooldown) | 📋 PLANNED — **032** (BE: `send-code` idempotent inside the resend cooldown → `200 {already_sent: true}` when a live code is armed; 429 preserved) + **033** (FE `pole_fe` **and** `pole_analyst`: auto-send on load, drop the "Validate" gate, "code sent" notice, consume `already_sent`). **Hardening only** — the BE endpoints, 10-min TTL, single-use, prior-code invalidation, 5-attempt cap and the `/activate` pages **already exist** from Phase 9 (PAIML-KEYCLOAK-021..023); see the scope-correction note in PLAN_PHASE_12.md | [PLAN_PHASE_12.md](plan/PLAN_PHASE_12.md) |
+| 12 | Two-Step Temporary Access — auto-send hardening, cooldown UX & audit retention (auto-send on page load, "code sent" notice, idempotent 60s cooldown, 14-day cooldown message, durable audit ledger) | 📋 PLANNED — **032** (BE: `send-code` idempotent inside the resend cooldown → `200 {already_sent: true}` when a live code is armed; 429 preserved) + **033** (FE `pole_fe` **and** `pole_analyst`: auto-send on load, drop the "Validate" gate, "code sent" notice, consume `already_sent`) + **034** (FE `pole_fe` **and** `pole_analyst`: explain the 14-day cooldown in EN/ES on `/activate`; **presentation only, no backend change**) + **035** (BE: durable MongoDB `temp_access_audit` ledger — `email`, `link_issued_at`, `window_started_at`, `use_count`, `consumed_tokens` — written at link-issue/window-start, never deleted by the purge, **additive only** so the `temp:req` cooldown stays the source of truth). **Q1 (link re-use bounded by the 2h window) required NO code change** — recorded in [ADR-007](../decisions/ADR-007-temp-access-link-reuse-and-audit-retention.md) as a decision record only. **Hardening only** — the BE endpoints, 10-min TTL, single-use, prior-code invalidation, 5-attempt cap and the `/activate` pages **already exist** from Phase 9 (PAIML-KEYCLOAK-021..023); see the scope-correction note in PLAN_PHASE_12.md | [PLAN_PHASE_12.md](plan/PLAN_PHASE_12.md) |
 
 > **Phase 9 ⇄ Phase 10 (read this before claiming Phase 9 works).** Phase 9's code
 > is done and is being exercised by the `PAIML-KEYCLOAK-024` QA gate **locally**.
@@ -201,4 +215,7 @@
   - **Decision (B2) — idempotent cooldown (user-confirmed):** auto-send turns every page refresh into a `send-code` call, and most land inside the 60s cooldown. Answering 429 there would show the user "please wait before requesting another code" while a **valid code is already in their inbox** — wrong on its own terms, since a 429 says "no code is out there". Therefore a `send-code` inside the cooldown **with a live armed code** returns **200 `{already_sent: true}`** plus the code's **remaining** `expires_in`; the frontend renders the code step without re-sending. The **429 rate-limit path is preserved** for explicit "Resend code" clicks and for the case where there is **no** live code to fall back on.
   - **Constraint:** the stored value stays a peppered SHA-256 digest; the fallback reports only the record's remaining TTL (a 6-digit code is a 10^6 space — a recoverable digest defeats the whole point of `core.otp`).
   - **Constraint:** `activation-core.ts` / `activation-flow.ts` and their specs are hand-duplicated into both apps and compared byte-for-byte by `activation-parity.spec.ts`; any FE edit must land in both apps in the same change.
-  - **Ticket numbering:** 034 (Analyst verification UI) and 035 (phase-wide integration/QA gate) were **deleted** — the Analyst UI is already delivered by 023 as a byte-identical mirror, and the Phase 9 gate PAIML-KEYCLOAK-024 (with its Phase 11 fixes 030/031) owns end-to-end verification. The `keycloak` counter therefore ends at **33**.
+  - **Decision (B3) — link re-use is bounded by the 2h window (user-confirmed 2026-09-27, ADR-007 Q1; NO code change).** The magic link **may** be re-used, but **only while the 2h window is live**; once the 2h lapses the link is dead and the user must wait out the 14-day cooldown and request a **brand-new** one. This **is** the shipped behaviour (`temp:token` TTL 24h, `start_window` pins `ts_end = ts_start + 2h` and never extends, request-time `_enforce_temp_access_window` rejects after lapse and lazily purges). It is recorded **as a decision record only** so a future reader or agent does not "fix" it into a sliding window or a single-use token. A sliding window was explicitly considered and **rejected** — it turns a forwarded link into indefinite access.
+  - **Decision (B4) — the 14-day cooldown stays hard; the *message* is the deliverable (user-confirmed 2026-09-27, ADR-007 Q2).** The user waits the cooldown out, but the application **must** show an explanatory message (EN + ES) rather than a bare hours number: today the cooldown surfaces only as `409 {"detail":"Email in cooldown — try again in 336 hours"}` and the `/activate` page has **no cooldown state at all**. **Ticket 034** (FE ×2) adds a distinct cooldown state and copy, ideally showing the re-request **date** derived from `Retry-After`. This is **presentation only** — the backend already returns `409` + `Retry-After`, so **no backend change is spec'd**. A pre-flight "check my cooldown" GET was considered and **rejected**: on an unauthenticated endpoint it is an account-enumeration oracle.
+  - **Decision (B5) — owned data is physically deleted; the audit trail is retained forever (user-confirmed 2026-09-27, ADR-007 Q3).** The purge keeps removing what the user *produced* (videos, DB rows, Chroma vectors) — unchanged, and **no soft-delete of owned data** is in scope. **Ticket 035** (BE) adds a durable MongoDB `temp_access_audit` ledger recording the email, `link_issued_at`, `window_started_at`, a `use_count`, and the expired/consumed **token identifiers** (`consumed_tokens`) so a spent or expired token is recognisable and never re-used. The ledger is written at link-issue and window-start, is **idempotent on re-entry**, is **never deleted by the purge**, and is strictly **additive**: the 14-day `temp:req` Redis marker stays the cooldown's source of truth, so the ledger must never be consulted as the cooldown's arbiter (that would reintroduce the PAIML-KEYCLOAK-031 defect). Token identifiers should be stored as a one-way digest — the `core/otp.py` store-a-digest-never-the-plaintext precedent — so a permanent ledger never becomes a permanent credential store. **Retention is "forever, for now"**: unbounded growth is **accepted** at demo traffic and a retention job would be **required before production** (explicitly deferred, out of 035's scope).
+  - **Ticket numbering:** the original 034 (Analyst verification UI — already delivered by 023 as a byte-identical mirror) and 035 (phase-wide integration/QA gate — owned by the Phase 9 gate 024 with its Phase 11 fixes 030/031) were **deleted, not renumbered**, on 2026-09-28. The numbers were **re-issued the same day** for the Q2 cooldown message (034) and the Q3 audit ledger (035). The `keycloak` counter therefore ends at **35**. Graph: `032 → 033 → 034` and `032 → 035` (acyclic, every `Blocked By` symmetric).

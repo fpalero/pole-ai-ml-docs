@@ -152,7 +152,7 @@ pole-ai-ml
 - [ ] Full `pole_fe` + `pole_analyst` suites green.
 
 ## Dependencies
-- **Blocks:** None
+- **Blocks:** PAIML-KEYCLOAK-034
 - **Blocked By:** PAIML-KEYCLOAK-032 (the `already_sent` 200 this consumes —
   without it, an auto-send inside the cooldown renders a 429 error screen)
 
@@ -163,5 +163,8 @@ pole-ai-ml
 > 10-min TTL, single-use, attempt cap and 60s cooldown already exist),
 > PAIML-KEYCLOAK-023 (the `/activate` pages, `ActivationFlow`, `activation-core`
 > and the byte-identical duplication rule this ticket edits),
-> PAIML-KEYCLOAK-032 (the `already_sent` idempotent-cooldown response), and
+> PAIML-KEYCLOAK-032 (the `already_sent` idempotent-cooldown response),
+> [ADR-007](../../decisions/ADR-007-temp-access-link-reuse-and-audit-retention.md)
+> (the 60s resend cooldown this ticket hardens is distinct from the 14-day
+> re-request cooldown, which PAIML-KEYCLOAK-034 addresses), and
 > [PLAN_PHASE_12.md](../../plan/PLAN_PHASE_12.md) (decision **B2**).

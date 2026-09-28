@@ -545,11 +545,15 @@ change** — it is recorded so a future reader does not "fix" the shipped never-
   (either writer can create the row, so `$setOnInsert` is wrong); `use_count` increments per flow
   step. `consumed_tokens` stores a **peppered SHA-256 digest**, never the raw token (the
   `core/otp.py` precedent), capped at 100/doc FIFO. Strictly **additive**: the 14-day `temp:req`
-  Redis marker stays the cooldown's sole arbiter, pinned by a test. Best-effort and dispatched
-  off the event loop via `asyncio.to_thread`. ⚠️ `/oc review` caught two **blocking** issues, both
-  fixed: the sink was never wired in production (feature shipped 1/3 delivered) and the
-  best-effort path blocked the event loop. **Retention/pruning is still deferred** and is
-  required before production.
+  Redis marker stays the cooldown's sole arbiter, pinned by a test. Best-effort, and the sink is
+  built **lazily inside `_audit`** so `__init__` — which runs on the event loop of every
+  authenticated request via `core/auth.py` — performs no Mongo I/O at all; both the build and
+  the write are dispatched via `asyncio.to_thread`. ⚠️ `/oc review` caught three **blocking**
+  issues across three rounds, all fixed: the sink was never wired in production (feature
+  shipped 1/3 delivered); the best-effort *write* blocked the event loop; and the first fix put
+  a blocking `create_index` in `__init__` on the per-request hot path (two Mongo round trips
+  per authenticated request, up to 30 s each during an outage). **Retention/pruning is still
+  deferred** and is required before production.
 
 ---
 

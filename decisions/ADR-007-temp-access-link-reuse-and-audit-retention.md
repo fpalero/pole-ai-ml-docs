@@ -211,6 +211,13 @@ in the code, and a future reader should find the reasoning rather than re-derive
   anything, and the window is governed solely by `start_window`'s immutable
   `ts_end`. That per-document cap is the one bound this work added; the
   collection-level retention below is still deferred.
+- **The ledger's connection is built lazily, off the event loop, and its failure is
+  memoised.** `TempAccessRepository` is constructed on the hot path of every
+  authenticated request (`core/auth.py`), so building the sink in its
+  `__init__` put a blocking `create_index` on the request's event loop. The
+  build therefore happens at the point of use, dispatched with the write, and a
+  failure is cached so a Mongo-less host does not retry it per write. This is
+  the concrete form of the "never gates the flow" requirement below.
 - **`is_token_consumed()` is a recognition helper, not an enforcement one.**
   Nothing refuses a request on its answer — the Redis record and `start_window`
   are the enforcement surfaces — which is what keeps the ledger from becoming a

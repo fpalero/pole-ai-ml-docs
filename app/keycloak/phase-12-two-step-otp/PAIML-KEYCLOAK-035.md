@@ -331,10 +331,38 @@ early-return, so a purged window cannot leave a phantom "access started" stamp.
    `asyncio.to_thread` (existing precedent in `chatbot/router.py`,
    `training_chatbot/router.py`, `analyst_chatbot/services.py`).
 
-**Lesson worth carrying forward:** a hook test proves the hook, never the wiring.
-Any feature whose behaviour depends on a dependency being *injected* needs a test
-that builds the object the way production builds it. That gap is now closed by
-`TestProductionWiring` and `TestVerifyCodeAuditsWithoutInjection`.
+**Lesson worth carrying forward (this is the one to keep):** a hook test proves
+the hook, never the wiring. Any feature whose behaviour depends on a dependency
+being *injected* needs a test that builds the object the way production builds it.
+All three rounds came from the same blind spot — tests that injected a sink, or
+used `mongomock` where `create_index` never blocks, so the suite could not see
+that production was doing blocking I/O on the hot path. The tests now pin the
+**cost**, not just the presence: `__init__` is asserted to perform no Mongo I/O
+at all, the lazy build is asserted to run on a worker thread, and five audit
+writes are asserted to trigger exactly one build.
+
+**Second lesson:** fixing *"the ledger never fires"* by wiring the dependency into
+a **constructor** is a trap when that constructor is on a hot path. The fix for
+B1 created B3. Prefer resolving the dependency at the point of use, off-loop,
+with the failure memoised — never at construction.
+
+A **third** round then caught **B3 — a regression the B1 fix introduced, and a
+worse one than the problem it fixed.** Building the sink synchronously in
+`TempAccessRepository.__init__` meant that constructor did blocking pymongo I/O
+(`create_index`) **on the event loop of every authenticated request**:
+`core/auth.py` builds a repository in both `get_user_id` and `require_role`, and
+there is no `serverSelectionTimeoutMS` anywhere in `src/`, so pymongo's 30 s
+default applies. The net effect was two blocking Mongo round trips per request —
+and during an outage, up to 30 s of stall each. An audit-only, best-effort
+feature would have taken down the authenticated API in precisely the scenario it
+exists to survive. The controller had the same defect in subtler form: the sink
+was an **argument expression** to `asyncio.to_thread`, evaluated on the loop
+before the hop.
+
+**Fix:** the sink is built **lazily inside `_audit`**, which is already async and
+already off-loop, so `__init__` performs no Mongo I/O at all. The resolve and the
+write share a single `to_thread` hop, and the outcome is memoised so a Mongo-less
+host does not retry the build on every write.
 
 Non-blocking notes also addressed: `record_token_consumed` no longer stamps
 `link_issued_at` (the field means *"when the link was requested"*); a never-written
@@ -369,13 +397,15 @@ repository is built per request on the hot path, so a missing
 
 ## Verification
 
-`468 passed, 9 skipped` across the temp-access surface. Coverage on the modified
-files: **100%** `temp_access_audit_repository`, **93%** `temporary_access.py`,
-**89%** `temp_access.py`, **89%** `temp_access_purge.py`. `ruff check` clean on
+`471 passed, 9 skipped` across the temp-access surface. Coverage on the modified
+files: **100%** `temp_access_audit_repository`, **95%** `temporary_access.py`,
+**90%** `temp_access.py`, **89%** `temp_access_purge.py`. `ruff check` clean on
 every touched file.
 
-Both blocking regressions were re-verified individually: reverting B1 turns the
-three wiring tests red; reverting B2 turns the event-loop test red.
+All three blocking regressions were re-verified individually: reverting B1 turns
+the three wiring tests red; reverting B2 turns the event-loop test red; reverting
+B3 turns `test_construction_does_no_mongo_io` and
+`test_the_lazy_sink_build_also_runs_off_the_event_loop` red.
 
 > **Pre-existing, unrelated:** a full `test-api` run shows 8 failures in
 > `test_e2e`, `test_process`, `test_process_integration` and

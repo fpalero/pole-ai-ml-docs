@@ -244,3 +244,156 @@ pole-ai-ml
 > PAIML-KEYCLOAK-020 / -021 (purge + link-issue surface),
 > `core/otp.py` (the store-a-digest-never-the-plaintext precedent), and
 > [PLAN_PHASE_12.md](../../plan/PLAN_PHASE_12.md).
+
+---
+
+# Close-out
+
+**Status:** ✅ SHIPPED — `pole-ai-ml` PR
+[#363](https://github.com/fpalero/pole-ai-ml/pull/363), merged into `develop`.
+New collection `temp_access_audit` in the **app** database (`POLE_API_DB`).
+
+## What shipped
+
+| File | Change |
+| :--- | :--- |
+| `src/core/repositories/temp_access_audit_repository.py` | **New.** Thin repository over the `temp_access_audit` collection, following `core/repositories/video_repository.py` conventions (injected `Database`, `create_index` in `__init__`, `_id` stringified). |
+| `src/core/temp_access.py` | `TempAccessAuditSink` Protocol + `_default_audit_repository()`; audit hooks in `start_window` (both outcomes) and in `activate` (token consumed). Signpost comments on the purge. |
+| `src/core/temp_access_purge.py` | Signpost comment: the ledger is not purged. |
+| `src/auth/controllers/temporary_access.py` | `record_link_issue` after the link is genuinely delivered. |
+
+## Decisions taken (beyond the spec)
+
+**Upsert key `(email, app)`** — as suggested, with a **unique** compound index so
+the idempotency guarantee is structural rather than conventional. Rejected
+`(email, app, token)`: the token is a *property* of the row, not part of its
+identity, so a per-token key would make `use_count` / `window_started_at`
+unanswerable from a single read and turn a re-used link into several "users".
+
+**First-write-wins timestamps use `{"$ifNull": ["$f", now]}` in an
+aggregation-pipeline `update_one`, not `$setOnInsert`.** The ticket suggested
+`$setOnInsert` / `$min`-style semantics; `$ifNull` is required here because
+**either** writer can legitimately create the row — `start_window` is shared by
+both entry paths, so a window may start on a row no request ever created.
+`$setOnInsert` would stamp a phantom `link_issued_at` in that order and leave
+`window_started_at` `null` forever in the other. `$min` cannot express it either
+(a missing field must stay missing, not become epoch). `use_count` is
+`{"$add": [{"$ifNull": ["$use_count", 0]}, 1]}`.
+
+**`consumed_tokens` stores a peppered SHA-256 digest, not the identifier** — the
+choice ADR-007 and the ticket both point at, following the `core/otp.py`
+precedent. The emailed `temp_token` *is* a bearer credential; storing it durably
+would turn a purge-safe design into a permanent credential store. Reuses the
+existing `TEMP_ACCESS_OTP_PEPPER` secret rather than asking ops to provision a
+second one.
+
+**Cap: 100 per document, FIFO, trimmed inside the *same* server-side
+expression** (`$slice` over `$setUnion`), so the document never transiently
+exceeds the cap. **What eviction costs:** a token whose digest has been evicted is
+no longer *recognisable* as previously consumed. It is **not** honoured again —
+nothing in the ledger authorises anything, and the window is governed solely by
+`start_window`'s immutable `ts_end` — so the cap weakens a forensic question for
+the oldest identifiers and nothing about access control.
+
+**The `record_window_start` hook is unconditional**, called for both the window
+creation and the confirming re-entry, with the *write* telling them apart
+(`$ifNull` stamps the start once; `$inc` counts every use). Branching on
+`started is True` at the call site would push that decision into every caller,
+and `start_window` has two today and could gain a third. It also means a new
+entry path cannot get the "stamp the start" half wrong.
+
+**A lapsed window audits nothing** — the hook sits after the `now >= ts_end`
+early-return, so a purged window cannot leave a phantom "access started" stamp.
+
+## Review findings addressed
+
+`/oc review` on PR #363 raised two blocking issues, both real, both fixed in
+`38a5dd8`:
+
+1. **The audit sink was never wired in production** — the sink was injected and
+   defaulted to `None`, and no production call site passed one, so
+   `record_window_start` and `record_token_consumed` **never fired**. The feature
+   shipped **1/3 delivered** while reading as complete: `window_started_at`
+   absent, `use_count` permanently `0`, `is_token_consumed()` always `False` —
+   i.e. all three ADR-007 D3 questions unanswerable. The suite could not see it
+   because every hook test injected the sink by hand, pinning *"the hook works
+   when injected"* and never *"production injects it"*.
+   **Fix:** `_default_audit_repository()` builds the sink lazily in `__init__`
+   when none is injected, so a sink is the **default** rather than something each
+   call site must remember. Construction is failure-tolerant — an unreachable
+   Mongo degrades the ledger to absent and leaves the 2h window and the 14-day
+   cooldown untouched.
+2. **The best-effort path blocked the event loop** — `_audit` was `async` but
+   called synchronous pymongo, as did the controller. With no
+   `serverSelectionTimeoutMS` override a hung Mongo stalls the request for the
+   full server-selection timeout, so the *"never gates the flow"* guarantee
+   failed in precisely the outage it exists to survive. **Fix:** both dispatch via
+   `asyncio.to_thread` (existing precedent in `chatbot/router.py`,
+   `training_chatbot/router.py`, `analyst_chatbot/services.py`).
+
+**Lesson worth carrying forward:** a hook test proves the hook, never the wiring.
+Any feature whose behaviour depends on a dependency being *injected* needs a test
+that builds the object the way production builds it. That gap is now closed by
+`TestProductionWiring` and `TestVerifyCodeAuditsWithoutInjection`.
+
+Non-blocking notes also addressed: `record_token_consumed` no longer stamps
+`link_issued_at` (the field means *"when the link was requested"*); a never-written
+field is `null` rather than absent (docstring corrected); the missing-pepper
+warning is emitted **once per process** rather than on every construction (a
+repository is built per request on the hot path, so a missing
+`TEMP_ACCESS_OTP_PEPPER` became a log line per request).
+
+## Acceptance criteria
+
+- [x] A `temp_access_audit` record is written at **link-issue** and updated at
+      **window-start**, carrying `email`, `app`, `link_issued_at`,
+      `window_started_at`, `use_count` and `consumed_tokens`.
+- [x] A cooldown `409` writes **no** new issuance record (the write is after the
+      `SETNX` gate is won, and after the link is delivered).
+- [x] Re-entry is idempotent: one document per user+app, `use_count`
+      increments, and `link_issued_at` / `window_started_at` are
+      first-write-wins.
+- [x] A spent token's identifier is recorded exactly once, as a **peppered
+      digest** (not a usable credential), and is never honoured again.
+- [x] The purge deletes the user's owned data and leaves the ledger row —
+      including `consumed_tokens` — **intact**, proved by a behavioural test
+      *and* a structural `inspect.getsource` guard on the purge source.
+- [x] After a purge, a re-request is still refused by the `temp:req` cooldown,
+      and a test proves the decision is **Redis-only** (strip the marker and the
+      request is accepted again even though the audit row is permanent).
+- [x] A ledger write failure is best-effort and logged; it never changes a
+      request's or a verification's outcome — and never blocks the event loop.
+- [x] No TTL, prune job or retention policy was added (ADR-007 defers it).
+- [x] The new tests **fail against the pre-change code** (verified by stashing
+      the source and re-running); `pixi run test-api` green, ≥80% coverage.
+
+## Verification
+
+`468 passed, 9 skipped` across the temp-access surface. Coverage on the modified
+files: **100%** `temp_access_audit_repository`, **93%** `temporary_access.py`,
+**89%** `temp_access.py`, **89%** `temp_access_purge.py`. `ruff check` clean on
+every touched file.
+
+Both blocking regressions were re-verified individually: reverting B1 turns the
+three wiring tests red; reverting B2 turns the event-loop test red.
+
+> **Pre-existing, unrelated:** a full `test-api` run shows 8 failures in
+> `test_e2e`, `test_process`, `test_process_integration` and
+> `test_analyst_ws_integration`. 7 of the 8 reproduce identically on `develop`;
+> the 8th is a test-ordering flake that passes in isolation. None are in the
+> temp-access surface.
+
+## Follow-ups (not in this ticket)
+
+- **Retention/pruning.** Still deferred by ADR-007 and still **required before
+  production**: the collection grows without a prune. A production release must
+  add a retention job or a documented archive.
+- **Reading the ledger back out.** `TempAccessAuditRepository.list_entries()` and
+  `is_token_consumed()` ship with no caller; an admin/report view is out of
+  scope here. They are now reachable (the sink is wired), so a report surface
+  needs no further plumbing.
+- **`is_token_consumed` is a recognition helper, not an enforcement one.**
+  Nothing refuses a request on its answer — the Redis record and `start_window`
+  are the enforcement surfaces. If a future change wants to *refuse* a token from
+  the ledger, that is a security change needing its own ADR.
+

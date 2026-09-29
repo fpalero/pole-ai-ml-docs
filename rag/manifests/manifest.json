@@ -4,20 +4,15 @@
     "file_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "last_update": "2026-08-31T05:18:09+00:00"
   },
-  "ARCHITECTURE.md": {
-    "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "29e4ca4fc066895553dd7111334164c67815595f7385f6ec89cb1c4d78e24bfc",
-    "last_update": "2026-08-31T20:36:34+00:00"
-  },
   "DEVELOPEMENT.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "565ffdb01c1d0894989173c30ef7e1e149db1e4bf07ed041e8bce322681df9b0",
-    "last_update": "2026-09-09T14:48:45+00:00"
+    "file_hash": "55415b35299ffabfa21ccbb8b50278e49ac3f589826516c7afbf3d6b250208fa",
+    "last_update": "2026-09-24T09:43:11+00:00"
   },
   "ENV_VARS.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "133d6788680e3364680e41e7475e5124bcd4543ab30a4537d3876d628c45e278",
-    "last_update": "2026-09-09T14:03:36+00:00"
+    "file_hash": "438d714c6fec241bf099dc52089bf39bfd90a10249458462b6e97c05f0bacb67",
+    "last_update": "2026-09-21T22:52:38+00:00"
   },
   "ROADMAP.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -56,13 +51,13 @@
   },
   "app/infra/PLAN.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "2381f9b606f29d984bbfb8e242843e71f9803319faec3ec7497e4c95dc102fca",
-    "last_update": "2026-08-31T20:36:34+00:00"
+    "file_hash": "f37938cbc1575b8d356d1c82e83440bf8f613ed4c6e31939f8d94ecefa6f70ca",
+    "last_update": "2026-09-23T20:40:19+00:00"
   },
   "app/infra/PROJECT_VARS.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "44b661d7a2d231387c5390fec2926a4b546442a768badb8244f4830d1cc8008a",
-    "last_update": "2026-09-10T14:45:54+00:00"
+    "file_hash": "1f74f22f7d3229d5a55f59562d973b867485e4015a03dd8f49cba42940187366",
+    "last_update": "2026-09-24T00:06:18+00:00"
   },
   "app/infra/phase-1-ghcr-build-push/PAIML-INFRA-001.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -138,6 +133,46 @@
     "created_date": "2026-09-10T14:47:18+00:00",
     "file_hash": "03f6d0c64e6d4a82d7f285946084da99e50b184220e9307c9c632ca520812149",
     "last_update": "2026-08-31T20:36:34+00:00"
+  },
+  "app/infra/phase-3-staging-prod-pipeline/PAIML-INFRA-030.md": {
+    "created_date": "2026-09-23T20:23:31+00:00",
+    "file_hash": "abebdb6181fd59b66b9ea94dcfff6d568ee23adcc92cd427f41a0d3850ee05e6",
+    "last_update": "2026-09-23T20:23:18+00:00"
+  },
+  "app/infra/phase-3-staging-prod-pipeline/PAIML-INFRA-031.md": {
+    "created_date": "2026-09-23T20:25:46+00:00",
+    "file_hash": "c7a54f76ec6f6ce5eda2cc93949d1fe6b090f6ecace8cb7a979a892d5fe8b4af",
+    "last_update": "2026-09-23T20:25:33+00:00"
+  },
+  "app/infra/phase-3-staging-prod-pipeline/PAIML-INFRA-032.md": {
+    "created_date": "2026-09-23T21:06:07+00:00",
+    "file_hash": "c6a6094ed80e18c3e0f7e4e4c1d06e0caa4332cf44133bb4da26d5d81148a924",
+    "last_update": "2026-09-23T21:13:21+00:00"
+  },
+  "app/infra/phase-3-staging-prod-pipeline/PAIML-INFRA-033.md": {
+    "created_date": "2026-09-23T22:12:36+00:00",
+    "file_hash": "ca4e9890ab854b0a026fb16e206b88707d702a9a7014f0b7106360ac5e0fabad",
+    "last_update": "2026-09-23T22:12:25+00:00"
+  },
+  "app/infra/phase-3-staging-prod-pipeline/PAIML-INFRA-034.md": {
+    "created_date": "2026-09-23T22:28:16+00:00",
+    "file_hash": "e5a3e75aed056bb7cfcb57fac695365e3edca91dc45bd570f2bdbfbd2c72e4f4",
+    "last_update": "2026-09-23T22:27:59+00:00"
+  },
+  "app/infra/phase-3-staging-prod-pipeline/PAIML-INFRA-035.md": {
+    "created_date": "2026-09-23T23:19:39+00:00",
+    "file_hash": "984da0bafa092317e107868c395086794c039cc4f6ab4be480524db89980f794",
+    "last_update": "2026-09-23T23:19:21+00:00"
+  },
+  "app/infra/phase-3-staging-prod-pipeline/PAIML-INFRA-036.md": {
+    "created_date": "2026-09-23T23:40:40+00:00",
+    "file_hash": "57d79ef55cd5cb403cf4a4623003ed289f9a6445426e2866ec6aab85bfd8583b",
+    "last_update": "2026-09-23T23:40:21+00:00"
+  },
+  "app/infra/phase-3-staging-prod-pipeline/PAIML-INFRA-037.md": {
+    "created_date": "2026-09-24T00:06:27+00:00",
+    "file_hash": "238e275b5bfc4c4b5a4843dd1f8e29acaf2880fca73711b7f804128b4845a476",
+    "last_update": "2026-09-24T00:06:13+00:00"
   },
   "app/infra/phase-4-security-notifications/PAIML-INFRA-011.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -236,13 +271,13 @@
   },
   "app/keycloak/PLAN.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "062e59b4023c35cca29711be0af2a156f22a12cceed199e5bc893fed7ea91eed",
-    "last_update": "2026-09-09T14:48:45+00:00"
+    "file_hash": "5d09d578b6df28d10f0fb07ec7d2b0cd0499e45366874971f0f4331c8c35cc22",
+    "last_update": "2026-09-23T23:50:02+00:00"
   },
   "app/keycloak/PROJECT_VARS.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "a707c74bb1adbb323f2e0053e71929bb809c249639088caf754fc0faffff78ea",
-    "last_update": "2026-09-10T14:45:09+00:00"
+    "file_hash": "1d833c89a917bd0b667bf1a9dc0255ebb0d8f9c55fa550d1817e9785080ef3f1",
+    "last_update": "2026-09-23T23:50:04+00:00"
   },
   "app/keycloak/phase-1-keycloak-realm-theme/PAIML-KEYCLOAK-001.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -306,8 +341,8 @@
   },
   "app/keycloak/phase-5-brevo-smtp/PAIML-KEYCLOAK-013.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "c37b4febe13d60783c046ae9d8afafe26116343a2227cbac78f41478c28c2027",
-    "last_update": "2026-09-04T13:45:45+00:00"
+    "file_hash": "90ae5523ba6d6b1e2732ae5cc7e633eaedba86b9c11fb4481f8dc8c1a79d0f14",
+    "last_update": "2026-09-11T07:38:44+00:00"
   },
   "app/keycloak/phase-6-stitch-login-restyle/PAIML-KEYCLOAK-014.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -316,8 +351,8 @@
   },
   "app/keycloak/phase-7-magic-link-fix/PAIML-KEYCLOAK-015.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "29930bbd74f8b95d200f29a8d750f6abff82f4e70760de6f7eec3c1886c97ebf",
-    "last_update": "2026-09-04T13:45:45+00:00"
+    "file_hash": "067c00b6d8be9b89e315b13deaa13f365e1932b759c7fe92b8e56037c3d9c45e",
+    "last_update": "2026-09-11T07:38:44+00:00"
   },
   "app/keycloak/phase-7-magic-link-fix/PAIML-KEYCLOAK-016.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -343,6 +378,31 @@
     "created_date": "2026-09-10T14:47:18+00:00",
     "file_hash": "6e1e979a7ab437f61ba11e23f5ab2a99b3f10bb79a88e438ac67c90c9205daf5",
     "last_update": "2026-09-04T13:45:45+00:00"
+  },
+  "app/keycloak/phase-9-passwordless-link-code/PAIML-KEYCLOAK-021.md": {
+    "created_date": "2026-09-23T23:50:16+00:00",
+    "file_hash": "dfe19400344ca393413ff0e60b04ec4b7e5a0e59ea20e4fed2ab4b3db1c6c23a",
+    "last_update": "2026-09-23T23:49:55+00:00"
+  },
+  "app/keycloak/phase-9-passwordless-link-code/PAIML-KEYCLOAK-022.md": {
+    "created_date": "2026-09-23T23:50:16+00:00",
+    "file_hash": "c3abc21157b6858e17ce8c1c790fcfe9861138d690e973df8665e98b7c58a221",
+    "last_update": "2026-09-23T23:49:55+00:00"
+  },
+  "app/keycloak/phase-9-passwordless-link-code/PAIML-KEYCLOAK-023.md": {
+    "created_date": "2026-09-23T23:50:16+00:00",
+    "file_hash": "8c1ded6029384a7af27d1bfe82f3576cd80abafdedd8a83282d534a3491ca93c",
+    "last_update": "2026-09-23T23:49:55+00:00"
+  },
+  "app/keycloak/phase-9-passwordless-link-code/PAIML-KEYCLOAK-024.md": {
+    "created_date": "2026-09-23T23:50:16+00:00",
+    "file_hash": "00f6036288488ae9e39c3a06e78c014b1d482d979820775766291ce06ea3d838",
+    "last_update": "2026-09-23T23:49:55+00:00"
+  },
+  "app/keycloak/phase-9-passwordless-link-code/PAIML-KEYCLOAK-025.md": {
+    "created_date": "2026-09-23T23:50:16+00:00",
+    "file_hash": "94e8ab13467ef8d1bdcee51a7820313505f74ab189ec09a10c93b23781ca5b83",
+    "last_update": "2026-09-23T23:49:55+00:00"
   },
   "app/keycloak/plan/PLAN_PHASE_1.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -378,6 +438,11 @@
     "created_date": "2026-09-10T14:47:18+00:00",
     "file_hash": "c2a3231cfd41cf55b2cab4fc4030ca1dc5f0b37041c0bb9367204bbafbc31238",
     "last_update": "2026-09-04T13:45:45+00:00"
+  },
+  "app/keycloak/plan/PLAN_PHASE_9.md": {
+    "created_date": "2026-09-23T23:50:16+00:00",
+    "file_hash": "afa874b2d7bbb22f94c8bb86c6851b5ee86dc7fda3242aaef3664652c3abbca2",
+    "last_update": "2026-09-23T23:49:17+00:00"
   },
   "app/pola_agent/PLAN.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -491,13 +556,13 @@
   },
   "app/pole_analyst/PLAN.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "75e74ac48f9989f1e72f2b3c3797a007891f7672cbea4e0cf74f438126ea6412",
-    "last_update": "2026-09-10T16:08:00+00:00"
+    "file_hash": "f350697a30b94c34e9b7d952bb8689d1ac1c7fb5c07dc293f498d9d83e7ddbbf",
+    "last_update": "2026-09-11T07:34:13+00:00"
   },
   "app/pole_analyst/PROJECT_VARS.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "72f64c9b06fb94332cee6acd3ac7b7f868648b77969d19f34332be7befe3a80e",
-    "last_update": "2026-09-10T14:46:05+00:00"
+    "file_hash": "88ca922f07921a57ddc6dea7ee66516b09eb35c321b187de8b30dfd3edffbd19",
+    "last_update": "2026-09-24T00:06:17+00:00"
   },
   "app/pole_analyst/fe_design.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -824,6 +889,21 @@
     "file_hash": "341bc6ead74566ab5d02e5cddc23bdafecdd57001120b3d1b4c589a2e5ff8d7b",
     "last_update": "2026-09-10T14:50:42+00:00"
   },
+  "app/pole_analyst/phase-31-baseline-test-repair/PAIML-POLE-ANALYST-084.md": {
+    "created_date": "2026-09-24T00:06:27+00:00",
+    "file_hash": "49972480355b072a88e9c924b9fd4945dfef2fe4a504cc7ff2f9a0269b42a732",
+    "last_update": "2026-09-24T00:05:51+00:00"
+  },
+  "app/pole_analyst/phase-33-capability-catalog-expansion/PAIML-POLE-ANALYST-082.md": {
+    "created_date": "2026-09-11T07:35:10+00:00",
+    "file_hash": "9ce3681213029a4be33b29fcd607a191362593e605edc8c0dba4b03a99163c48",
+    "last_update": "2026-09-11T07:34:13+00:00"
+  },
+  "app/pole_analyst/phase-33-capability-catalog-expansion/PAIML-POLE-ANALYST-083.md": {
+    "created_date": "2026-09-11T07:35:10+00:00",
+    "file_hash": "383578b9ab1bf38e978cd22ac19ad326f8c9a0b65dec9d72188e33a408fbe86b",
+    "last_update": "2026-09-11T07:34:13+00:00"
+  },
   "app/pole_analyst/phase-4-video-detail-tabs/PAIML-POLE-ANALYST-015.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
     "file_hash": "aba644b8b05003ce67b2d0b1e86247e033b538ae8961601f7d19635b40a37ea2",
@@ -1021,13 +1101,13 @@
   },
   "app/pole_analyst/plan/PLAN_PHASE_30.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "e7619b99d3e897450bbe7f8aed14f47d4204cab4045b01cb7f4f114872e2e83b",
-    "last_update": "2026-09-10T14:46:05+00:00"
+    "file_hash": "d407bc660f4bcf2c9f15c9a9f6b8b05754cc0d1c2d0eda03be11f09c0e5466e1",
+    "last_update": "2026-09-10T16:11:59+00:00"
   },
   "app/pole_analyst/plan/PLAN_PHASE_31.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "30a2c0ace256a8b9d02d5e01bb27da5318531cd0d751fef33a66cea2bbde0b52",
-    "last_update": "2026-09-10T14:50:42+00:00"
+    "file_hash": "f6f963b4d58597c020f4c9631d9129b49ced23eb23ac767ff02f3955042397aa",
+    "last_update": "2026-09-10T16:11:59+00:00"
   },
   "app/pole_analyst/plan/PLAN_PHASE_4.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -1076,13 +1156,13 @@
   },
   "app/pole_api/API.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "e78f23a878794fc66ef1085aa9dda3c1c62527f2e6f22eba1b1b9d8bc85f0e06",
-    "last_update": "2026-08-31T20:36:34+00:00"
+    "file_hash": "083a1b2ba3e955391bad0a743fd709130cdfab7b3a938afe5f456c3b89db9dbd",
+    "last_update": "2026-09-21T10:35:15+00:00"
   },
   "app/pole_api/PLAN.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "580e038d715e8b2d8f882dea028bc4eee2c55d4bf7d34f1305a45d1cff5b2b67",
-    "last_update": "2026-09-10T14:45:09+00:00"
+    "file_hash": "6f32749c854b24fe153ade017f1a0666232ae583167468aa72181eb0a9f9cbc4",
+    "last_update": "2026-09-21T12:07:39+00:00"
   },
   "app/pole_api/POLE-API.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -1091,8 +1171,8 @@
   },
   "app/pole_api/PROJECT_VARS.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "ef380bb60d4cb581bc22220a79755c83f28789949a4e4380ac041575204cf9cb",
-    "last_update": "2026-09-10T14:45:09+00:00"
+    "file_hash": "ad3e402550d4ae5fd45b5cb8ef9c05b5d11ecd2576472bc30784cfe8331a0812",
+    "last_update": "2026-09-23T23:48:39+00:00"
   },
   "app/pole_api/be_train_retrain_test_guide.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -1659,6 +1739,176 @@
     "file_hash": "3d831a84e1ce5aa5de2a5ad8291c57d836d7a9cb8ba488793bd231e69558b9e7",
     "last_update": "2026-09-10T14:45:09+00:00"
   },
+  "app/pole_api/phase-36-free-text-trick-extraction/PAIML-POLE-API-112.md": {
+    "created_date": "2026-09-10T16:51:54+00:00",
+    "file_hash": "244a9d73bd7bddab95e41655df434ac1130c58025bd14d1feb544f89a40dd1f2",
+    "last_update": "2026-09-11T07:38:44+00:00"
+  },
+  "app/pole_api/phase-36-free-text-trick-extraction/PAIML-POLE-API-113.md": {
+    "created_date": "2026-09-10T16:51:54+00:00",
+    "file_hash": "73ab3ed7f2fa22f09cbd861c572da185d831f025b65fcf66e66440fd4887cb67",
+    "last_update": "2026-09-11T07:38:44+00:00"
+  },
+  "app/pole_api/phase-36-free-text-trick-extraction/PAIML-POLE-API-114.md": {
+    "created_date": "2026-09-10T16:51:54+00:00",
+    "file_hash": "9a0c27eda71adafd3605d8470fb2f600d9a376ac73c7615b01df41bab84ee145",
+    "last_update": "2026-09-11T07:38:44+00:00"
+  },
+  "app/pole_api/phase-37-coach-grounding-regression/PAIML-POLE-API-115.md": {
+    "created_date": "2026-09-10T18:17:43+00:00",
+    "file_hash": "28e318d51d9e4b38adfba6e062e2dbcd33d0333647e91e3d50a674f3b5902d88",
+    "last_update": "2026-09-10T18:17:34+00:00"
+  },
+  "app/pole_api/phase-39-staging-gate-residuals/PAIML-POLE-API-117.md": {
+    "created_date": "2026-09-11T11:45:48+00:00",
+    "file_hash": "3a7b636c79dd1f3e7b72b63df7681e89d73018863dadcaa3a9050fbc0a0241a7",
+    "last_update": "2026-09-11T07:38:44+00:00"
+  },
+  "app/pole_api/phase-39-staging-gate-residuals/PAIML-POLE-API-118.md": {
+    "created_date": "2026-09-11T11:45:48+00:00",
+    "file_hash": "eeb1b48494dfa2be7b3622950499e9ec7ddce4f988a0b29fad4505bf7e07beb7",
+    "last_update": "2026-09-11T07:38:44+00:00"
+  },
+  "app/pole_api/phase-39-staging-gate-residuals/PAIML-POLE-API-121.md": {
+    "created_date": "2026-09-11T11:45:48+00:00",
+    "file_hash": "31516fe83d5e9e6fc58602c7a34aba1ad0fc1e9b3851555fde40ff16b3fb3737",
+    "last_update": "2026-09-11T07:38:44+00:00"
+  },
+  "app/pole_api/phase-40-pr-checks-gate/PAIML-POLE-API-119.md": {
+    "created_date": "2026-09-11T11:45:48+00:00",
+    "file_hash": "03454d7e29f8a6643cc02367a08780eadee8a4385dd6245ef367ed5bfb112c36",
+    "last_update": "2026-09-11T07:38:44+00:00"
+  },
+  "app/pole_api/phase-41-pr-checks-gate-workflow-run/PAIML-POLE-API-120.md": {
+    "created_date": "2026-09-11T11:45:48+00:00",
+    "file_hash": "3e12fc32ca6ec280e79b0dadc8ec1f070adfc197f4a53b4723fa470955aaf4d0",
+    "last_update": "2026-09-11T07:38:44+00:00"
+  },
+  "app/pole_api/phase-42-coach-gate-25/LOCAL_GATE_20260923_2125.md": {
+    "created_date": "2026-09-23T19:04:17+00:00",
+    "file_hash": "338ba8f8c64c70b13d7d40de3b00ccaba8b11471bd4831096119d9c05333836a",
+    "last_update": "2026-09-23T19:04:06+00:00"
+  },
+  "app/pole_api/phase-42-coach-gate-25/PAIML-POLE-API-122.md": {
+    "created_date": "2026-09-11T11:45:48+00:00",
+    "file_hash": "b3d5884e9223ae3ee35db817913b903165e45a7339698d24da39f5c69df35b0e",
+    "last_update": "2026-09-11T13:15:05+00:00"
+  },
+  "app/pole_api/phase-42-coach-gate-25/PAIML-POLE-API-123.md": {
+    "created_date": "2026-09-11T11:45:48+00:00",
+    "file_hash": "54d56733e4fbea609c8ba00e9e073058c34898ea2ab5c6f29bdd37c5875b7887",
+    "last_update": "2026-09-11T07:42:39+00:00"
+  },
+  "app/pole_api/phase-42-coach-gate-25/PAIML-POLE-API-124.md": {
+    "created_date": "2026-09-12T07:42:59+00:00",
+    "file_hash": "e5eed72db1134810d7da9d49ed5d3e450e35f9287e8d3659663887d3a34d667d",
+    "last_update": "2026-09-12T07:41:34+00:00"
+  },
+  "app/pole_api/phase-42-coach-gate-25/PAIML-POLE-API-125.md": {
+    "created_date": "2026-09-12T07:42:59+00:00",
+    "file_hash": "b43f5c5570fb1a3b93dfe9ac9c85b530fdee6c5c541daf5a90a282a967c5a129",
+    "last_update": "2026-09-12T07:41:45+00:00"
+  },
+  "app/pole_api/phase-42-coach-gate-25/PAIML-POLE-API-126.md": {
+    "created_date": "2026-09-12T07:42:59+00:00",
+    "file_hash": "7c35bdfb9a8675b44845f54b5c8329bbf8a9ca0e0fcbeeb4b45e5915295af204",
+    "last_update": "2026-09-21T17:42:45+00:00"
+  },
+  "app/pole_api/phase-42-coach-gate-25/PAIML-POLE-API-127.md": {
+    "created_date": "2026-09-21T12:07:54+00:00",
+    "file_hash": "79a36acc0a80634c34cb506a9293d88a203f3ef5392615735d1bd107f0527aa1",
+    "last_update": "2026-09-21T12:06:58+00:00"
+  },
+  "app/pole_api/phase-42-coach-gate-25/PAIML-POLE-API-128.md": {
+    "created_date": "2026-09-21T12:07:54+00:00",
+    "file_hash": "dcbe08b4a039cda0946e043af7ec01b6f5039c81c2b9ee0fdae737c9f8f7c2f9",
+    "last_update": "2026-09-21T12:07:05+00:00"
+  },
+  "app/pole_api/phase-42-coach-gate-25/PAIML-POLE-API-129.md": {
+    "created_date": "2026-09-21T19:40:52+00:00",
+    "file_hash": "27858d998a9afb16eea7f545a43ad543e57b9095af926826cff8824064074db9",
+    "last_update": "2026-09-21T19:43:58+00:00"
+  },
+  "app/pole_api/phase-42-coach-gate-25/PAIML-POLE-API-130.md": {
+    "created_date": "2026-09-21T19:40:52+00:00",
+    "file_hash": "2bd640e0d9a6df0a6737377dcc9990a2cedf7938a61fb2a45c831af7cc3738c9",
+    "last_update": "2026-09-21T19:40:00+00:00"
+  },
+  "app/pole_api/phase-42-coach-gate-25/PAIML-POLE-API-131.md": {
+    "created_date": "2026-09-21T19:40:52+00:00",
+    "file_hash": "0ad002f773d64f244db36854195526388d6ecc93a7288f00749260513a6315f2",
+    "last_update": "2026-09-23T17:45:08+00:00"
+  },
+  "app/pole_api/phase-42-coach-gate-25/PAIML-POLE-API-132.md": {
+    "created_date": "2026-09-21T19:40:52+00:00",
+    "file_hash": "801c22b9310397b810dba012b48478c2e8779e8f737dae16593b8fbaa6227802",
+    "last_update": "2026-09-21T22:52:35+00:00"
+  },
+  "app/pole_api/phase-42-coach-gate-25/PAIML-POLE-API-133.md": {
+    "created_date": "2026-09-21T22:53:04+00:00",
+    "file_hash": "1566c595ca92c91efa2f298cdf05de1aecc5abe5286912a1f1a4f7894bb7788c",
+    "last_update": "2026-09-23T17:00:49+00:00"
+  },
+  "app/pole_api/phase-42-coach-gate-25/PAIML-POLE-API-134.md": {
+    "created_date": "2026-09-22T07:08:11+00:00",
+    "file_hash": "b2e4bf04ce31166a161920f56be9583b7272f6834cd709c7226451413778aa4a",
+    "last_update": "2026-09-23T10:54:23+00:00"
+  },
+  "app/pole_api/phase-42-coach-gate-25/PAIML-POLE-API-135.md": {
+    "created_date": "2026-09-22T07:08:11+00:00",
+    "file_hash": "05cac92f2ce2f4c8ad50991768368e9d590982332220ca6c4f68d759d1895379",
+    "last_update": "2026-09-23T10:54:24+00:00"
+  },
+  "app/pole_api/phase-42-coach-gate-25/PAIML-POLE-API-136.md": {
+    "created_date": "2026-09-22T07:08:11+00:00",
+    "file_hash": "13be6267deb2d1558164467936338c7ee1f2e93862c0da2fe51c33436953ac20",
+    "last_update": "2026-09-23T11:51:13+00:00"
+  },
+  "app/pole_api/phase-42-coach-gate-25/PAIML-POLE-API-137.md": {
+    "created_date": "2026-09-22T07:08:11+00:00",
+    "file_hash": "bb33e36592cf8fc38a777d4d8c813f256078cab17269acc1b9ec835ffa19e455",
+    "last_update": "2026-09-22T09:12:57+00:00"
+  },
+  "app/pole_api/phase-42-coach-gate-25/PAIML-POLE-API-138.md": {
+    "created_date": "2026-09-22T11:40:38+00:00",
+    "file_hash": "4a889b54d8f3da1ef8cd0567a8bb1a491e75c3184379d3c15b60f30bc986bab3",
+    "last_update": "2026-09-23T06:05:00+00:00"
+  },
+  "app/pole_api/phase-42-coach-gate-25/PAIML-POLE-API-139.md": {
+    "created_date": "2026-09-22T11:40:38+00:00",
+    "file_hash": "b53eaf3119f4b106f99002ff85d7fa8cf9a632e317531e4dd56220b23e3f449d",
+    "last_update": "2026-09-23T06:05:03+00:00"
+  },
+  "app/pole_api/phase-42-coach-gate-25/PAIML-POLE-API-140.md": {
+    "created_date": "2026-09-23T19:16:39+00:00",
+    "file_hash": "b818549272fa36827b2e960fc0d708a864eabd24859f9dff520acceb79539345",
+    "last_update": "2026-09-23T19:16:22+00:00"
+  },
+  "app/pole_api/phase-42-coach-gate-25/PAIML-POLE-API-141.md": {
+    "created_date": "2026-09-23T19:16:39+00:00",
+    "file_hash": "b5d1c022ba9e3b5625d739271c23889e4d9aa6a38441eb650b1f3d27211ff81c",
+    "last_update": "2026-09-23T19:16:26+00:00"
+  },
+  "app/pole_api/phase-42-coach-gate-25/PAIML-POLE-API-142.md": {
+    "created_date": "2026-09-23T20:30:11+00:00",
+    "file_hash": "ce845bd76e34d428b98d5f441e3722537022030927a1d1ea641b948d9cf0392e",
+    "last_update": "2026-09-23T20:29:56+00:00"
+  },
+  "app/pole_api/phase-42-coach-gate-25/PAIML-POLE-API-143.md": {
+    "created_date": "2026-09-23T20:30:11+00:00",
+    "file_hash": "970f932afae32a73f049f7bc9fc9f4a2dd7bcb5a65d18ea2fd4c44b95bcf3c2d",
+    "last_update": "2026-09-23T20:29:56+00:00"
+  },
+  "app/pole_api/phase-42-coach-gate-25/PAIML-POLE-API-144.md": {
+    "created_date": "2026-09-23T23:48:52+00:00",
+    "file_hash": "339ea484ddcc57cdc11e1c6ba3711210331971b3c4458dbac5734232a0990cfe",
+    "last_update": "2026-09-23T23:48:39+00:00"
+  },
+  "app/pole_api/phase-42-coach-gate-25/PAIML-POLE-API-145.md": {
+    "created_date": "2026-09-23T23:48:52+00:00",
+    "file_hash": "abccf15acc2000c854a8e9fa0f2c7f54d8bd763d8a00bbf71dbaae1a55af5344",
+    "last_update": "2026-09-23T23:48:39+00:00"
+  },
   "app/pole_api/plan/PLAN_PHASE_1.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
     "file_hash": "2161484346244f3bc997a8d125d7c3e1030c1d6d55f2986ea3eabb24046d7f5d",
@@ -1774,10 +2024,25 @@
     "file_hash": "0965ed3a9cd96fe42fa3b56a957c2d277cd5244b7b60881a5ef204bb4ac9f088",
     "last_update": "2026-09-10T14:45:09+00:00"
   },
+  "app/pole_api/plan/PLAN_PHASE_36.md": {
+    "created_date": "2026-09-10T16:51:54+00:00",
+    "file_hash": "7c4b2cd0e10fb91473ba59c29c8cf1ec68b8bcfbcdf78b982271bfe941728c02",
+    "last_update": "2026-09-11T07:38:44+00:00"
+  },
+  "app/pole_api/plan/PLAN_PHASE_39.md": {
+    "created_date": "2026-09-11T11:45:48+00:00",
+    "file_hash": "d6b2e7d535d5be44531b674954a2a361a9bafdffdae246431c439b7e5ab95f9c",
+    "last_update": "2026-09-11T07:38:44+00:00"
+  },
   "app/pole_api/plan/PLAN_PHASE_4.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
     "file_hash": "2751ad52ad13021d2ba20412f32c93c1ce78cfe13ca93e14cbe37099f4866b2f",
     "last_update": "2026-08-31T20:36:34+00:00"
+  },
+  "app/pole_api/plan/PLAN_PHASE_42.md": {
+    "created_date": "2026-09-11T11:45:48+00:00",
+    "file_hash": "588fc407cbbae679460a8fab08362a61e5b847044859aa845d7e9522024c359d",
+    "last_update": "2026-09-12T07:42:38+00:00"
   },
   "app/pole_api/plan/PLAN_PHASE_5.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -1816,8 +2081,8 @@
   },
   "app/pole_fe/PROJECT_VARS.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "34a4b8ce0c96f46fd93102b4d2021eb1a8ed209edc623be277abea085b4285d8",
-    "last_update": "2026-09-10T14:45:09+00:00"
+    "file_hash": "43014baa62cfec7fbb05ddeaecb739d6d52e19fdeaa2086a52728164363f07df",
+    "last_update": "2026-09-24T00:06:18+00:00"
   },
   "app/pole_fe/e2e-test-plan.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -1919,6 +2184,11 @@
     "file_hash": "edc0d5a137f869caf73095724b0e53243f88523155850d490f7f32626d154d53",
     "last_update": "2026-09-09T15:04:29+00:00"
   },
+  "app/pole_fe/phase-8-e2e-playwright/PAIML-POLE-FE-016.md": {
+    "created_date": "2026-09-24T00:06:27+00:00",
+    "file_hash": "92d8af88a0617f5137a571680f5cae9dcd57d5755be2da19ea5297c1c1cedb98",
+    "last_update": "2026-09-24T00:06:03+00:00"
+  },
   "app/pole_fe/phase-9-biomech-analysis/PAIML-POLE-FE-005.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
     "file_hash": "8cb68634d62c3a3df0257ae99248eb2a7a7bacafc163f2507a5df892986ebe02",
@@ -2019,6 +2289,271 @@
     "file_hash": "70dee86786ad8d33e350fe43c631833ce89e581cf3e3cb8a6fcfed4ad415e8a1",
     "last_update": "2026-09-10T14:45:09+00:00"
   },
+  "business/content/articles/ai-agents/agent-to-production.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "dc831c644504c140f8dc70879f18b46a951ac90216997dd601835455788a406b",
+    "last_update": "2026-09-21T12:31:52+00:00"
+  },
+  "business/content/articles/ai-agents/autonomous-agent-guardrails.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "7e6bccb7cdf9c5954a74480a32bfbf12a2bd144536f8745d5a8316fd2e979d48",
+    "last_update": "2026-09-21T12:31:57+00:00"
+  },
+  "business/content/articles/ai-agents/deterministic-guardrails.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "25aad64176e3c08b48457e7abc99f97037dfee04691c3528619fc4ff7ffd91d1",
+    "last_update": "2026-09-21T12:31:50+00:00"
+  },
+  "business/content/articles/ai-agents/llm-agent-crew.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "179b2b933748590ed09c7bf07e5e42dee74fca82193e3dc83e14f9a6577dd8d6",
+    "last_update": "2026-09-21T12:31:55+00:00"
+  },
+  "business/content/articles/ai-agents/react-loop-tool-registry.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "9eb819980df3cd6d886d4a3dcfae5e3b887d24337d02b46642ae575dcb7bfe93",
+    "last_update": "2026-09-21T12:31:46+00:00"
+  },
+  "business/content/articles/ai-agents/react-vs-langgraph.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "fb3460264af1037477d40d1f8f7e358017504194c3e61c58e48518457f848472",
+    "last_update": "2026-09-21T12:31:48+00:00"
+  },
+  "business/content/articles/ai-applications/adrs.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "200afe0d5bbdd7d5bf500eb4085e6e76b13c5849d9cb83515f91f6a3edc18d5b",
+    "last_update": "2026-09-21T12:31:36+00:00"
+  },
+  "business/content/articles/ai-applications/ai-generated-ui-feature-scale.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "49a0d2f364e44f42d2f2698adbd9c5529e5464e4a065068ca106b6f88527ca16",
+    "last_update": "2026-09-21T12:31:38+00:00"
+  },
+  "business/content/articles/ai-applications/ci-security.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "b05b24c7a57bde50f508e4abc029b128a32619e1d5a49e515d2bf2bd8ac099c5",
+    "last_update": "2026-09-21T12:31:24+00:00"
+  },
+  "business/content/articles/ai-applications/design-tokens-angular-ui.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "fc1071fed117204d07570eee941d8b6e4f4580b7d0c133b6948c3d938a42857e",
+    "last_update": "2026-09-21T12:30:59+00:00"
+  },
+  "business/content/articles/ai-applications/distributed-logging.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "f2a0a8fccc1577a61423f33783878aae69ede2b2bd40d0dbcdf6084ae83a6238",
+    "last_update": "2026-09-21T12:31:28+00:00"
+  },
+  "business/content/articles/ai-applications/doc-driven-development.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "36ee3ce0981fd8abda125e557a53060549b48abedd73ea5b7cd97facb136e0be",
+    "last_update": "2026-09-21T12:31:32+00:00"
+  },
+  "business/content/articles/ai-applications/docker-to-k3s-helm.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "08534facf445fad0093544aff3be9c28dcb23ab3dc546b3d4dbceb5b51ba649c",
+    "last_update": "2026-09-21T12:31:06+00:00"
+  },
+  "business/content/articles/ai-applications/durable-jobs.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "c0456248058c030d6786b6682396f16246535c25b59ce26476e0f8c7f12e3d94",
+    "last_update": "2026-09-21T12:31:03+00:00"
+  },
+  "business/content/articles/ai-applications/feature-sliced-fastapi.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "d9c564f752297bd7888e41c402bf2647cb6ea06db29d46e4a3ba7d0b6df5a6fa",
+    "last_update": "2026-09-21T12:30:57+00:00"
+  },
+  "business/content/articles/ai-applications/ffmpeg-primitives.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "a3570f8c247950200a1bdf43d2c7dc11c8f60f1213ec2212ac22a09081480f2b",
+    "last_update": "2026-09-21T12:31:22+00:00"
+  },
+  "business/content/articles/ai-applications/instagram-scraper.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "09f535699ca09ddd9a57fb23f2a5f0440cff1301d1c80a96d2459cfeb05bfd70",
+    "last_update": "2026-09-21T12:31:16+00:00"
+  },
+  "business/content/articles/ai-applications/keycloak-branding.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "d866e965ee5d1d903baab085057cbdb20ca17d60c50abfabed47ac7f75645d5c",
+    "last_update": "2026-09-21T12:31:30+00:00"
+  },
+  "business/content/articles/ai-applications/keycloak-identity.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "9b407d42e1cb2487fbfa0bc1e3210ad1a447c001d328d3cebab74d458cf41573",
+    "last_update": "2026-09-21T12:31:08+00:00"
+  },
+  "business/content/articles/ai-applications/magic-links-auth.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "210249329040a34b3d12dc317e1dfd1cf69446b386e6aa58a2aa8dd16fa8cb5a",
+    "last_update": "2026-09-21T12:31:26+00:00"
+  },
+  "business/content/articles/ai-applications/model-registry-ui.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "0ab3097bdd9b554735913cd7e272be634d4c4476015c961b4b0403378093f49c",
+    "last_update": "2026-09-21T12:31:12+00:00"
+  },
+  "business/content/articles/ai-applications/multi-repo-architecture.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "867f5fdb3ac542239ff51c3a1afc9181945000722973a09708c58ea9f414d95f",
+    "last_update": "2026-09-21T12:31:34+00:00"
+  },
+  "business/content/articles/ai-applications/no-class-states-refactor.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "2d96168980cb9a003d32a25218b863c2e905e7cc20509c412f3e69e7d4045530",
+    "last_update": "2026-09-21T12:31:10+00:00"
+  },
+  "business/content/articles/ai-applications/real-time-recognition-websockets.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "64eacc4f7eeb5f42b73e952b60995c6c86c965fae092607dd127349c8a346eea",
+    "last_update": "2026-09-21T12:31:01+00:00"
+  },
+  "business/content/articles/ai-applications/training-studio.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "88074c08307cf1827a1ff11152e2197cabb0741236ea493a62ed8651fd9b5892",
+    "last_update": "2026-09-21T12:31:15+00:00"
+  },
+  "business/content/articles/generative-ai-rag/code-splitting.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "8631ec4e8beb21c9e549a77d371974dbe81317bcf4ee5115a60481300d4ceeea",
+    "last_update": "2026-09-21T12:32:11+00:00"
+  },
+  "business/content/articles/generative-ai-rag/llm-coaching-feedback.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "9e6ba52d1aeb8c8a9e0cd477a80ecad0c2f58479447a01f44b875b38f0bc9879",
+    "last_update": "2026-09-21T12:32:09+00:00"
+  },
+  "business/content/articles/generative-ai-rag/multimodal-rag.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "8d6273c202c5e136e4f73fe22d1df676f8c7fcb07243767e9aa4f674278d5651",
+    "last_update": "2026-09-21T12:32:05+00:00"
+  },
+  "business/content/articles/generative-ai-rag/offline-rag.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "ab9b969e91dd47a1fb0cba110d24d97a408859e31f58dd9690997a2cf48ca918",
+    "last_update": "2026-09-21T12:32:03+00:00"
+  },
+  "business/content/articles/generative-ai-rag/pymupdf-rag.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "0eed7f6c558ee5ff7d1e1f7bc361ec5776cb8bac294c1310ecdb74428f939347",
+    "last_update": "2026-09-21T12:32:13+00:00"
+  },
+  "business/content/articles/generative-ai-rag/self-hosted-llm-routing.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "68b330728ca812377293325c1991f4856d90358ff9a2a19a2daf2bd27e10e75c",
+    "last_update": "2026-09-21T12:32:07+00:00"
+  },
+  "business/content/articles/machine-learning/biomechanical-features.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "63acc90e532a400c2d5cee60a22fc6287f62620677582c3c1e590da05042b695",
+    "last_update": "2026-09-21T12:32:38+00:00"
+  },
+  "business/content/articles/machine-learning/chromadb-knn-voting.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "9fb6e27105b1e8965855fbf8acfcef9e4093ba882729196905f595ceb94afe1f",
+    "last_update": "2026-09-21T12:32:29+00:00"
+  },
+  "business/content/articles/machine-learning/cli-ml-pipeline.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "50bdef89a4ccb2839cd69c461079260622f9705a2e67b433a7bde621a05360f6",
+    "last_update": "2026-09-21T12:32:55+00:00"
+  },
+  "business/content/articles/machine-learning/defensive-training.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "d440f8687dbee99e35848f3f9b47c2b2e9ea804a0499d4329eed3d6c2f9e5507",
+    "last_update": "2026-09-21T12:32:50+00:00"
+  },
+  "business/content/articles/machine-learning/histogram-zscores.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "1156cbc1f8a3a6f8d25f451779a0db32916675b8b8b5f8fd18dded3938fdfcd7",
+    "last_update": "2026-09-21T12:32:44+00:00"
+  },
+  "business/content/articles/machine-learning/human-in-the-loop-promotion.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "4808f53bfd4a14ce05e852d6f040faa2628201c3a57a311aa4d4a1ce7edbff7f",
+    "last_update": "2026-09-21T12:33:00+00:00"
+  },
+  "business/content/articles/machine-learning/hybrid-classifier.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "c42ed27b0c23d1b2cf0cf5460d2694cfd084f92c6139d1a81064594404dccb2e",
+    "last_update": "2026-09-21T12:32:22+00:00"
+  },
+  "business/content/articles/machine-learning/lstm-sequence-to-vector.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "5f51b7adc0195708f775481c245da21422335471a1788be720da975c843e460d",
+    "last_update": "2026-09-21T12:32:25+00:00"
+  },
+  "business/content/articles/machine-learning/mediapipe-pose-extraction.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "1abb20bebe43e6f30a01d0be13d4b9a6d210eeb9c5a1e2af9dc8fe121440aad7",
+    "last_update": "2026-09-21T12:32:26+00:00"
+  },
+  "business/content/articles/machine-learning/mediapipe-timestamp-bug.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "4097e79822434d5d92ce66ae701190bd7f2c2538b902ee67bdde0c4266b655c7",
+    "last_update": "2026-09-21T12:32:36+00:00"
+  },
+  "business/content/articles/machine-learning/model-persistence-retraining.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "bdc504e462b8574fa3546821fef78de4fffab399c459cfb0ecc24bace558139e",
+    "last_update": "2026-09-21T12:32:51+00:00"
+  },
+  "business/content/articles/machine-learning/phase-detection.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "b9247eeccdd80ecba19798ebc9170a540f273b483ea5016565bdf6d04861e5d9",
+    "last_update": "2026-09-21T12:32:41+00:00"
+  },
+  "business/content/articles/machine-learning/retrieval-augmented-recognition.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "6fb8d80dfeb22f0d7c6960db1f0209aa1885b3228002ae6e62905ad7b4529f11",
+    "last_update": "2026-09-21T12:33:02+00:00"
+  },
+  "business/content/articles/machine-learning/sliding-windows-small-data.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "a044bc4f4aa7ec70d2ccae87901ada93c8f7035be13d50ec62b280baa9bbf8b9",
+    "last_update": "2026-09-21T12:32:33+00:00"
+  },
+  "business/content/articles/machine-learning/testing-ml-pipeline.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "af452d00444572918ac54d1be1c541b22cf8e5db376ca9869ff417b690b9d295",
+    "last_update": "2026-09-21T12:32:58+00:00"
+  },
+  "business/content/articles/machine-learning/tfjs-int8-export.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "005c422c380579ce7ccc0b0bc8a6d5408e3ce4fd78e3f7fbad28a651497f07df",
+    "last_update": "2026-09-21T12:32:31+00:00"
+  },
+  "business/content/articles/machine-learning/videocutter.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "e63dcc4d292ece1b22c3cc3d05f1b968f2c7baeb2e419ae28471b4bb0641d88f",
+    "last_update": "2026-09-21T12:32:53+00:00"
+  },
+  "business/content/hero.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "1abe3652b31b58ddf026c5d68d16748a2648db80495def6ce9417080e0888bb3",
+    "last_update": "2026-09-21T12:30:17+00:00"
+  },
+  "business/content/sections/ai-agents.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "794df5c04c2b0b9eb44cd028632ed2f2220e6082b6f917e1b4ecb24823032215",
+    "last_update": "2026-09-21T12:30:26+00:00"
+  },
+  "business/content/sections/ai-applications.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "9c3b7e38a9cd1292b70acd9f2d0e9fd3b8f4505876d75d4dc97840b4d6a7c1d4",
+    "last_update": "2026-09-21T12:30:23+00:00"
+  },
+  "business/content/sections/generative-ai-rag.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "d8da745f1238ceae7e80478f110ca425ff709e07c1b800887b853c4a570e30b5",
+    "last_update": "2026-09-21T12:30:29+00:00"
+  },
+  "business/content/sections/machine-learning.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "cbe89d2b3d78ab8c1f4722fb4cfcaa2b18376e2c3ae5d47282975b34fb6c3eb5",
+    "last_update": "2026-09-21T12:30:34+00:00"
+  },
   "business/events/virtual-challenges.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
     "file_hash": "29851853aa30b979adebc592fbb2a031c522aa03636fe558e59ac3234739bc31",
@@ -2043,6 +2578,11 @@
     "created_date": "2026-09-10T14:47:18+00:00",
     "file_hash": "9da3f07790cfcaad4dad45bb79004631e4e9e503acef0b7ea9a628650d0a24f0",
     "last_update": "2026-09-10T14:45:09+00:00"
+  },
+  "business/page-design.md": {
+    "created_date": "2026-09-21T12:38:46+00:00",
+    "file_hash": "d88c95c6ba83f30a3a9ad3bcf32d493ef28d24e40f04ef9fc4048b695b0950c3",
+    "last_update": "2026-09-21T12:30:13+00:00"
   },
   "business/per-service/grade-assessment.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -2069,6 +2609,11 @@
     "file_hash": "fdf0c24d50bb88476501d39036ff38bd3ae81899a2fdd7a2943a5928cbc105d3",
     "last_update": "2026-09-10T14:45:09+00:00"
   },
+  "clustering/PLAN.md": {
+    "created_date": "2026-09-22T12:25:49+00:00",
+    "file_hash": "7c7c07659bd1a754bd42434104233bea29c3be3c34fb4ac4e2e10737230dac08",
+    "last_update": "2026-09-22T12:22:25+00:00"
+  },
   "decisions/ADR-001-crewai-implementation-flows.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
     "file_hash": "6af99f0140336d253d47bff8906bab2eabedda88c853faa47677550926eae686",
@@ -2094,6 +2639,11 @@
     "file_hash": "5201d3447b1c53087709ce4897518b26b5bfd89a8322d2b7a151ef7d848ca2c3",
     "last_update": "2026-09-10T14:45:09+00:00"
   },
+  "decisions/ADR-006-readiness-overall-score-gate-precondition.md": {
+    "created_date": "2026-09-24T09:44:04+00:00",
+    "file_hash": "22ed7660f878833b8e046db8ce68742aa28012fe682a4dd243f38c58a40627e0",
+    "last_update": "2026-09-24T09:43:52+00:00"
+  },
   "decisions/README.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
     "file_hash": "22ea394fa32db8c0f1cd2ae69ae278aee636c5c0b800c4e95f1a5b3b49e4a4d3",
@@ -2106,8 +2656,8 @@
   },
   "dev-ops/PROJECT_VARS.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "312f6d6bd540b0635f5c144c1f5bca049ab470ab93c84e2e3e679a31619b50f5",
-    "last_update": "2026-08-31T20:36:34+00:00"
+    "file_hash": "e67cb0b226b9102c55b063db1b3b80d1a9ef98b6f89abe34ac38b6c337c73775",
+    "last_update": "2026-09-22T07:07:59+00:00"
   },
   "dev-ops/keycloak-user-expiry/README.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -2119,15 +2669,30 @@
     "file_hash": "d85d9e96b92c776b38ce319a84f36696661550e2ac25d1eb913c616a7c199ecb",
     "last_update": "2026-08-31T14:48:56+00:00"
   },
+  "dev-ops/phase-8-rag-path-filter/PAIML-DEVOPS-001.md": {
+    "created_date": "2026-09-21T11:12:14+00:00",
+    "file_hash": "4e01e101c8fab28172a757b55b95d1bb7dec4427c836e627d559cca8c484e29a",
+    "last_update": "2026-09-21T11:11:57+00:00"
+  },
+  "dev-ops/phase-9-staging-seed-opt-in/PAIML-DEVOPS-002.md": {
+    "created_date": "2026-09-21T23:14:28+00:00",
+    "file_hash": "4e5cf2c6cc086a6891eeed92262161f46b0b1b569789dc3d490c64435671462b",
+    "last_update": "2026-09-21T23:19:33+00:00"
+  },
+  "dev-ops/phase-9-staging-seed-opt-in/PAIML-DEVOPS-003.md": {
+    "created_date": "2026-09-22T07:08:11+00:00",
+    "file_hash": "7a5e3962f1c1578e5d6509a4b33d274803cba551a39271a339b236015fdfb794",
+    "last_update": "2026-09-22T09:13:02+00:00"
+  },
   "diagrams/ARCHITECTURE.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "5446cb39b0dc164c35b4200064bfb2c8ee9b391cf9a9f1414edc980777066bd8",
-    "last_update": "2026-09-09T14:03:36+00:00"
+    "file_hash": "6d8bb6ca4a29b401b40cacb96e82eee3329600e99929b0b9b3bbae92324fe604",
+    "last_update": "2026-09-24T09:43:25+00:00"
   },
   "diagrams/agents/FLOW.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "b222396927f85da0b2d55a56832fee286f117b85c3ac76daae0e273a8b8a816b",
-    "last_update": "2026-08-31T20:36:34+00:00"
+    "file_hash": "7bc93d247816d51299a425538b68385790cbe3086f95002e1a9153f890e95f3f",
+    "last_update": "2026-09-21T09:11:20+00:00"
   },
   "diagrams/chatbot/CLASSES.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -2266,8 +2831,58 @@
   },
   "index.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "12abcc94ca6ecf8371603b0f3d62c03757cd2f9a769ec94a1d8fd954964dc7f4",
-    "last_update": "2026-09-10T14:45:09+00:00"
+    "file_hash": "cffe96022584292c981dfe986acd1ac4ccb33b395028dfa92f8004abd609ec32",
+    "last_update": "2026-09-21T10:36:30+00:00"
+  },
+  "linkedin-posts/post-01-sequence-to-vector-lstm.md": {
+    "created_date": "2026-09-18T12:18:57+00:00",
+    "file_hash": "706cbfee60a4805b92b5be3e46ab216bf80eaaa06f1b0fd556ade087a9dbffe0",
+    "last_update": "2026-09-18T12:18:28+00:00"
+  },
+  "linkedin-posts/post-02-hybrid-classifier.md": {
+    "created_date": "2026-09-18T12:18:57+00:00",
+    "file_hash": "40772043910826e4190bef9301f7445be1ce378fd5b377375d76e67af288b693",
+    "last_update": "2026-09-18T12:18:30+00:00"
+  },
+  "linkedin-posts/post-03-zero-cost-offline-rag.md": {
+    "created_date": "2026-09-18T12:18:57+00:00",
+    "file_hash": "c90b9cd4e9dc8adace65fd8cf84007a7a9d77e6b04df0167c6622816c40df6bf",
+    "last_update": "2026-09-18T12:18:32+00:00"
+  },
+  "linkedin-posts/post-04-language-aware-code-splitting.md": {
+    "created_date": "2026-09-18T12:18:57+00:00",
+    "file_hash": "d874d0c6c192e2c0800a991adb8a411ada43525264c9835575d585367873c46f",
+    "last_update": "2026-09-18T12:18:33+00:00"
+  },
+  "linkedin-posts/post-05-multimodal-rag.md": {
+    "created_date": "2026-09-18T12:18:57+00:00",
+    "file_hash": "2e50ab03141682c472f540a3c30fc6dc281f074b436a795594dc3e040c305795",
+    "last_update": "2026-09-18T12:18:35+00:00"
+  },
+  "linkedin-posts/post-06-mediapipe-pose-normalization.md": {
+    "created_date": "2026-09-18T12:18:57+00:00",
+    "file_hash": "eb79f8e7f699c890cbcdce9f837b06fa586b6f0bd31869f23ab5ecf3fd39c782",
+    "last_update": "2026-09-18T12:18:36+00:00"
+  },
+  "linkedin-posts/post-07-react-vs-langgraph.md": {
+    "created_date": "2026-09-18T12:18:57+00:00",
+    "file_hash": "d9f3d65955038e8d352af5bd2f2994bddb1b969fc5472c8766aeb0417c0b6ace",
+    "last_update": "2026-09-18T12:18:38+00:00"
+  },
+  "linkedin-posts/post-08-deterministic-guardrails.md": {
+    "created_date": "2026-09-18T12:18:57+00:00",
+    "file_hash": "b21b3e683f8057c11ad57f31d32fed7d88e4b95322b36cd197803ea095f5f2e2",
+    "last_update": "2026-09-18T12:18:39+00:00"
+  },
+  "linkedin-posts/post-09-software-factory.md": {
+    "created_date": "2026-09-18T12:18:57+00:00",
+    "file_hash": "80a52f48ed5dc38d65783bed7f8558af3e6e4fb2b8bfbc3cafdb0122ba2d6b7e",
+    "last_update": "2026-09-18T12:18:41+00:00"
+  },
+  "linkedin-posts/post-10-docker-to-k3s.md": {
+    "created_date": "2026-09-18T12:18:57+00:00",
+    "file_hash": "d060e54e3ad98efbc96f13a0330b517baf08ef5225fc56eb16801a8d208e9602",
+    "last_update": "2026-09-18T12:18:43+00:00"
   },
   "manual-test/analyst-ws-integration-test.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -2766,8 +3381,8 @@
   },
   "scripts/README.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "09cb1f7b9795cf2c278a073e684736dd0fb1cb9efa4e78a16635a96753f66203",
-    "last_update": "2026-08-31T20:36:34+00:00"
+    "file_hash": "5e7c8007c4d8cffa7a76dca73a2e2cad259744b9cb7dd97b54bf02e9e786faf9",
+    "last_update": "2026-09-21T17:44:47+00:00"
   },
   "tutorials/01-skeleton-pose/README.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -2896,23 +3511,23 @@
   },
   "tutorials/06-data-infra/README.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "b3134c17b21b6e02b59bf3a94ba129b9ddb537583334c57b8884d03280d86706",
-    "last_update": "2026-09-10T14:45:09+00:00"
+    "file_hash": "82b862e2fbf19c94920c09a5282b0695f6e4d3021bdb3967662200e0f0f21251",
+    "last_update": "2026-09-21T10:35:36+00:00"
   },
   "tutorials/06-data-infra/fullstack-backend.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "43ddae830b74999ac441e24380222568d958a81565d00902406a657b72edd7d7",
-    "last_update": "2026-09-10T14:45:09+00:00"
+    "file_hash": "f8be5e2c993d7e683d278345a4ffbeaf4ca36dc3ba4764bfaa15c2acf17ce0ae",
+    "last_update": "2026-09-21T10:35:36+00:00"
   },
   "tutorials/06-data-infra/junior-mixed.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "c538c4ca237bf4be070facccfaa5b686faf05d2d6d67e23669418fa5bedcb404",
-    "last_update": "2026-09-10T14:45:09+00:00"
+    "file_hash": "dc825f771df975fc36c7b92f9125ccc4cad1d28198ac973a0f9624384b610e9d",
+    "last_update": "2026-09-21T10:35:36+00:00"
   },
   "tutorials/06-data-infra/ml-cv.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "dffb63f536dfe793c2875d5418b11bb959e1b6fb49b4055f592c6e184fb50095",
-    "last_update": "2026-09-10T14:45:09+00:00"
+    "file_hash": "b342bdab8d27b6c3a90ec12e0a12c6543d2f2c5778f9d09f7721eba296c9f331",
+    "last_update": "2026-09-21T10:35:36+00:00"
   },
   "tutorials/06-data-infra/tech-entrepreneur.md": {
     "created_date": "2026-09-10T14:47:18+00:00",

@@ -26,7 +26,7 @@ chunker, seeder, CLIs) add modules here. Tasks run with `cwd = "packages/rag"` a
 - [ ] Run UC-01 prerequisite: `pixi run rag-seed --help` resolves (after Phase 4).
 
 ## Dependencies
-- **Blocks**: PAIML-POLE-RAG-004, PAIML-POLE-RAG-005, PAIML-POLE-RAG-009, PAIML-POLE-RAG-010, PAIML-POLE-RAG-015, PAIML-POLE-RAG-023
+- **Blocks**: PAIML-POLE-RAG-004, PAIML-POLE-RAG-005, PAIML-POLE-RAG-007, PAIML-POLE-RAG-009, PAIML-POLE-RAG-010, PAIML-POLE-RAG-015, PAIML-POLE-RAG-023
 - **Blocked By**: PAIML-POLE-RAG-001
 
 ## Estimated Effort

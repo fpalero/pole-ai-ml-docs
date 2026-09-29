@@ -182,7 +182,47 @@ is a deliberate choice, not an oversight.
 - **Unbounded growth is accepted for now.** The ledger will grow without a
   prune. That is acceptable at demo traffic and must be revisited before
   production.
-- Work: **PAIML-KEYCLOAK-035** (BE).
+- Work: **PAIML-KEYCLOAK-035** (BE) — ✅ **SHIPPED**
+  ([pole-ai-ml#363](https://github.com/fpalero/pole-ai-ml/pull/363)).
+
+### Implementation note (PAIML-KEYCLOAK-035, 2026-09-28)
+
+Recorded because three points below read as settled here but landed differently
+in the code, and a future reader should find the reasoning rather than re-derive it.
+
+- **The collection is `temp_access_audit` in the app database**, one document per
+  `(email, app)` under a **unique** compound index, so the idempotency
+  requirement above is structural rather than conventional. A per-token key was
+  rejected: the token is a *property* of the row, not its identity, and a
+  per-token key would make `use_count` / `window_started_at` unanswerable from
+  one read and turn a re-used link into several "users".
+- **First-write-wins is `{"$ifNull": ["$f", now]}` inside an
+  aggregation-pipeline `update_one`, not `$setOnInsert`/`$min`.** Either writer
+  can legitimately create the row (`start_window` is shared by both entry paths),
+  and `$setOnInsert` would stamp a phantom `link_issued_at` in one order and
+  leave `window_started_at` null forever in the other. A field that was never
+  written is `null`, never epoch. `use_count` is a `$add` of 1 per flow step.
+- **`consumed_tokens` stores a peppered SHA-256 digest, not the identifier** —
+  the "must not create a replay path" requirement above, satisfied the way
+  `core/otp.py` already does it, reusing the existing
+  `TEMP_ACCESS_OTP_PEPPER`. Capped at **100 per document** (FIFO, trimmed in the
+  same server-side expression). Eviction costs *recognition* of the oldest
+  identifiers and nothing about access control: nothing in the ledger authorises
+  anything, and the window is governed solely by `start_window`'s immutable
+  `ts_end`. That per-document cap is the one bound this work added; the
+  collection-level retention below is still deferred.
+- **The ledger's connection is built lazily, off the event loop, and its failure is
+  memoised.** `TempAccessRepository` is constructed on the hot path of every
+  authenticated request (`core/auth.py`), so building the sink in its
+  `__init__` put a blocking `create_index` on the request's event loop. The
+  build therefore happens at the point of use, dispatched with the write, and a
+  failure is cached so a Mongo-less host does not retry it per write. This is
+  the concrete form of the "never gates the flow" requirement below.
+- **`is_token_consumed()` is a recognition helper, not an enforcement one.**
+  Nothing refuses a request on its answer — the Redis record and `start_window`
+  are the enforcement surfaces — which is what keeps the ledger from becoming a
+  grant. Making it an enforcement path would be a security change needing its
+  own ADR.
 
 ---
 
@@ -259,7 +299,8 @@ is a deliberate choice, not an oversight.
   (the **short** cooldown; distinct from the 14-day one).
 - PAIML-KEYCLOAK-033 — auto-send the code on page load.
 - PAIML-KEYCLOAK-034 — cooldown-expiry message on the activation flow (Q2).
-- PAIML-KEYCLOAK-035 — durable `temp_access_audit` ledger (Q3).
+- PAIML-KEYCLOAK-035 — durable `temp_access_audit` ledger (Q3) — ✅ shipped
+  (`pole-ai-ml` PR #363).
 - PAIML-KEYCLOAK-031 — the purge must preserve the 14-day `temp:req` cooldown
   (the invariant Decision 3(b) must not break).
 - ADR-005 — auto-disable expired Keycloak temp users via a K8s CronJob.

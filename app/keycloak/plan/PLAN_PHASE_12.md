@@ -1,7 +1,7 @@
 # Plan Phase 12 — Two-Step Temporary Access: Auto-Send Hardening, Cooldown UX & Audit Retention
 
 > **Parent plan:** [PLAN.md](../PLAN.md)
-> **Status:** 📋 PLANNED
+> **Status:** 🟡 PARTIAL — PAIML-KEYCLOAK-035 ✅ SHIPPED ([pole-ai-ml#363](https://github.com/fpalero/pole-ai-ml/pull/363)); 032/033/034 remain 📋 PLANNED
 > **Class:** Full-stack UX hardening (BE `pole_api`, FE `pole_fe` & `pole_analyst`).
 > **Tickets:** PAIML-KEYCLOAK-032, PAIML-KEYCLOAK-033, PAIML-KEYCLOAK-034, PAIML-KEYCLOAK-035.
 > **Decisions:** [ADR-007](../../decisions/ADR-007-temp-access-link-reuse-and-audit-retention.md)
@@ -102,7 +102,7 @@ so the current behaviour is not misread as a bug:
 | `PAIML-KEYCLOAK-032` | `pole_api` (BE) | Make `send-code` idempotent inside the 60s resend cooldown | Add `already_sent` to `SendCodeResponse`; add a `code_remaining_ttl(token)` repository helper; on a failed `claim_resend_slot` with a live armed code, return `200 {already_sent: true, expires_in: <remaining>}` with no Brevo call. Keep 429 + `Retry-After` for the no-live-code case. |
 | `PAIML-KEYCLOAK-033` | `pole_fe` + `pole_analyst` (FE ×2) | Auto-send the verification code on page load, drop the "Validate" gate, show the "code sent" notice | Auto-fire `sendCode` from the constructor when `temp_token` is non-null; remove the `validate` view; replace the `validate*` copy with the "code sent" notice in EN/ES; surface `already_sent`; update `activate.page.ts` and the mirrored specs in both apps, keeping the shared files byte-identical. |
 | `PAIML-KEYCLOAK-034` | `pole_fe` + `pole_analyst` (FE ×2) | Cooldown-expiry message on the activation flow (Q2) | Map the existing backend answers to distinct copy states — `409` cooldown (explanatory message, ideally the re-request date, **not** a bare hours number), plus the existing `410 expired-link` / `404 invalid-link`. EN + ES copy in `activation-core.ts`, **both copies byte-identical**. **FE presentation only: do not spec backend changes.** |
-| `PAIML-KEYCLOAK-035` | `pole_api` (BE) | Durable `temp_access_audit` ledger (Q3) | MongoDB ledger written at link-issue and window-start, **never** deleted by the purge. Fields: `email`, `app`, `link_issued_at`, `window_started_at`, `use_count`, `consumed_tokens`. Idempotent on re-entry. **Additive only** — must not reintroduce the PAIML-KEYCLOAK-031 bug (the 14-day `temp:req` marker stays the cooldown's source of truth). Retention/pruning **out of scope** (deferred). |
+| ✅ `PAIML-KEYCLOAK-035` | `pole_api` (BE) | Durable `temp_access_audit` ledger (Q3) | MongoDB ledger written at link-issue and window-start, **never** deleted by the purge. Fields: `email`, `app`, `link_issued_at`, `window_started_at`, `use_count`, `consumed_tokens`. Idempotent on re-entry. **Additive only** — must not reintroduce the PAIML-KEYCLOAK-031 bug (the 14-day `temp:req` marker stays the cooldown's source of truth). Retention/pruning **out of scope** (deferred). |
 
 ## Ticket dependency graph
 

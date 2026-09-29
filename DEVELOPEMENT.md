@@ -25,7 +25,7 @@ It is generated from the authoritative plans under `docs/app/<project>/PLAN.md` 
 | [`pole_analyst`](#apppole_analyst) | App | Angular FE "Pole AI Coach" — athlete video-analysis coach (upload → analyze → feedback → chat). | 21 done · 1 partial (19) · 1 future (7) · 7 planned (21–25, 27, 33) |
 | [`pole_fe`](#apppole_fe) | App | Angular FE training-workflow manager (tricks, video editor, studio, model registry, jobs). | 11/12 phases done · 1 future |
 | [`infra`](#appinfra) | App | CI/CD deploy pipeline: Helm, GHCR build-push, DEV/STAGING/PROD deploy + Keycloak realm-sync + observability logs. | Phases 1–3 landed (027 sha-tag E2E green · 028–037 demo hosts/memory/kubeconfig/realm-sync) · 4–5 ticketed · 6–8 planned |
-| [`keycloak`](#appkeycloak) | App | Temporary passwordless access (custom login theme, Brevo direct link + 6-digit OTP, Redis cooldown/activation, expiry purge). | 7/9 phases done · 2 partial (8, 9) · phase 9: 021+022+023 merged |
+| [`keycloak`](#appkeycloak) | App | Temporary passwordless access (custom login theme, Brevo direct link + 6-digit OTP, Redis cooldown/activation, expiry purge, durable `temp_access_audit` ledger). | 7/9 phases done · 2 partial (8, 9) · phase 9: 021+022+023 merged · phase 11: 030+031 · phase 12: 035 merged |
 | [`dev-ops`](#appdev-ops) | App | GitHub Actions CI/CD: PR gate, phase-completion, full-suite, MediaPipe, nightly docs. | Phases 1–7 planned (unticketed, counter 0) |
 | [`chatbot`](#packageschatbot) | Package | ReAct conversational agent backend (WebSocket, tools, OpenCode client). | Complete (v1) |
 | [`jobs`](#packagesjobs) | Package | Shared job infrastructure (Mongo repo, Redis queue, worker, orchestrator, router). | Complete (v1) |
@@ -428,8 +428,9 @@ Consolidated into `pole_api` as `chatbot` + `training_chatbot` slices. No longer
 **Keycloak realm config + temp-access orchestration.** Custom login theme ("Get temporary access"),
 passwordless direct-link + 6-digit activation-code delivery, per-app role mapping, 2-hour
 session limits, expiry purge.
-Phases 1–7 ✅ DONE; Phase 8 🟡 PARTIAL; Phase 9 🟡 PARTIAL (021 + 022 + 023 merged). 25 tickets
-(`PAIML-KEYCLOAK-001..025`, counter=25); 9 phase folders. Implemented and merged into `develop`
+Phases 1–7 ✅ DONE; Phase 8 🟡 PARTIAL; Phase 9 🟡 PARTIAL (021 + 022 + 023 merged);
+Phase 10 ✅ DONE; Phase 11 ✅ DONE (030 + 031); Phase 12 🟡 PARTIAL (035 merged; 032–034 planned).
+35 tickets (`PAIML-KEYCLOAK-001..035`, counter=35); 13 phase folders. Implemented and merged into `develop`
 (realm SMTP + Mailpit sandbox, `pole-api-admin` client, `pole-ai-login` theme,
 `core/temp_access.py` orchestration + expiry purge, and the Phase 9 passwordless direct-link +
 OTP send/verify path + per-app activation pages).
@@ -445,6 +446,9 @@ OTP send/verify path + per-app activation pages).
 | 7 — Magic-link fix | Stale theme, absolute endpoint, error parser, rollout hash; emergency probe fix (015, 016, 017). | **Done** |
 | 8 — Temp-access expiry hardening | azp-mismatch + blind-sweeper fix (018, 019, 020). | **Partial** — code+docs merged (pole-ai-ml#220 pole-ai-ml-docs#9), staging QA gate BLOCKED on rollout |
 | 9 — Passwordless direct-link + activation code | Brevo direct link (021) + 6-digit OTP send/verify, hidden-password grant, `emailVerified`, non-extendable 2h window (022) + per-app `/activate` pages (023). | **Partial** — 021 + 022 + 023 merged; 024 (QA Mailpit E2E) outstanding, 025 FUTURE |
+| 10 — OTP deploy prerequisites | Per-env `TEMP_ACCESS_OTP_PEPPER`, Direct Access Grants enablement, rollout runbook (026–029). | **Done** |
+| 11 — QA-gate fixes | `verify-code` grant rework (030) + purge semantics preserving `temp:req` (031). | **Done** |
+| 12 — Two-step OTP: auto-send, cooldown UX, audit ledger | Idempotent 60s cooldown (032), auto-send + code-sent notice (033), cooldown-expiry message (034), durable `temp_access_audit` ledger (035). | **Partial** — 035 merged (pole-ai-ml PR #363); 032–034 planned |
 
 #### Phase 1 — Core realm setup (4 tickets)
 - **PAIML-KEYCLOAK-001 — Configure realm SMTP magic-link delivery** — Verify realm email settings + test magic link.
@@ -516,6 +520,40 @@ OTP send/verify path + per-app activation pages).
   widened in this PR — left for a separate PR. **No new env vars** were introduced.
 - **Planned:** `024` (Mailpit E2E + hardening — now the only open Phase 9 gate),
   `025` (token-exchange impersonation, FUTURE).
+
+#### Phase 11 — QA-gate fixes (2 tickets)
+- **PAIML-KEYCLOAK-030 — `verify-code` Keycloak session grant** ✅ DONE.
+- **PAIML-KEYCLOAK-031 — Purge semantics: preserve `temp:req`, clear OTP keys** ✅ DONE — the
+  lapse purge no longer destroys the 14-day cooldown marker (the PAIML-KEYCLOAK-031 defect), and
+  now disarms `temp:code:*` / `temp:code-resend:*`. This invariant is re-pinned by ticket 035.
+
+#### Phase 12 — Two-step OTP: auto-send, cooldown UX, audit retention (4 tickets)
+Decisions: [ADR-007](../decisions/ADR-007-temp-access-link-reuse-and-audit-retention.md)
+(Q1 link re-use, Q2 cooldown UX, Q3 data lifecycle + audit retention). Q1 required **no code
+change** — it is recorded so a future reader does not "fix" the shipped never-extend behaviour.
+- **PAIML-KEYCLOAK-032 — Idempotent `send-code` inside the 60s resend cooldown** 📋 PLANNED —
+  `200 {already_sent: true, expires_in: <remaining>}` when a live code is armed, instead of 429.
+- **PAIML-KEYCLOAK-033 — Auto-send the code on page load + "code sent" notice** 📋 PLANNED (FE ×2).
+- **PAIML-KEYCLOAK-034 — Cooldown-expiry message on the activation flow (Q2)** 📋 PLANNED (FE ×2)
+  — presentation only; the backend already answers `409` + `Retry-After`.
+- **PAIML-KEYCLOAK-035 — Durable `temp_access_audit` ledger (Q3)** ✅ DONE — merged in `pole-ai-ml`
+  via [PR #363](https://github.com/fpalero/pole-ai-ml/pull/363). New MongoDB collection
+  `temp_access_audit`, one row per `(email, app)` under a unique compound index, written at
+  **link-issue**, **window-start** and **token consumption**, and **never** deleted by the purge.
+  Fields: `email`, `app`, `link_issued_at`, `window_started_at`, `use_count`, `consumed_tokens`.
+  First-write-wins timestamps via `{"$ifNull": [...]}` in an aggregation-pipeline `update_one`
+  (either writer can create the row, so `$setOnInsert` is wrong); `use_count` increments per flow
+  step. `consumed_tokens` stores a **peppered SHA-256 digest**, never the raw token (the
+  `core/otp.py` precedent), capped at 100/doc FIFO. Strictly **additive**: the 14-day `temp:req`
+  Redis marker stays the cooldown's sole arbiter, pinned by a test. Best-effort, and the sink is
+  built **lazily inside `_audit`** so `__init__` — which runs on the event loop of every
+  authenticated request via `core/auth.py` — performs no Mongo I/O at all; both the build and
+  the write are dispatched via `asyncio.to_thread`. ⚠️ `/oc review` caught three **blocking**
+  issues across three rounds, all fixed: the sink was never wired in production (feature
+  shipped 1/3 delivered); the best-effort *write* blocked the event loop; and the first fix put
+  a blocking `create_index` in `__init__` on the per-request hot path (two Mongo round trips
+  per authenticated request, up to 30 s each during an outage). **Retention/pruning is still
+  deferred** and is required before production.
 
 ---
 

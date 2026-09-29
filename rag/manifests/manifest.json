@@ -1176,8 +1176,8 @@
   },
   "app/pole_api/PROJECT_VARS.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "ad3e402550d4ae5fd45b5cb8ef9c05b5d11ecd2576472bc30784cfe8331a0812",
-    "last_update": "2026-09-23T23:48:39+00:00"
+    "file_hash": "c0fad3912291b755a50f2713db0f9e3997d8436007b27550bb47913f2360dbd4",
+    "last_update": "2026-09-25T06:32:13+00:00"
   },
   "app/pole_api/be_train_retrain_test_guide.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -1913,6 +1913,11 @@
     "created_date": "2026-09-23T23:48:52+00:00",
     "file_hash": "abccf15acc2000c854a8e9fa0f2c7f54d8bd763d8a00bbf71dbaae1a55af5344",
     "last_update": "2026-09-23T23:48:39+00:00"
+  },
+  "app/pole_api/phase-42-coach-gate-25/PAIML-POLE-API-146.md": {
+    "created_date": "2026-09-25T06:32:27+00:00",
+    "file_hash": "05702c802ae6ea7fb72d6bb1f381544465f8a65a2a881b5f99bbb020eab0f42b",
+    "last_update": "2026-09-25T06:33:37+00:00"
   },
   "app/pole_api/plan/PLAN_PHASE_1.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -3086,8 +3091,8 @@
   },
   "packages/pole_ml/PROJECT_VARS.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
-    "file_hash": "9b84030a9a7fd98bea9d0cde811ff14bae55a448e7ac33038530628a95ffad78",
-    "last_update": "2026-08-31T20:36:34+00:00"
+    "file_hash": "34166a767ff054768c8f4d32677f0af04d551acb2603177db24864369886ecc5",
+    "last_update": "2026-09-25T06:32:13+00:00"
   },
   "packages/pole_ml/TODO.md": {
     "created_date": "2026-09-10T14:47:18+00:00",
@@ -3103,6 +3108,11 @@
     "created_date": "2026-09-10T14:47:18+00:00",
     "file_hash": "a5242f351dc8e1e6d8e85cbdf9b14ca36f0ee410c4dc535de49fb11be7b17679",
     "last_update": "2026-08-31T20:36:34+00:00"
+  },
+  "packages/pole_ml/phase-8-cli-integration-gapfill/PAIML-POLE-ML-002.md": {
+    "created_date": "2026-09-25T06:32:27+00:00",
+    "file_hash": "62bba2bbe768b602e32fafd3317635230d5f4212ee6c14d29d0560cad9637484",
+    "last_update": "2026-09-25T06:33:37+00:00"
   },
   "packages/pole_ml/project/Improvements.md": {
     "created_date": "2026-09-10T14:47:18+00:00",

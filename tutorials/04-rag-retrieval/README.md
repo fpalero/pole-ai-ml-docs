@@ -2,7 +2,7 @@
 
 > Two RAG flavours built here: a **documentation RAG** (this docs tree) and a
 > **code RAG** with language-aware splitting. Local embeddings, ChromaDB
-> persistence, reproducible manifests. Grounded in `docs/scripts/rag_*.py` and
+> persistence, reproducible manifests. Grounded in `$OPENCODE_RAG_ROOT/scripts/rag_*.py` and
 > `packages/pole_rag/`.
 
 ## Core articles in this theme
@@ -26,7 +26,7 @@
 
 ## Source docs
 
-- `docs/scripts/README.md`, `docs/scripts/rag_config.py`
+- `$OPENCODE_RAG_ROOT/scripts/README.md`, `$OPENCODE_RAG_ROOT/scripts/rag_config.py`
 - `docs/packages/pole_rag/PLAN.md`, `docs/packages/pole_rag/phase-*` tickets
 - `docs/packages/pole_rag/phase-3-embeddings-storage/PAIML-POLE-RAG-014.md` (ChromaStore)
 

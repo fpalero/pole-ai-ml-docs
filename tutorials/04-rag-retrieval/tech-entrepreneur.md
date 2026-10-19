@@ -12,5 +12,5 @@
 - **Description:** Why a team-wide RAG pays off: on-boarding speed, fewer
   "where is X" questions, reproducibility of decisions. Priced at zero recurring
   API cost with local embeddings — a compelling ops story.
-- **Grounding:** `docs/scripts/README.md`.
+- **Grounding:** `$OPENCODE_RAG_ROOT/scripts/README.md`.
 - **Sellable angle:** Cost-cutting + knowledge-management narrative.

@@ -13,7 +13,7 @@
   (384-d) for embeddings, ChromaDB `PersistentClient`, chunk size 1000/overlap
   100, incremental (hash-manifest) vs full-rebuild indexing, and per-chunk
   metadata for filtering. Shows reproducible retrieval without an LLM bill.
-- **Grounding:** `docs/scripts/README.md`, `docs/scripts/rag_config.py`, `docs/packages/pole_rag/PLAN.md`.
+- **Grounding:** `$OPENCODE_RAG_ROOT/scripts/README.md`, `$OPENCODE_RAG_ROOT/scripts/rag_config.py`, `docs/packages/pole_rag/PLAN.md`.
 - **Sellable angle:** Everyone wants RAG; almost nobody shows the free, offline
   path. Strong keyword pull.
 
@@ -26,7 +26,7 @@
   (chunk_size=1000, overlap=100) as a tree-sitter-free alternative. Covers what
   gets indexed, what's excluded (locks, builds, `node_modules`), and scope: .py,
   .ts/.tsx, .html, .md, yaml, toml.
-- **Grounding:** `docs/scripts/rag_code.md` / code-rag docs (language-aware splitting), `docs/scripts/README.md`.
+- **Grounding:** `$OPENCODE_RAG_ROOT/scripts/rag_code.md` / code-rag docs (language-aware splitting), `$OPENCODE_RAG_ROOT/scripts/README.md`.
 - **Sellable angle:** Differentiated deep-dive; teams stuck on tree-sitter
   native deps are the audience.
 

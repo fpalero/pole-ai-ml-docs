@@ -4,7 +4,7 @@
 - **Project**: dev-ops
 - **Phase**: Phase 8 — docs RAG `--path` filter fix
 - **Created**: 2026-09-21
-- **Repo**: `fpalero/pole-ai-ml-docs` (`docs/` only — no code/scripts outside `docs/scripts/`)
+- **Repo**: `fpalero/pole-ai-ml-docs` (`docs/` only — the RAG scripts live globally in `$OPENCODE_RAG_ROOT/scripts/`, not in this repo)
 - **Type**: Bug fix (docs RAG tooling)
 
 ## Context
@@ -14,7 +14,7 @@ even when matching chunks exist. The path filter is translated to a chromadb
 metadata query using the `$contains` operator, which is not behaving as expected
 on the installed chromadb version (1.5.9).
 
-Exact location (docs repo, `docs/scripts/rag_engine.py`, function `read_query()`):
+Exact location (docs repo, `$OPENCODE_RAG_ROOT/scripts/rag_engine.py`, function `read_query()`):
 
 ```python
 # ~line 304-309
@@ -86,7 +86,7 @@ if path_filter or project_filter:
 ## Verification
 
 Run from workspace root `/home/fernando/Proyectos/pole-ai` after the fix is
-implemented in `docs/scripts/rag_engine.py`:
+implemented in `$OPENCODE_RAG_ROOT/scripts/rag_engine.py`:
 
 ```bash
 # a. prefix filtering returns results
@@ -105,4 +105,4 @@ pixi run docs-rag-read "docs-rag path filter contains chromadb" --k 3
 ```
 
 Commit the ticket + `PROJECT_VARS.md` bump + regenerated
-`docs/rag/manifests/manifest.json` (never `docs/rag/chroma/`).
+`$OPENCODE_RAG_ROOT/pole_docs/manifest.json` (never the `chroma/` blob store).

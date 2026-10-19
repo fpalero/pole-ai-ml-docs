@@ -7,9 +7,10 @@
 __pycache__/
 *.pyc
 
-# Docs RAG vector store (binary, git-ignored). Only the source markdown and the
-# versioned manifest under rag/manifests/ are tracked.
-rag/chroma/
+# Docs RAG: nothing RAG-related is tracked here anymore. The scripts and every
+# vector store (docs + code) are global and machine-local — see
+# $OPENCODE_RAG_ROOT (default ~/.opencode/rag). The markdown sources below are
+# the single source of truth and the stores are reproducible from them.
 
 # Scratch (untracked agent/user scratch — never commit, never index in RAG)
 commands/

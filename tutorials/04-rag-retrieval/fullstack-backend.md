@@ -13,7 +13,7 @@
   (sha256 manifest) vs full regenerate, purge-on-delete, export/import
   snapshots, and query tooling (`docs-rag-read --k/--json/--extract`). Perfect
   for teams that want their docs RAG as a first-class delivery pipeline.
-- **Grounding:** `docs/scripts/README.md`, `docs/scripts/rag_config.py`.
+- **Grounding:** `$OPENCODE_RAG_ROOT/scripts/README.md`, `$OPENCODE_RAG_ROOT/scripts/rag_config.py`.
 - **Sellable angle:** "RAG operations" (build/purge/reproduce) is underserved.
 
 ### D2 — Indexing a Whole Codebase Without Breaking the Build
@@ -24,5 +24,5 @@
   tests, excluded dirs (`node_modules`, `dist`, `__pycache__`, `rag/`, cache),
   lockfile exclusion; plus the dependency-light splitter trade-off. High-value
   reference for teams building coding assistants over their own repos.
-- **Grounding:** `docs/scripts/rag_code.md` / code-rag pages.
+- **Grounding:** `$OPENCODE_RAG_ROOT/scripts/rag_code.md` / code-rag pages.
 - **Sellable angle:** "Augment any repo with its own code RAG."

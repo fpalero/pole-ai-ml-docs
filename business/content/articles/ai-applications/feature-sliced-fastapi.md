@@ -14,4 +14,4 @@ returns `202 Accepted + job_id`.
 
 ## Proof
 - **Code:** [app/pole_api/src](https://github.com/fpalero/pole-ai-ml/tree/develop/app/pole_api/src)
-- **Live in the pole app:** `pole-coach.duckdns.org` (the AI coach's API)
+- **Live in the pole app:** `agent.fpalero.cc` (the AI coach's API)

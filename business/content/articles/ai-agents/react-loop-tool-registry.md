@@ -13,4 +13,4 @@ capture around every call.
 
 ## Proof
 - **Code:** [packages/chatbot](https://github.com/fpalero/pole-ai-ml/tree/develop/packages)
-- **Live in the pole app:** the AI Coach's chat tools on `pole-coach.duckdns.org`
+- **Live in the pole app:** the AI Coach's chat tools on `agent.fpalero.cc`

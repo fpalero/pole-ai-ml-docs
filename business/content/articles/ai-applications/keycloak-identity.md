@@ -13,4 +13,4 @@ checksum annotation.
 
 ## Proof
 - **Code:** [infrastracture/keycloak](https://github.com/fpalero/pole-ai-ml-infra/tree/develop/keycloak)
-- **Live in the pole app:** `pole-keycloack.duckdns.org`
+- **Live in the pole app:** `kc.fpalero.cc`

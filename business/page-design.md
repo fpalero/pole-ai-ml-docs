@@ -92,14 +92,14 @@ deterministic guardrails — not LLM fine-tuning).
 
 ## 5. Links
 
-- **Live demo (pole app):** `https://pole-coach.duckdns.org` (AI Coach) and
-  `https://pole-ml.duckdns.org` (training workflow).
+- **Live demo (pole app):** `https://agent.fpalero.cc` (AI Coach) and
+  `https://ai.fpalero.cc` (training workflow).
 - **Code:** `https://github.com/fpalero/pole-ai-ml` (apps/packages) and
   `https://github.com/fpalero/pole-ai-ml-infra` (infra).
 
 > ⚠️ **Before publishing:** verify the per-article GitHub file paths in the
 > article files resolve (paths are repo-root-relative; branch `develop`), and
-> confirm the DuckDNS hosts are reachable.
+> confirm the fpalero.cc hosts are reachable.
 
 ---
 

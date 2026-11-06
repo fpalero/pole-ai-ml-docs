@@ -12,7 +12,7 @@ not a slide deck.
 
 ## Buttons (CTAs)
 
-1. **See it live** → `https://pole-coach.duckdns.org` (the pole app demo)
+1. **See it live** → `https://agent.fpalero.cc` (the pole app demo)
 2. **Browse the code** → `https://github.com/fpalero/pole-ai-ml`
 3. **Let's build yours** → contact CTA (email / calendar)
 

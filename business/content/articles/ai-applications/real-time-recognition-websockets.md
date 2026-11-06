@@ -13,4 +13,4 @@ inference, and I/O without breaking latency.
 
 ## Proof
 - **Code:** [app/pole_api/src](https://github.com/fpalero/pole-ai-ml/tree/develop/app/pole_api/src)
-- **Live in the pole app:** real-time coaching feedback on `pole-coach.duckdns.org`
+- **Live in the pole app:** real-time coaching feedback on `agent.fpalero.cc`

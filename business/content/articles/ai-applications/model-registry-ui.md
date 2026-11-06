@@ -12,4 +12,4 @@ comparison matrix, and an approve/activate action that flips the active pointer.
 
 ## Proof
 - **Code:** [app/pole_fe](https://github.com/fpalero/pole-ai-ml/tree/develop/app/pole_fe)
-- **Live in the pole app:** `pole-ml.duckdns.org` (model registry)
+- **Live in the pole app:** `ai.fpalero.cc` (model registry)

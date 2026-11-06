@@ -13,4 +13,4 @@ resilient WebSocket chat UI — all governed by shared design tokens.
 
 ## Proof
 - **Code:** [app/pole_analyst/src/app](https://github.com/fpalero/pole-ai-ml/tree/develop/app/pole_analyst/src/app)
-- **Live in the pole app:** `pole-coach.duckdns.org` (the AI Coach UI)
+- **Live in the pole app:** `agent.fpalero.cc` (the AI Coach UI)

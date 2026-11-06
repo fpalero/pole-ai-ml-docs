@@ -13,4 +13,4 @@ progress streams live.
 
 ## Proof
 - **Code:** [app/pole_fe](https://github.com/fpalero/pole-ai-ml/tree/develop/app/pole_fe)
-- **Live in the pole app:** `pole-ml.duckdns.org` (training studio)
+- **Live in the pole app:** `ai.fpalero.cc` (training studio)

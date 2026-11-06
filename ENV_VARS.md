@@ -1,8 +1,9 @@
 # Environment Variables Reference
 
-> **Environment mapping (2026-09-10 — no prod exists):** live staging/pre-prod
-> = namespace `pole-ai` on DuckDNS (`pole-coach.duckdns.org`,
-> `pole-ml.duckdns.org`, `pole-keycloack.duckdns.org`, working DBs `pole_api` /
+> **Environment mapping (2026-11-06 — no prod exists):** live staging/pre-prod
+> = namespace `pole-ai` on the real `fpalero.cc` domain (Keycloak
+> `https://kc.fpalero.cc`, pole-analyst `https://agent.fpalero.cc`,
+> pole-fe `https://ai.fpalero.cc`; working DBs `pole_api` /
 > `skeleton_data` / `analysis_db`); `pole-ai-staging` + `*.pole.local` (e.g.
 > `keycloak.pole.local` examples below) = local/legacy overlay;
 > `values-prod.yaml` naming is historical, NOT production traffic.
@@ -129,8 +130,8 @@ the k3s Helm configmaps (`infrastracture/helm/pole-ai/charts/*/templates/configm
 |---|---|---|---|
 | `BREVO_API_KEY` | Brevo API key for the transactional-email API (`POST /v3/smtp/email`). **Required** for temp access: when unset the endpoint answers `503` rather than promising an email it cannot send. | `xkeysib-***` | secret string / unset |
 | `DEFAULT_EMAIL_LOCALE` | Fallback template locale when the request carries none. | `en` | `en` \| `es` |
-| `FE_BASE_URL` | Public origin of the `pole-fe` app — the link target for a `pole-fe` temp token. **Required per environment**; the code default is the local sandbox host so an unset environment fails closed. | `https://demo-ml-agent.duckdns.org` | URL |
-| `ANALYST_BASE_URL` | Public origin of the `pole-analyst` app — the link target for a `pole-analyst` temp token. **Required per environment** (same rationale). | `https://demo-ai-agent.duckdns.org` | URL |
+| `FE_BASE_URL` | Public origin of the `pole-fe` app — the link target for a `pole-fe` temp token. **Required per environment**; the code default is the local sandbox host so an unset environment fails closed. | `https://ai.fpalero.cc` | URL |
+| `ANALYST_BASE_URL` | Public origin of the `pole-analyst` app — the link target for a `pole-analyst` temp token. **Required per environment** (same rationale). | `https://agent.fpalero.cc` | URL |
 
 Because these are the temp-token **app binding**, an environment that forgets
 them must fail closed rather than mint links to a public host — so the code
@@ -139,7 +140,7 @@ both explicitly:
 
 | Environment | `FE_BASE_URL` | `ANALYST_BASE_URL` |
 |---|---|---|
-| demo / staging | `https://demo-ml-agent.duckdns.org` | `https://demo-ai-agent.duckdns.org` |
+| demo / staging | `https://ai.fpalero.cc` | `https://agent.fpalero.cc` |
 | local sandbox | `http://localhost:4200` | `http://localhost:4300` |
 
 > **Not yet wired in the `pole-api` helm ConfigMap** (it sets `TEMP_ACCESS_*`

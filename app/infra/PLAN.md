@@ -21,7 +21,7 @@
 | :--- | :--- | :--- | :--- |
 | 1 | `phase-1-ghcr-build-push` | 001–003 | ✅ DONE |
 | 2 | `phase-2-dev-auto-deploy` | 004–006, 025–029 | ✅ DONE |
-| 3 | `phase-3-staging-prod-pipeline` | 007–010, 030–037 | ✅ DONE |
+| 3 | `phase-3-staging-prod-pipeline` | 007–010, 030–037, 040–041 | ✅ DONE |
 | 4 | `phase-4-security-notifications` | 011–012 | 📋 PLANNED |
 | 5 | `phase-5-docs-verification` | 013–015 | 📋 PLANNED |
 | 6 | `phase-6-elastic-stack` | 016–018 | 📋 PLANNED |
